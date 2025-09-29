@@ -145,9 +145,6 @@ BSpec-Foundations/
 │   ├── machine-readability/     # AI integration schemas
 │   ├── templates/               # Document templates
 │   └── validation/              # Validation rules
-├── examples/                    # Reference Implementations
-│   ├── a3t/                     # "Stratus AI Cloud" - Complete AI business example
-│   └── source/                  # Additional example domains
 ├── apps/                        # BSpec Ecosystem Applications
 │   └── web/                     # bspec.dev website (SvelteKit, Apple/Liquid Glass design)
 ├── sdk/                         # Software Development Kits
