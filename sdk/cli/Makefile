@@ -2,15 +2,18 @@
 
 # Build variables
 BINARY_NAME=bspec
-BINARY_UNIX=$(BINARY_NAME)_unix
-BINARY_WINDOWS=$(BINARY_NAME)_windows
 VERSION?=1.0.0
 BUILD_DATE=$(shell date -u +'%Y-%m-%dT%H:%M:%SZ')
 GIT_COMMIT=$(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 
+# Detect current OS and architecture
+GOOS=$(shell go env GOOS)
+GOARCH=$(shell go env GOARCH)
+CURRENT_BINARY=bin/$(BINARY_NAME)-$(GOOS)-$(GOARCH)
+
 # Go variables
-GOBASE=$(shell pwd)
-GOPATH=$(GOBASE)/vendor
+GOBASE=$(shell go env GOPATH)
+GOPATH=$(shell go env GOPATH)
 GOBIN=$(GOBASE)/bin
 GOBUILD=go build
 GOCLEAN=go clean
@@ -28,25 +31,39 @@ BUILDFLAGS=-mod=readonly
 # Default target
 all: clean deps test build
 
-# Build the binary
+# Build the binary for current platform
 build:
-	@echo "Building $(BINARY_NAME) $(VERSION)..."
-	$(GOBUILD) $(BUILDFLAGS) $(LDFLAGS) -o $(BINARY_NAME) ./cmd/bspec
+	@echo "Building $(BINARY_NAME) $(VERSION) for $(GOOS)/$(GOARCH)..."
+	@mkdir -p bin
+	$(GOBUILD) $(BUILDFLAGS) $(LDFLAGS) -o $(CURRENT_BINARY) ./cmd/bspec
 
 # Build for multiple platforms
-build-all: build-linux build-windows build-darwin
+build-all: build-linux build-windows build-darwin build-linux-arm64 build-darwin-arm64
 
 build-linux:
-	@echo "Building for Linux..."
+	@echo "Building for Linux amd64..."
+	@mkdir -p bin
 	CGO_ENABLED=0 GOOS=linux GOARCH=amd64 $(GOBUILD) $(BUILDFLAGS) $(LDFLAGS) -o bin/$(BINARY_NAME)-linux-amd64 ./cmd/bspec
 
+build-linux-arm64:
+	@echo "Building for Linux arm64..."
+	@mkdir -p bin
+	CGO_ENABLED=0 GOOS=linux GOARCH=arm64 $(GOBUILD) $(BUILDFLAGS) $(LDFLAGS) -o bin/$(BINARY_NAME)-linux-arm64 ./cmd/bspec
+
 build-windows:
-	@echo "Building for Windows..."
+	@echo "Building for Windows amd64..."
+	@mkdir -p bin
 	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 $(GOBUILD) $(BUILDFLAGS) $(LDFLAGS) -o bin/$(BINARY_NAME)-windows-amd64.exe ./cmd/bspec
 
 build-darwin:
-	@echo "Building for macOS..."
+	@echo "Building for macOS amd64..."
+	@mkdir -p bin
 	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 $(GOBUILD) $(BUILDFLAGS) $(LDFLAGS) -o bin/$(BINARY_NAME)-darwin-amd64 ./cmd/bspec
+
+build-darwin-arm64:
+	@echo "Building for macOS arm64 (Apple Silicon)..."
+	@mkdir -p bin
+	CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 $(GOBUILD) $(BUILDFLAGS) $(LDFLAGS) -o bin/$(BINARY_NAME)-darwin-arm64 ./cmd/bspec
 
 # Install dependencies
 deps:
@@ -57,12 +74,12 @@ deps:
 # Run tests
 test:
 	@echo "Running tests..."
-	$(GOTEST) -v ./...
+	$(GOTEST) $(BUILDFLAGS) -v ./...
 
 # Run tests with coverage
 test-coverage:
 	@echo "Running tests with coverage..."
-	$(GOTEST) -v -coverprofile=coverage.out ./...
+	$(GOTEST) $(BUILDFLAGS) -v -coverprofile=coverage.out ./...
 	go tool cover -html=coverage.out -o coverage.html
 
 # Format code
@@ -75,23 +92,32 @@ lint:
 	@echo "Linting code..."
 	golangci-lint run
 
-# Install the binary
+# Install the binary to GOPATH
 install: build
-	@echo "Installing $(BINARY_NAME)..."
-	cp $(BINARY_NAME) $(GOPATH)/bin/$(BINARY_NAME)
+	@echo "Installing $(BINARY_NAME) for $(GOOS)/$(GOARCH)..."
+	@if [ ! -f "$(CURRENT_BINARY)" ]; then \
+		echo "Binary $(CURRENT_BINARY) not found. Run 'make build' first."; \
+		exit 1; \
+	fi
+	@mkdir -p $(GOPATH)/bin
+	cp $(CURRENT_BINARY) $(GOPATH)/bin/$(BINARY_NAME)
+	@echo "Installed $(BINARY_NAME) to $(GOPATH)/bin/"
+	@echo "Make sure $(GOPATH)/bin is in your PATH"
 
 # Install to system
 install-system: build
 	@echo "Installing $(BINARY_NAME) to /usr/local/bin..."
-	sudo cp $(BINARY_NAME) /usr/local/bin/$(BINARY_NAME)
+	@if [ ! -f "$(CURRENT_BINARY)" ]; then \
+		echo "Binary $(CURRENT_BINARY) not found. Run 'make build' first."; \
+		exit 1; \
+	fi
+	sudo cp $(CURRENT_BINARY) /usr/local/bin/$(BINARY_NAME)
+	@echo "Installed $(BINARY_NAME) to /usr/local/bin/"
 
 # Clean build artifacts
 clean:
 	@echo "Cleaning..."
 	$(GOCLEAN)
-	rm -f $(BINARY_NAME)
-	rm -f $(BINARY_UNIX)
-	rm -f $(BINARY_WINDOWS)
 	rm -rf bin/
 	rm -f coverage.out coverage.html
 

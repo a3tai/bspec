@@ -15,7 +15,14 @@
     "type-check": "tsc --noEmit",
     "validate": "npm run type-check",
     "clean": "rm -rf dist",
-    "test": "echo \"BSpec MCP Server - Tests not implemented yet\" && exit 0"
+    "test": "echo \"BSpec MCP Server - Tests not implemented yet\" && exit 0",
+    "docs:build": "npm run build && node dist/docs/build.js --verbose",
+    "docs:deploy": "node dist/docs/deploy.js --verbose",
+    "docs:build-deploy": "npm run docs:build && npm run docs:deploy",
+    "docs:dev": "npm run docs:build --output ./dev-docs && npx serve ./dev-docs",
+    "docs:clean": "rm -rf dist/docs dev-docs",
+    "docs:cli": "node dist/docs/cli.js",
+    "docs:test": "npm run build && node dist/docs/test.js"
   },
   "keywords": [
     "bspec",

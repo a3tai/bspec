@@ -7,7 +7,7 @@
 // Use Cloudflare Workers built-in compression APIs
 
 // BSpec specification index with intelligence
-interface BSpecIndex {
+export interface BSpecIndex {
   version: string;
   files: Map<string, string>; // filename -> content
   documentTypes: Map<string, DocumentTypeSpec>; // type code -> spec
@@ -16,7 +16,7 @@ interface BSpecIndex {
   spec: string; // main specification content
 }
 
-interface DocumentTypeSpec {
+export interface DocumentTypeSpec {
   code: string; // 3-letter code (MSN, VSN, etc.)
   name: string;
   domain: string;
@@ -25,7 +25,7 @@ interface DocumentTypeSpec {
   content: string; // full specification content
 }
 
-interface DomainInfo {
+export interface DomainInfo {
   name: string;
   description: string;
   documentTypes: string[]; // array of type codes

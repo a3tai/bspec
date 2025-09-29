@@ -72,10 +72,7 @@ wrangler secret put RATE_LIMIT_RPM
 
 ### Available Resources
 
-1. **bspec://specification** - Complete BSpec 1.0 specification
-2. **bspec://document-types/{type}** - Individual document type definitions
-3. **bspec://domain/{domain}** - Domain-specific document collections
-4. **bspec://examples/{type}** - Example documents by type
+1. 
 
 ## Usage with AI Agents
 

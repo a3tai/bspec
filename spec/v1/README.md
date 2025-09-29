@@ -2,7 +2,7 @@
 
 ## Overview
 
-BSpec v1.0 is a comprehensive framework for documenting enterprise software architecture and business requirements through standardized document types. This directory contains **82 individual document type specifications** organized across **11 business domains**, each providing structured templates and metadata schemas for machine-readable business documentation.
+BSpec v1.0 is a comprehensive framework for documenting enterprise software architecture and business requirements through standardized document types. This directory contains document type specifications organized across business domains, each providing structured templates and metadata schemas for machine-readable business documentation.
 
 ## Quick Navigation
 
@@ -10,7 +10,7 @@ BSpec v1.0 is a comprehensive framework for documenting enterprise software arch
 - [**spec.md**](./spec.md) - Main BSpec v1.0 specification
 - [**format.md**](./format.md) - Document formatting standards
 
-### Domain Specifications (82 Document Types)
+### Domain Specifications
 
 #### 1. Strategic Foundation (8 types)
 Strategic direction and organizational purpose

@@ -385,8 +385,55 @@ export default {
         });
       }
 
+      // Serve documentation from R2 under /docs path
+      if (request.method === 'GET' && url.pathname.startsWith('/docs')) {
+        try {
+          // Handle docs routing
+          let docPath = url.pathname;
+
+          // Default to index.html for directory paths
+          if (docPath === '/docs' || docPath === '/docs/') {
+            docPath = '/docs/index.html';
+          } else if (docPath.endsWith('/')) {
+            docPath = `${docPath}index.html`;
+          } else if (!docPath.includes('.')) {
+            // Add .html extension if no extension provided
+            docPath = `${docPath}.html`;
+          }
+
+          // Try to get documentation file from R2
+          const docsObject = await env.ASSETS.get(`docs${docPath.replace('/docs', '')}`);
+          if (docsObject) {
+            // Determine content type
+            const ext = docPath.split('.').pop()?.toLowerCase();
+            const contentType = ext === 'html' ? 'text/html' :
+                              ext === 'css' ? 'text/css' :
+                              ext === 'js' ? 'application/javascript' :
+                              ext === 'png' ? 'image/png' :
+                              ext === 'jpg' || ext === 'jpeg' ? 'image/jpeg' :
+                              ext === 'svg' ? 'image/svg+xml' :
+                              ext === 'ico' ? 'image/x-icon' :
+                              ext === 'xml' ? 'application/xml' :
+                              ext === 'txt' ? 'text/plain' :
+                              ext === 'json' ? 'application/json' :
+                              'application/octet-stream';
+
+            return new Response(docsObject.body, {
+              headers: {
+                'Content-Type': contentType,
+                'Cache-Control': ext === 'html' ? 'no-cache, must-revalidate' : 'public, max-age=86400',
+                'Access-Control-Allow-Origin': '*',
+                'X-Docs-Version': server.version
+              }
+            });
+          }
+        } catch (error) {
+          console.error('Error serving documentation:', error);
+        }
+      }
+
       // Serve web files from R2 - try to serve any file that exists in web folder
-      if (request.method === 'GET' && url.pathname !== '/mcp') {
+      if (request.method === 'GET' && url.pathname !== '/mcp' && !url.pathname.startsWith('/docs')) {
         try {
           // Default to index.html for root path
           const filePath = url.pathname === '/' ? '/index.html' : url.pathname;
