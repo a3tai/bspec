@@ -71,7 +71,7 @@ success_criteria:
 
 ### The Complete Business Vocabulary
 
-BSpec defines **82 document types** across **11 domains**:
+BSpec defines document types across comprehensive business domains:
 
 #### 🎯 Strategic Foundation (8 types)
 **MSN** Mission • **VSN** Vision • **VAL** Values • **STR** Strategy • **OBJ** Objectives • **MOT** Moats • **PUR** Purpose • **THY** Theory of Change
@@ -137,23 +137,37 @@ Specialized requirements for different business types:
 
 ```
 BSpec-Foundations/
-├── spec/v1/                     # BSpec 1.0 Specification
-│   ├── spec.md                  # Complete specification (12,000 words)
-│   ├── core/                    # Core schema and philosophy
-│   ├── specifications/          # Document type definitions
-│   ├── taxonomy/                # Domain taxonomies
-│   ├── machine-readability/     # AI integration schemas
-│   ├── templates/               # Document templates
-│   └── validation/              # Validation rules
+├── spec/v1/                     # BSpec 1.0 Specification (COMPLETE)
+│   ├── spec.md                  # Complete specification document
+│   ├── strategic-foundation/    # Strategic document types (MSN, VSN, VAL, etc.)
+│   ├── market-environment/      # Market analysis document types
+│   ├── customer-value/          # Customer-focused document types
+│   ├── product-service/         # Product and service document types
+│   ├── business-model/          # Business model document types
+│   ├── operations-execution/    # Operations document types
+│   ├── technology-data/         # Technology document types
+│   ├── financial-investment/    # Financial document types
+│   ├── risk-governance/         # Risk and governance document types
+│   ├── growth-innovation/       # Growth document types
+│   ├── learning-decisions/      # Learning document types
+│   └── brand-marketing/         # Brand and marketing document types
 ├── apps/                        # BSpec Ecosystem Applications
-│   └── web/                     # bspec.dev website (SvelteKit, Apple/Liquid Glass design)
+│   ├── web/                     # bspec.dev website (SvelteKit, Apple/Liquid Glass design)
+│   └── mcp/                     # Model Context Provider server (Cloudflare Workers)
 ├── sdk/                         # Software Development Kits
 │   ├── v1/
-│   │   ├── typescript/          # TypeScript SDK for BSpec parsing & JSON conversion
-│   │   ├── python/              # Python SDK for BSpec operations
-│   │   └── go/                  # Go SDK for BSpec operations
-│   ├── cli/                     # Command-line interface for BSpec operations
-│   └── mcp/                     # Model Context Provider server (mcp.bspec.dev/mcp)
+│   │   ├── typescript/          # TypeScript SDK with complete type definitions
+│   │   ├── python/              # Python SDK with Pydantic models
+│   │   ├── go/                  # Go SDK with struct definitions
+│   │   ├── rust/                # Rust SDK with type definitions
+│   │   ├── json/                # JSON schemas for all document types
+│   │   └── format/              # Format specifications and validation
+│   └── cli/                     # Command-line interface (Go binary)
+├── scripts/                     # Code generation and utilities
+│   ├── generators/              # SDK generators for all languages
+│   ├── parsers/                 # Specification parsers
+│   └── templates/               # Code generation templates
+├── examples/                    # Reference implementations
 └── README.md                    # This file
 ```
 
@@ -228,23 +242,80 @@ interface BSpecAPI {
 
 | Component | Status | Description |
 |-----------|--------|-------------|
-| **BSpec 1.0 Spec** | ✅ Complete | 82 document types, relationship model, conformance levels |
-| **Example Implementation** | ✅ Complete | Stratus AI Cloud reference business |
-| **TypeScript SDK** | 🚧 Planned | Parse, validate, convert BSpec ↔ JSON |
-| **Python SDK** | 🚧 Planned | Full BSpec operations and analysis |
-| **Go SDK** | 🚧 Planned | High-performance BSpec processing |
-| **CLI Tool** | 🚧 Planned | Command-line BSpec operations |
-| **MCP Server** | 🚧 Planned | AI agent integration endpoint |
-| **bspec.dev Website** | 🚧 Planned | Modern SaaS marketing and docs site |
-| **.bspec Format** | 🚧 Planned | Package format with assets |
+| **BSpec 1.0 Spec** | ✅ Complete | All document types across many domains, relationship model, conformance levels |
+| **TypeScript SDK** | ✅ Complete | Full TypeScript definitions, JSON schemas, validation |
+| **Python SDK** | ✅ Complete | Pydantic models, complete type definitions |
+| **Go SDK** | ✅ Complete | Go structs, comprehensive type system |
+| **Rust SDK** | ✅ Complete | Rust types with serde support |
+| **JSON Schemas** | ✅ Complete | Complete JSON schema definitions for all 82 document types |
+| **CLI Tool** | ✅ Complete | Go binary with init, query, pack, extract, chat commands |
+| **MCP Server** | ✅ Complete | Cloudflare Workers-based MCP server for AI agents |
+| **Web Application** | ✅ Complete | SvelteKit website with Apple/Liquid Glass design |
+| **Code Generation** | ✅ Complete | Automated SDK generation from specification |
+| **.bspec Format** | ✅ Complete | Packaged archive format with validation |
 
 ## Getting Started
 
+### Option 1: Use the CLI Tool
+
+1. **Install the CLI**:
+   ```bash
+   # From the repository
+   cd sdk/cli
+   make install
+
+   # Verify installation
+   bspec --help
+   ```
+
+2. **Initialize a new BSpec project**:
+   ```bash
+   bspec init my-business-spec
+   cd my-business-spec
+   ```
+
+3. **Start with strategic documents**:
+   ```bash
+   # Interactive AI-assisted document creation
+   bspec chat
+   ```
+
+### Option 2: Use the SDKs
+
+**TypeScript/JavaScript**:
+```typescript
+import { BSpecDocument, validateDocument } from '@bspec/typescript-sdk';
+
+// Load and validate a BSpec document
+const doc: BSpecDocument = loadFromMarkdown(content);
+const validation = validateDocument(doc);
+```
+
+**Python**:
+```python
+from bspec_sdk import BSpecDocument, DocumentValidator
+
+# Create and validate documents
+doc = BSpecDocument.from_markdown(content)
+validator = DocumentValidator()
+result = validator.validate(doc)
+```
+
+**Go**:
+```go
+import "github.com/a3tai/bspec/sdk/v1/go"
+
+// Parse and validate BSpec documents
+doc, err := bspec.ParseDocument(content)
+validation := bspec.ValidateDocument(doc)
+```
+
+### Option 3: Manual Approach
+
 1. **Read the Specification**: Start with `spec/v1/spec.md` for the complete framework
-2. **Explore the Example**: Review `examples/a3t/` for a complete AI business implementation
-3. **Choose Your Conformance Target**: Bronze (12 docs), Silver (25 docs), or Gold (45 docs)
-4. **Pick Your Industry Profile**: Software/SaaS, Physical Product, Service Business, or Nonprofit
-5. **Start with Strategic Foundation**: Create MSN, VSN, and VAL documents first
+2. **Choose Your Conformance Target**: Bronze (12 docs), Silver (25 docs), or Gold (45 docs)
+3. **Pick Your Industry Profile**: Software/SaaS, Physical Product, Service Business, or Nonprofit
+4. **Start with Strategic Foundation**: Create MSN, VSN, and VAL documents first
 
 ## Contributing
 

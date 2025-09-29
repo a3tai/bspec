@@ -11,98 +11,7 @@ BSpec-Foundations is the home of the Business Specification Standard (BSpec) v1.
 ```
 BSpec-Foundations/
 ├── spec/v1/                     # BSpec 1.0 Specification (COMPLETE)
-│   ├── spec.md                  # Complete 12,000-word specification
-│   ├── core/                    # Core schema and philosophy
-│   │   ├── schema.md            # Document structure and validation
-│   │   ├── relationships.md     # Knowledge graph relationships
-│   │   └── philosophy.md        # Design principles and approach
-│   ├── specifications/          # 82 document type definitions
-│   │   ├── document-types-strategic.md
-│   │   ├── document-types-market.md
-│   │   ├── document-types-customer.md
-│   │   ├── document-types-product.md
-│   │   ├── document-types-business-model.md
-│   │   └── document-types-operations.md
-│   ├── taxonomy/                # 11 domain taxonomies
-│   ├── machine-readability/     # AI integration patterns
-│   ├── templates/               # Document templates
-│   ├── profiles/                # Industry conformance profiles
-│   └── validation/              # Validation rules and schemas
-├── examples/                    # Reference Implementations (COMPLETE)
-│   ├── a3t/                     # "Stratus AI Cloud" - Complete AI business spec
-│   │   ├── contexts/            # Bounded contexts with integration contracts
-│   │   ├── capabilities/        # Business capabilities (units of value)
-│   │   ├── processes/           # Repeatable business processes
-│   │   ├── personas/            # User archetypes with JTBD
-│   │   ├── offerings/           # Value propositions and packaging
-│   │   ├── architecture/        # Technical architecture views
-│   │   ├── compliance/          # Regulatory and policy requirements
-│   │   ├── metrics/             # KPIs and SLAs
-│   │   ├── risks/              # Risk assessments and mitigations
-│   │   ├── decisions/          # Architecture Decision Records (ADRs)
-│   │   ├── experiments/        # Validation experiments
-│   │   ├── diagrams/           # SVG diagrams referenced by artifacts
-│   │   ├── profiles/           # Quality and conformance profiles
-│   │   ├── GLOSSARY.md         # Domain vocabulary
-│   │   └── README.md           # Implementation guide
-│   └── source/                  # Additional domain examples
-├── apps/                        # BSpec Ecosystem Applications (PLANNED)
-│   └── web/                     # bspec.dev website
-│       ├── src/                 # SvelteKit application
-│       │   ├── routes/          # Page routes and API endpoints
-│       │   ├── lib/             # Shared components and utilities
-│       │   ├── styles/          # Apple/Liquid Glass design system
-│       │   └── app.html         # HTML template
-│       ├── static/              # Static assets
-│       ├── package.json         # Dependencies and scripts
-│       └── svelte.config.js     # SvelteKit configuration
-├── sdk/                         # Software Development Kits (PLANNED)
-│   ├── v1/
-│   │   ├── typescript/          # TypeScript SDK
-│   │   │   ├── src/
-│   │   │   │   ├── parser/      # BSpec document parsing
-│   │   │   │   ├── validator/   # Schema validation
-│   │   │   │   ├── converter/   # Markdown ↔ JSON conversion
-│   │   │   │   ├── analyzer/    # Business analysis and queries
-│   │   │   │   └── generator/   # Document and artifact generation
-│   │   │   ├── types/           # TypeScript type definitions
-│   │   │   ├── schemas/         # JSON schemas for all 82 document types
-│   │   │   └── package.json     # NPM package configuration
-│   │   ├── python/              # Python SDK
-│   │   │   ├── bspec/
-│   │   │   │   ├── parser/      # Document parsing and validation
-│   │   │   │   ├── analyzer/    # Business intelligence and queries
-│   │   │   │   ├── converter/   # Format conversion utilities
-│   │   │   │   └── generator/   # AI-powered generation
-│   │   │   ├── schemas/         # Pydantic models for all document types
-│   │   │   └── pyproject.toml   # Python package configuration
-│   │   └── go/                  # Go SDK
-│   │       ├── pkg/
-│   │       │   ├── parser/      # High-performance parsing
-│   │       │   ├── validator/   # Schema validation
-│   │       │   ├── analyzer/    # Graph analysis and queries
-│   │       │   └── converter/   # Format conversion
-│   │       ├── schemas/         # Go struct definitions
-│   │       └── go.mod           # Go module configuration
-│   ├── cli/                     # Command-Line Interface
-│   │   ├── cmd/
-│   │   │   ├── validate/        # Document validation commands
-│   │   │   ├── analyze/         # Business analysis commands
-│   │   │   ├── convert/         # Format conversion commands
-│   │   │   ├── generate/        # Document generation commands
-│   │   │   └── package/         # .bspec packaging commands
-│   │   ├── internal/            # CLI implementation
-│   │   └── README.md            # CLI documentation
-│   └── mcp/                     # Model Context Provider Server
-│       ├── cmd/
-│       │   └── server/          # MCP server implementation
-│       ├── handlers/            # MCP request handlers
-│       │   ├── parser.go        # Document parsing handlers
-│       │   ├── analyzer.go      # Business analysis handlers
-│       │   ├── converter.go     # Format conversion handlers
-│       │   └── generator.go     # AI generation handlers
-│       ├── schemas/             # MCP schema definitions
-│       └── Dockerfile           # Container for mcp.bspec.dev/mcp
+│   └── spec.md                  # Complete 
 └── README.md                    # Project overview and getting started
 ```
 
@@ -363,16 +272,15 @@ business-spec.bspec (compressed archive like .tgz)
 ## Development Workflow
 
 ### For BSpec Specification Work
-1. **Read Full Spec**: Start with `spec/v1/spec.md` (12,000 words)
-2. **Understand Examples**: Review `examples/a3t/` implementation
-3. **Follow Document Structure**: Use exact YAML frontmatter format
-4. **Maintain Relationships**: Ensure `depends_on`, `enables`, `conflicts_with` are accurate
-5. **Validate Conformance**: Check against Bronze/Silver/Gold requirements
+1. **Read Full Spec**: Start with `spec/v1/spec.md`
+2. **Follow Document Structure**: Use exact YAML frontmatter format
+3. **Maintain Relationships**: Ensure `depends_on`, `enables`, `conflicts_with` are accurate
+4. **Validate Conformance**: Check against Bronze/Silver/Gold requirements
 
 ### For SDK Development
 1. **Follow Language Conventions**: Each SDK should feel idiomatic to its language
 2. **Implement Core Features**: Parser, Validator, Converter, Analyzer, Generator
-3. **Include Full Schema Support**: All 82 document types with validation
+3. **Include Full Schema Support**: All document types with validation
 4. **Enable AI Integration**: JSON conversion and MCP compatibility
 5. **Provide Rich APIs**: Easy-to-use interfaces for common operations
 
@@ -486,3 +394,4 @@ const recommendations = await mcp.call('generate_recommendations', {
 - **Validate all BSpec documents** against schemas before committing
 - **Test SDK functionality** thoroughly before releasing
 - **Keep ecosystem coherent** - all tools should work together seamlessly
+- We use bun for node things in this repo.

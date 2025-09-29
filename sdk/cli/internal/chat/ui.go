@@ -108,7 +108,7 @@ func (ui *UI) ShowDebug(message string) {
 
 // ShowUserMessage displays a user message
 func (ui *UI) ShowUserMessage(message string) {
-	fmt.Print(clime.BlueColor.Sprint("You: ") + message + "\n")
+	fmt.Print(clime.BlueColor.Sprint("\nYou: ") + message + "\n")
 }
 
 // ShowAssistantPrefix shows the assistant prefix before streaming (deprecated - kept for compatibility)
@@ -376,7 +376,7 @@ func (ui *UI) HandleModelsCommand() (bool, error) {
 
 	fmt.Print(clime.Warning.Sprint("=== End Models ===\n"))
 	fmt.Printf(clime.Info.Sprint("\nTo use a specific model, set BSPEC_MODEL environment variable.\n"))
-	fmt.Printf(clime.Info.Sprint("Current model: %s\n"), ui.client.config.Model)
+	fmt.Printf(clime.Info.Sprintf("Current model: %s\n", ui.client.config.Model))
 
 	return true, nil
 }

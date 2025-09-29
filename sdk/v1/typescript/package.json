@@ -39,7 +39,7 @@
     "@types/node": "^20.0.0"
   },
   "generated": {
-    "at": "2025-09-28T21:08:19.116146",
+    "at": "2025-09-29T01:32:41.054555",
     "from": "BSpec v1.0.0",
     "generator": "typescript-generator-v1.0.0"
   }

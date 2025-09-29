@@ -1,0 +1,164 @@
+@import './lib/fonts.css';
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Base Typography */
+html {
+  font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Ensure headers use Leksa Sans */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Leksa Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Prose customizations for Orange/Zinc theme */
+.prose {
+  --tw-prose-body: rgb(63 63 70);
+  --tw-prose-headings: rgb(24 24 27);
+  --tw-prose-lead: rgb(82 82 91);
+  --tw-prose-links: rgb(234 88 12);
+  --tw-prose-bold: rgb(24 24 27);
+  --tw-prose-counters: rgb(113 113 122);
+  --tw-prose-bullets: rgb(212 212 216);
+  --tw-prose-hr: rgb(228 228 231);
+  --tw-prose-quotes: rgb(24 24 27);
+  --tw-prose-quote-borders: rgb(228 228 231);
+  --tw-prose-captions: rgb(113 113 122);
+  --tw-prose-code: rgb(24 24 27);
+  --tw-prose-pre-code: rgb(228 228 231);
+  --tw-prose-pre-bg: rgb(39 39 42);
+  --tw-prose-th-borders: rgb(212 212 216);
+  --tw-prose-td-borders: rgb(228 228 231);
+}
+
+.dark .prose {
+  --tw-prose-body: rgb(212 212 216);
+  --tw-prose-headings: rgb(244 244 245);
+  --tw-prose-lead: rgb(161 161 170);
+  --tw-prose-links: rgb(251 146 60);
+  --tw-prose-bold: rgb(244 244 245);
+  --tw-prose-counters: rgb(161 161 170);
+  --tw-prose-bullets: rgb(82 82 91);
+  --tw-prose-hr: rgb(63 63 70);
+  --tw-prose-quotes: rgb(244 244 245);
+  --tw-prose-quote-borders: rgb(63 63 70);
+  --tw-prose-captions: rgb(161 161 170);
+  --tw-prose-code: rgb(244 244 245);
+  --tw-prose-pre-code: rgb(228 228 231);
+  --tw-prose-pre-bg: rgb(39 39 42);
+  --tw-prose-th-borders: rgb(82 82 91);
+  --tw-prose-td-borders: rgb(63 63 70);
+}
+
+/* Make prose headings use header fonts */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-family: 'Leksa Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* Code blocks with better styling */
+.prose pre {
+  background-color: rgb(24 24 27);
+}
+
+.dark .prose pre {
+  background-color: rgb(39 39 42);
+}
+
+.prose code {
+  color: rgb(234 88 12);
+  font-family: 'Roboto Mono', 'SF Mono', Monaco, 'Cascadia Code', Consolas, 'Courier New', monospace;
+}
+
+.dark .prose code {
+  color: rgb(251 146 60);
+}
+
+.prose code::before,
+.prose code::after {
+  content: '';
+}
+
+/* Links with orange theme */
+.prose a {
+  color: rgb(234 88 12);
+}
+
+.prose a:hover {
+  color: rgb(194 65 12);
+}
+
+.dark .prose a {
+  color: rgb(251 146 60);
+}
+
+.dark .prose a:hover {
+  color: rgb(254 215 170);
+}
+
+/* Blockquotes */
+.prose blockquote {
+  border-left-color: rgb(234 88 12);
+}
+
+.dark .prose blockquote {
+  border-left-color: rgb(251 146 60);
+}
+
+/* Lists */
+.prose ul > li::marker {
+  color: rgb(234 88 12);
+}
+
+.dark .prose ul > li::marker {
+  color: rgb(251 146 60);
+}
+
+.prose ol > li::marker {
+  color: rgb(234 88 12);
+}
+
+.dark .prose ol > li::marker {
+  color: rgb(251 146 60);
+}
+
+/* Tables */
+.prose table {
+  border-color: rgb(228 228 231);
+}
+
+.dark .prose table {
+  border-color: rgb(63 63 70);
+}
+
+.prose thead {
+  border-bottom-color: rgb(228 228 231);
+}
+
+.dark .prose thead {
+  border-bottom-color: rgb(63 63 70);
+}
+
+.prose thead th {
+  color: rgb(24 24 27);
+}
+
+.dark .prose thead th {
+  color: rgb(244 244 245);
+}
+
+.prose tbody tr {
+  border-bottom-color: rgb(228 228 231);
+}
+
+.dark .prose tbody tr {
+  border-bottom-color: rgb(63 63 70);
+}

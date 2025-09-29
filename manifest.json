@@ -1,0 +1,17 @@
+{
+  "name": "BSpec v1.0 Specification",
+  "version": "1.0.0",
+  "created": "2024-01-01",
+  "description": "Complete Business Specification Standard v1.0",
+  "contents": {
+    "markdown_files": 117,
+    "json_files": 116,
+    "total_files": 233
+  },
+  "structure": {
+    "markdown/": "Original specification files in Markdown format",
+    "json/": "Structured JSON versions of all specification files",
+    "version.txt": "Version identifier",
+    "manifest.json": "This manifest file"
+  }
+}

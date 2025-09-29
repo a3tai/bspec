@@ -1,14 +1,16 @@
 # BSpec 1.0: Universal Business Specification Standard
 
-**Version:** 1.0.0
-**Status:** Public Draft
-**Last Updated:** 2025-09-28
-**Authors:** BSpec Foundation
-**License:** CC BY 4.0
+|  &nbsp;        | &nbsp;           |
+|---------------|-------------------|
+| **Version**   | 1.0.0             |
+| **Status**    | Public Draft      |
+| **Last Updated** | 2025-09-29     |
+| **Authors**   | BSpec Foundation  |
+| **License**   | CC BY 4.0         |
 
 ## Executive Summary
 
-Business Specification Standard (BSpec) is the universal language for describing any business as a structured, machine-readable knowledge graph. BSpec transforms business documentation from scattered artifacts into **82 standardized document types** organized across **11 business domains**, enabling systematic analysis, automated generation, and intelligent decision-making.
+Business Specification Standard (BSpec) is the universal language for describing any business as a structured, machine-readable knowledge graph. BSpec transforms business documentation from scattered artifacts into **standardized document types** organized across **comprehensive business domains**, enabling systematic analysis, automated generation, and intelligent decision-making.
 
 **Key Innovation**: Every business is a system of atomic, interconnected documents that together form a complete picture of strategy, operations, and execution.
 
@@ -91,9 +93,9 @@ enables: [REV-platform-revenue, CAM-developer-program]
 
 ## Document Type Taxonomy
 
-BSpec defines **82 standardized document types** organized across **11 business domains**:
+BSpec defines **standardized document types** organized across **comprehensive business domains**:
 
-### 1. Strategic Foundation (8 types)
+### Strategic Foundation
 Core organizational purpose and direction
 - **MSN** - Mission Statement: Why the organization exists
 - **VSN** - Vision Statement: Future state aspiration
@@ -104,7 +106,7 @@ Core organizational purpose and direction
 - **PUR** - Purpose Statement: Fundamental reason for existence
 - **THY** - Theory of Business: Core business assumptions
 
-### 2. Market & Environment (10 types)
+### Market & Environment
 External market context and competitive landscape
 - **MKT** - Market Analysis: Market size, dynamics, and trends
 - **SEG** - Market Segmentation: Customer and market segments
@@ -117,7 +119,7 @@ External market context and competitive landscape
 - **REG** - Regulatory Environment: Regulatory landscape and compliance
 - **MAC** - Macro Environment: Broader environmental factors
 
-### 3. Customer & Value (12 types)
+### Customer & Value
 Customer insights and value propositions
 - **PER** - User Personas: Detailed customer archetypes
 - **JTB** - Jobs to be Done: Customer jobs and desired outcomes
@@ -128,11 +130,11 @@ Customer insights and value propositions
 - **GAI** - Gain Scenarios: Customer benefits and value gains
 - **EMP** - Empathy Maps: Deep customer empathy and understanding
 - **FEE** - Feedback Analysis: Customer feedback and insights
-- **INT** - Customer Interviews: Direct customer research findings
+- **CIN** - Customer Interviews: Direct customer research findings
 - **SUR** - Customer Surveys: Quantitative customer research
 - **BEH** - Behavioral Analysis: Customer behavior patterns
 
-### 4. Product & Service (10 types)
+### Product & Service
 Product and service definitions and specifications
 - **PRD** - Product Definition: Core product specifications
 - **SVC** - Service Definition: Service offerings and delivery
@@ -141,11 +143,11 @@ Product and service definitions and specifications
 - **REQ** - Requirements: Functional and non-functional requirements
 - **QUA** - Quality Attributes: Quality standards and criteria
 - **UXD** - User Experience Design: User experience strategy and design
-- **PER** - Performance Specifications: Performance requirements and metrics
+- **PSP** - Performance Specifications: Performance requirements and metrics
 - **INT** - Integration Specifications: System integration requirements
 - **SUP** - Support Model: Customer support strategy and processes
 
-### 5. Business Model (9 types)
+### Business Model
 Revenue generation and value delivery mechanisms
 - **REV** - Revenue Model: How the business generates revenue
 - **PRI** - Pricing Strategy: Pricing approach and structure
@@ -157,7 +159,7 @@ Revenue generation and value delivery mechanisms
 - **VST** - Value Stream: Value creation and delivery processes
 - **CUS** - Customer Segments: Target customer groups
 
-### 6. Operations & Execution (12 types)
+### Operations & Execution
 Operational processes and organizational structure
 - **PRO** - Process Definition: Business process specifications
 - **CAP** - Capability Model: Organizational capabilities and maturity
@@ -172,7 +174,7 @@ Operational processes and organizational structure
 - **VND** - Vendor Management: Third-party relationships and management
 - **FAC** - Facilities Management: Physical and virtual facility requirements
 
-### 7. Technology & Data (8 types)
+### Technology & Data
 Technical architecture and data management
 - **ARC** - Architecture Definition: System and solution architecture
 - **SYS** - System Specifications: Technical system requirements
@@ -183,7 +185,7 @@ Technical architecture and data management
 - **DEV** - Development Processes: Software development lifecycle
 - **ANA** - Analytics Framework: Data analytics and business intelligence
 
-### 8. Financial & Investment (10 types)
+### Financial & Investment
 Financial planning and investment management
 - **FIN** - Financial Model: Financial projections and analysis
 - **BUD** - Budget Planning: Budget allocation and management
@@ -196,7 +198,7 @@ Financial planning and investment management
 - **AUD** - Audit Framework: Financial audit and compliance processes
 - **TAX** - Tax Strategy: Tax planning and optimization approach
 
-### 9. Risk & Governance (8 types)
+### Risk & Governance
 Risk management and governance frameworks
 - **RSK** - Risk Assessment: Risk identification and mitigation
 - **CTL** - Control Framework: Internal controls and governance
@@ -207,33 +209,17 @@ Risk management and governance frameworks
 - **LEG** - Legal Framework: Legal structure and requirements
 - **INS** - Insurance Strategy: Insurance coverage and risk transfer
 
-### 10. Growth & Innovation (8 types)
+### Growth & Innovation
 Innovation strategies and growth initiatives
 - **INN** - Innovation Strategy: Innovation approach and priorities
 - **LEA** - Learning Framework: Organizational learning and development
 - **EXP** - Experimentation: Testing and validation methodology
 - **IGN** - Innovation Governance: Innovation management and oversight
 - **RND** - Research & Development: R&D strategy and processes
-- **KNO** - Knowledge Management: Knowledge capture and sharing
 - **ADT** - Adoption Strategy: Technology and process adoption
 - **FUT** - Future Planning: Long-term planning and scenario analysis
 
-### 11. Brand & Marketing (12 types)
-Brand strategy and marketing execution
-- **BRD** - Brand Strategy: Brand positioning and differentiation
-- **VID** - Visual Identity: Brand visual identity and guidelines
-- **MSG** - Messaging Framework: Brand messaging and communication
-- **TON** - Tone & Voice: Brand personality and communication style
-- **CNT** - Content Strategy: Content marketing strategy and execution
-- **SEO** - SEO Strategy: Search engine optimization approach
-- **POS** - Brand Positioning: Market position and competitive differentiation
-- **CHN** - Marketing Channels: Marketing channel strategy and execution
-- **CAM** - Marketing Campaigns: Campaign planning and execution
-- **SOC** - Social Media Strategy: Social media marketing approach
-- **INF** - Influencer Marketing: Influencer partnership strategy
-- **PRF** - Performance Marketing: Data-driven marketing optimization
-
-### 12. Learning & Decisions (6 types)
+### Learning & Decisions
 Organizational learning and decision frameworks
 - **DEC** - Decision Records: Strategic and operational decision documentation
 - **LRN** - Learning Records: Key insights and knowledge capture
@@ -241,6 +227,21 @@ Organizational learning and decision frameworks
 - **HYP** - Hypothesis Management: Testable assumptions and validation
 - **KNO** - Knowledge Management: Knowledge capture and sharing systems
 - **WIS** - Wisdom Synthesis: Practical wisdom and judgment principles
+
+### Brand & Marketing
+Brand strategy and marketing execution
+- **BRD** - Brand Strategy: Brand positioning and differentiation
+- **VID** - Visual Identity: Brand visual identity and guidelines
+- **MSG** - Messaging Framework: Brand messaging and communication
+- **TON** - Tone & Voice: Brand personality and communication style
+- **CNT** - Content Strategy: Content marketing strategy and execution
+- **SEO** - SEO Strategy: Search engine optimization approach
+- **BPO** - Brand Positioning: Market position and competitive differentiation
+- **MCH** - Marketing Channels: Marketing channel strategy and execution
+- **CAM** - Marketing Campaigns: Campaign planning and execution
+- **SOC** - Social Media Strategy: Social media marketing approach
+- **IFL** - Influencer Marketing: Influencer partnership strategy
+- **PRF** - Performance Marketing: Data-driven marketing optimization
 
 ## Universal Document Schema
 
@@ -458,8 +459,10 @@ Standardized specifications enable:
 
 ## Complete Document Type Reference
 
-For detailed specifications of all 82 document types, see:
-- [README.md](./README.md) - Complete navigation guide with links to all specifications
-- [Domain Directories](.) - Individual document type specifications organized by domain
+For detailed specifications of all document types, see:
+- [index.md](./index.md) - Complete navigation guide with links to all specifications
+- [Domain Directories](./) - Individual document type specifications organized by domain
+
+---
 
 **BSpec v1.0** provides the foundation for systematic business design, AI-powered analysis, and intelligent automation of business operations through standardized, machine-readable business specifications.
