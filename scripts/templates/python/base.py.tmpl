@@ -1,0 +1,272 @@
+"""
+Base BSpec Document Classes
+
+GENERATED CODE - DO NOT EDIT MANUALLY
+Generated from BSpec v{{ bspec_version }} specification
+Generated at: {{ generation_timestamp }}
+Generator: python-generator v1.0.0
+"""
+
+from abc import ABC
+from dataclasses import dataclass, field
+from datetime import date
+from typing import Dict, List, Optional, Union, Literal
+from enum import Enum
+
+
+class DocumentStatus(str, Enum):
+    """Document status enumeration"""
+    DRAFT = "Draft"
+    REVIEW = "Review"
+    ACCEPTED = "Accepted"
+    DEPRECATED = "Deprecated"
+
+
+class ReviewCycle(str, Enum):
+    """Review cycle enumeration"""
+    MONTHLY = "monthly"
+    QUARTERLY = "quarterly"
+    ANNUALLY = "annually"
+
+
+class BusinessDomain(str, Enum):
+    """Business domain enumeration"""
+    {% for domain in domains %}{{ domain.name.upper().replace('-', '_') }} = "{{ domain.name }}"
+    {% endfor %}
+
+
+class OrganizationalScope(str, Enum):
+    """Organizational scope enumeration"""
+    GLOBAL = "global"
+    REGIONAL = "regional"
+    DIVISION = "division"
+    TEAM = "team"
+
+
+class TimeHorizon(str, Enum):
+    """Time horizon enumeration"""
+    IMMEDIATE = "immediate"
+    SHORT = "short"
+    MEDIUM = "medium"
+    LONG = "long"
+
+
+class Priority(str, Enum):
+    """Priority enumeration"""
+    CRITICAL = "critical"
+    HIGH = "high"
+    MEDIUM = "medium"
+    LOW = "low"
+
+
+class Visibility(str, Enum):
+    """Visibility enumeration"""
+    PUBLIC = "public"
+    INTERNAL = "internal"
+    RESTRICTED = "restricted"
+
+
+class ImplementationStatus(str, Enum):
+    """Implementation status enumeration"""
+    NOT_STARTED = "not_started"
+    IN_PROGRESS = "in_progress"
+    COMPLETED = "completed"
+    ON_HOLD = "on_hold"
+
+
+class Classification(str, Enum):
+    """Information classification enumeration"""
+    PUBLIC = "public"
+    INTERNAL = "internal"
+    CONFIDENTIAL = "confidential"
+
+
+class DocumentType(str, Enum):
+    """Document type enumeration"""
+    {% for doc_type in document_types %}{{ doc_type.code }} = "{{ doc_type.code }}"
+    {% endfor %}
+
+
+class ConformanceLevel(str, Enum):
+    """Conformance level enumeration"""
+    {% for level in conformance_levels %}{{ level.name.upper() }} = "{{ level.name }}"
+    {% endfor %}
+
+
+class IndustryProfile(str, Enum):
+    """Industry profile enumeration"""
+    {% for profile in industry_profiles %}{{ profile.name.upper().replace('-', '_') }} = "{{ profile.name }}"
+    {% endfor %}
+
+
+@dataclass
+class ChangelogEntry:
+    """Changelog entry for document version history"""
+    version: str
+    date: str  # YYYY-MM-DD format
+    author: str
+    changes: str
+    breaking_changes: bool = False
+
+
+@dataclass
+class BaseBSpecDocument(ABC):
+    """
+    Base class for all BSpec documents
+    Defines the universal YAML frontmatter schema
+    """
+
+    # === CORE IDENTITY ===
+    id: str
+    title: str
+    type: DocumentType
+    status: DocumentStatus
+    version: str
+
+    # === OWNERSHIP & RESPONSIBILITY ===
+    owner: str
+    stakeholders: Optional[List[str]] = None
+    reviewers: Optional[List[str]] = None
+    contributors: Optional[List[str]] = None
+
+    # === TEMPORAL METADATA ===
+    created: str  # YYYY-MM-DD format
+    updated: str  # YYYY-MM-DD format
+    expires: Optional[str] = None  # YYYY-MM-DD format
+    review_cycle: Optional[ReviewCycle] = None
+
+    # === RELATIONSHIP GRAPH ===
+    parent: Optional[str] = None
+    depends_on: Optional[List[str]] = None
+    enables: Optional[List[str]] = None
+    conflicts_with: Optional[List[str]] = None
+    related: Optional[List[str]] = None
+    supersedes: Optional[str] = None
+
+    # === BUSINESS CONTEXT ===
+    domain: Optional[BusinessDomain] = None
+    scope: Optional[OrganizationalScope] = None
+    horizon: Optional[TimeHorizon] = None
+    priority: Optional[Priority] = None
+    visibility: Optional[Visibility] = None
+
+    # === VALIDATION & MEASUREMENT ===
+    assumptions: Optional[List[str]] = None
+    constraints: Optional[List[str]] = None
+    success_criteria: Optional[List[str]] = None
+    risks: Optional[List[str]] = None
+    metrics: Optional[List[str]] = None
+
+    # === IMPLEMENTATION ===
+    implementation_status: Optional[ImplementationStatus] = None
+    implementation_date: Optional[str] = None  # YYYY-MM-DD format
+    completion_date: Optional[str] = None  # YYYY-MM-DD format
+    resources_required: Optional[List[str]] = None
+
+    # === METADATA & DISCOVERY ===
+    tags: Optional[List[str]] = None
+    industry: Optional[List[str]] = None
+    geography: Optional[List[str]] = None
+    language: Optional[str] = None
+    classification: Optional[Classification] = None
+
+    # === CHANGE TRACKING ===
+    changelog: Optional[List[ChangelogEntry]] = None
+
+    # === DOCUMENT CONTENT ===
+    content: str = ""
+
+    def __post_init__(self):
+        """Post-initialization validation"""
+        # Ensure required list fields are not None
+        if self.stakeholders is None:
+            self.stakeholders = []
+        if self.reviewers is None:
+            self.reviewers = []
+        if self.contributors is None:
+            self.contributors = []
+        if self.depends_on is None:
+            self.depends_on = []
+        if self.enables is None:
+            self.enables = []
+        if self.conflicts_with is None:
+            self.conflicts_with = []
+        if self.related is None:
+            self.related = []
+        if self.assumptions is None:
+            self.assumptions = []
+        if self.constraints is None:
+            self.constraints = []
+        if self.success_criteria is None:
+            self.success_criteria = []
+        if self.risks is None:
+            self.risks = []
+        if self.metrics is None:
+            self.metrics = []
+        if self.resources_required is None:
+            self.resources_required = []
+        if self.tags is None:
+            self.tags = []
+        if self.industry is None:
+            self.industry = []
+        if self.geography is None:
+            self.geography = []
+        if self.changelog is None:
+            self.changelog = []
+
+    def to_dict(self) -> Dict:
+        """Convert to dictionary representation"""
+        result = {}
+        for key, value in self.__dict__.items():
+            if isinstance(value, Enum):
+                result[key] = value.value
+            elif isinstance(value, list) and value and isinstance(value[0], ChangelogEntry):
+                result[key] = [entry.__dict__ for entry in value]
+            else:
+                result[key] = value
+        return result
+
+    def validate(self) -> List[str]:
+        """Validate document and return list of validation errors"""
+        errors = []
+
+        # Required field validation
+        if not self.id:
+            errors.append("id is required")
+        if not self.title:
+            errors.append("title is required")
+        if not self.owner:
+            errors.append("owner is required")
+        if not self.created:
+            errors.append("created date is required")
+        if not self.updated:
+            errors.append("updated date is required")
+
+        # ID format validation
+        if self.id and not self.id.startswith(self.type.value + "-"):
+            errors.append(f"id must start with document type '{self.type.value}-'")
+
+        # Version format validation (semantic versioning)
+        if self.version:
+            parts = self.version.split(".")
+            if len(parts) != 3 or not all(part.isdigit() for part in parts):
+                errors.append("version must follow semantic versioning (e.g., '1.0.0')")
+
+        # Date format validation (basic check)
+        date_fields = ['created', 'updated', 'expires', 'implementation_date', 'completion_date']
+        for field_name in date_fields:
+            field_value = getattr(self, field_name)
+            if field_value:
+                try:
+                    # Basic YYYY-MM-DD format check
+                    parts = field_value.split('-')
+                    if len(parts) != 3 or len(parts[0]) != 4 or len(parts[1]) != 2 or len(parts[2]) != 2:
+                        errors.append(f"{field_name} must be in YYYY-MM-DD format")
+                except:
+                    errors.append(f"{field_name} must be in YYYY-MM-DD format")
+
+        return errors
+
+    def is_valid(self) -> bool:
+        """Check if document is valid"""
+        return len(self.validate()) == 0

@@ -1,0 +1,33 @@
+//! Document type implementations
+//!
+//! This module contains all BSpec document type implementations.
+
+{%- for doc_type in document_types %}
+pub mod {{ doc_type.code.lower() }};
+pub use {{ doc_type.code.lower() }}::{{ doc_type.code | pascal_case }}Document;
+{%- endfor %}
+
+// Re-export all document types
+pub use crate::base::BSpecDocument;
+
+/// Create a document from JSON based on its type
+pub fn from_json(json: &str) -> crate::Result<Box<dyn BSpecDocument>> {
+    let value: serde_json::Value = serde_json::from_str(json)?;
+
+    let doc_type_str = value
+        .get("type")
+        .or_else(|| value.get("document_type"))
+        .and_then(|v| v.as_str())
+        .ok_or_else(|| crate::BSpecError::InvalidArchive("Missing document type".to_string()))?;
+
+    let doc_type: crate::base::DocumentType = doc_type_str.parse()?;
+
+    match doc_type {
+{%- for doc_type in document_types %}
+        crate::base::DocumentType::{{ doc_type.code | pascal_case }} => {
+            let doc: {{ doc_type.code | pascal_case }}Document = serde_json::from_str(json)?;
+            Ok(Box::new(doc))
+        }
+{%- endfor %}
+    }
+}

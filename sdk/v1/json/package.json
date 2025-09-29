@@ -1,0 +1,34 @@
+{
+  "name": "@bspec/json-sdk",
+  "version": "1.0.0",
+  "description": "BSpec JSON SDK - Universal Business Specification Standard",
+  "main": "bspec-complete.json",
+  "files": [
+    "*.json",
+    "version.txt",
+    "README.md"
+  ],
+  "keywords": [
+    "bspec",
+    "business-specification",
+    "json",
+    "schema",
+    "documentation"
+  ],
+  "author": "BSpec Foundation",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a3tai/bspec.git",
+    "directory": "sdk/v1/json"
+  },
+  "bugs": {
+    "url": "https://github.com/a3tai/bspec/issues"
+  },
+  "homepage": "https://bspec.dev",
+  "generated": {
+    "at": "2025-09-28T00:00:00Z",
+    "from": "BSpec v1.0.0",
+    "generator": "json-generator-v1.0.0"
+  }
+}

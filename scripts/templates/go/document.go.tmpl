@@ -1,0 +1,134 @@
+// Package bspec provides {{ document_type.code }} document type
+//
+// GENERATED CODE - DO NOT EDIT MANUALLY
+// Generated from BSpec v{{ bspec_version }} specification
+// Generated at: {{ generation_timestamp }}
+// Generator: go-generator v1.0.0
+
+package bspec
+
+// {{ document_type.code }}Document represents a {{ document_type.name }} ({{ document_type.code }}) document
+// Domain: {{ document_type.domain }}
+//
+// {{ document_type.purpose }}
+type {{ document_type.code }}Document struct {
+	BaseBSpecDocument
+
+	{% if document_type.code in ['MSN', 'VSN', 'VAL'] %}
+	// Strategic foundation documents are required for all conformance levels
+	StrategicFoundation bool `json:"strategic_foundation" yaml:"strategic_foundation"`
+	{% endif %}
+
+	{% if document_type.code in ['PER', 'JTB'] %}
+	// Customer understanding documents require specific validation
+	CustomerFocused bool `json:"customer_focused" yaml:"customer_focused"`
+	{% endif %}
+
+	{% if document_type.code in ['REV', 'CST'] %}
+	// Business model documents are critical for financial validation
+	BusinessModelCore bool `json:"business_model_core" yaml:"business_model_core"`
+	{% endif %}
+
+	{% if document_type.code in ['RSK', 'MIT'] %}
+	// Risk management documents require mitigation planning
+	RiskManagement bool `json:"risk_management" yaml:"risk_management"`
+	{% endif %}
+}
+
+// New{{ document_type.code }}Document creates a new {{ document_type.code }} document with defaults
+func New{{ document_type.code }}Document(id, title, owner string) *{{ document_type.code }}Document {
+	doc := &{{ document_type.code }}Document{
+		BaseBSpecDocument: BaseBSpecDocument{
+			ID:    id,
+			Title: title,
+			Type:  DocumentType{{ document_type.code }},
+			Owner: owner,
+		},
+	}
+
+	// Set document type specific defaults
+	doc.SetDefaults()
+	domain := BusinessDomain{{ document_type.domain.title().replace('-', '') }}
+	doc.Domain = &domain
+
+	{% if document_type.code in ['MSN', 'VSN', 'VAL'] %}
+	doc.StrategicFoundation = true
+	{% endif %}
+
+	{% if document_type.code in ['PER', 'JTB'] %}
+	doc.CustomerFocused = true
+	{% endif %}
+
+	{% if document_type.code in ['REV', 'CST'] %}
+	doc.BusinessModelCore = true
+	{% endif %}
+
+	{% if document_type.code in ['RSK', 'MIT'] %}
+	doc.RiskManagement = true
+	{% endif %}
+
+	return doc
+}
+
+// Validate validates the {{ document_type.code }} document and returns any validation errors
+func (d *{{ document_type.code }}Document) Validate() []string {
+	errors := d.BaseBSpecDocument.Validate()
+
+	// Ensure correct document type
+	if d.Type != DocumentType{{ document_type.code }} {
+		errors = append(errors, "document type must be {{ document_type.code }}")
+	}
+
+	// Document type specific validation
+	{% if document_type.code in ['MSN', 'VSN', 'VAL'] %}
+	// Strategic foundation documents require success criteria
+	if len(d.SuccessCriteria) == 0 {
+		errors = append(errors, "Strategic foundation documents must have success_criteria defined")
+	}
+	{% endif %}
+
+	{% if document_type.code in ['PER', 'JTB'] %}
+	// Customer understanding documents should have related documents
+	if len(d.Related) == 0 {
+		errors = append(errors, "Customer understanding documents should reference related personas or jobs-to-be-done")
+	}
+	{% endif %}
+
+	{% if document_type.code in ['REV', 'CST'] %}
+	// Business model documents require metrics
+	if len(d.Metrics) == 0 {
+		errors = append(errors, "Business model documents must have metrics defined for measurement")
+	}
+	{% endif %}
+
+	{% if document_type.code in ['RSK', 'MIT'] %}
+	// Risk management documents should reference each other
+	if d.Type == DocumentType{{ document_type.code }} {
+		{% if document_type.code == 'RSK' %}
+		hasRelatedMitigation := false
+		for _, ref := range d.Related {
+			if len(ref) >= 4 && ref[:4] == "MIT-" {
+				hasRelatedMitigation = true
+				break
+			}
+		}
+		if !hasRelatedMitigation {
+			errors = append(errors, "Risk documents should reference corresponding mitigation documents")
+		}
+		{% elif document_type.code == 'MIT' %}
+		hasRelatedRisk := false
+		for _, ref := range d.Related {
+			if len(ref) >= 4 && ref[:4] == "RSK-" {
+				hasRelatedRisk = true
+				break
+			}
+		}
+		if !hasRelatedRisk {
+			errors = append(errors, "Mitigation documents should reference corresponding risk documents")
+		}
+		{% endif %}
+	}
+	{% endif %}
+
+	return errors
+}

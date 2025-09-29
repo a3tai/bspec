@@ -1,0 +1,84 @@
+# Language-specific binary and build outputs
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+*.pdb
+
+# Build directories
+bin/
+build/
+dist/
+target/
+releases/
+out/
+
+# Language-specific dependencies and caches
+node_modules/
+vendor/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+.cargo/
+Cargo.lock
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment and configuration files
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.crt
+secrets.json
+credentials.json
+config.local.*
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.backup
+
+# Coverage and test outputs
+coverage/
+*.out
+*.lcov
+.nyc_output
+test-results/
+
+# Compressed files (except specific whitelisted ones)
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+# Allow the specific build tgz in json directory
+!v1/json/*.tgz

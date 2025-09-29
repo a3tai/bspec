@@ -1,0 +1,46 @@
+{
+  "name": "@bspec/typescript-sdk",
+  "version": "1.0.0",
+  "description": "BSpec TypeScript SDK - Universal Business Specification Standard",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "**/*.ts",
+    "**/*.js",
+    "**/*.d.ts",
+    "*.json",
+    "version.txt",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "bspec",
+    "business-specification",
+    "typescript",
+    "types",
+    "documentation"
+  ],
+  "author": "BSpec Foundation",
+  "license": "CC-BY-4.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a3tai/bspec.git",
+    "directory": "sdk/v1/typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/a3tai/bspec/issues"
+  },
+  "homepage": "https://bspec.dev",
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "generated": {
+    "at": "2025-09-28T21:08:19.116146",
+    "from": "BSpec v1.0.0",
+    "generator": "typescript-generator-v1.0.0"
+  }
+}

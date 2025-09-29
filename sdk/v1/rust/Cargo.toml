@@ -1,0 +1,28 @@
+[package]
+name = "bspec"
+version = "1.0.0"
+description = "BSpec Rust SDK - Universal Business Specification Standard"
+authors = ["BSpec Foundation"]
+license = "CC-BY-4.0"
+repository = "https://github.com/a3tai/bspec"
+homepage = "https://bspec.dev"
+edition = "2021"
+rust-version = "1.70"
+
+[lib]
+name = "bspec"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "1.0"
+indexmap = { version = "2.0", features = ["serde"] }
+
+[dev-dependencies]
+tokio-test = "0.4"
+
+# Generated from BSpec v1.0.0 JSON SDK
+# Generator: rust-generator-v1.0.0
+# Generated at: 2025-09-28T21:08:19.444789

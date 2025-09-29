@@ -1,0 +1,224 @@
+/**
+ * Base BSpec Document Interface
+ *
+ * GENERATED CODE - DO NOT EDIT MANUALLY
+ * Generated from BSpec v{{ bspec_version }} specification
+ * Generated at: {{ generation_timestamp }}
+ * Generator: typescript-generator v1.0.0
+ */
+
+/**
+ * Base interface for all BSpec documents
+ * Defines the universal YAML frontmatter schema
+ */
+export interface BaseBSpecDocument {
+  // === CORE IDENTITY ===
+  /** Globally unique document identifier */
+  id: string;
+
+  /** Human readable document title */
+  title: string;
+
+  /** Document type code */
+  type: DocumentType;
+
+  /** Document lifecycle status */
+  status: DocumentStatus;
+
+  /** Semantic version */
+  version: string;
+
+  // === OWNERSHIP & RESPONSIBILITY ===
+  /** Who owns and maintains this document */
+  owner: string;
+
+  /** Who has interest in this document */
+  stakeholders?: string[];
+
+  /** Who reviewed/approved this version */
+  reviewers?: string[];
+
+  /** Who contributed to this document */
+  contributors?: string[];
+
+  // === TEMPORAL METADATA ===
+  /** When document was first created (YYYY-MM-DD) */
+  created: string;
+
+  /** When document was last modified (YYYY-MM-DD) */
+  updated: string;
+
+  /** When document expires (YYYY-MM-DD) */
+  expires?: string;
+
+  /** How often to review */
+  review_cycle?: ReviewCycle;
+
+  // === RELATIONSHIP GRAPH ===
+  /** Parent document (hierarchical) */
+  parent?: string;
+
+  /** Dependencies (this needs those) */
+  depends_on?: string[];
+
+  /** Enablements (this makes those possible) */
+  enables?: string[];
+
+  /** Mutual exclusions */
+  conflicts_with?: string[];
+
+  /** Other relevant documents */
+  related?: string[];
+
+  /** What this document replaces */
+  supersedes?: string;
+
+  // === BUSINESS CONTEXT ===
+  /** Business domain */
+  domain?: BusinessDomain;
+
+  /** Organizational scope */
+  scope?: OrganizationalScope;
+
+  /** Time horizon */
+  horizon?: TimeHorizon;
+
+  /** Business importance */
+  priority?: Priority;
+
+  /** Access level */
+  visibility?: Visibility;
+
+  // === VALIDATION & MEASUREMENT ===
+  /** Key assumptions */
+  assumptions?: string[];
+
+  /** Key constraints */
+  constraints?: string[];
+
+  /** Measurable success criteria */
+  success_criteria?: string[];
+
+  /** Associated risk documents */
+  risks?: string[];
+
+  /** How success is measured */
+  metrics?: string[];
+
+  // === IMPLEMENTATION ===
+  /** Implementation progress */
+  implementation_status?: ImplementationStatus;
+
+  /** When implementation begins/began (YYYY-MM-DD) */
+  implementation_date?: string;
+
+  /** When implementation completes (YYYY-MM-DD) */
+  completion_date?: string;
+
+  /** Resource requirements */
+  resources_required?: string[];
+
+  // === METADATA & DISCOVERY ===
+  /** Searchable tags */
+  tags?: string[];
+
+  /** Industry classifications */
+  industry?: string[];
+
+  /** Geographic relevance */
+  geography?: string[];
+
+  /** Primary language */
+  language?: string;
+
+  /** Information classification */
+  classification?: Classification;
+
+  // === CHANGE TRACKING ===
+  /** Version history */
+  changelog?: ChangelogEntry[];
+
+  // === DOCUMENT CONTENT ===
+  /** Markdown content of the document */
+  content: string;
+}
+
+/**
+ * Document status enumeration
+ */
+export type DocumentStatus = 'Draft' | 'Review' | 'Accepted' | 'Deprecated';
+
+/**
+ * Review cycle enumeration
+ */
+export type ReviewCycle = 'monthly' | 'quarterly' | 'annually';
+
+/**
+ * Business domain enumeration
+ */
+export type BusinessDomain = {% for domain in domains %}'{{ domain.name }}'{% if not loop.last %} | {% endif %}{% endfor %};
+
+/**
+ * Organizational scope enumeration
+ */
+export type OrganizationalScope = 'global' | 'regional' | 'division' | 'team';
+
+/**
+ * Time horizon enumeration
+ */
+export type TimeHorizon = 'immediate' | 'short' | 'medium' | 'long';
+
+/**
+ * Priority enumeration
+ */
+export type Priority = 'critical' | 'high' | 'medium' | 'low';
+
+/**
+ * Visibility enumeration
+ */
+export type Visibility = 'public' | 'internal' | 'restricted';
+
+/**
+ * Implementation status enumeration
+ */
+export type ImplementationStatus = 'not_started' | 'in_progress' | 'completed' | 'on_hold';
+
+/**
+ * Information classification enumeration
+ */
+export type Classification = 'public' | 'internal' | 'confidential';
+
+/**
+ * Document type enumeration
+ */
+export type DocumentType = {% for doc_type in document_types %}'{{ doc_type.code }}'{% if not loop.last %} | {% endif %}{% endfor %};
+
+/**
+ * Changelog entry interface
+ */
+export interface ChangelogEntry {
+  /** Version number */
+  version: string;
+
+  /** Change date (YYYY-MM-DD) */
+  date: string;
+
+  /** Author name */
+  author: string;
+
+  /** Description of changes */
+  changes: string;
+
+  /** Whether changes are breaking */
+  breaking_changes: boolean;
+}
+
+/**
+ * Conformance level enumeration
+ */
+export type ConformanceLevel = {% for level in conformance_levels %}'{{ level.name }}'{% if not loop.last %} | {% endif %}{% endfor %};
+
+/**
+ * Industry profile enumeration
+ */
+export type IndustryProfile = {% for profile in industry_profiles %}'{{ profile.name }}'{% if not loop.last %} | {% endif %}{% endfor %};

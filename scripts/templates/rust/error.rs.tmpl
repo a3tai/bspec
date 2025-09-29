@@ -1,0 +1,70 @@
+//! Error types for BSpec SDK
+//!
+//! **GENERATED CODE - DO NOT EDIT MANUALLY**
+//! Generated at: {{ generation_timestamp }}
+
+use thiserror::Error;
+
+/// Result type alias for BSpec operations
+pub type Result<T> = std::result::Result<T, BSpecError>;
+
+/// Error types that can occur in BSpec operations
+#[derive(Error, Debug)]
+pub enum BSpecError {
+    /// I/O error
+    #[error("I/O error: {0}")]
+    Io(#[from] std::io::Error),
+
+    /// JSON serialization/deserialization error
+    #[error("Serialization error: {0}")]
+    Serialization(#[from] serde_json::Error),
+
+    /// YAML serialization/deserialization error
+    #[error("YAML error: {0}")]
+    Yaml(#[from] serde_yaml::Error),
+
+    /// ZIP archive error
+    #[error("ZIP error: {0}")]
+    Zip(#[from] zip::result::ZipError),
+
+    /// Invalid document type
+    #[error("Invalid document type: {0}")]
+    InvalidDocumentType(String),
+
+    /// Invalid document status
+    #[error("Invalid document status: {0}")]
+    InvalidDocumentStatus(String),
+
+    /// Validation error
+    #[error("Validation error: {0}")]
+    ValidationError(String),
+
+    /// Invalid archive format
+    #[error("Invalid archive: {0}")]
+    InvalidArchive(String),
+
+    /// URL parsing error
+    #[error("URL error: {0}")]
+    Url(#[from] url::ParseError),
+
+    /// Generic error with message
+    #[error("{0}")]
+    Generic(String),
+}
+
+impl BSpecError {
+    /// Create a new validation error
+    pub fn validation<S: Into<String>>(message: S) -> Self {
+        Self::ValidationError(message.into())
+    }
+
+    /// Create a new archive error
+    pub fn archive<S: Into<String>>(message: S) -> Self {
+        Self::InvalidArchive(message.into())
+    }
+
+    /// Create a new generic error
+    pub fn generic<S: Into<String>>(message: S) -> Self {
+        Self::Generic(message.into())
+    }
+}

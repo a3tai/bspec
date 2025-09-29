@@ -1,0 +1,61 @@
+[package]
+name = "bspec-sdk"
+version = "{{ bspec_version }}"
+edition = "2021"
+authors = ["BSpec Foundation <info@bspec.dev>"]
+description = "Rust SDK for Business Specification Standard (BSpec)"
+license = "MIT"
+repository = "https://github.com/a3tai/bspec-rust"
+homepage = "https://bspec.dev"
+documentation = "https://docs.rs/bspec-sdk"
+keywords = ["bspec", "business", "specification", "architecture", "documentation"]
+categories = ["data-structures", "parser-implementations", "development-tools"]
+readme = "README.md"
+
+# Generated at: {{ generation_timestamp }}
+
+[lib]
+name = "bspec_sdk"
+crate-type = ["lib", "cdylib", "staticlib"]
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+serde_yaml = "0.9"
+chrono = { version = "0.4", features = ["serde"] }
+url = { version = "2.4", features = ["serde"] }
+uuid = { version = "1.0", features = ["v4", "serde"] }
+thiserror = "1.0"
+zip = "0.6"
+base64 = "0.21"
+regex = "1.0"
+lazy_static = "1.4"
+
+[dependencies.clap]
+version = "4.0"
+features = ["derive"]
+optional = true
+
+[features]
+default = ["validation", "archive"]
+cli = ["clap"]
+validation = []
+archive = ["zip"]
+c-api = []
+
+[dev-dependencies]
+tempfile = "3.0"
+assert_matches = "1.5"
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
+
+[[bin]]
+name = "bspec-cli"
+required-features = ["cli"]
+
+[package.metadata.docs.rs]
+all-features = true
+rustdoc-args = ["--cfg", "docsrs"]

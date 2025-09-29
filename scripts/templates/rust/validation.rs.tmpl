@@ -1,0 +1,144 @@
+//! Document validation utilities
+//!
+//! **GENERATED CODE - DO NOT EDIT MANUALLY**
+//! Generated at: {{ generation_timestamp }}
+
+use regex::Regex;
+use lazy_static::lazy_static;
+
+use crate::base::{BSpecDocument, ConformanceLevel};
+use crate::error::{BSpecError, Result};
+
+lazy_static! {
+    /// Semantic version regex pattern
+    static ref SEMVER_REGEX: Regex = Regex::new(r"^\d+\.\d+\.\d+(-[\w\.-]+)?(\+[\w\.-]+)?$").unwrap();
+
+    /// Document ID regex pattern
+    static ref DOC_ID_REGEX: Regex = Regex::new(r"^[A-Z]{3}-[\w-]+$").unwrap();
+
+    /// URL regex pattern
+    static ref URL_REGEX: Regex = Regex::new(r"^https?://").unwrap();
+}
+
+/// Validate a semantic version string
+pub fn validate_semver(version: &str) -> Result<()> {
+    if SEMVER_REGEX.is_match(version) {
+        Ok(())
+    } else {
+        Err(BSpecError::validation(format!("Invalid semantic version: {}", version)))
+    }
+}
+
+/// Validate a document ID format
+pub fn validate_document_id(id: &str) -> Result<()> {
+    if DOC_ID_REGEX.is_match(id) {
+        Ok(())
+    } else {
+        Err(BSpecError::validation(format!("Invalid document ID format: {}", id)))
+    }
+}
+
+/// Validate a URL string
+pub fn validate_url(url: &str) -> Result<()> {
+    if URL_REGEX.is_match(url) {
+        url::Url::parse(url).map_err(BSpecError::from)?;
+        Ok(())
+    } else {
+        Err(BSpecError::validation(format!("Invalid URL: {}", url)))
+    }
+}
+
+/// Validate that a string is not empty or whitespace-only
+pub fn validate_non_empty(value: &str, field_name: &str) -> Result<()> {
+    if value.trim().is_empty() {
+        Err(BSpecError::validation(format!("{} cannot be empty", field_name)))
+    } else {
+        Ok(())
+    }
+}
+
+/// Validate that a vector is not empty
+pub fn validate_non_empty_vec<T>(value: &[T], field_name: &str) -> Result<()> {
+    if value.is_empty() {
+        Err(BSpecError::validation(format!("{} must have at least one item", field_name)))
+    } else {
+        Ok(())
+    }
+}
+
+/// Comprehensive document validation
+pub fn validate_document(document: &dyn BSpecDocument) -> Result<()> {
+    let metadata = document.metadata();
+
+    // Basic metadata validation
+    validate_document_id(&metadata.id)?;
+    validate_non_empty(&metadata.title, "title")?;
+    validate_non_empty(&metadata.owner, "owner")?;
+    validate_semver(&metadata.version)?;
+
+    // Content validation
+    validate_non_empty(document.content(), "content")?;
+
+    // Validate related document IDs
+    for related_id in &metadata.related {
+        validate_document_id(related_id)?;
+    }
+
+    Ok(())
+}
+
+/// Check if document meets conformance requirements
+pub fn check_conformance(document: &dyn BSpecDocument, level: ConformanceLevel) -> Result<()> {
+    if !document.meets_conformance(level) {
+        return Err(BSpecError::validation(format!(
+            "Document does not meet {:?} conformance requirements",
+            level
+        )));
+    }
+    Ok(())
+}
+
+/// Batch validate multiple documents
+pub fn validate_documents(documents: &[&dyn BSpecDocument]) -> Result<()> {
+    for document in documents {
+        validate_document(*document)?;
+    }
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_semver_validation() {
+        assert!(validate_semver("1.0.0").is_ok());
+        assert!(validate_semver("1.2.3-alpha").is_ok());
+        assert!(validate_semver("2.0.0+build.1").is_ok());
+        assert!(validate_semver("invalid").is_err());
+        assert!(validate_semver("1.0").is_err());
+    }
+
+    #[test]
+    fn test_document_id_validation() {
+        assert!(validate_document_id("MSN-mission-001").is_ok());
+        assert!(validate_document_id("CAP-capability-test").is_ok());
+        assert!(validate_document_id("invalid-id").is_err());
+        assert!(validate_document_id("MSN").is_err());
+    }
+
+    #[test]
+    fn test_url_validation() {
+        assert!(validate_url("https://example.com").is_ok());
+        assert!(validate_url("http://localhost:8080").is_ok());
+        assert!(validate_url("ftp://example.com").is_err());
+        assert!(validate_url("not-a-url").is_err());
+    }
+
+    #[test]
+    fn test_non_empty_validation() {
+        assert!(validate_non_empty("test", "field").is_ok());
+        assert!(validate_non_empty("", "field").is_err());
+        assert!(validate_non_empty("   ", "field").is_err());
+    }
+}
