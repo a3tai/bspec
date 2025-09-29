@@ -1,0 +1,77 @@
+//! # BSpec Rust SDK
+//!
+//! Rust SDK for Business Specification Standard (BSpec) v{{ bspec_version }}.
+//!
+//! **GENERATED CODE - DO NOT EDIT MANUALLY**
+//! Generated at: {{ generation_timestamp }}
+//!
+//! ## Features
+//!
+//! - 🦀 **Safe & Fast**: Memory-safe Rust implementation
+//! - 📦 **Archive Support**: Native .bspec file format handling
+//! - 🔄 **Serialization**: JSON, YAML, and binary formats
+//! - 🌐 **Cross-Platform**: Works on Windows, macOS, and Linux
+//! - 🔗 **C FFI**: Can be linked from Go, Python, and native apps
+//! - ✅ **Validation**: Built-in document validation
+//! - 🏗️ **Zero-Copy**: Efficient parsing with minimal allocations
+//!
+//! ## Usage
+//!
+//! ```rust
+//! use bspec_sdk::{documents::*, base::*};
+//!
+//! // Create a new document
+//! let mut mission = MsnDocument::new(
+//!     "MSN-001".to_string(),
+//!     "Company Mission".to_string(),
+//!     "CEO".to_string(),
+//! );
+//!
+//! // Validate and serialize
+//! mission.validate()?;
+//! let json = serde_json::to_string_pretty(&mission)?;
+//! ```
+
+#![cfg_attr(docsrs, feature(doc_cfg))]
+#![deny(missing_docs)]
+#![warn(clippy::all, clippy::pedantic)]
+#![allow(clippy::module_name_repetitions)]
+
+pub mod base;
+pub mod documents;
+pub mod error;
+
+#[cfg(feature = "archive")]
+pub mod archive;
+
+#[cfg(feature = "c-api")]
+pub mod cli;
+
+#[cfg(feature = "validation")]
+pub mod validation;
+
+// Re-export commonly used types
+pub use base::{BSpecDocument, DocumentMetadata, DocumentStatus, DocumentType};
+pub use error::{BSpecError, Result};
+
+#[cfg(feature = "archive")]
+pub use archive::{BSpecArchive, ArchiveManifest};
+
+/// BSpec version this SDK was generated from
+pub const BSPEC_VERSION: &str = "{{ bspec_version }}";
+
+/// SDK generation timestamp
+pub const GENERATED_AT: &str = "{{ generation_timestamp }}";
+
+/// Prelude module containing commonly used imports
+pub mod prelude {
+    pub use crate::base::*;
+    pub use crate::documents::*;
+    pub use crate::error::{BSpecError, Result};
+
+    #[cfg(feature = "archive")]
+    pub use crate::archive::*;
+
+    #[cfg(feature = "validation")]
+    pub use crate::validation::*;
+}

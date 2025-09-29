@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>com.bspec.viewer</string>
+	<key>CFBundleName</key>
+	<string>BSpec Viewer</string>
+	<key>CFBundleDisplayName</key>
+	<string>BSpec Viewer</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.0</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>BSpc</string>
+	<key>CFBundleExecutable</key>
+	<string>BSpecViewer</string>
+	<key>CFBundleIconFile</key>
+	<string>BSpecIcon</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>10.15</string>
+	<key>LSApplicationCategoryType</key>
+	<string>public.app-category.developer-tools</string>
+
+	<!-- UTI Declaration for .bspec files -->
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>com.bspec.archive</string>
+			<key>UTTypeDescription</key>
+			<string>BSpec Archive</string>
+			<key>UTTypeReferenceURL</key>
+			<string>https://bspec.dev</string>
+			<key>UTTypeIconFile</key>
+			<string>BSpecIcon</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.archive</string>
+			</array>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>bspec</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/x-bspec-archive</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+
+	<!-- Document Types - Associate .bspec files with this app -->
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>CFBundleTypeName</key>
+			<string>BSpec Archive</string>
+			<key>CFBundleTypeDescription</key>
+			<string>Business Specification Archive</string>
+			<key>CFBundleTypeIconFile</key>
+			<string>BSpecIcon</string>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>bspec</string>
+			</array>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.bspec.archive</string>
+			</array>
+		</dict>
+	</array>
+
+	<!-- URL Schemes for bspec:// protocol -->
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>BSpec Protocol</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>bspec</string>
+			</array>
+			<key>CFBundleURLIconFile</key>
+			<string>BSpecIcon</string>
+		</dict>
+	</array>
+
+	<!-- Services Integration -->
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSServiceDescription</key>
+			<string>Open with BSpec Viewer</string>
+			<key>NSServiceCategory</key>
+			<string>public.app-category.developer-tools</string>
+			<key>NSRequiredContext</key>
+			<dict>
+				<key>NSServiceApplications</key>
+				<array>
+					<string>Finder</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+
+	<!-- Spotlight Integration -->
+	<key>MDItemKeywords</key>
+	<array>
+		<string>BSpec</string>
+		<string>Business Specification</string>
+		<string>Architecture</string>
+		<string>Documentation</string>
+	</array>
+
+	<!-- Security and Permissions -->
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>LSFileQuarantineEnabled</key>
+	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<false/>
+	</dict>
+
+	<!-- Background Processing -->
+	<key>LSBackgroundOnly</key>
+	<false/>
+	<key>NSUIElement</key>
+	<false/>
+</dict>
+</plist>

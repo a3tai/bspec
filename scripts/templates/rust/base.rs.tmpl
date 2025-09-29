@@ -1,0 +1,295 @@
+//! Base types and traits for BSpec documents
+//!
+//! **GENERATED CODE - DO NOT EDIT MANUALLY**
+//! Generated at: {{ generation_timestamp }}
+
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
+use url::Url;
+use uuid::Uuid;
+
+use crate::error::{BSpecError, Result};
+
+/// All possible document types in BSpec v{{ bspec_version }}
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum DocumentType {
+{%- for doc_type in document_types %}
+    /// {{ doc_type.name }}: {{ doc_type.purpose }}
+    {{ doc_type.code | pascal_case }},
+{%- endfor %}
+}
+
+impl DocumentType {
+    /// Get the string representation of the document type
+    pub fn as_str(&self) -> &'static str {
+        match self {
+{%- for doc_type in document_types %}
+            Self::{{ doc_type.code | pascal_case }} => "{{ doc_type.code }}",
+{%- endfor %}
+        }
+    }
+
+    /// Get the display name of the document type
+    pub fn display_name(&self) -> &'static str {
+        match self {
+{%- for doc_type in document_types %}
+            Self::{{ doc_type.code | pascal_case }} => "{{ doc_type.name }}",
+{%- endfor %}
+        }
+    }
+
+    /// Get the purpose/description of the document type
+    pub fn purpose(&self) -> &'static str {
+        match self {
+{%- for doc_type in document_types %}
+            Self::{{ doc_type.code | pascal_case }} => "{{ doc_type.purpose }}",
+{%- endfor %}
+        }
+    }
+
+    /// Get the domain this document type belongs to
+    pub fn domain(&self) -> Domain {
+        match self {
+{%- for doc_type in document_types %}
+            Self::{{ doc_type.code | pascal_case }} => Domain::{{ doc_type.domain | pascal_case }},
+{%- endfor %}
+        }
+    }
+}
+
+impl std::fmt::Display for DocumentType {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self.as_str())
+    }
+}
+
+impl std::str::FromStr for DocumentType {
+    type Err = BSpecError;
+
+    fn from_str(s: &str) -> Result<Self> {
+        match s.to_uppercase().as_str() {
+{%- for doc_type in document_types %}
+            "{{ doc_type.code }}" => Ok(Self::{{ doc_type.code | pascal_case }}),
+{%- endfor %}
+            _ => Err(BSpecError::InvalidDocumentType(s.to_string())),
+        }
+    }
+}
+
+/// Business domains in BSpec
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum Domain {
+{%- for domain in domains %}
+    /// {{ domain.display_name }}: {{ domain.description }}
+    {{ domain.name | pascal_case }},
+{%- endfor %}
+}
+
+impl Domain {
+    /// Get the string representation of the domain
+    pub fn as_str(&self) -> &'static str {
+        match self {
+{%- for domain in domains %}
+            Self::{{ domain.name | pascal_case }} => "{{ domain.name }}",
+{%- endfor %}
+        }
+    }
+
+    /// Get the display name of the domain
+    pub fn display_name(&self) -> &'static str {
+        match self {
+{%- for domain in domains %}
+            Self::{{ domain.name | pascal_case }} => "{{ domain.display_name }}",
+{%- endfor %}
+        }
+    }
+
+    /// Get the emoji for the domain
+    pub fn emoji(&self) -> &'static str {
+        match self {
+{%- for domain in domains %}
+            Self::{{ domain.name | pascal_case }} => "{{ domain.emoji }}",
+{%- endfor %}
+        }
+    }
+}
+
+/// Document status enumeration
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum DocumentStatus {
+    /// Document is in draft state
+    Draft,
+    /// Document is under review
+    Review,
+    /// Document has been accepted
+    Accepted,
+    /// Document is deprecated
+    Deprecated,
+}
+
+impl std::fmt::Display for DocumentStatus {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Self::Draft => write!(f, "Draft"),
+            Self::Review => write!(f, "Review"),
+            Self::Accepted => write!(f, "Accepted"),
+            Self::Deprecated => write!(f, "Deprecated"),
+        }
+    }
+}
+
+impl std::str::FromStr for DocumentStatus {
+    type Err = BSpecError;
+
+    fn from_str(s: &str) -> Result<Self> {
+        match s.to_lowercase().as_str() {
+            "draft" => Ok(Self::Draft),
+            "review" => Ok(Self::Review),
+            "accepted" => Ok(Self::Accepted),
+            "deprecated" => Ok(Self::Deprecated),
+            _ => Err(BSpecError::InvalidDocumentStatus(s.to_string())),
+        }
+    }
+}
+
+/// Conformance levels for BSpec projects
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum ConformanceLevel {
+{%- for level in conformance_levels %}
+    /// {{ level.display_name }}: {{ level.description }}
+    {{ level.name | pascal_case }},
+{%- endfor %}
+}
+
+impl ConformanceLevel {
+    /// Get the minimum number of documents required for this level
+    pub fn min_documents(&self) -> u32 {
+        match self {
+{%- for level in conformance_levels %}
+            Self::{{ level.name | pascal_case }} => {{ level.min_documents }},
+{%- endfor %}
+        }
+    }
+
+    /// Get the emoji for this conformance level
+    pub fn emoji(&self) -> &'static str {
+        match self {
+{%- for level in conformance_levels %}
+            Self::{{ level.name | pascal_case }} => "{{ level.emoji }}",
+{%- endfor %}
+        }
+    }
+}
+
+/// Industry profiles for BSpec projects
+#[derive(Debug, Clone, PartialEq, Eq, Hash, Serialize, Deserialize)]
+pub enum IndustryProfile {
+{%- for profile in industry_profiles %}
+    /// {{ profile.display_name }}: {{ profile.description }}
+    {{ profile.name | snake_case | pascal_case }},
+{%- endfor %}
+}
+
+/// Common metadata for all BSpec documents
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct DocumentMetadata {
+    /// Unique identifier for the document
+    pub id: String,
+    /// Human-readable title
+    pub title: String,
+    /// Document status
+    pub status: DocumentStatus,
+    /// Semantic version
+    pub version: String,
+    /// Document owner/author
+    pub owner: String,
+    /// Creation timestamp
+    pub created: DateTime<Utc>,
+    /// Last update timestamp
+    pub updated: DateTime<Utc>,
+    /// Business domain
+    pub domain: Domain,
+    /// Related document IDs
+    #[serde(default)]
+    pub related: Vec<String>,
+    /// Document tags
+    #[serde(default)]
+    pub tags: Vec<String>,
+    /// Custom metadata fields
+    #[serde(default)]
+    pub custom: HashMap<String, serde_json::Value>,
+}
+
+impl Default for DocumentMetadata {
+    fn default() -> Self {
+        let now = Utc::now();
+        Self {
+            id: Uuid::new_v4().to_string(),
+            title: String::new(),
+            status: DocumentStatus::Draft,
+            version: "1.0.0".to_string(),
+            owner: String::new(),
+            created: now,
+            updated: now,
+            domain: Domain::Strategic,
+            related: Vec::new(),
+            tags: Vec::new(),
+            custom: HashMap::new(),
+        }
+    }
+}
+
+/// Base trait for all BSpec documents
+pub trait BSpecDocument: Send + Sync {
+    /// Get the document type
+    fn document_type(&self) -> DocumentType;
+
+    /// Get the document metadata
+    fn metadata(&self) -> &DocumentMetadata;
+
+    /// Get mutable document metadata
+    fn metadata_mut(&mut self) -> &mut DocumentMetadata;
+
+    /// Get the document content
+    fn content(&self) -> &str;
+
+    /// Set the document content
+    fn set_content(&mut self, content: String);
+
+    /// Validate the document structure and content
+    #[cfg(feature = "validation")]
+    fn validate(&self) -> Result<()>;
+
+    /// Convert document to JSON
+    fn to_json(&self) -> Result<String> {
+        serde_json::to_string_pretty(self).map_err(BSpecError::Serialization)
+    }
+
+    /// Convert document to YAML
+    fn to_yaml(&self) -> Result<String> {
+        serde_yaml::to_string(self).map_err(BSpecError::Serialization)
+    }
+
+    /// Update the modification timestamp
+    fn touch(&mut self) {
+        self.metadata_mut().updated = Utc::now();
+    }
+
+    /// Check if document is valid for the given conformance level
+    fn meets_conformance(&self, level: ConformanceLevel) -> bool {
+        match level {
+            ConformanceLevel::Bronze => !self.metadata().title.is_empty() && !self.content().is_empty(),
+            ConformanceLevel::Silver => {
+                self.meets_conformance(ConformanceLevel::Bronze)
+                    && self.metadata().status != DocumentStatus::Draft
+                    && !self.metadata().owner.is_empty()
+            }
+            ConformanceLevel::Gold => {
+                self.meets_conformance(ConformanceLevel::Silver)
+                    && self.metadata().status == DocumentStatus::Accepted
+                    && !self.metadata().related.is_empty()
+            }
+        }
+    }
+}

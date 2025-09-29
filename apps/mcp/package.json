@@ -1,0 +1,49 @@
+{
+  "name": "@bspec/mcp-server",
+  "version": "1.0.0",
+  "description": "Model Context Protocol server for BSpec 1.0 specification",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "wrangler dev",
+    "deploy": "npm run build && wrangler deploy",
+    "deploy:dev": "npm run build && wrangler deploy --env development",
+    "deploy:prod": "npm run build && wrangler deploy --env production",
+    "preview": "npm run build && wrangler dev",
+    "logs": "wrangler tail",
+    "logs:dev": "wrangler tail --env development",
+    "type-check": "tsc --noEmit",
+    "validate": "npm run type-check",
+    "clean": "rm -rf dist",
+    "test": "echo \"BSpec MCP Server - Tests not implemented yet\" && exit 0"
+  },
+  "keywords": [
+    "bspec",
+    "mcp",
+    "model-context-protocol",
+    "business-specification",
+    "cloudflare-workers"
+  ],
+  "author": "BSpec Foundation",
+  "license": "CC BY 4.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "yaml": "^2.4.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250927.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "wrangler": "^4.40.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a3tai/bspec-foundations.git",
+    "directory": "sdk/mcp"
+  },
+  "homepage": "https://bspec.dev",
+  "bugs": {
+    "url": "https://github.com/a3tai/bspec-foundations/issues"
+  }
+}

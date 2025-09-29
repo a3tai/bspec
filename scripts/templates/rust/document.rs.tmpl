@@ -1,0 +1,266 @@
+//! {{ document_type.name }} ({{ document_type.code }}) document implementation
+//!
+//! {{ document_type.purpose }}
+//!
+//! **GENERATED CODE - DO NOT EDIT MANUALLY**
+//! Generated at: {{ generation_timestamp }}
+
+use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
+use std::collections::HashMap;
+
+use crate::base::{BSpecDocument, DocumentMetadata, DocumentStatus, DocumentType, Domain};
+use crate::error::{BSpecError, Result};
+
+/// {{ document_type.name }} document
+///
+/// {{ document_type.purpose }}
+///
+/// **Domain:** {{ document_type.domain | title }}
+/// **Conformance Requirements:**
+{%- for req in document_type.required_fields %}
+/// - {{ req.name }}: {{ req.description }}
+{%- endfor %}
+#[derive(Debug, Clone, PartialEq, Serialize, Deserialize)]
+pub struct {{ document_type.code | pascal_case }}Document {
+    /// Common document metadata
+    #[serde(flatten)]
+    pub metadata: DocumentMetadata,
+
+    /// Document content in Markdown format
+    pub content: String,
+
+{%- for field in document_type.required_fields %}
+    /// {{ field.description }}
+    pub {{ field.name | snake_case }}: {{ field.type | rust_type }},
+{%- endfor %}
+
+{%- for field in document_type.optional_fields %}
+    /// {{ field.description }}
+    #[serde(default)]
+    #[serde(skip_serializing_if = "{{ field.type | rust_type | skip_condition }}")]
+    pub {{ field.name | snake_case }}: {{ field.type | rust_type | optional_type }},
+{%- endfor %}
+}
+
+impl {{ document_type.code | pascal_case }}Document {
+    /// Create a new {{ document_type.name }} document
+    pub fn new(id: String, title: String, owner: String) -> Self {
+        let mut metadata = DocumentMetadata::default();
+        metadata.id = id;
+        metadata.title = title;
+        metadata.owner = owner;
+        metadata.domain = Domain::{{ document_type.domain | pascal_case }};
+
+        Self {
+            metadata,
+            content: String::new(),
+{%- for field in document_type.required_fields %}
+            {{ field.name | snake_case }}: {{ field.type | rust_type | default_value }},
+{%- endfor %}
+{%- for field in document_type.optional_fields %}
+            {{ field.name | snake_case }}: {{ field.type | rust_type | optional_default }},
+{%- endfor %}
+        }
+    }
+
+{%- for field in document_type.required_fields %}
+    {% if field.type == "array" %}
+    /// Add item to {{ field.name | snake_case }}
+    pub fn add_{{ field.name | snake_case | singular }}(&mut self, item: String) {
+        self.{{ field.name | snake_case }}.push(item);
+        self.touch();
+    }
+
+    /// Remove item from {{ field.name | snake_case }}
+    pub fn remove_{{ field.name | snake_case | singular }}(&mut self, item: &str) -> bool {
+        if let Some(pos) = self.{{ field.name | snake_case }}.iter().position(|x| x == item) {
+            self.{{ field.name | snake_case }}.remove(pos);
+            self.touch();
+            true
+        } else {
+            false
+        }
+    }
+    {% endif %}
+{%- endfor %}
+
+    /// Set the main content of the document
+    pub fn set_content(&mut self, content: String) {
+        self.content = content;
+        self.touch();
+    }
+
+    /// Update document status
+    pub fn set_status(&mut self, status: DocumentStatus) {
+        self.metadata.status = status;
+        self.touch();
+    }
+
+    /// Add a related document ID
+    pub fn add_related(&mut self, doc_id: String) {
+        if !self.metadata.related.contains(&doc_id) {
+            self.metadata.related.push(doc_id);
+            self.touch();
+        }
+    }
+
+    /// Add a tag
+    pub fn add_tag(&mut self, tag: String) {
+        if !self.metadata.tags.contains(&tag) {
+            self.metadata.tags.push(tag);
+            self.touch();
+        }
+    }
+}
+
+impl BSpecDocument for {{ document_type.code | pascal_case }}Document {
+    fn document_type(&self) -> DocumentType {
+        DocumentType::{{ document_type.code | pascal_case }}
+    }
+
+    fn metadata(&self) -> &DocumentMetadata {
+        &self.metadata
+    }
+
+    fn metadata_mut(&mut self) -> &mut DocumentMetadata {
+        &mut self.metadata
+    }
+
+    fn content(&self) -> &str {
+        &self.content
+    }
+
+    fn set_content(&mut self, content: String) {
+        self.set_content(content);
+    }
+
+    #[cfg(feature = "validation")]
+    fn validate(&self) -> Result<()> {
+        // Validate required fields
+        if self.metadata.id.is_empty() {
+            return Err(BSpecError::ValidationError("id cannot be empty".to_string()));
+        }
+
+        if self.metadata.title.is_empty() {
+            return Err(BSpecError::ValidationError("title cannot be empty".to_string()));
+        }
+
+        if self.metadata.owner.is_empty() {
+            return Err(BSpecError::ValidationError("owner cannot be empty".to_string()));
+        }
+
+{%- for field in document_type.required_fields %}
+        {% if field.type == "string" %}
+        if self.{{ field.name | snake_case }}.is_empty() {
+            return Err(BSpecError::ValidationError("{{ field.name }} cannot be empty".to_string()));
+        }
+        {% elif field.type == "array" %}
+        if self.{{ field.name | snake_case }}.is_empty() {
+            return Err(BSpecError::ValidationError("{{ field.name }} must have at least one item".to_string()));
+        }
+        {% endif %}
+{%- endfor %}
+
+        // Validate ID format (should be {{ document_type.code }}-something)
+        if !self.metadata.id.starts_with("{{ document_type.code }}-") {
+            return Err(BSpecError::ValidationError(
+                format!("ID should start with '{{ document_type.code }}-', got '{}'", self.metadata.id)
+            ));
+        }
+
+        // Validate version format (semantic versioning)
+        if !is_valid_semver(&self.metadata.version) {
+            return Err(BSpecError::ValidationError(
+                format!("Invalid semantic version: {}", self.metadata.version)
+            ));
+        }
+
+        Ok(())
+    }
+}
+
+impl Default for {{ document_type.code | pascal_case }}Document {
+    fn default() -> Self {
+        Self::new(
+            "{{ document_type.code }}-default".to_string(),
+            "New {{ document_type.name }}".to_string(),
+            "Unknown".to_string(),
+        )
+    }
+}
+
+/// Validate semantic version format
+fn is_valid_semver(version: &str) -> bool {
+    use regex::Regex;
+    lazy_static::lazy_static! {
+        static ref SEMVER_REGEX: Regex = Regex::new(r"^\d+\.\d+\.\d+(-[\w\.-]+)?(\+[\w\.-]+)?$").unwrap();
+    }
+    SEMVER_REGEX.is_match(version)
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_new_document() {
+        let doc = {{ document_type.code | pascal_case }}Document::new(
+            "{{ document_type.code }}-test-001".to_string(),
+            "Test {{ document_type.name }}".to_string(),
+            "Test Owner".to_string(),
+        );
+
+        assert_eq!(doc.metadata.id, "{{ document_type.code }}-test-001");
+        assert_eq!(doc.metadata.title, "Test {{ document_type.name }}");
+        assert_eq!(doc.metadata.owner, "Test Owner");
+        assert_eq!(doc.document_type(), DocumentType::{{ document_type.code | pascal_case }});
+    }
+
+    #[test]
+    fn test_validation() {
+        let mut doc = {{ document_type.code | pascal_case }}Document::default();
+
+        // Should fail validation initially
+        #[cfg(feature = "validation")]
+        assert!(doc.validate().is_err());
+
+        // Set required fields
+        doc.metadata.id = "{{ document_type.code }}-valid-001".to_string();
+        doc.metadata.title = "Valid Document".to_string();
+        doc.metadata.owner = "Valid Owner".to_string();
+
+{%- for field in document_type.required_fields %}
+        {% if field.type == "string" %}
+        doc.{{ field.name | snake_case }} = "Test value".to_string();
+        {% elif field.type == "array" %}
+        doc.{{ field.name | snake_case }}.push("Test item".to_string());
+        {% endif %}
+{%- endfor %}
+
+        // Should pass validation now
+        #[cfg(feature = "validation")]
+        assert!(doc.validate().is_ok());
+    }
+
+    #[test]
+    fn test_serialization() {
+        let doc = {{ document_type.code | pascal_case }}Document::new(
+            "{{ document_type.code }}-ser-001".to_string(),
+            "Serialization Test".to_string(),
+            "Test User".to_string(),
+        );
+
+        // Test JSON serialization
+        let json = doc.to_json().unwrap();
+        assert!(json.contains("{{ document_type.code }}-ser-001"));
+
+        // Test YAML serialization
+        let yaml = doc.to_yaml().unwrap();
+        assert!(yaml.contains("{{ document_type.code }}-ser-001"));
+
+        // Test deserialization
+        let deserialized: {{ document_type.code | pascal_case }}Document = serde_json::from_str(&json).unwrap();
+        assert_eq!(deserialized.metadata.id, doc.metadata.id);
+    }
+}

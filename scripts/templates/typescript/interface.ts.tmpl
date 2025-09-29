@@ -1,0 +1,44 @@
+/**
+ * Generated BSpec Document Type Interface
+ *
+ * GENERATED CODE - DO NOT EDIT MANUALLY
+ * Generated from BSpec v{{ bspec_version }} specification
+ * Generated at: {{ generation_timestamp }}
+ * Generator: typescript-generator v1.0.0
+ */
+
+import { BaseBSpecDocument } from '../base';
+
+/**
+ * {{ document_type.name }} ({{ document_type.code }})
+ * Domain: {{ document_type.domain }}
+ *
+ * {{ document_type.purpose }}
+ */
+export interface {{ document_type.code }}Document extends BaseBSpecDocument {
+  /** Document type identifier */
+  readonly type: '{{ document_type.code }}';
+
+  /** Domain classification */
+  readonly domain: '{{ document_type.domain }}';
+
+  {% if document_type.code in ['MSN', 'VSN', 'VAL'] %}
+  /** Strategic foundation documents are required for all conformance levels */
+  readonly strategic_foundation: true;
+  {% endif %}
+
+  {% if document_type.code in ['PER', 'JTB'] %}
+  /** Customer understanding documents require specific validation */
+  readonly customer_focused: true;
+  {% endif %}
+
+  {% if document_type.code in ['REV', 'CST'] %}
+  /** Business model documents are critical for financial validation */
+  readonly business_model_core: true;
+  {% endif %}
+
+  {% if document_type.code in ['RSK', 'MIT'] %}
+  /** Risk management documents require mitigation planning */
+  readonly risk_management: true;
+  {% endif %}
+}

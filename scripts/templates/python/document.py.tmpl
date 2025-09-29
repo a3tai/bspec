@@ -1,0 +1,89 @@
+"""
+Generated BSpec Document Type Class
+
+GENERATED CODE - DO NOT EDIT MANUALLY
+Generated from BSpec v{{ bspec_version }} specification
+Generated at: {{ generation_timestamp }}
+Generator: python-generator v1.0.0
+"""
+
+from dataclasses import dataclass
+from typing import Literal
+from .base import BaseBSpecDocument, DocumentType, BusinessDomain
+
+
+@dataclass
+class {{ document_type.code }}Document(BaseBSpecDocument):
+    """
+    {{ document_type.name }} ({{ document_type.code }})
+    Domain: {{ document_type.domain }}
+
+    {{ document_type.purpose }}
+    """
+
+    # Type constraint
+    type: Literal[DocumentType.{{ document_type.code }}] = DocumentType.{{ document_type.code }}
+
+    # Domain constraint
+    domain: Literal[BusinessDomain.{{ document_type.domain.upper().replace('-', '_') }}] = BusinessDomain.{{ document_type.domain.upper().replace('-', '_') }}
+
+    {% if document_type.code in ['MSN', 'VSN', 'VAL'] %}
+    # Strategic foundation documents are required for all conformance levels
+    strategic_foundation: bool = True
+    {% endif %}
+
+    {% if document_type.code in ['PER', 'JTB'] %}
+    # Customer understanding documents require specific validation
+    customer_focused: bool = True
+    {% endif %}
+
+    {% if document_type.code in ['REV', 'CST'] %}
+    # Business model documents are critical for financial validation
+    business_model_core: bool = True
+    {% endif %}
+
+    {% if document_type.code in ['RSK', 'MIT'] %}
+    # Risk management documents require mitigation planning
+    risk_management: bool = True
+    {% endif %}
+
+    def __post_init__(self):
+        """Post-initialization for {{ document_type.code }} documents"""
+        super().__post_init__()
+
+        # Ensure type is correctly set
+        self.type = DocumentType.{{ document_type.code }}
+        self.domain = BusinessDomain.{{ document_type.domain.upper().replace('-', '_') }}
+
+    def validate(self) -> list[str]:
+        """Validate {{ document_type.code }} document and return list of validation errors"""
+        errors = super().validate()
+
+        # Document type specific validation
+        {% if document_type.code in ['MSN', 'VSN', 'VAL'] %}
+        # Strategic foundation documents require success criteria
+        if not self.success_criteria or len(self.success_criteria) == 0:
+            errors.append("Strategic foundation documents must have success_criteria defined")
+        {% endif %}
+
+        {% if document_type.code in ['PER', 'JTB'] %}
+        # Customer understanding documents should have related documents
+        if not self.related or len(self.related) == 0:
+            errors.append("Customer understanding documents should reference related personas or jobs-to-be-done")
+        {% endif %}
+
+        {% if document_type.code in ['REV', 'CST'] %}
+        # Business model documents require metrics
+        if not self.metrics or len(self.metrics) == 0:
+            errors.append("Business model documents must have metrics defined for measurement")
+        {% endif %}
+
+        {% if document_type.code in ['RSK', 'MIT'] %}
+        # Risk management documents should reference each other
+        if self.type == DocumentType.RSK and not any(ref.startswith('MIT-') for ref in (self.related or [])):
+            errors.append("Risk documents should reference corresponding mitigation documents")
+        elif self.type == DocumentType.MIT and not any(ref.startswith('RSK-') for ref in (self.related or [])):
+            errors.append("Mitigation documents should reference corresponding risk documents")
+        {% endif %}
+
+        return errors

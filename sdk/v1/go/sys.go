@@ -1,0 +1,60 @@
+// Package bspec provides SYS document type
+//
+// GENERATED CODE - DO NOT EDIT MANUALLY
+// Generated from BSpec v1.0.0 specification
+// Generated at: 2025-09-28T15:12:38.615098
+// Generator: go-generator v1.0.0
+
+package bspec
+
+// SYSDocument represents a Systems (SYS) document
+// Domain: technology
+//
+// Software systems, platforms, and applications
+type SYSDocument struct {
+	BaseBSpecDocument
+
+
+
+
+}
+
+// NewSYSDocument creates a new SYS document with defaults
+func NewSYSDocument(id, title, owner string) *SYSDocument {
+	doc := &SYSDocument{
+		BaseBSpecDocument: BaseBSpecDocument{
+			ID:    id,
+			Title: title,
+			Type:  DocumentTypeSYS,
+			Owner: owner,
+		},
+	}
+
+	// Set document type specific defaults
+	doc.SetDefaults()
+	domain := BusinessDomainTechnology
+	doc.Domain = &domain
+
+
+
+
+
+	return doc
+}
+
+// Validate validates the SYS document and returns any validation errors
+func (d *SYSDocument) Validate() []string {
+	errors := d.BaseBSpecDocument.Validate()
+
+	// Ensure correct document type
+	if d.Type != DocumentTypeSYS {
+		errors = append(errors, "document type must be SYS")
+	}
+
+	// Document type specific validation
+
+
+
+
+	return errors
+}

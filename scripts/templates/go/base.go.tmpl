@@ -1,0 +1,358 @@
+// Package bspec provides Go types and utilities for BSpec documents
+//
+// GENERATED CODE - DO NOT EDIT MANUALLY
+// Generated from BSpec v{{ bspec_version }} specification
+// Generated at: {{ generation_timestamp }}
+// Generator: go-generator v1.0.0
+
+package bspec
+
+import (
+	"encoding/json"
+	"fmt"
+	"regexp"
+	"strings"
+	"time"
+)
+
+// DocumentStatus represents the lifecycle status of a document
+type DocumentStatus string
+
+const (
+	DocumentStatusDraft      DocumentStatus = "Draft"
+	DocumentStatusReview     DocumentStatus = "Review"
+	DocumentStatusAccepted   DocumentStatus = "Accepted"
+	DocumentStatusDeprecated DocumentStatus = "Deprecated"
+)
+
+// ReviewCycle represents how often a document should be reviewed
+type ReviewCycle string
+
+const (
+	ReviewCycleMonthly   ReviewCycle = "monthly"
+	ReviewCycleQuarterly ReviewCycle = "quarterly"
+	ReviewCycleAnnually  ReviewCycle = "annually"
+)
+
+// BusinessDomain represents the business domain classification
+type BusinessDomain string
+
+const (
+	{% for domain in domains %}BusinessDomain{{ domain.name.title().replace('-', '') }} BusinessDomain = "{{ domain.name }}"
+	{% endfor %}
+)
+
+// OrganizationalScope represents the organizational scope
+type OrganizationalScope string
+
+const (
+	OrganizationalScopeGlobal   OrganizationalScope = "global"
+	OrganizationalScopeRegional OrganizationalScope = "regional"
+	OrganizationalScopeDivision OrganizationalScope = "division"
+	OrganizationalScopeTeam     OrganizationalScope = "team"
+)
+
+// TimeHorizon represents the time horizon for planning
+type TimeHorizon string
+
+const (
+	TimeHorizonImmediate TimeHorizon = "immediate"
+	TimeHorizonShort     TimeHorizon = "short"
+	TimeHorizonMedium    TimeHorizon = "medium"
+	TimeHorizonLong      TimeHorizon = "long"
+)
+
+// Priority represents the business importance
+type Priority string
+
+const (
+	PriorityCritical Priority = "critical"
+	PriorityHigh     Priority = "high"
+	PriorityMedium   Priority = "medium"
+	PriorityLow      Priority = "low"
+)
+
+// Visibility represents the access level
+type Visibility string
+
+const (
+	VisibilityPublic     Visibility = "public"
+	VisibilityInternal   Visibility = "internal"
+	VisibilityRestricted Visibility = "restricted"
+)
+
+// ImplementationStatus represents the implementation progress
+type ImplementationStatus string
+
+const (
+	ImplementationStatusNotStarted ImplementationStatus = "not_started"
+	ImplementationStatusInProgress ImplementationStatus = "in_progress"
+	ImplementationStatusCompleted  ImplementationStatus = "completed"
+	ImplementationStatusOnHold     ImplementationStatus = "on_hold"
+)
+
+// Classification represents the information classification
+type Classification string
+
+const (
+	ClassificationPublic       Classification = "public"
+	ClassificationInternal     Classification = "internal"
+	ClassificationConfidential Classification = "confidential"
+)
+
+// DocumentType represents the BSpec document type codes
+type DocumentType string
+
+const (
+	{% for doc_type in document_types %}DocumentType{{ doc_type.code }} DocumentType = "{{ doc_type.code }}"
+	{% endfor %}
+)
+
+// ConformanceLevel represents the BSpec conformance levels
+type ConformanceLevel string
+
+const (
+	{% for level in conformance_levels %}ConformanceLevel{{ level.name.title() }} ConformanceLevel = "{{ level.name }}"
+	{% endfor %}
+)
+
+// IndustryProfile represents the BSpec industry profiles
+type IndustryProfile string
+
+const (
+	{% for profile in industry_profiles %}IndustryProfile{{ profile.name.title().replace('-', '') }} IndustryProfile = "{{ profile.name }}"
+	{% endfor %}
+)
+
+// ChangelogEntry represents a single entry in the document version history
+type ChangelogEntry struct {
+	Version         string `json:"version" yaml:"version"`                                 // Version number
+	Date            string `json:"date" yaml:"date"`                                       // Change date (YYYY-MM-DD)
+	Author          string `json:"author" yaml:"author"`                                   // Author name
+	Changes         string `json:"changes" yaml:"changes"`                                 // Description of changes
+	BreakingChanges bool   `json:"breaking_changes" yaml:"breaking_changes"`               // Whether changes are breaking
+}
+
+// BaseBSpecDocument defines the universal YAML frontmatter schema
+// All BSpec documents extend this base structure
+type BaseBSpecDocument struct {
+	// === CORE IDENTITY ===
+	ID      string         `json:"id" yaml:"id"`           // Globally unique document identifier
+	Title   string         `json:"title" yaml:"title"`     // Clear, descriptive title
+	Type    DocumentType   `json:"type" yaml:"type"`       // Document type code
+	Status  DocumentStatus `json:"status" yaml:"status"`   // Document lifecycle status
+	Version string         `json:"version" yaml:"version"` // Semantic versioning
+
+	// === OWNERSHIP & RESPONSIBILITY ===
+	Owner        string   `json:"owner" yaml:"owner"`                               // Who owns and maintains this document
+	Stakeholders []string `json:"stakeholders,omitempty" yaml:"stakeholders,flow"` // Who has interest in this document
+	Reviewers    []string `json:"reviewers,omitempty" yaml:"reviewers,flow"`       // Who reviewed/approved this version
+	Contributors []string `json:"contributors,omitempty" yaml:"contributors,flow"` // Who contributed to this document
+
+	// === TEMPORAL METADATA ===
+	Created     string       `json:"created" yaml:"created"`                     // When document was first created (YYYY-MM-DD)
+	Updated     string       `json:"updated" yaml:"updated"`                     // When document was last modified (YYYY-MM-DD)
+	Expires     *string      `json:"expires,omitempty" yaml:"expires,omitempty"` // When document expires (YYYY-MM-DD)
+	ReviewCycle *ReviewCycle `json:"review_cycle,omitempty" yaml:"review_cycle,omitempty"` // How often to review
+
+	// === RELATIONSHIP GRAPH ===
+	Parent        *string  `json:"parent,omitempty" yaml:"parent,omitempty"`               // Parent document (hierarchical)
+	DependsOn     []string `json:"depends_on,omitempty" yaml:"depends_on,flow"`           // Dependencies (this needs those)
+	Enables       []string `json:"enables,omitempty" yaml:"enables,flow"`                 // Enablements (this makes those possible)
+	ConflictsWith []string `json:"conflicts_with,omitempty" yaml:"conflicts_with,flow"`   // Mutual exclusions
+	Related       []string `json:"related,omitempty" yaml:"related,flow"`                 // Other relevant documents
+	Supersedes    *string  `json:"supersedes,omitempty" yaml:"supersedes,omitempty"`      // What this document replaces
+
+	// === BUSINESS CONTEXT ===
+	Domain     *BusinessDomain      `json:"domain,omitempty" yaml:"domain,omitempty"`         // Business domain classification
+	Scope      *OrganizationalScope `json:"scope,omitempty" yaml:"scope,omitempty"`           // Organizational scope
+	Horizon    *TimeHorizon         `json:"horizon,omitempty" yaml:"horizon,omitempty"`       // Time horizon
+	Priority   *Priority            `json:"priority,omitempty" yaml:"priority,omitempty"`     // Business importance
+	Visibility *Visibility          `json:"visibility,omitempty" yaml:"visibility,omitempty"` // Access level
+
+	// === VALIDATION & MEASUREMENT ===
+	Assumptions      []string `json:"assumptions,omitempty" yaml:"assumptions,flow"`           // Key assumptions
+	Constraints      []string `json:"constraints,omitempty" yaml:"constraints,flow"`           // Key constraints
+	SuccessCriteria  []string `json:"success_criteria,omitempty" yaml:"success_criteria,flow"` // Measurable success criteria
+	Risks            []string `json:"risks,omitempty" yaml:"risks,flow"`                       // Associated risk documents
+	Metrics          []string `json:"metrics,omitempty" yaml:"metrics,flow"`                   // How success is measured
+
+	// === IMPLEMENTATION ===
+	ImplementationStatus *ImplementationStatus `json:"implementation_status,omitempty" yaml:"implementation_status,omitempty"` // Implementation progress
+	ImplementationDate   *string               `json:"implementation_date,omitempty" yaml:"implementation_date,omitempty"`     // When implementation begins/began (YYYY-MM-DD)
+	CompletionDate       *string               `json:"completion_date,omitempty" yaml:"completion_date,omitempty"`             // When implementation completes (YYYY-MM-DD)
+	ResourcesRequired    []string              `json:"resources_required,omitempty" yaml:"resources_required,flow"`            // Resource requirements
+
+	// === METADATA & DISCOVERY ===
+	Tags           []string        `json:"tags,omitempty" yaml:"tags,flow"`                       // Searchable tags
+	Industry       []string        `json:"industry,omitempty" yaml:"industry,flow"`               // Industry classifications
+	Geography      []string        `json:"geography,omitempty" yaml:"geography,flow"`             // Geographic relevance
+	Language       *string         `json:"language,omitempty" yaml:"language,omitempty"`          // Primary language
+	Classification *Classification `json:"classification,omitempty" yaml:"classification,omitempty"` // Information classification
+
+	// === CHANGE TRACKING ===
+	Changelog []ChangelogEntry `json:"changelog,omitempty" yaml:"changelog,omitempty"` // Version history
+
+	// === DOCUMENT CONTENT ===
+	Content string `json:"content" yaml:"content"` // Markdown content of the document
+}
+
+// Validate validates the document and returns any validation errors
+func (d *BaseBSpecDocument) Validate() []string {
+	var errors []string
+
+	// Required field validation
+	if d.ID == "" {
+		errors = append(errors, "id is required")
+	}
+	if d.Title == "" {
+		errors = append(errors, "title is required")
+	}
+	if d.Owner == "" {
+		errors = append(errors, "owner is required")
+	}
+	if d.Created == "" {
+		errors = append(errors, "created date is required")
+	}
+	if d.Updated == "" {
+		errors = append(errors, "updated date is required")
+	}
+
+	// ID format validation
+	if d.ID != "" && !strings.HasPrefix(d.ID, string(d.Type)+"-") {
+		errors = append(errors, fmt.Sprintf("id must start with document type '%s-'", d.Type))
+	}
+
+	// Version format validation (semantic versioning)
+	if d.Version != "" {
+		versionRegex := regexp.MustCompile(`^\d+\.\d+\.\d+$`)
+		if !versionRegex.MatchString(d.Version) {
+			errors = append(errors, "version must follow semantic versioning (e.g., '1.0.0')")
+		}
+	}
+
+	// Date format validation (basic YYYY-MM-DD check)
+	dateFields := map[string]string{
+		"created":             d.Created,
+		"updated":             d.Updated,
+	}
+	if d.Expires != nil {
+		dateFields["expires"] = *d.Expires
+	}
+	if d.ImplementationDate != nil {
+		dateFields["implementation_date"] = *d.ImplementationDate
+	}
+	if d.CompletionDate != nil {
+		dateFields["completion_date"] = *d.CompletionDate
+	}
+
+	dateRegex := regexp.MustCompile(`^\d{4}-\d{2}-\d{2}$`)
+	for fieldName, fieldValue := range dateFields {
+		if fieldValue != "" && !dateRegex.MatchString(fieldValue) {
+			errors = append(errors, fmt.Sprintf("%s must be in YYYY-MM-DD format", fieldName))
+		}
+	}
+
+	return errors
+}
+
+// IsValid returns true if the document passes validation
+func (d *BaseBSpecDocument) IsValid() bool {
+	return len(d.Validate()) == 0
+}
+
+// ToJSON serializes the document to JSON
+func (d *BaseBSpecDocument) ToJSON() ([]byte, error) {
+	return json.Marshal(d)
+}
+
+// FromJSON deserializes the document from JSON
+func (d *BaseBSpecDocument) FromJSON(data []byte) error {
+	return json.Unmarshal(data, d)
+}
+
+// GetDomain returns the business domain, defaulting based on document type if not set
+func (d *BaseBSpecDocument) GetDomain() BusinessDomain {
+	if d.Domain != nil {
+		return *d.Domain
+	}
+
+	// Default domain mapping based on document type
+	switch d.Type {
+	{% for doc_type in document_types %}case DocumentType{{ doc_type.code }}:
+		return BusinessDomain{{ doc_type.domain.title().replace('-', '') }}
+	{% endfor %}default:
+		return BusinessDomainStrategic // Default fallback
+	}
+}
+
+// SetDefaults sets reasonable defaults for optional fields
+func (d *BaseBSpecDocument) SetDefaults() {
+	now := time.Now().Format("2006-01-02")
+
+	if d.Created == "" {
+		d.Created = now
+	}
+	if d.Updated == "" {
+		d.Updated = now
+	}
+	if d.Status == "" {
+		d.Status = DocumentStatusDraft
+	}
+	if d.Version == "" {
+		d.Version = "1.0.0"
+	}
+
+	// Initialize slices if nil
+	if d.Stakeholders == nil {
+		d.Stakeholders = []string{}
+	}
+	if d.Reviewers == nil {
+		d.Reviewers = []string{}
+	}
+	if d.Contributors == nil {
+		d.Contributors = []string{}
+	}
+	if d.DependsOn == nil {
+		d.DependsOn = []string{}
+	}
+	if d.Enables == nil {
+		d.Enables = []string{}
+	}
+	if d.ConflictsWith == nil {
+		d.ConflictsWith = []string{}
+	}
+	if d.Related == nil {
+		d.Related = []string{}
+	}
+	if d.Assumptions == nil {
+		d.Assumptions = []string{}
+	}
+	if d.Constraints == nil {
+		d.Constraints = []string{}
+	}
+	if d.SuccessCriteria == nil {
+		d.SuccessCriteria = []string{}
+	}
+	if d.Risks == nil {
+		d.Risks = []string{}
+	}
+	if d.Metrics == nil {
+		d.Metrics = []string{}
+	}
+	if d.ResourcesRequired == nil {
+		d.ResourcesRequired = []string{}
+	}
+	if d.Tags == nil {
+		d.Tags = []string{}
+	}
+	if d.Industry == nil {
+		d.Industry = []string{}
+	}
+	if d.Geography == nil {
+		d.Geography = []string{}
+	}
+	if d.Changelog == nil {
+		d.Changelog = []ChangelogEntry{}
+	}
+}
