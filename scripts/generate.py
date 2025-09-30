@@ -119,7 +119,7 @@ class SDKOrchestrator:
             # Run the generator
             result = subprocess.run([
                 sys.executable, str(generator_path),
-                '--spec-dir', str(self.spec_dir),
+                '--json-sdk-dir', str(self.sdk_dir / 'json'),
                 '--output-dir', str(self.sdk_dir / language)
             ], capture_output=True, text=True, cwd=Path.cwd())
 

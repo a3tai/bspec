@@ -1,5 +1,5 @@
 // Types for BSpec v1.0.0
-// Generated from BSpec JSON SDK at 2025-09-28T21:08:19.341307
+// Generated from BSpec JSON SDK at 2025-09-30T00:20:03.460731
 package bspec
 
 import "time"
