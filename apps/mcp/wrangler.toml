@@ -48,10 +48,10 @@ bucket_name = "bspec-assets"
 # id = "your-kv-namespace-id"
 # preview_id = "your-preview-kv-namespace-id"
 
-# Durable Objects (if needed for stateful operations in the future)
-# [[durable_objects.bindings]]
-# name = "BSPEC_STATE"
-# class_name = "BSpecState"
+# Durable Objects for BSpec MCP Agent
+[[durable_objects.bindings]]
+name = "BSpecMcpAgent"
+class_name = "BSpecMcpAgent"
 
 # Analytics Engine (for tracking usage)
 # [[analytics_engine_datasets]]
@@ -92,9 +92,17 @@ CSP_HEADER = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src '
 [observability]
 enabled = true
 
-# Migration settings
+# Migration settings  
 [[migrations]]
 tag = "v1"
 new_classes = []
+renamed_classes = []
+deleted_classes = []
+
+# Migration for Durable Objects with SQLite  
+[[migrations]]
+tag = "v2"
+# Mandatory for the Agent to store state (also adds the class)
+new_sqlite_classes = ["BSpecMcpAgent"]
 renamed_classes = []
 deleted_classes = []
