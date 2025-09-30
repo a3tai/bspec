@@ -304,9 +304,9 @@ business-spec.bspec (compressed archive like .tgz)
 `{TYPE}-{kebab-case-name}-v{version}.md`
 
 Examples:
-- `MSN-company-mission-v1.0.0.md`
-- `CAP-model-serving-multi-region-v1.0.0.md`
-- `CTX-orchestration-serving-v1.0.0.md`
+- `MSN-company-mission-v1-0-0.md`
+- `CAP-model-serving-multi-region-v1-0-0.md`
+- `CTX-orchestration-serving-v1-0-0.md`
 
 ### Code Files
 - **TypeScript**: PascalCase for classes, camelCase for functions

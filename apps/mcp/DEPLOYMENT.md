@@ -53,9 +53,9 @@ Add to your MCP client configuration:
 
 ### MCP Resources
 Access via standard MCP resource URIs:
-- `https://mcp.bspec.dev/spec/v1.0.0/overview`
-- `https://mcp.bspec.dev/spec/v1.0.0/domains/{domain-key}`
-- `https://mcp.bspec.dev/spec/v1.0.0/document-types/{TYPE-CODE}`
+- `https://mcp.bspec.dev/spec/v1-0-0/overview`
+- `https://mcp.bspec.dev/spec/v1-0-0/domains/{domain-key}`
+- `https://mcp.bspec.dev/spec/v1-0-0/document-types/{TYPE-CODE}`
 
 ## Development
 

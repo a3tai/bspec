@@ -42,12 +42,12 @@ export async function loadSpecificationFromR2(env: any): Promise<BSpecIndex> {
 
   try {
     // Load the standard TGZ file
-    const object = await env.ASSETS.get('bspec-v1.0.0.tgz');
+    const object = await env.ASSETS.get('bspec-v1-0-0.tgz');
     
     if (!object) {
       console.error('ERROR: BSpec specification file not found in R2 bucket');
-      console.log('Expected file: bspec-v1.0.0.tgz');
-      throw new Error('BSpec specification file not found in R2 bucket. Please ensure bspec-v1.0.0.tgz is uploaded to the ASSETS bucket.');
+      console.log('Expected file: bspec-v1-0-0.tgz');
+      throw new Error('BSpec specification file not found in R2 bucket. Please ensure bspec-v1-0-0.tgz is uploaded to the ASSETS bucket.');
     }
 
     console.log('Found TGZ file in R2, loading...');

@@ -177,7 +177,7 @@ def create_tgz():
     base_path = Path.cwd()  # Use current working directory
     spec_dir = base_path / "spec/v1"
     output_dir = base_path / "sdk/v1/json"
-    tgz_path = output_dir / "bspec-v1.0.0.tgz"
+    tgz_path = output_dir / "bspec-v1-0-0.tgz"
 
     output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -221,7 +221,7 @@ def create_tgz():
             # Verify archive was created
             if tgz_path.exists():
                 size = tgz_path.stat().st_size
-                print(f"\n✅ Successfully created bspec-v1.0.0.tgz ({size:,} bytes)")
+                print(f"\n✅ Successfully created {tgz_path.name} ({size:,} bytes)")
 
                 # Show archive contents summary
                 print("\n📊 Archive contents:")
