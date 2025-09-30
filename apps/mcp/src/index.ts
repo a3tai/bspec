@@ -5,7 +5,7 @@
  * Implements Streamable HTTP transport with full MCP 2025-03-26 specification compliance
  */
 
-import { initializeServer } from './server.js';
+import { initializeServer } from './server';
 
 // Cloudflare Workers types
 interface Env {

@@ -1,34 +1,42 @@
 <script lang="ts">
-	import { page } from '$app/stores';
+	import { page } from '$app/state';
 	import { bspecStore } from '$lib/bspec-store.svelte';
-	import { findDocument } from '$lib/bspec-parser.svelte';
+	import { findDocument } from '$lib/navigation';
 	import {
 		processMarkdownContent,
 		generateBreadcrumbs,
 		generatePageMetadata,
 		findRelatedDocuments
-	} from '$lib/content-processor.svelte';
+	} from '$lib/content-processor';
 
-	const domainSlug = $derived($page.params.domain);
-	const docTypeSlug = $derived($page.params.doctype);
+	const domainSlug = $derived(page.params.domain);
+	const docTypeSlug = $derived(page.params.doctype);
 
-	const document = $derived(bspecStore.specification && domainSlug && docTypeSlug
-		? findDocument(bspecStore.specification, domainSlug, docTypeSlug)
-		: null);
+	const document = $derived(
+		$bspecStore.specification && domainSlug && docTypeSlug
+			? findDocument($bspecStore.specification, domainSlug, docTypeSlug)
+			: null
+	);
 
-	const domain = $derived(bspecStore.specification?.domains.find(d => d.slug === domainSlug));
+	const domain = $derived($bspecStore.specification?.domains.find((d) => d.slug === domainSlug));
 
 	const processedContent = $derived(document ? processMarkdownContent(document.content) : null);
 
-	const breadcrumbs = $derived(bspecStore.specification && domainSlug && docTypeSlug
-		? generateBreadcrumbs(bspecStore.specification, domainSlug, docTypeSlug)
-		: []);
+	const breadcrumbs = $derived(
+		$bspecStore.specification && domainSlug && docTypeSlug
+			? generateBreadcrumbs($bspecStore.specification, domainSlug, docTypeSlug)
+			: []
+	);
 
-	const metadata = $derived(generatePageMetadata(document || undefined, domainSlug, document?.name));
+	const metadata = $derived(
+		generatePageMetadata(document || undefined, domainSlug, document?.name)
+	);
 
-	const relatedDocs = $derived(document && bspecStore.specification
-		? findRelatedDocuments(document, bspecStore.specification)
-		: null);
+	const relatedDocs = $derived(
+		document && $bspecStore.specification
+			? findRelatedDocuments(document, $bspecStore.specification)
+			: null
+	);
 </script>
 
 <svelte:head>
@@ -39,24 +47,26 @@
 
 <div class="min-h-screen bg-gray-50">
 	<div class="container mx-auto px-4 py-8">
-		{#if bspecStore.loading}
-			<div class="text-center py-16">
-				<div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+		{#if $bspecStore.loading}
+			<div class="py-16 text-center">
+				<div
+					class="inline-block h-8 w-8 animate-spin rounded-full border-b-2 border-blue-600"
+				></div>
 				<p class="mt-2 text-gray-600">Loading document...</p>
 			</div>
-		{:else if bspecStore.error}
-			<div class="bg-red-50 border border-red-200 rounded-lg p-4">
-				<p class="text-red-800">Error: {bspecStore.error}</p>
+		{:else if $bspecStore.error}
+			<div class="rounded-lg border border-red-200 bg-red-50 p-4">
+				<p class="text-red-800">Error: {$bspecStore.error}</p>
 			</div>
 		{:else if document && processedContent}
-			<div class="max-w-6xl mx-auto">
-				<div class="grid lg:grid-cols-4 gap-8">
+			<div class="mx-auto max-w-6xl">
+				<div class="grid gap-8 lg:grid-cols-4">
 					<!-- Main Content -->
 					<main class="lg:col-span-3">
 						<!-- Header -->
 						<header class="mb-8">
 							<!-- Breadcrumbs -->
-							<nav class="text-sm text-gray-500 mb-4">
+							<nav class="mb-4 text-sm text-gray-500">
 								{#each breadcrumbs as crumb, index}
 									{#if index === breadcrumbs.length - 1}
 										<span>{crumb.name}</span>
@@ -68,26 +78,29 @@
 							</nav>
 
 							<!-- Document Badge -->
-							<div class="flex items-center gap-4 mb-4">
-								<span class="bg-blue-100 text-blue-800 text-sm font-mono px-3 py-1 rounded-full">
+							<div class="mb-4 flex items-center gap-4">
+								<span class="rounded-full bg-blue-100 px-3 py-1 font-mono text-sm text-blue-800">
 									{document.type}
 								</span>
 								{#if document.frontmatter.status}
-									<span class="text-xs px-2 py-1 rounded-full {
-										document.frontmatter.status === 'Draft' ? 'bg-yellow-100 text-yellow-800' :
-										document.frontmatter.status === 'Review' ? 'bg-orange-100 text-orange-800' :
-										document.frontmatter.status === 'Accepted' ? 'bg-green-100 text-green-800' :
-										'bg-gray-100 text-gray-800'
-									}">
+									<span
+										class="rounded-full px-2 py-1 text-xs {document.frontmatter.status === 'Draft'
+											? 'bg-yellow-100 text-yellow-800'
+											: document.frontmatter.status === 'Review'
+												? 'bg-orange-100 text-orange-800'
+												: document.frontmatter.status === 'Accepted'
+													? 'bg-green-100 text-green-800'
+													: 'bg-gray-100 text-gray-800'}"
+									>
 										{document.frontmatter.status}
 									</span>
 								{/if}
 							</div>
 
-							<h1 class="text-4xl font-bold text-gray-900 mb-4">{document.name}</h1>
+							<h1 class="mb-4 text-4xl font-bold text-gray-900">{document.name}</h1>
 
 							<!-- Meta Info -->
-							<div class="flex flex-wrap items-center gap-4 text-sm text-gray-600 mb-6">
+							<div class="mb-6 flex flex-wrap items-center gap-4 text-sm text-gray-600">
 								<span>{processedContent.wordCount} words</span>
 								<span>•</span>
 								<span>{processedContent.readingTime} min read</span>
@@ -103,32 +116,32 @@
 
 							<!-- Description -->
 							{#if document.frontmatter.description}
-								<p class="text-lg text-gray-600 mb-6">
+								<p class="mb-6 text-lg text-gray-600">
 									{document.frontmatter.description}
 								</p>
 							{/if}
 						</header>
 
 						<!-- Content -->
-						<article class="bg-white rounded-lg shadow-sm border p-8 mb-8">
-							<div class="prose prose-lg max-w-none prose-blue prose-headings:scroll-mt-16">
+						<article class="mb-8 rounded-lg border bg-white p-8 shadow-sm">
+							<div class="prose prose-lg prose-blue prose-headings:scroll-mt-16 max-w-none">
 								{@html processedContent.content}
 							</div>
 						</article>
 
 						<!-- Related Documents -->
 						{#if relatedDocs && (relatedDocs.dependsOn.length || relatedDocs.enables.length || relatedDocs.related.length)}
-							<section class="bg-white rounded-lg shadow-sm border p-6 mb-8">
-								<h2 class="text-xl font-semibold mb-4">Related Documents</h2>
+							<section class="mb-8 rounded-lg border bg-white p-6 shadow-sm">
+								<h2 class="mb-4 text-xl font-semibold">Related Documents</h2>
 
 								{#if relatedDocs.dependsOn.length > 0}
 									<div class="mb-4">
-										<h3 class="text-lg font-medium text-gray-900 mb-2">Depends On</h3>
-										<div class="grid md:grid-cols-2 gap-2">
+										<h3 class="mb-2 text-lg font-medium text-gray-900">Depends On</h3>
+										<div class="grid gap-2 md:grid-cols-2">
 											{#each relatedDocs.dependsOn as dep}
 												<a
 													href="/domains/{dep.slug}/{dep.slug}"
-													class="text-blue-600 hover:text-blue-800 text-sm"
+													class="text-sm text-blue-600 hover:text-blue-800"
 												>
 													{dep.type}: {dep.name}
 												</a>
@@ -139,12 +152,12 @@
 
 								{#if relatedDocs.enables.length > 0}
 									<div class="mb-4">
-										<h3 class="text-lg font-medium text-gray-900 mb-2">Enables</h3>
-										<div class="grid md:grid-cols-2 gap-2">
+										<h3 class="mb-2 text-lg font-medium text-gray-900">Enables</h3>
+										<div class="grid gap-2 md:grid-cols-2">
 											{#each relatedDocs.enables as enables}
 												<a
 													href="/domains/{enables.slug}/{enables.slug}"
-													class="text-green-600 hover:text-green-800 text-sm"
+													class="text-sm text-green-600 hover:text-green-800"
 												>
 													{enables.type}: {enables.name}
 												</a>
@@ -155,12 +168,12 @@
 
 								{#if relatedDocs.related.length > 0}
 									<div>
-										<h3 class="text-lg font-medium text-gray-900 mb-2">Related</h3>
-										<div class="grid md:grid-cols-2 gap-2">
+										<h3 class="mb-2 text-lg font-medium text-gray-900">Related</h3>
+										<div class="grid gap-2 md:grid-cols-2">
 											{#each relatedDocs.related as related}
 												<a
 													href="/domains/{related.slug}/{related.slug}"
-													class="text-purple-600 hover:text-purple-800 text-sm"
+													class="text-sm text-purple-600 hover:text-purple-800"
 												>
 													{related.type}: {related.name}
 												</a>
@@ -175,20 +188,30 @@
 						<nav class="flex justify-between">
 							<a
 								href="/domains/{domainSlug}"
-								class="inline-flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 transition-colors"
+								class="inline-flex items-center px-4 py-2 text-gray-600 transition-colors hover:text-blue-600"
 							>
-								<svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+								<svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M15 19l-7-7 7-7"
+									/>
 								</svg>
 								Back to {domain?.name}
 							</a>
 							<a
 								href="/domains"
-								class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+								class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
 							>
 								All Domains
-								<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+								<svg class="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="2"
+										d="M9 5l7 7-7 7"
+									/>
 								</svg>
 							</a>
 						</nav>
@@ -198,13 +221,13 @@
 					<aside class="lg:col-span-1">
 						<!-- Table of Contents -->
 						{#if processedContent.headings.length > 0}
-							<div class="bg-white rounded-lg shadow-sm border p-6 mb-6 sticky top-8">
-								<h3 class="text-lg font-semibold mb-4">Table of Contents</h3>
+							<div class="sticky top-8 mb-6 rounded-lg border bg-white p-6 shadow-sm">
+								<h3 class="mb-4 text-lg font-semibold">Table of Contents</h3>
 								<nav class="space-y-1">
 									{#each processedContent.headings as heading}
 										<a
 											href="#{heading.id}"
-											class="block py-1 text-gray-600 hover:text-blue-600 transition-colors text-sm"
+											class="block py-1 text-sm text-gray-600 transition-colors hover:text-blue-600"
 											style="padding-left: {(heading.level - 1) * 12}px"
 										>
 											{heading.text}
@@ -212,7 +235,7 @@
 										{#each heading.children as child}
 											<a
 												href="#{child.id}"
-												class="block py-1 text-gray-500 hover:text-blue-600 transition-colors text-xs"
+												class="block py-1 text-xs text-gray-500 transition-colors hover:text-blue-600"
 												style="padding-left: {(child.level - 1) * 12}px"
 											>
 												{child.text}
@@ -224,8 +247,8 @@
 						{/if}
 
 						<!-- Document Info -->
-						<div class="bg-white rounded-lg shadow-sm border p-6">
-							<h3 class="text-lg font-semibold mb-4">Document Info</h3>
+						<div class="rounded-lg border bg-white p-6 shadow-sm">
+							<h3 class="mb-4 text-lg font-semibold">Document Info</h3>
 							<dl class="space-y-2 text-sm">
 								<div>
 									<dt class="font-medium text-gray-900">Type</dt>
@@ -260,23 +283,23 @@
 			</div>
 		{:else}
 			<!-- Document Not Found -->
-			<div class="text-center py-16">
-				<h1 class="text-2xl font-bold text-gray-900 mb-4">Document Not Found</h1>
-				<p class="text-gray-600 mb-6">
+			<div class="py-16 text-center">
+				<h1 class="mb-4 text-2xl font-bold text-gray-900">Document Not Found</h1>
+				<p class="mb-6 text-gray-600">
 					The document "{docTypeSlug}" could not be found in the "{domainSlug}" domain.
 				</p>
 				<div class="space-x-4">
 					{#if domainSlug}
 						<a
 							href="/domains/{domainSlug}"
-							class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+							class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-white transition-colors hover:bg-blue-700"
 						>
 							Back to {domain?.name || 'Domain'}
 						</a>
 					{/if}
 					<a
 						href="/domains"
-						class="inline-flex items-center px-4 py-2 text-gray-600 hover:text-blue-600 transition-colors"
+						class="inline-flex items-center px-4 py-2 text-gray-600 transition-colors hover:text-blue-600"
 					>
 						All Domains
 					</a>
