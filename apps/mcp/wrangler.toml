@@ -29,7 +29,7 @@ bucket_name = "bspec-assets"
 
 # Build configuration
 [build]
-command = "npm run build"
+command = "bun run build"
 
 # Variables (add any required environment variables here)
 [vars]
