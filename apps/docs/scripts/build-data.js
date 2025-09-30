@@ -5,6 +5,38 @@ import { marked } from 'marked';
 import { markedHighlight } from 'marked-highlight';
 import hljs from 'highlight.js';
 
+// Domain name mapping: folder name -> friendly display name
+const DOMAIN_NAMES = {
+	'strategic-foundation': 'Strategic Foundation',
+	'market-environment': 'Market & Environment',
+	'customer-value': 'Customer & Value',
+	'product-service': 'Product & Service',
+	'business-model': 'Business Model',
+	'operations-execution': 'Operations & Execution',
+	'technology-data': 'Technology & Data',
+	'financial-investment': 'Financial & Investment',
+	'risk-governance': 'Risk & Governance',
+	'growth-innovation': 'Growth & Innovation',
+	'learning-decisions': 'Learning & Decisions',
+	'brand-marketing': 'Brand & Marketing'
+};
+
+// Domain descriptions for richer context
+const DOMAIN_DESCRIPTIONS = {
+	'strategic-foundation': 'Core purpose, vision, values, and strategic direction',
+	'market-environment': 'Market analysis, competitive landscape, and external factors',
+	'customer-value': 'Customer understanding, journey mapping, and value delivery',
+	'product-service': 'Product specifications, features, and service delivery',
+	'business-model': 'Revenue streams, cost structure, and business mechanics',
+	'operations-execution': 'Processes, organization, roles, and operational capabilities',
+	'technology-data': 'Technical architecture, systems, data, and infrastructure',
+	'financial-investment': 'Financial planning, budgets, forecasts, and investment strategy',
+	'risk-governance': 'Risk management, compliance, governance, and controls',
+	'growth-innovation': 'Growth strategies, innovation, R&D, and expansion',
+	'learning-decisions': 'Decision frameworks, learning systems, and knowledge management',
+	'brand-marketing': 'Brand positioning, marketing strategy, and communications'
+};
+
 async function loadBSpecFromDirectory(specPath) {
 	const files = [];
 
@@ -75,30 +107,48 @@ async function loadBSpecFromDirectory(specPath) {
 				const pathParts = file.path.split('/');
 
 				if (pathParts.length === 2) { // domain/TYPE-spec.md
-					const domainName = pathParts[0];
+					const domainSlug = pathParts[0];
 					const fileName = pathParts[1];
 					const documentType = fileName.replace('-spec.md', '');
 
+					// Get friendly domain name from mapping
+					const domainName = DOMAIN_NAMES[domainSlug] || domainSlug;
+					const domainDescription = DOMAIN_DESCRIPTIONS[domainSlug] || '';
+
 					// Find or create domain
-					let domain = specification.domains.find(d => d.name === domainName);
+					let domain = specification.domains.find(d => d.slug === domainSlug);
 					if (!domain) {
 						domain = {
 							name: domainName,
-							slug: domainName,
+							slug: domainSlug,
+							description: domainDescription,
 							documents: []
 						};
 						specification.domains.push(domain);
+					}
+
+					// Extract document name from markdown content
+					// Look for "**Document Type Name:**" in the content
+					let documentName = documentType.toUpperCase(); // Default fallback
+					const docTypeNameMatch = markdownContent.match(/\*\*Document Type Name:\*\*\s*(.+)/);
+					if (docTypeNameMatch && docTypeNameMatch[1]) {
+						documentName = docTypeNameMatch[1].trim();
+					} else if (frontmatter['Document Type Name']) {
+						documentName = frontmatter['Document Type Name'];
+					} else if (frontmatter.title) {
+						documentName = frontmatter.title;
 					}
 
 					// Add document to domain
 					domain.documents.push({
 						path: file.path,
 						type: documentType,
-						name: frontmatter.title || `${documentType.toUpperCase()} - ${frontmatter['Document Type Name'] || documentType}`,
+						name: documentName,
 						slug: documentType.toLowerCase(),
 						content: markdownContent,
 						frontmatter,
 						domainName,
+						domainSlug,
 						metadata: frontmatter
 					});
 				}
@@ -191,9 +241,18 @@ async function buildStaticData() {
 			console.error('Test file write failed:', error);
 		}
 
-		// Generate data for homepage - use index.md if available, otherwise spec.md
+		// Generate lightweight data for homepage - only include metadata, not full specification
 		const homeData = {
-			specification,
+			domains: specification.domains.map(domain => ({
+				name: domain.name,
+				slug: domain.slug,
+				description: domain.description,
+				path: domain.path,
+				documentCount: domain.documents.length,
+				documentTypes: domain.documents.map(doc => ({ type: doc.type, name: doc.name, slug: doc.slug }))
+			})),
+			version: specification.version,
+			totalFiles: specification.allFiles.length,
 			content: specification.mainFiles.index
 				? await processMarkdownContent(specification.mainFiles.index.content)
 				: specification.mainFiles.spec
@@ -203,39 +262,43 @@ async function buildStaticData() {
 			description: 'Universal Business Specification Standard - A structured, machine-readable knowledge graph for describing any business'
 		};
 
-		console.log('Writing home.json...');
-		const homeFilePath = resolve(dataDir, 'home.json');
-		console.log('Home file path:', homeFilePath);
-		console.log('Home data size:', JSON.stringify(homeData, null, 2).length);
-		try {
-			const jsonData = JSON.stringify(homeData, null, 2);
-			writeFileSync(homeFilePath, jsonData);
-			// Force sync
-			console.log('Home.json written successfully');
-
-			// Verify file exists
-			const fileExists = readFileSync(homeFilePath, 'utf8');
-			console.log('File verification - exists and size:', fileExists.length);
-		} catch (error) {
-			console.error('Error writing home.json:', error);
-		}
-
-		// Generate data for spec page
+		// Generate lightweight data for spec page
 		const specData = {
-			specification,
 			content: specification.mainFiles.spec ? await processMarkdownContent(specification.mainFiles.spec.content) : '',
 			title: 'BSpec Specification',
-			description: 'Complete Business Specification Standard v1.0'
+			description: 'Complete Business Specification Standard v1.0',
+			version: specification.version
 		};
+
+		// Write home.json
+		console.log('Writing home.json...');
+		console.log('Home file path:', resolve(dataDir, 'home.json'));
+		console.log('Home data size:', JSON.stringify(homeData).length);
+		writeFileSync(resolve(dataDir, 'home.json'), JSON.stringify(homeData, null, 2));
+		console.log('Home.json written successfully');
+		console.log('File verification - exists and size:', JSON.stringify(homeData).length);
 
 		console.log('Writing spec.json...');
 		writeFileSync(resolve(dataDir, 'spec.json'), JSON.stringify(specData, null, 2));
 		console.log('Spec.json written');
 
-		// Generate data for domains page
+		// Generate lightweight data for domains page
 		const domainsData = {
-			specification,
-			domains: specification.domains,
+			domains: specification.domains.map(domain => ({
+				name: domain.name,
+				slug: domain.slug,
+				description: domain.description,
+				path: domain.path,
+				documentCount: domain.documents.length,
+				documents: domain.documents.map(doc => ({
+					type: doc.type,
+					name: doc.name,
+					slug: doc.slug,
+					path: doc.path,
+					// Only include first 500 chars of content for preview
+					preview: doc.content.substring(0, 500) + (doc.content.length > 500 ? '...' : '')
+				}))
+			})),
 			title: 'Business Domains',
 			description: 'Explore the 11 core business domains in the BSpec specification'
 		};
@@ -244,9 +307,8 @@ async function buildStaticData() {
 		writeFileSync(resolve(dataDir, 'domains.json'), JSON.stringify(domainsData, null, 2));
 		console.log('Domains.json written');
 
-		// Generate data for format page
+		// Generate lightweight data for format page
 		const formatData = {
-			specification,
 			content: specification.mainFiles.format ? await processMarkdownContent(specification.mainFiles.format.content) : '',
 			title: 'BSpec Format Guide',
 			description: 'Learn the BSpec document format and structure'
@@ -256,9 +318,14 @@ async function buildStaticData() {
 		writeFileSync(resolve(dataDir, 'format.json'), JSON.stringify(formatData, null, 2));
 		console.log('Format.json written');
 
-		// Generate data for index page (separate from homepage)
+		// Generate lightweight data for index page (separate from homepage)
 		const indexData = {
-			specification,
+			domains: specification.domains.map(domain => ({
+				name: domain.name,
+				slug: domain.slug,
+				description: domain.description,
+				documentTypes: domain.documents.map(doc => ({ type: doc.type, name: doc.name, slug: doc.slug }))
+			})),
 			content: specification.mainFiles.index ? await processMarkdownContent(specification.mainFiles.index.content) : '',
 			title: 'BSpec 1.0 Documentation Index',
 			description: 'Complete navigation guide to all BSpec document types and domains'

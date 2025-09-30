@@ -1,6 +1,142 @@
-@import './lib/fonts.css';
+/* Google Fonts - must come first before any other rules */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+/* BSpec Color System - Consistent Dark/Light Mode Theme */
+:root {
+  /* Primary Brand - Orange */
+  --color-primary-50: 255 247 237;
+  --color-primary-100: 255 237 213;
+  --color-primary-200: 254 215 170;
+  --color-primary-300: 253 186 116;
+  --color-primary-400: 251 146 60;
+  --color-primary-500: 249 115 22;    /* Main orange */
+  --color-primary-600: 234 88 12;
+  --color-primary-700: 194 65 12;
+  --color-primary-800: 154 52 18;
+  --color-primary-900: 124 45 18;
+  --color-primary-950: 67 20 7;
+
+  /* Neutral Scale - Zinc */
+  --color-neutral-50: 250 250 250;
+  --color-neutral-100: 244 244 245;
+  --color-neutral-200: 228 228 231;
+  --color-neutral-300: 212 212 216;
+  --color-neutral-400: 161 161 170;
+  --color-neutral-500: 113 113 122;
+  --color-neutral-600: 82 82 91;
+  --color-neutral-700: 63 63 70;
+  --color-neutral-800: 39 39 42;
+  --color-neutral-900: 24 24 27;
+  --color-neutral-950: 9 9 11;
+
+  /* Semantic Colors - Light Mode */
+  --color-success: 34 197 94;
+  --color-warning: 234 179 8;
+  --color-error: 239 68 68;
+  --color-info: 59 130 246;
+
+  /* Surface Colors - Light Mode */
+  --color-bg-primary: 255 255 255;
+  --color-bg-secondary: var(--color-neutral-50);
+  --color-bg-tertiary: var(--color-neutral-100);
+  --color-bg-hover: var(--color-neutral-100);
+  --color-bg-active: var(--color-neutral-200);
+
+  --color-border-light: var(--color-neutral-200);
+  --color-border-medium: var(--color-neutral-300);
+  --color-border-dark: var(--color-neutral-400);
+
+  /* Text Colors - Light Mode */
+  --color-text-primary: var(--color-neutral-900);
+  --color-text-secondary: var(--color-neutral-700);
+  --color-text-tertiary: var(--color-neutral-600);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-400);
+
+  /* Link Colors - Light Mode */
+  --color-link: var(--color-primary-600);
+  --color-link-hover: var(--color-primary-700);
+  --color-link-visited: var(--color-primary-800);
+
+  /* Code Colors - Light Mode */
+  --color-code-bg: var(--color-neutral-900);
+  --color-code-text: var(--color-primary-600);
+  --color-code-inline-bg: var(--color-neutral-100);
+}
+
+.dark {
+  /* Surface Colors - Dark Mode */
+  --color-bg-primary: var(--color-neutral-950);
+  --color-bg-secondary: var(--color-neutral-900);
+  --color-bg-tertiary: var(--color-neutral-800);
+  --color-bg-hover: var(--color-neutral-800);
+  --color-bg-active: var(--color-neutral-700);
+
+  --color-border-light: var(--color-neutral-800);
+  --color-border-medium: var(--color-neutral-700);
+  --color-border-dark: var(--color-neutral-600);
+
+  /* Text Colors - Dark Mode */
+  --color-text-primary: var(--color-neutral-100);
+  --color-text-secondary: var(--color-neutral-300);
+  --color-text-tertiary: var(--color-neutral-400);
+  --color-text-muted: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-600);
+
+  /* Link Colors - Dark Mode */
+  --color-link: var(--color-primary-400);
+  --color-link-hover: var(--color-primary-300);
+  --color-link-visited: var(--color-primary-500);
+
+  /* Code Colors - Dark Mode */
+  --color-code-bg: var(--color-neutral-800);
+  --color-code-text: var(--color-primary-400);
+  --color-code-inline-bg: var(--color-neutral-800);
+}
+
+/* Local Font Files */
+@font-face {
+  font-family: 'Leksa Sans';
+  src: url('/fonts/LeksaSans-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Leksa Sans Demi';
+  src: url('/fonts/LeksaSans-DemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Leksa Sans';
+  src: url('/fonts/LeksaSans-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('/fonts/RobotoMono-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Mono';
+  src: url('/fonts/RobotoMono-Italic-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 700;
+  font-style: italic;
+  font-display: swap;
+}
 
 /* Base Typography */
 html {
@@ -15,43 +151,24 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Leksa Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Prose customizations for Orange/Zinc theme */
+/* Prose customizations using BSpec Color System */
 .prose {
-  --tw-prose-body: rgb(63 63 70);
-  --tw-prose-headings: rgb(24 24 27);
-  --tw-prose-lead: rgb(82 82 91);
-  --tw-prose-links: rgb(234 88 12);
-  --tw-prose-bold: rgb(24 24 27);
-  --tw-prose-counters: rgb(113 113 122);
-  --tw-prose-bullets: rgb(212 212 216);
-  --tw-prose-hr: rgb(228 228 231);
-  --tw-prose-quotes: rgb(24 24 27);
-  --tw-prose-quote-borders: rgb(228 228 231);
-  --tw-prose-captions: rgb(113 113 122);
-  --tw-prose-code: rgb(24 24 27);
-  --tw-prose-pre-code: rgb(228 228 231);
-  --tw-prose-pre-bg: rgb(39 39 42);
-  --tw-prose-th-borders: rgb(212 212 216);
-  --tw-prose-td-borders: rgb(228 228 231);
-}
-
-.dark .prose {
-  --tw-prose-body: rgb(212 212 216);
-  --tw-prose-headings: rgb(244 244 245);
-  --tw-prose-lead: rgb(161 161 170);
-  --tw-prose-links: rgb(251 146 60);
-  --tw-prose-bold: rgb(244 244 245);
-  --tw-prose-counters: rgb(161 161 170);
-  --tw-prose-bullets: rgb(82 82 91);
-  --tw-prose-hr: rgb(63 63 70);
-  --tw-prose-quotes: rgb(244 244 245);
-  --tw-prose-quote-borders: rgb(63 63 70);
-  --tw-prose-captions: rgb(161 161 170);
-  --tw-prose-code: rgb(244 244 245);
-  --tw-prose-pre-code: rgb(228 228 231);
-  --tw-prose-pre-bg: rgb(39 39 42);
-  --tw-prose-th-borders: rgb(82 82 91);
-  --tw-prose-td-borders: rgb(63 63 70);
+  --tw-prose-body: rgb(var(--color-text-secondary));
+  --tw-prose-headings: rgb(var(--color-text-primary));
+  --tw-prose-lead: rgb(var(--color-text-tertiary));
+  --tw-prose-links: rgb(var(--color-link));
+  --tw-prose-bold: rgb(var(--color-text-primary));
+  --tw-prose-counters: rgb(var(--color-text-muted));
+  --tw-prose-bullets: rgb(var(--color-border-medium));
+  --tw-prose-hr: rgb(var(--color-border-light));
+  --tw-prose-quotes: rgb(var(--color-text-primary));
+  --tw-prose-quote-borders: rgb(var(--color-border-light));
+  --tw-prose-captions: rgb(var(--color-text-muted));
+  --tw-prose-code: rgb(var(--color-code-text));
+  --tw-prose-pre-code: rgb(var(--color-neutral-200));
+  --tw-prose-pre-bg: rgb(var(--color-code-bg));
+  --tw-prose-th-borders: rgb(var(--color-border-medium));
+  --tw-prose-td-borders: rgb(var(--color-border-light));
 }
 
 /* Make prose headings use header fonts */
@@ -64,22 +181,14 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Leksa Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Code blocks with better styling */
+/* Code blocks with consistent styling */
 .prose pre {
-  background-color: rgb(24 24 27);
-}
-
-.dark .prose pre {
-  background-color: rgb(39 39 42);
+  background-color: rgb(var(--color-code-bg));
 }
 
 .prose code {
-  color: rgb(234 88 12);
+  color: rgb(var(--color-code-text));
   font-family: 'Roboto Mono', 'SF Mono', Monaco, 'Cascadia Code', Consolas, 'Courier New', monospace;
-}
-
-.dark .prose code {
-  color: rgb(251 146 60);
 }
 
 .prose code::before,
@@ -89,76 +198,270 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Links with orange theme */
 .prose a {
-  color: rgb(234 88 12);
+  color: rgb(var(--color-link));
 }
 
 .prose a:hover {
-  color: rgb(194 65 12);
-}
-
-.dark .prose a {
-  color: rgb(251 146 60);
-}
-
-.dark .prose a:hover {
-  color: rgb(254 215 170);
+  color: rgb(var(--color-link-hover));
 }
 
 /* Blockquotes */
 .prose blockquote {
-  border-left-color: rgb(234 88 12);
-}
-
-.dark .prose blockquote {
-  border-left-color: rgb(251 146 60);
+  border-left-color: rgb(var(--color-primary-500));
 }
 
 /* Lists */
-.prose ul > li::marker {
-  color: rgb(234 88 12);
-}
-
-.dark .prose ul > li::marker {
-  color: rgb(251 146 60);
-}
-
+.prose ul > li::marker,
 .prose ol > li::marker {
-  color: rgb(234 88 12);
-}
-
-.dark .prose ol > li::marker {
-  color: rgb(251 146 60);
+  color: rgb(var(--color-primary-500));
 }
 
 /* Tables */
 .prose table {
-  border-color: rgb(228 228 231);
-}
-
-.dark .prose table {
-  border-color: rgb(63 63 70);
+  border-color: rgb(var(--color-border-light));
 }
 
 .prose thead {
-  border-bottom-color: rgb(228 228 231);
-}
-
-.dark .prose thead {
-  border-bottom-color: rgb(63 63 70);
+  border-bottom-color: rgb(var(--color-border-medium));
 }
 
 .prose thead th {
-  color: rgb(24 24 27);
-}
-
-.dark .prose thead th {
-  color: rgb(244 244 245);
+  color: rgb(var(--color-text-primary));
 }
 
 .prose tbody tr {
-  border-bottom-color: rgb(228 228 231);
+  border-bottom-color: rgb(var(--color-border-light));
 }
 
-.dark .prose tbody tr {
-  border-bottom-color: rgb(63 63 70);
+/* Glass Morphism Utilities */
+/* Translucent surfaces with backdrop blur - inspired by modern iOS design */
+.glass {
+  background: rgb(var(--color-bg-primary) / 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgb(var(--color-border-light) / 0.3);
+}
+
+.glass-light {
+  background: rgb(var(--color-bg-primary) / 0.5);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid rgb(var(--color-border-light) / 0.2);
+}
+
+.glass-medium {
+  background: rgb(var(--color-bg-primary) / 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgb(var(--color-border-light) / 0.3);
+}
+
+.glass-heavy {
+  background: rgb(var(--color-bg-primary) / 0.85);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border: 1px solid rgb(var(--color-border-light) / 0.4);
+}
+
+/* Dark mode glass variants */
+.dark .glass {
+  background: rgb(var(--color-bg-primary) / 0.6);
+  border: 1px solid rgb(var(--color-border-light) / 0.2);
+}
+
+.dark .glass-light {
+  background: rgb(var(--color-bg-primary) / 0.4);
+  border: 1px solid rgb(var(--color-border-light) / 0.15);
+}
+
+.dark .glass-medium {
+  background: rgb(var(--color-bg-primary) / 0.6);
+  border: 1px solid rgb(var(--color-border-light) / 0.2);
+}
+
+.dark .glass-heavy {
+  background: rgb(var(--color-bg-primary) / 0.75);
+  border: 1px solid rgb(var(--color-border-light) / 0.25);
+}
+
+/* Elevation System - Layered depth with shadows */
+.elevation-0 {
+  box-shadow: none;
+}
+
+.elevation-1 {
+  box-shadow:
+    0 1px 2px 0 rgb(0 0 0 / 0.03),
+    0 1px 3px 0 rgb(0 0 0 / 0.04);
+}
+
+.elevation-2 {
+  box-shadow:
+    0 2px 4px -1px rgb(0 0 0 / 0.05),
+    0 4px 6px -1px rgb(0 0 0 / 0.06);
+}
+
+.elevation-3 {
+  box-shadow:
+    0 4px 6px -2px rgb(0 0 0 / 0.07),
+    0 10px 15px -3px rgb(0 0 0 / 0.08);
+}
+
+.elevation-4 {
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.09),
+    0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+/* Dark mode elevation adjustments - more pronounced shadows */
+.dark .elevation-1 {
+  box-shadow:
+    0 1px 2px 0 rgb(0 0 0 / 0.15),
+    0 1px 3px 0 rgb(0 0 0 / 0.2);
+}
+
+.dark .elevation-2 {
+  box-shadow:
+    0 2px 4px -1px rgb(0 0 0 / 0.25),
+    0 4px 6px -1px rgb(0 0 0 / 0.3);
+}
+
+.dark .elevation-3 {
+  box-shadow:
+    0 4px 6px -2px rgb(0 0 0 / 0.35),
+    0 10px 15px -3px rgb(0 0 0 / 0.4);
+}
+
+.dark .elevation-4 {
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.45),
+    0 20px 25px -5px rgb(0 0 0 / 0.5);
+}
+
+/* Reflective highlight effect for glass surfaces */
+.glass-highlight {
+  position: relative;
+}
+
+.glass-highlight::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.1),
+    rgb(255 255 255 / 0)
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.dark .glass-highlight::before {
+  background: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0.05),
+    rgb(255 255 255 / 0)
+  );
+}
+
+/* Smooth Animation Keyframes */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Animation utility classes */
+.animate-slide-up {
+  animation: slide-up 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-slide-down {
+  animation: slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Staggered animation delays for lists */
+.animate-stagger-1 { animation-delay: 0.05s; }
+.animate-stagger-2 { animation-delay: 0.1s; }
+.animate-stagger-3 { animation-delay: 0.15s; }
+.animate-stagger-4 { animation-delay: 0.2s; }
+.animate-stagger-5 { animation-delay: 0.25s; }
+
+/* Smooth transitions for interactive elements */
+.transition-glass {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hover state enhancements */
+.glass-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-hover:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 20px 25px -5px rgb(0 0 0 / 0.15);
+}
+
+.dark .glass-hover:hover {
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.5),
+    0 20px 25px -5px rgb(0 0 0 / 0.6);
 }

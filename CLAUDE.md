@@ -394,4 +394,4 @@ const recommendations = await mcp.call('generate_recommendations', {
 - **Validate all BSpec documents** against schemas before committing
 - **Test SDK functionality** thoroughly before releasing
 - **Keep ecosystem coherent** - all tools should work together seamlessly
-- We use bun for node things in this repo.
+- IMPORANT: Always use bun instead of node or npm

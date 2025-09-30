@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import type { BSpecSpecification } from '$lib/bspec-parser.svelte.js';
+	import type { BSpecSpecification } from '$lib/bspec-types';
 
 	let indexData: {
 		specification: BSpecSpecification;
@@ -34,20 +34,20 @@
 <div class="container mx-auto px-4 py-8">
 	{#if loading}
 		<div class="text-center">
-			<div class="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
-			<p class="mt-4 text-gray-600 dark:text-gray-400">Loading BSpec documentation index...</p>
+			<div class="animate-spin rounded-full h-32 w-32 border-b-2 border-[rgb(var(--color-primary-600))] mx-auto"></div>
+			<p class="mt-4 text-[rgb(var(--color-text-secondary))]">Loading BSpec documentation index...</p>
 		</div>
 	{:else if error}
-		<div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6">
-			<h2 class="text-xl font-semibold text-red-800 dark:text-red-200 mb-2">Error Loading Index</h2>
-			<p class="text-red-600 dark:text-red-400">{error}</p>
+		<div class="bg-[rgb(var(--color-error)/.1)] border border-[rgb(var(--color-error)/.3)] rounded-lg p-6">
+			<h2 class="text-xl font-semibold text-[rgb(var(--color-error))] mb-2">Error Loading Index</h2>
+			<p class="text-[rgb(var(--color-error))]">{error}</p>
 		</div>
 	{:else if indexData}
-		<div class="prose prose-lg dark:prose-invert max-w-none">
+		<div class="prose prose-lg max-w-none">
 			{@html indexData.content}
 		</div>
 
-		{#if indexData.specification?.domains}
+		<!-- {#if indexData.specification?.domains}
 			<div class="mt-12 border-t pt-8">
 				<h2 class="text-2xl font-bold mb-6">Domain Summary</h2>
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -69,7 +69,7 @@
 					{/each}
 				</div>
 			</div>
-		{/if}
+		{/if} -->
 	{/if}
 </div>
 
