@@ -1,33 +1,20 @@
 <script lang="ts">
 	import '../app.css';
 	import { onMount } from 'svelte';
-	import { page } from '$app/stores';
-	import { initializeTheme } from '$lib/theme-store.svelte.js';
+	import { page } from '$app/state';
+	import { initializeTheme } from '$lib/theme-store.svelte';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
-	import Footer from '$lib/components/Footer.svelte';
-	import Navigation from '$lib/components/Navigation.svelte';
-	import type { BSpecSpecification } from '$lib/bspec-parser.svelte.js';
+	import Sidebar from '$lib/components/Sidebar.svelte';
+	import type { LayoutData } from './$types';
 
-	let { children } = $props();
+	let { children, data }: { children: any; data: LayoutData } = $props();
 
-	const currentPath = $derived($page.url.pathname);
+	const currentPath = $derived(page.url.pathname);
 	let mobileMenuOpen = $state(false);
 	let sidebarOpen = $state(false);
-	let specification: BSpecSpecification | null = $state(null);
 
-	onMount(async () => {
+	onMount(() => {
 		initializeTheme();
-
-		// Load specification data for navigation (dev mode uses JSON, production uses TGZ)
-		try {
-			const response = await fetch('/src/lib/data/home.json');
-			if (response.ok) {
-				const data = await response.json();
-				specification = data.specification;
-			}
-		} catch (error) {
-			console.warn('Failed to load specification for navigation:', error);
-		}
 	});
 
 	function isActiveRoute(path: string): boolean {
@@ -52,9 +39,9 @@
 	<meta name="msapplication-TileColor" content="#ea580c" />
 </svelte:head>
 
-<div class="h-screen bg-white dark:bg-zinc-900 transition-colors flex flex-col">
+<div class="h-screen bg-[rgb(var(--color-bg-primary))] transition-colors flex flex-col">
 	<!-- Header -->
-	<header class="border-b border-zinc-200 dark:border-zinc-800 z-50 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-lg flex-shrink-0">
+	<header class="border-b border-[rgb(var(--color-border-light))] z-50 bg-[rgb(var(--color-bg-primary)/.8)] backdrop-blur-lg flex-shrink-0">
 		<div class="px-6">
 			<div class="flex items-center justify-between h-16">
 				<!-- Logo -->
@@ -64,7 +51,7 @@
 							<img src="/bspec-icon.png" alt="BSpec" class="w-full h-full object-cover drop-shadow-sm" />
 						</div>
 						<div class="flex items-center space-x-2">
-							<span class="text-xl font-headers font-bold text-zinc-900 dark:text-zinc-100">BSpec</span>
+							<span class="text-xl font-headers font-bold text-[rgb(var(--color-text-primary))]">BSpec</span>
 						</div>
 					</a>
 				</div>
@@ -73,7 +60,7 @@
 				<div class="flex items-center space-x-4">
 					<!-- Sidebar toggle (desktop) -->
 					<button
-						class="hidden lg:flex p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+						class="hidden lg:flex p-2 rounded-md text-[rgb(var(--color-text-tertiary))] hover:text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-bg-hover))] transition-colors"
 						onclick={() => sidebarOpen = !sidebarOpen}
 						aria-label="Toggle sidebar"
 					>
@@ -87,7 +74,7 @@
 
 					<!-- Mobile menu button -->
 					<button
-						class="lg:hidden p-2 rounded-md text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+						class="lg:hidden p-2 rounded-md text-[rgb(var(--color-text-tertiary))] hover:text-[rgb(var(--color-text-primary))] hover:bg-[rgb(var(--color-bg-hover))] transition-colors"
 						onclick={() => mobileMenuOpen = !mobileMenuOpen}
 						aria-label="Toggle mobile menu"
 					>
@@ -102,38 +89,29 @@
 
 	<!-- Main Content with Sidebar -->
 	<div class="flex flex-1 overflow-hidden">
-		<!-- Sidebar -->
-		<aside class="fixed inset-y-0 left-0 z-40 w-64 transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0
-			{sidebarOpen || mobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}">
-			{#if specification}
-				<Navigation {specification} />
-			{:else}
-				<div class="h-full bg-zinc-50 dark:bg-zinc-900 border-r border-zinc-200 dark:border-zinc-800 animate-pulse">
-					<div class="p-4 space-y-4">
-						<div class="h-4 bg-zinc-300 dark:bg-zinc-700 rounded w-3/4"></div>
-						<div class="space-y-2">
-							<div class="h-3 bg-zinc-200 dark:bg-zinc-800 rounded w-full"></div>
-							<div class="h-3 bg-zinc-200 dark:bg-zinc-800 rounded w-5/6"></div>
-							<div class="h-3 bg-zinc-200 dark:bg-zinc-800 rounded w-4/5"></div>
-						</div>
-					</div>
-				</div>
-			{/if}
-		</aside>
+		<!-- Sidebar - Always visible on desktop, toggleable on mobile -->
+		{#if data.specification}
+			<aside class="hidden lg:block lg:w-80 lg:flex-shrink-0 lg:border-r lg:border-[rgb(var(--color-border-light))] lg:overflow-y-auto">
+				<Sidebar specification={data.specification} />
+			</aside>
 
-		<!-- Mobile sidebar overlay -->
-		{#if sidebarOpen || mobileMenuOpen}
+			<!-- Mobile sidebar overlay -->
+			<aside class="fixed inset-y-0 left-0 z-40 w-80 transform transition-transform duration-300 ease-in-out lg:hidden {mobileMenuOpen ? 'translate-x-0' : '-translate-x-full'} mt-16">
+				<Sidebar specification={data.specification} />
+			</aside>
+		{/if}
+
+		<!-- Mobile overlay backdrop -->
+		{#if mobileMenuOpen}
 			<div
-				class="fixed inset-0 z-30 bg-zinc-600 bg-opacity-50 lg:hidden"
+				class="fixed inset-0 z-30 bg-[rgb(var(--color-neutral-700)/.5)] lg:hidden mt-16"
 				role="button"
 				tabindex="0"
 				onclick={() => {
-					sidebarOpen = false;
 					mobileMenuOpen = false;
 				}}
 				onkeydown={(e) => {
 					if (e.key === 'Enter' || e.key === ' ') {
-						sidebarOpen = false;
 						mobileMenuOpen = false;
 					}
 				}}
@@ -142,12 +120,8 @@
 		{/if}
 
 		<!-- Main content area -->
-		<main class="flex-1 lg:ml-0 overflow-y-auto">
-			<div class="relative min-h-full">
-				{@render children?.()}
-				<!-- Footer Component -->
-				<Footer />
-			</div>
+		<main class="flex-1 overflow-y-auto">
+			{@render children()}
 		</main>
 	</div>
 </div>
