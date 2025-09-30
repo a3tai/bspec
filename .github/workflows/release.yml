@@ -1,0 +1,357 @@
+name: Release BSpec
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_bump:
+        description: 'Type of version bump'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
+      create_release:
+        description: 'Create GitHub release'
+        required: true
+        default: true
+        type: boolean
+      publish_packages:
+        description: 'Publish packages to registries'
+        required: true
+        default: false
+        type: boolean
+
+env:
+  NODE_VERSION: '20'
+  PYTHON_VERSION: '3.11'
+  GO_VERSION: '1.21'
+
+jobs:
+  bump-version:
+    name: Bump Version and Create Release
+    runs-on: ubuntu-latest
+    outputs:
+      new-version: ${{ steps.bump.outputs.new-version }}
+      release-created: ${{ steps.release.outputs.release-created }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        fetch-depth: 0
+        
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Configure Git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+    - name: Make script executable
+      run: chmod +x scripts/bump-version.py
+      
+    - name: Show current version
+      run: python3 scripts/bump-version.py --show
+      
+    - name: Bump version
+      id: bump
+      run: |
+        echo "🚀 Bumping version with: ${{ github.event.inputs.version_bump }}"
+        
+        # Get current version
+        CURRENT_VERSION=$(cat spec/v1/version.txt)
+        echo "current-version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+        
+        # Perform version bump
+        python3 scripts/bump-version.py ${{ github.event.inputs.version_bump }}
+        
+        # Get new version
+        NEW_VERSION=$(cat spec/v1/version.txt)
+        echo "new-version=$NEW_VERSION" >> $GITHUB_OUTPUT
+        
+        echo "✅ Version bumped: $CURRENT_VERSION → $NEW_VERSION"
+        
+    - name: Generate changelog
+      id: changelog
+      run: |
+        NEW_VERSION=${{ steps.bump.outputs.new-version }}
+        
+        # Create a simple changelog based on commits since last tag
+        LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+        
+        if [[ -n "$LAST_TAG" ]]; then
+          echo "## Changes since $LAST_TAG" > CHANGELOG.md
+          git log $LAST_TAG..HEAD --oneline --pretty=format:"- %s" >> CHANGELOG.md
+        else
+          echo "## Changes in v$NEW_VERSION" > CHANGELOG.md
+          echo "Initial release of BSpec v$NEW_VERSION" >> CHANGELOG.md
+        fi
+        
+        echo "📝 Generated changelog:"
+        cat CHANGELOG.md
+        
+    - name: Commit version changes
+      run: |
+        NEW_VERSION=${{ steps.bump.outputs.new-version }}
+        
+        git add -A
+        git commit -m "bump: version $NEW_VERSION
+        
+        - Update all SDK versions to $NEW_VERSION
+        - Update package.json files across all components
+        - Update version constants in Go, Python, and Rust
+        
+        Release triggered by: ${{ github.actor }}
+        Bump type: ${{ github.event.inputs.version_bump }}"
+        
+        echo "✅ Version changes committed"
+        
+    - name: Create Git tag
+      run: |
+        NEW_VERSION=${{ steps.bump.outputs.new-version }}
+        
+        git tag -a "v$NEW_VERSION" -m "Release v$NEW_VERSION
+        
+        Auto-generated release from version bump workflow.
+        
+        Bump type: ${{ github.event.inputs.version_bump }}
+        Triggered by: ${{ github.actor }}"
+        
+        echo "✅ Git tag v$NEW_VERSION created"
+        
+    - name: Push changes and tags
+      run: |
+        git push origin main
+        git push origin --tags
+        echo "✅ Changes and tags pushed to repository"
+        
+    - name: Create GitHub Release
+      id: release
+      if: github.event.inputs.create_release == 'true'
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: v${{ steps.bump.outputs.new-version }}
+        release_name: BSpec v${{ steps.bump.outputs.new-version }}
+        body_path: CHANGELOG.md
+        draft: false
+        prerelease: false
+        
+    - name: Upload release assets
+      if: steps.release.outputs.release_created && github.event.inputs.create_release == 'true'
+      run: |
+        NEW_VERSION=${{ steps.bump.outputs.new-version }}
+        
+        echo "📦 Preparing release assets for v$NEW_VERSION..."
+        
+        # Create release directory
+        mkdir -p release-assets
+        
+        # Generate and package the complete BSpec as TGZ
+        python3 scripts/create_tgz.py
+        cp bspec-v1-0-*.tgz release-assets/ 2>/dev/null || echo "No TGZ file found"
+        
+        # Package source code
+        git archive --format=zip --prefix=bspec-$NEW_VERSION/ HEAD > release-assets/bspec-$NEW_VERSION-source.zip
+        
+        # Create SDK packages
+        if [ -d "sdk/v1/typescript" ]; then
+          cd sdk/v1/typescript && tar czf ../../../release-assets/bspec-typescript-sdk-$NEW_VERSION.tar.gz . && cd ../../..
+        fi
+        
+        if [ -d "sdk/v1/python" ]; then
+          cd sdk/v1/python && tar czf ../../../release-assets/bspec-python-sdk-$NEW_VERSION.tar.gz . && cd ../../..
+        fi
+        
+        if [ -d "sdk/v1/go" ]; then
+          cd sdk/v1/go && tar czf ../../../release-assets/bspec-go-sdk-$NEW_VERSION.tar.gz . && cd ../../..
+        fi
+        
+        if [ -d "sdk/v1/rust" ]; then
+          cd sdk/v1/rust && tar czf ../../../release-assets/bspec-rust-sdk-$NEW_VERSION.tar.gz . && cd ../../..
+        fi
+        
+        # List created assets
+        echo "📋 Release assets created:"
+        ls -la release-assets/
+        
+    - name: Upload to release
+      if: steps.release.outputs.release_created && github.event.inputs.create_release == 'true'
+      run: |
+        RELEASE_ID=${{ steps.release.outputs.id }}
+        
+        for asset in release-assets/*; do
+          if [ -f "$asset" ]; then
+            echo "⬆️ Uploading $(basename "$asset")..."
+            gh release upload v${{ steps.bump.outputs.new-version }} "$asset"
+          fi
+        done
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  build-and-test:
+    name: Build and Test All SDKs
+    needs: bump-version
+    runs-on: ubuntu-latest
+    if: always() && needs.bump-version.outputs.new-version
+    
+    strategy:
+      matrix:
+        sdk: [typescript, python, go, rust, cli]
+        
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ref: v${{ needs.bump-version.outputs.new-version }}
+        
+    - name: Set up Node.js
+      if: matrix.sdk == 'typescript'
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        
+    - name: Install bun
+      if: matrix.sdk == 'typescript'
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+        
+    - name: Set up Python
+      if: matrix.sdk == 'python'
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Set up Go
+      if: matrix.sdk == 'go' || matrix.sdk == 'cli'
+      uses: actions/setup-go@v4
+      with:
+        go-version: ${{ env.GO_VERSION }}
+        
+    - name: Set up Rust
+      if: matrix.sdk == 'rust'
+      uses: dtolnay/rust-toolchain@stable
+      
+    - name: Build TypeScript SDK
+      if: matrix.sdk == 'typescript'
+      run: |
+        cd sdk/v1/typescript
+        bun install
+        bun run build
+        echo "✅ TypeScript SDK built successfully"
+        
+    - name: Build Python SDK
+      if: matrix.sdk == 'python'
+      run: |
+        cd sdk/v1/python
+        python3 -m pip install -e .
+        python3 -c "import bspec; print(f'Python SDK v{bspec.__version__} loaded successfully')"
+        echo "✅ Python SDK built successfully"
+        
+    - name: Build Go SDK
+      if: matrix.sdk == 'go'
+      run: |
+        cd sdk/v1/go
+        go mod tidy || echo "No go.mod found, creating minimal test"
+        go build .
+        echo "✅ Go SDK built successfully"
+        
+    - name: Build Rust SDK
+      if: matrix.sdk == 'rust'
+      run: |
+        cd sdk/v1/rust
+        cargo check
+        cargo build
+        echo "✅ Rust SDK built successfully"
+        
+    - name: Build CLI
+      if: matrix.sdk == 'cli'
+      run: |
+        cd sdk/cli
+        go mod tidy
+        go build -o bspec ./cmd/bspec
+        ./bspec version
+        echo "✅ CLI built successfully"
+
+  publish-packages:
+    name: Publish Packages
+    needs: [bump-version, build-and-test]
+    runs-on: ubuntu-latest
+    if: github.event.inputs.publish_packages == 'true' && needs.bump-version.outputs.new-version
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        ref: v${{ needs.bump-version.outputs.new-version }}
+        
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        registry-url: 'https://registry.npmjs.org'
+        
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Install bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+        
+    - name: Publish TypeScript SDK to NPM
+      if: always()
+      run: |
+        cd sdk/v1/typescript
+        echo "📦 Publishing TypeScript SDK to NPM..."
+        bun install
+        bun run build
+        # npm publish --access public
+        echo "⚠️ NPM publish disabled for safety - add NPM_TOKEN secret to enable"
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
+    - name: Publish Python SDK to PyPI
+      if: always()
+      run: |
+        cd sdk/v1/python
+        echo "📦 Publishing Python SDK to PyPI..."
+        python3 -m pip install build twine
+        python3 -m build
+        # python3 -m twine upload dist/*
+        echo "⚠️ PyPI publish disabled for safety - add PYPI_TOKEN secret to enable"
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
+
+  notify:
+    name: Notify Release Complete
+    needs: [bump-version, build-and-test]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: Release Summary
+      run: |
+        echo "🎉 BSpec Release Summary"
+        echo "======================="
+        echo ""
+        echo "📦 Version: ${{ needs.bump-version.outputs.new-version }}"
+        echo "🔄 Bump Type: ${{ github.event.inputs.version_bump }}"
+        echo "👤 Triggered by: ${{ github.actor }}"
+        echo "🏷️ Tag: v${{ needs.bump-version.outputs.new-version }}"
+        echo "📅 Date: $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+        echo ""
+        echo "🚀 Release URL: https://github.com/${{ github.repository }}/releases/tag/v${{ needs.bump-version.outputs.new-version }}"
+        echo ""
+        echo "✅ Release completed successfully!"

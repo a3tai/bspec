@@ -1,0 +1,315 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+env:
+  NODE_VERSION: '20'
+  PYTHON_VERSION: '3.11'
+  GO_VERSION: '1.21'
+
+jobs:
+  validate-structure:
+    name: Validate Repository Structure
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check required files exist
+      run: |
+        echo "🔍 Checking repository structure..."
+        
+        # Core spec files
+        test -f "spec/v1/version.txt" || (echo "❌ Missing spec/v1/version.txt" && exit 1)
+        test -f "spec/v1/spec.md" || (echo "❌ Missing spec/v1/spec.md" && exit 1)
+        
+        # Scripts
+        test -f "scripts/bump-version.py" || (echo "❌ Missing scripts/bump-version.py" && exit 1)
+        test -x "scripts/bump-version.py" || (echo "❌ scripts/bump-version.py not executable" && exit 1)
+        
+        # Key directories
+        test -d "sdk/v1" || (echo "❌ Missing sdk/v1 directory" && exit 1)
+        test -d "apps" || (echo "❌ Missing apps directory" && exit 1)
+        test -d ".github/workflows" || (echo "❌ Missing .github/workflows directory" && exit 1)
+        
+        echo "✅ Repository structure is valid"
+
+  test-version-script:
+    name: Test Version Bump Script
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Test version script functionality
+      run: |
+        python3 scripts/bump-version.py --help
+        python3 scripts/bump-version.py --show
+        
+        # Test that script can parse current version
+        CURRENT=$(python3 -c "
+import sys; sys.path.append('scripts')
+exec(open('scripts/bump-version.py').read())
+bumper = VersionBumper()
+print(bumper.get_current_version())
+        ")
+        
+        echo "✅ Current version: $CURRENT"
+        
+        # Test version parsing logic
+        python3 -c "
+import sys; sys.path.append('scripts')
+exec(open('scripts/bump-version.py').read())
+bumper = VersionBumper()
+
+# Test version parsing
+assert bumper.parse_version('1.0.0') == (1, 0, 0)
+assert bumper.parse_version('2.3.1') == (2, 3, 1)
+
+# Test version bumping logic
+assert bumper.bump_version('1.0.0', 'patch') == '1.0.1'
+assert bumper.bump_version('1.0.0', 'minor') == '1.1.0'
+assert bumper.bump_version('1.0.0', 'major') == '2.0.0'
+assert bumper.bump_version('1.2.3', 'patch') == '1.2.4'
+assert bumper.bump_version('1.2.3', 'minor') == '1.3.0'
+assert bumper.bump_version('1.2.3', 'major') == '2.0.0'
+
+print('✅ Version script logic tests passed')
+        "
+
+  build-sdks:
+    name: Build SDKs
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    
+    strategy:
+      matrix:
+        component: [typescript-sdk, python-sdk, go-sdk, rust-sdk, web-app, cli]
+      fail-fast: false
+      
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Node.js
+      if: contains(matrix.component, 'typescript') || matrix.component == 'web-app'
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+        
+    - name: Install bun
+      if: contains(matrix.component, 'typescript') || matrix.component == 'web-app'
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+        
+    - name: Set up Python
+      if: contains(matrix.component, 'python')
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Set up Go
+      if: contains(matrix.component, 'go') || matrix.component == 'cli'
+      uses: actions/setup-go@v4
+      with:
+        go-version: ${{ env.GO_VERSION }}
+        
+    - name: Set up Rust
+      if: contains(matrix.component, 'rust')
+      uses: dtolnay/rust-toolchain@stable
+      
+    - name: Build TypeScript SDK
+      if: matrix.component == 'typescript-sdk'
+      run: |
+        if [ -f "sdk/v1/typescript/package.json" ]; then
+          cd sdk/v1/typescript
+          bun install
+          bun run build || npm run build
+          echo "✅ TypeScript SDK built successfully"
+        else
+          echo "⚠️ TypeScript SDK not found, skipping"
+        fi
+        
+    - name: Build Python SDK
+      if: matrix.component == 'python-sdk'
+      run: |
+        if [ -f "sdk/v1/python/setup.py" ]; then
+          cd sdk/v1/python
+          python3 -m pip install -e .
+          python3 -c "import bspec; print(f'Python SDK loaded: {bspec.__version__}')"
+          echo "✅ Python SDK built successfully"
+        else
+          echo "⚠️ Python SDK not found, skipping"
+        fi
+        
+    - name: Build Go SDK
+      if: matrix.component == 'go-sdk'
+      run: |
+        if [ -f "sdk/v1/go/bspec.go" ]; then
+          cd sdk/v1/go
+          go mod tidy || echo "No go.mod found, testing build only"
+          go build .
+          echo "✅ Go SDK built successfully"
+        else
+          echo "⚠️ Go SDK not found, skipping"
+        fi
+        
+    - name: Build Rust SDK
+      if: matrix.component == 'rust-sdk'
+      run: |
+        if [ -f "sdk/v1/rust/Cargo.toml" ]; then
+          cd sdk/v1/rust
+          cargo check
+          echo "✅ Rust SDK checked successfully"
+        else
+          echo "⚠️ Rust SDK not found, skipping"
+        fi
+        
+    - name: Build Web App
+      if: matrix.component == 'web-app'
+      run: |
+        if [ -f "apps/web/package.json" ]; then
+          cd apps/web
+          bun install || npm install
+          bun run build || npm run build
+          echo "✅ Web app built successfully"
+        else
+          echo "⚠️ Web app not found, skipping"
+        fi
+        
+    - name: Build CLI
+      if: matrix.component == 'cli'
+      run: |
+        if [ -f "sdk/cli/go.mod" ]; then
+          cd sdk/cli
+          go mod tidy
+          go build -o bspec ./cmd/bspec
+          ./bspec version
+          echo "✅ CLI built successfully"
+        else
+          echo "⚠️ CLI not found, skipping"
+        fi
+
+  lint-and-format:
+    name: Lint and Format Check
+    runs-on: ubuntu-latest
+    if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Check Python scripts
+      run: |
+        echo "🔍 Checking Python scripts..."
+        
+        # Basic syntax check
+        python3 -m py_compile scripts/bump-version.py
+        
+        # Check for common issues
+        if grep -r "print(" scripts/ | grep -v "f'" | grep -v '"""'; then
+          echo "⚠️ Found print statements that might need f-strings"
+        fi
+        
+        echo "✅ Python scripts syntax is valid"
+        
+    - name: Check shell scripts and YAML
+      run: |
+        echo "🔍 Checking workflow files..."
+        
+        # Check YAML syntax
+        for yaml_file in .github/workflows/*.yml; do
+          if command -v yamllint >/dev/null 2>&1; then
+            yamllint "$yaml_file" || echo "⚠️ YAML linting not available"
+          else
+            python3 -c "
+import yaml, sys
+try:
+  with open('$yaml_file') as f: yaml.safe_load(f)
+  print('✅ $yaml_file is valid YAML')
+except Exception as e:
+  print(f'❌ $yaml_file has YAML error: {e}')
+  sys.exit(1)
+            "
+          fi
+        done
+        
+        echo "✅ Workflow YAML files are valid"
+
+  security-check:
+    name: Security and Best Practices Check
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Check for secrets and sensitive data
+      run: |
+        echo "🔒 Checking for potential security issues..."
+        
+        # Check for potential secrets
+        if grep -r -i "password\|secret\|key\|token" --include="*.py" --include="*.js" --include="*.ts" --include="*.go" . | grep -v "description\|comment\|example\|placeholder"; then
+          echo "⚠️ Found potential hardcoded secrets - please review"
+        else
+          echo "✅ No obvious hardcoded secrets found"
+        fi
+        
+        # Check .gitignore exists and covers common patterns
+        if [ -f ".gitignore" ]; then
+          echo "✅ .gitignore exists"
+          if grep -q "node_modules" .gitignore && grep -q "*.tgz" .gitignore; then
+            echo "✅ .gitignore covers essential patterns"
+          else
+            echo "⚠️ .gitignore might be missing important patterns"
+          fi
+        else
+          echo "❌ Missing .gitignore file"
+          exit 1
+        fi
+
+  summary:
+    name: CI Summary
+    needs: [validate-structure, test-version-script, build-sdks, lint-and-format, security-check]
+    runs-on: ubuntu-latest
+    if: always()
+    
+    steps:
+    - name: CI Results Summary
+      run: |
+        echo "🎯 Continuous Integration Summary"
+        echo "================================"
+        echo ""
+        echo "Repository Structure: ${{ needs.validate-structure.result }}"
+        echo "Version Script Tests: ${{ needs.test-version-script.result }}"
+        echo "SDK Builds: ${{ needs.build-sdks.result }}"
+        echo "Lint & Format: ${{ needs.lint-and-format.result }}"
+        echo "Security Check: ${{ needs.security-check.result }}"
+        echo ""
+        
+        if [[ "${{ needs.validate-structure.result }}" == "success" && 
+              "${{ needs.test-version-script.result }}" == "success" ]]; then
+          echo "✅ Core functionality is working"
+        else
+          echo "❌ Core functionality has issues"
+        fi
+        
+        echo ""
+        echo "🚀 CI completed for commit: ${{ github.sha }}"

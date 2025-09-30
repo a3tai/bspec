@@ -1,0 +1,321 @@
+name: Test Version Bump Script
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'scripts/bump-version.py'
+      - '.github/workflows/test-version-bump.yml'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'scripts/bump-version.py'
+      - '.github/workflows/test-version-bump.yml'
+  workflow_dispatch:
+    inputs:
+      bump_type:
+        description: 'Type of version bump to test'
+        required: true
+        default: 'patch'
+        type: choice
+        options:
+        - patch
+        - minor
+        - major
+
+jobs:
+  test-version-script:
+    name: Test Version Bump Script
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Install bun
+      uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+        
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+        
+    - name: Set up Rust
+      uses: dtolnay/rust-toolchain@stable
+      
+    - name: Make script executable
+      run: chmod +x scripts/bump-version.py
+      
+    - name: Test script help
+      run: python3 scripts/bump-version.py --help
+      
+    - name: Show current version
+      run: python3 scripts/bump-version.py --show
+      
+    - name: Verify all expected files exist
+      run: |
+        echo "🔍 Checking for expected files..."
+        
+        # Version file
+        test -f "spec/v1/version.txt" && echo "✅ spec/v1/version.txt" || echo "❌ spec/v1/version.txt"
+        
+        # Package.json files
+        test -f "sdk/v1/typescript/package.json" && echo "✅ sdk/v1/typescript/package.json" || echo "❌ sdk/v1/typescript/package.json"
+        test -f "sdk/v1/json/package.json" && echo "✅ sdk/v1/json/package.json" || echo "❌ sdk/v1/json/package.json"
+        test -f "apps/web/package.json" && echo "✅ apps/web/package.json" || echo "❌ apps/web/package.json"
+        test -f "apps/docs/package.json" && echo "✅ apps/docs/package.json" || echo "❌ apps/docs/package.json"
+        test -f "apps/mcp/package.json" && echo "✅ apps/mcp/package.json" || echo "❌ apps/mcp/package.json"
+        
+        # Go files
+        test -f "sdk/v1/go/bspec.go" && echo "✅ sdk/v1/go/bspec.go" || echo "❌ sdk/v1/go/bspec.go"
+        test -f "sdk/cli/internal/commands/version.go" && echo "✅ sdk/cli/internal/commands/version.go" || echo "❌ sdk/cli/internal/commands/version.go"
+        
+        # Python files
+        test -f "sdk/v1/python/bspec/__init__.py" && echo "✅ sdk/v1/python/bspec/__init__.py" || echo "❌ sdk/v1/python/bspec/__init__.py"
+        test -f "sdk/v1/python/setup.py" && echo "✅ sdk/v1/python/setup.py" || echo "❌ sdk/v1/python/setup.py"
+        
+        # Rust files
+        test -f "sdk/v1/rust/Cargo.toml" && echo "✅ sdk/v1/rust/Cargo.toml" || echo "❌ sdk/v1/rust/Cargo.toml"
+        
+    - name: Test patch version bump
+      run: |
+        echo "🧪 Testing patch version bump..."
+        
+        # Save original version
+        ORIGINAL_VERSION=$(cat spec/v1/version.txt)
+        echo "Original version: $ORIGINAL_VERSION"
+        
+        # Perform patch bump
+        python3 scripts/bump-version.py patch
+        
+        # Check new version
+        NEW_VERSION=$(cat spec/v1/version.txt)
+        echo "New version: $NEW_VERSION"
+        
+        # Verify version changed
+        if [[ "$ORIGINAL_VERSION" == "$NEW_VERSION" ]]; then
+          echo "❌ Version did not change!"
+          exit 1
+        fi
+        
+        echo "✅ Version bump successful: $ORIGINAL_VERSION → $NEW_VERSION"
+        
+    - name: Verify all files were updated
+      run: |
+        echo "🔍 Verifying files were updated with new version..."
+        
+        NEW_VERSION=$(cat spec/v1/version.txt)
+        echo "Expected version: $NEW_VERSION"
+        
+        # Check package.json files
+        for file in sdk/v1/typescript/package.json sdk/v1/json/package.json apps/web/package.json apps/docs/package.json apps/mcp/package.json; do
+          if grep -q "\"version\": \"$NEW_VERSION\"" "$file"; then
+            echo "✅ $file updated"
+          else
+            echo "❌ $file not updated"
+            exit 1
+          fi
+        done
+        
+        # Check Go files
+        if grep -q "Version = \"$NEW_VERSION\"" sdk/v1/go/bspec.go; then
+          echo "✅ sdk/v1/go/bspec.go updated"
+        else
+          echo "❌ sdk/v1/go/bspec.go not updated"
+          exit 1
+        fi
+        
+        if grep -q "Version   = \"$NEW_VERSION\"" sdk/cli/internal/commands/version.go; then
+          echo "✅ sdk/cli/internal/commands/version.go updated"
+        else
+          echo "❌ sdk/cli/internal/commands/version.go not updated"
+          exit 1
+        fi
+        
+        # Check Python files
+        if grep -q "__version__ = \"$NEW_VERSION\"" sdk/v1/python/bspec/__init__.py; then
+          echo "✅ sdk/v1/python/bspec/__init__.py updated"
+        else
+          echo "❌ sdk/v1/python/bspec/__init__.py not updated"
+          exit 1
+        fi
+        
+        if grep -q "version=\"$NEW_VERSION\"" sdk/v1/python/setup.py; then
+          echo "✅ sdk/v1/python/setup.py updated"
+        else
+          echo "❌ sdk/v1/python/setup.py not updated"
+          exit 1
+        fi
+        
+        # Check Rust file
+        if grep -q "version = \"$NEW_VERSION\"" sdk/v1/rust/Cargo.toml; then
+          echo "✅ sdk/v1/rust/Cargo.toml updated"
+        else
+          echo "❌ sdk/v1/rust/Cargo.toml not updated"
+          exit 1
+        fi
+        
+        echo "🎉 All files successfully updated!"
+        
+    - name: Test minor version bump
+      run: |
+        echo "🧪 Testing minor version bump..."
+        
+        # Save current version
+        CURRENT_VERSION=$(cat spec/v1/version.txt)
+        echo "Current version: $CURRENT_VERSION"
+        
+        # Perform minor bump
+        python3 scripts/bump-version.py minor
+        
+        # Check new version
+        NEW_VERSION=$(cat spec/v1/version.txt)
+        echo "New version: $NEW_VERSION"
+        
+        # Verify version format (should end in .0)
+        if [[ ! "$NEW_VERSION" =~ \.0$ ]]; then
+          echo "❌ Minor bump should reset patch to 0!"
+          exit 1
+        fi
+        
+        echo "✅ Minor version bump successful: $CURRENT_VERSION → $NEW_VERSION"
+        
+    - name: Test major version bump
+      run: |
+        echo "🧪 Testing major version bump..."
+        
+        # Save current version
+        CURRENT_VERSION=$(cat spec/v1/version.txt)
+        echo "Current version: $CURRENT_VERSION"
+        
+        # Perform major bump
+        python3 scripts/bump-version.py major
+        
+        # Check new version
+        NEW_VERSION=$(cat spec/v1/version.txt)
+        echo "New version: $NEW_VERSION"
+        
+        # Verify version format (should end in .0.0)
+        if [[ ! "$NEW_VERSION" =~ \.0\.0$ ]]; then
+          echo "❌ Major bump should reset minor and patch to 0!"
+          exit 1
+        fi
+        
+        echo "✅ Major version bump successful: $CURRENT_VERSION → $NEW_VERSION"
+        
+    - name: Test manual version bump (workflow_dispatch)
+      if: github.event_name == 'workflow_dispatch'
+      run: |
+        echo "🧪 Testing manual version bump: ${{ github.event.inputs.bump_type }}"
+        
+        # Reset to 1.0.0 for consistent testing
+        echo "1.0.0" > spec/v1/version.txt
+        
+        # Perform requested bump
+        python3 scripts/bump-version.py ${{ github.event.inputs.bump_type }}
+        
+        NEW_VERSION=$(cat spec/v1/version.txt)
+        echo "✅ Manual ${{ github.event.inputs.bump_type }} bump result: 1.0.0 → $NEW_VERSION"
+        
+    - name: Validate SDK builds after version bump
+      run: |
+        echo "🔨 Testing that SDKs still build after version bump..."
+        
+        # Test TypeScript SDK
+        if [ -f "sdk/v1/typescript/package.json" ]; then
+          cd sdk/v1/typescript
+          bun install || npm install
+          bun run build || npm run build
+          cd ../../..
+          echo "✅ TypeScript SDK builds successfully"
+        fi
+        
+        # Test Python SDK
+        if [ -f "sdk/v1/python/setup.py" ]; then
+          cd sdk/v1/python
+          python3 -m pip install -e .
+          python3 -c "import bspec; print(f'Python SDK version: {bspec.__version__}')"
+          cd ../../..
+          echo "✅ Python SDK builds successfully"
+        fi
+        
+        # Test Go SDK
+        if [ -f "sdk/v1/go/bspec.go" ]; then
+          cd sdk/v1/go
+          go mod tidy || echo "No go.mod found"
+          go build .
+          cd ../../..
+          echo "✅ Go SDK builds successfully"
+        fi
+        
+        # Test Rust SDK
+        if [ -f "sdk/v1/rust/Cargo.toml" ]; then
+          cd sdk/v1/rust
+          cargo check
+          cd ../../..
+          echo "✅ Rust SDK checks successfully"
+        fi
+        
+        # Test CLI
+        if [ -f "sdk/cli/go.mod" ]; then
+          cd sdk/cli
+          go mod tidy
+          go build -o bspec ./cmd/bspec
+          ./bspec version
+          cd ../..
+          echo "✅ CLI builds successfully"
+        fi
+        
+    - name: Test script error handling
+      run: |
+        echo "🧪 Testing error handling..."
+        
+        # Test invalid bump type
+        if python3 scripts/bump-version.py invalid 2>/dev/null; then
+          echo "❌ Script should fail with invalid bump type"
+          exit 1
+        else
+          echo "✅ Script correctly rejects invalid bump type"
+        fi
+        
+        # Test missing version file
+        mv spec/v1/version.txt spec/v1/version.txt.backup
+        if python3 scripts/bump-version.py patch 2>/dev/null; then
+          echo "❌ Script should fail with missing version file"
+          exit 1
+        else
+          echo "✅ Script correctly handles missing version file"
+        fi
+        mv spec/v1/version.txt.backup spec/v1/version.txt
+        
+    - name: Reset version for clean state
+      run: |
+        echo "🔄 Resetting version to original state..."
+        echo "1.0.0" > spec/v1/version.txt
+        python3 scripts/bump-version.py --show
+        
+    - name: Summary
+      run: |
+        echo "🎉 Version Bump Script Test Summary:"
+        echo "✅ Script executable and help works"
+        echo "✅ All expected files exist"
+        echo "✅ Patch version bump works"
+        echo "✅ Minor version bump works" 
+        echo "✅ Major version bump works"
+        echo "✅ All files updated correctly"
+        echo "✅ SDKs still build after version changes"
+        echo "✅ Error handling works correctly"
+        echo ""
+        echo "🚀 Version bump script is production ready!"
