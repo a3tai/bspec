@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Key Partnerships document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting key partnerships within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Key Partnerships defines systematic approaches to strategic alliances and partnerships that create mutual value and competitive advantages. It establishes partnership frameworks that optimize collaboration, resource sharing, and market access while minimizing risks and costs.

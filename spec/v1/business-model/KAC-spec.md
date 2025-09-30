@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Key Activities document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting key activities within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Key Activities defines systematic approaches to critical business activities that create customer value, drive competitive advantage, and enable business model execution. It establishes activity frameworks that optimize operational excellence, resource utilization, and performance management.

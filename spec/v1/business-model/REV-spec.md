@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Revenue Model document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting revenue model within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Revenue Model defines how organizations create, capture, and optimize revenue streams. It establishes value exchange mechanisms that align customer value with business profitability while ensuring sustainable and scalable monetization strategies.
@@ -61,7 +65,7 @@ review_cycle: quarterly
 ## Revenue Overview
 **Purpose:** {Why this revenue stream exists}
 **Strategic Importance:** {How this supports business strategy}
-**Value Exchange:** {What customers get vs. what they pay}
+**Value Exchange:** {What customers obtain vs. what they pay}
 **Market Position:** {How this positions us competitively}
 
 ## Revenue Stream Definition

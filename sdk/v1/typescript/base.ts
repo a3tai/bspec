@@ -3,7 +3,7 @@
  *
  * GENERATED CODE - DO NOT EDIT MANUALLY
  * Generated from BSpec v1.0.0 specification
- * Generated at: 2025-09-29T01:32:41.030729
+ * Generated at: 2025-09-30T00:20:03.178501
  * Generator: typescript-generator-v1.0.0
  */
 

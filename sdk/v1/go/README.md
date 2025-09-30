@@ -103,7 +103,7 @@ fmt.Printf("Found %d markdown files\n", len(markdownFiles))
 ## Generated Information
 
 - **From**: BSpec v1.0.0 JSON SDK
-- **Generated**: 2025-09-28T21:08:19.341868
+- **Generated**: 2025-09-30T00:20:03.461082
 - **Generator**: go-generator-v1.0.0
 - **Total Files**: 112
 - **Total Document Types**: 112

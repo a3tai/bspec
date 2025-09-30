@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Key Resources document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting key resources within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Key Resources defines systematic identification, development, and management of critical organizational assets that create competitive advantage and enable business strategy execution. It establishes resource frameworks that optimize asset utilization, investment allocation, and capability building.

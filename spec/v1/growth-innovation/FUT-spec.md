@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Future Planning document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting future planning within the growth-innovation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Future Planning document defines systematic approaches to understanding and preparing for future possibilities through scenario development and strategic planning. It establishes future planning frameworks that enable organizations to navigate uncertainty and build capabilities for multiple possible futures.

@@ -133,6 +133,41 @@ Specialized requirements for different business types:
 - **Service Business**: PRC, SLA, SKI, QUA + service delivery and capacity planning
 - **Nonprofit**: PUR, STA, MET, GVN + impact measurement and accountability
 
+## Versioning
+
+BSpec follows [Semantic Versioning 2.0.0](https://semver.org/) with component-specific versioning strategies:
+
+### Current Versions
+- **Core Specification**: `1.0.0` (in `spec/v1/version.txt`)
+- **All SDKs**: `1.0.0` (aligned with specification)
+- **CLI Tool**: `1.0.0` (independent versioning)
+- **Web App**: `0.0.1` (pre-launch)
+- **MCP Server**: `1.0.0` (follows specification)
+- **Documentation**: `0.0.1` (pre-launch)
+
+### Version Management
+
+Use the automated version synchronization script:
+
+```bash
+# Display current versions across all components
+python3 scripts/version-sync.py --report
+
+# Validate version consistency
+python3 scripts/version-sync.py --validate
+
+# Update specification and sync all SDKs
+python3 scripts/version-sync.py --update-spec 1.1.0
+
+# Synchronize SDK versions to current spec
+python3 scripts/version-sync.py --sync-all
+
+# Update individual components
+python3 scripts/version-sync.py --update-component typescript-sdk 1.0.1
+```
+
+See [`docs/VERSIONING.md`](docs/VERSIONING.md) for complete versioning policies and [`docs/CHANGELOG.md`](docs/CHANGELOG.md) for release history.
+
 ## Repository Structure
 
 ```

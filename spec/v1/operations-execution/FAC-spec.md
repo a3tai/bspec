@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Facilities Management document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting facilities management within the operations-execution domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Facilities Management document defines systematic approaches to planning, operating, and maintaining physical facilities that support business operations through efficient space utilization, operational excellence, and employee productivity. It establishes facility frameworks that optimize cost, safety, and performance.

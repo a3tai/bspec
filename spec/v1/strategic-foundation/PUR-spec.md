@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Organizational Purpose document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting organizational purpose within the strategic-foundation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Purpose document articulates the organization's social impact and stakeholder value beyond profit. It defines the broader positive change the organization creates in the world.
@@ -92,7 +96,7 @@ review_cycle: annually
 ## Theory of Change
 
 ### Problem We Address
-*Social or environmental challenge we help solve*
+*Social or environmental challenge we enable solve*
 
 ### Our Contribution
 *How our business model creates positive change*

@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Governance document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting governance within the risk-governance domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Governance document defines systematic approaches to corporate governance that ensure effective oversight, accountability, and decision-making throughout the organization. It establishes governance frameworks that protect stakeholder interests, promote ethical behavior, and drive sustainable business performance.

@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the APIs document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting apis within the technology-data domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The APIs document defines systematic approaches to designing, implementing, and managing application programming interfaces that enable business capabilities through effective integration, developer experience, and scalable service delivery. It establishes API frameworks that ensure security, performance, and strategic alignment.
@@ -99,7 +103,7 @@ resources:
   primary:
     - resource: {Resource name}
       description: {Resource description}
-      operations: [GET, POST, PUT, DELETE]
+      operations: [obtain, POST, PUT, DELETE]
       relationships: [related_resource1, related_resource2]
 
   supporting:

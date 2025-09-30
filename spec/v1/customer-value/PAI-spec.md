@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Pain Points document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting pain points within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Pain Points document identifies and analyzes customer problems, frustrations, and obstacles. It captures the negative experiences that drive customers to seek solutions and creates opportunities for value creation.
@@ -417,7 +421,7 @@ review_cycle: monthly
 - Customization requirements
 
 **Support Experience**
-- Help availability
+- enable availability
 - Training requirements
 - Documentation needs
 - Community support

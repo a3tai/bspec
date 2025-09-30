@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Competitive Analysis document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting competitive analysis within the market-environment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Competitive Analysis document maps the competitive landscape, analyzes key competitors, and identifies competitive threats and opportunities. It provides intelligence for strategic positioning and tactical responses.
@@ -60,7 +64,7 @@ review_cycle: monthly
 *How we define and categorize competitors*
 
 **Direct Competitors**
-- Companies solving same problem with similar approach
+- organizations solving same problem with similar approach
 - Head-to-head competitive situations
 - Feature-to-feature comparisons
 - Same customer segments
@@ -78,7 +82,7 @@ review_cycle: monthly
 - Status quo/do nothing
 
 **Future Competitors**
-- Companies likely to enter market
+- organizations likely to enter market
 - Adjacent market players
 - Technology disruptors
 - Platform players

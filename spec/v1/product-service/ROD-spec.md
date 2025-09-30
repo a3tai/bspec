@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Roadmap document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting roadmap within the product-service domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Roadmap document defines strategic product and technology direction over multiple time horizons, aligning development efforts with business objectives while managing resource constraints and market dynamics. It provides stakeholders with visibility into planned evolution and investment priorities.

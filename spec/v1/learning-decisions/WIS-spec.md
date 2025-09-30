@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Wisdom Synthesis document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting wisdom synthesis within the learning-decisions domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Wisdom Synthesis document captures the practical wisdom, judgment principles, and synthesized insights that guide organizational decision-making and action. It establishes wisdom frameworks that combine knowledge, experience, and judgment to create actionable guidance for complex situations, ethical dilemmas, and strategic choices.
@@ -40,7 +44,7 @@ transmission_method: [mentoring, stories, principles, frameworks, examples]
 
 success_criteria:
   - "Practical wisdom effectively guides decision-making and action"
-  - "Wisdom insights help navigate complex and ambiguous situations"
+  - "Wisdom insights enable navigate complex and ambiguous situations"
   - "Wisdom principles promote ethical and sustainable choices"
   - "Wisdom culture enables organizational learning and growth"
 

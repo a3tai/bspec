@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Knowledge Management document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting knowledge management within the learning-decisions domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Knowledge Management document defines systematic approaches to capturing, organizing, sharing, and leveraging organizational knowledge assets. It establishes knowledge frameworks that preserve institutional knowledge, accelerate learning, enable innovation, and create competitive advantage through effective knowledge creation, retention, and application.

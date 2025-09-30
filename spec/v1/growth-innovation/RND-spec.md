@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Research and Development document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting research and development within the growth-innovation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Research and Development document defines systematic approaches to advancing knowledge and developing new capabilities that create competitive advantage and drive innovation. It establishes R&D frameworks that transform research investments into commercial opportunities and technological capabilities.

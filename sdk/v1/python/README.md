@@ -111,7 +111,7 @@ markdown_files = bspec.get_files_by_type('markdown')
 ## Generated Information
 
 - **From**: BSpec v1.0.0 JSON SDK
-- **Generated**: 2025-09-28T21:08:19.179068Z
+- **Generated**: 2025-09-30T00:20:03.327886Z
 - **Generator**: python-generator-v1.0.0
 
 ## License

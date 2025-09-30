@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Audit document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting audit within the financial-investment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Audit document defines systematic approaches to internal and external audit processes that provide independent assurance on financial reporting, internal controls, and operational effectiveness. It establishes audit frameworks that ensure compliance, risk management, and continuous improvement in business operations.

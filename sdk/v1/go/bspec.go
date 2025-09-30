@@ -1,5 +1,5 @@
 // Package bspec provides Go structs and interfaces for BSpec v1.0.0
-// Generated from BSpec JSON SDK at 2025-09-28T21:08:19.340895
+// Generated from BSpec JSON SDK at 2025-09-30T00:20:03.460616
 package bspec
 
 import (
@@ -7,6 +7,9 @@ import (
 	"fmt"
 	"time"
 )
+
+// Version represents the BSpec Go SDK version
+const Version = "1.0.0"
 
 // BSpec represents the complete BSpec specification data
 type BSpec struct {

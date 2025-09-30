@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Legal document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting legal within the risk-governance domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Legal document defines systematic approaches to managing legal affairs, protecting legal interests, and ensuring compliance with applicable laws and regulations. It establishes legal frameworks that mitigate legal risks, manage contracts and disputes, protect intellectual property, and support business operations within appropriate legal boundaries.

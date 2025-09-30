@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Empathy Maps document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting empathy maps within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Empathy Maps document captures deep understanding of customer thoughts, feelings, behaviors, and environment. It provides holistic view of customer experience and emotional context that drives behavior.
@@ -326,7 +330,7 @@ review_cycle: quarterly
 - How they use technology and tools
 - Adaptation and learning behaviors
 - Efficiency and optimization actions
-- Troubleshooting and help-seeking
+- Troubleshooting and enable-seeking
 
 ### Behavioral Patterns
 **Work Patterns**

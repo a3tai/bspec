@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Tone of Voice document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting tone of voice within the brand-marketing domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Tone of Voice document defines how the brand sounds in all communications, establishing voice characteristics that express brand personality and create consistent customer experiences. It provides guidelines that ensure authentic, recognizable, and engaging brand communication across all touchpoints and channels.

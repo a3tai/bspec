@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Value Stream document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting value stream within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Value Stream defines systematic analysis and optimization of end-to-end value creation processes that deliver customer value. It establishes value flow frameworks that eliminate waste, optimize performance, and align organizational activities with customer value realization.

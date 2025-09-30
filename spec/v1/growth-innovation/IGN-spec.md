@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Insight Generation document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting insight generation within the growth-innovation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Insight Generation document defines systematic approaches to transforming information and experience into actionable business insights. It establishes insight frameworks that convert data, observations, and knowledge into strategic intelligence that drives better decision-making, innovation, and competitive advantage.
