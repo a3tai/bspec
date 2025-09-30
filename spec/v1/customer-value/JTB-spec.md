@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Jobs-to-be-Done document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting jobs-to-be-done within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Jobs-to-be-Done document defines the specific outcomes customers hire products or services to achieve. It captures the functional, emotional, and social jobs that drive customer behavior and innovation opportunities.
@@ -58,7 +62,7 @@ review_cycle: quarterly
 # Job-to-be-Done: [Job Description]
 
 ## Overview
-*Brief description of the job customers are trying to get done*
+*Brief description of the job customers are trying to obtain done*
 
 ## Job Definition
 

@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Financial Model document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting financial model within the financial-investment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Financial Model document defines comprehensive financial projections and planning models that forecast business performance through detailed P&L, balance sheet, and cash flow analysis. It establishes financial frameworks that enable strategic planning, investment decisions, and performance management.

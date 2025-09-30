@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Controls document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting controls within the risk-governance domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Controls document defines systematic approaches to designing, implementing, and operating internal controls that mitigate business risks, ensure compliance, and support reliable business operations. It establishes control frameworks that provide reasonable assurance for achieving business objectives while managing risk exposure.

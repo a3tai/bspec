@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Gains document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting gains within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Gains document identifies and analyzes the positive outcomes, benefits, and value that customers achieve or seek. It captures the upside potential that motivates customer behavior and creates opportunities for value delivery.

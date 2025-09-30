@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Architecture document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting architecture within the technology-data domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Architecture document defines systematic approaches to designing and documenting technical architecture that enables business capabilities through coherent technology decisions, quality attribute optimization, and strategic alignment. It establishes architectural frameworks that guide technology evolution and ensure scalable, secure, and maintainable systems.

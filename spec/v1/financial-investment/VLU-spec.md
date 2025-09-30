@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Valuation document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting valuation within the financial-investment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Valuation document defines systematic approaches to determining business value, asset worth, and enterprise valuation through multiple methodologies and analytical frameworks. It establishes valuation standards that support investment decisions, transaction analysis, and strategic planning with objective, defensible value assessments.
@@ -168,7 +172,7 @@ industry_assessment:
 ```
 
 ### Comparable Analysis
-- **Public Company Comparables:** {Listed companies with similar business models}
+- **Public Company Comparables:** {Listed organizations with similar business models}
 - **Transaction Comparables:** {Recent M&A transactions in industry}
 - **Size and Scale Adjustments:** {Adjustments for size differences}
 - **Control Premium Analysis:** {Control vs. minority interest premiums}
@@ -322,7 +326,7 @@ complex_valuations:
 
 ### Special Situations
 - **Distressed Company Valuation:** {Valuation under financial distress}
-- **Start-up Valuation:** {Valuation of early-stage companies}
+- **Start-up Valuation:** {Valuation of early-stage organizations}
 - **Intangible Asset Valuation:** {Valuation of intellectual property and intangibles}
 - **International Valuation:** {Cross-border valuation considerations}
 
@@ -379,7 +383,7 @@ quality_control:
 ## Common Pitfalls
 
 1. **Inappropriate methodology**: Using valuation approaches not suitable for purpose or industry
-2. **Poor comparable selection**: Using non-comparable companies or transactions
+2. **Poor comparable selection**: Using non-comparable organizations or transactions
 3. **Unrealistic assumptions**: Overly optimistic or pessimistic assumptions
 4. **Inadequate support**: Insufficient documentation and analysis supporting conclusions
 

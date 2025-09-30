@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Funding document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting funding within the financial-investment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Funding document defines systematic approaches to raising capital and securing financial resources to support business operations, growth initiatives, and strategic investments. It establishes funding frameworks that optimize capital structure, minimize cost of capital, and align funding strategies with business objectives.

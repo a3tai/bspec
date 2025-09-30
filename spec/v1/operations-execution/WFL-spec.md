@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Workflow Specification document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting workflow specification within the operations-execution domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Workflow Specification defines systematic approaches to designing, implementing, and managing business workflows that automate and optimize operational processes. It establishes workflow frameworks that ensure efficient execution, robust exception handling, and continuous improvement.

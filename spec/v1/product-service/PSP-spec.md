@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Performance Specification document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting performance specification within the product-service domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Performance Specification defines comprehensive performance requirements, targets, and measurement frameworks for systems, applications, and services. It ensures optimal system performance that meets user expectations, business objectives, and technical scalability requirements.

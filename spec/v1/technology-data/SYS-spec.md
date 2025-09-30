@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Systems document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting systems within the technology-data domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Systems document defines systematic approaches to designing, implementing, and managing technology systems that deliver business capabilities through functional features, technical architecture, and operational excellence. It establishes system frameworks that ensure scalability, maintainability, and business value delivery.

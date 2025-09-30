@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Skills Framework document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting skills framework within the operations-execution domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Skills Framework defines systematic approaches to identifying, assessing, and developing organizational skills and competencies that enable strategic execution and competitive advantage. It establishes skill frameworks that optimize talent development, career planning, and organizational capability building.

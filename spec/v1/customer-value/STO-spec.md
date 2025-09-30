@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the User Stories document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting user stories within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The User Stories document captures individual requirements from the user perspective using the standard "As a... I want... So that..." format. Stories decompose features into implementable units of customer value.
@@ -152,7 +156,7 @@ review_cycle: sprint
 - [ ] User documentation updated
 - [ ] Technical documentation updated
 - [ ] API documentation updated (if applicable)
-- [ ] Help content updated
+- [ ] enable content updated
 - [ ] Release notes prepared
 
 ### Deployment Criteria

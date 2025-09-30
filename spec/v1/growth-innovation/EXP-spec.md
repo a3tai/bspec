@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Experimentation document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting experimentation within the growth-innovation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Experimentation document defines systematic approaches to testing assumptions and validating new ideas through structured experimentation. It establishes experimentation frameworks that transform hypothesis testing from ad-hoc activities into systematic business capabilities that drive evidence-based decision-making and rapid learning.

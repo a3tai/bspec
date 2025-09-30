@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Decision Records document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting decision records within the learning-decisions domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Decision Records document captures strategic and operational decisions made within the organization, including context, rationale, alternatives considered, and outcomes. It establishes decision frameworks that preserve institutional knowledge, enable accountability, and provide historical context for future decision-making.

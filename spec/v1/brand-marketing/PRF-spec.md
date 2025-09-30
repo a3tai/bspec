@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Performance Marketing document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting performance marketing within the brand-marketing domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Performance Marketing document defines data-driven marketing strategies focused on measurable outcomes and return on investment. It establishes performance frameworks that optimize marketing spend, maximize conversions, and deliver accountable results through systematic testing, measurement, and optimization across all marketing channels.

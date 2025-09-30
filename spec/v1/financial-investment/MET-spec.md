@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Metrics document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting metrics within the financial-investment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Metrics document defines systematic approaches to measuring, monitoring, and managing business performance through key performance indicators, financial metrics, and operational measures. It establishes measurement frameworks that enable data-driven decision making, performance accountability, and continuous improvement.

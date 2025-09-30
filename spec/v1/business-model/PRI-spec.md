@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Pricing Strategy document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting pricing strategy within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Pricing Strategy defines systematic approaches to product and service pricing that optimize value capture while supporting competitive positioning and business objectives. It establishes pricing frameworks that balance customer value, market dynamics, and financial goals.

@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Incidents document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting incidents within the risk-governance domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Incidents document defines systematic approaches to identifying, responding to, and managing incidents that disrupt business operations, threaten stakeholder safety, or impact organizational objectives. It establishes incident management frameworks that enable rapid response, effective recovery, and organizational learning from disruptive events.

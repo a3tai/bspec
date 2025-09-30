@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Support Specification document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting support specification within the product-service domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Support Specification defines comprehensive customer support strategies, processes, and service standards that ensure exceptional customer experience throughout the product lifecycle. It establishes support frameworks that maximize customer success while optimizing operational efficiency and business outcomes.
@@ -102,7 +106,7 @@ review_cycle: monthly
 
 ### Support Channels
 - **Self-Service:**
-  - **Knowledge Base:** {Searchable help documentation}
+  - **Knowledge Base:** {Searchable enable documentation}
   - **FAQ:** {Frequently asked questions}
   - **Tutorials:** {Step-by-step guides}
   - **Community Forum:** {User community support}
@@ -265,7 +269,7 @@ review_cycle: monthly
 - **Customer Satisfaction:**
   - **CSAT Score:** {Customer satisfaction rating}
   - **Net Promoter Score (NPS):** {Customer advocacy measure}
-  - **Customer Effort Score (CES):** {Ease of getting help}
+  - **Customer Effort Score (CES):** {Ease of getting enable}
   - **Satisfaction by Channel:** {Satisfaction by support channel}
 
 - **Agent Performance:**

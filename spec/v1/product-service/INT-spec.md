@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Integration Specification document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting integration specification within the product-service domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Integration Specification defines detailed technical and business requirements for connecting systems, applications, and services. It ensures reliable, secure, and performant data exchange and functionality sharing between integrated components while maintaining system integrity and compliance.
@@ -131,7 +135,7 @@ review_cycle: sprint-based
 - **Data Transformation:** {Required data transformations}
 
 ### Interface Definitions
-- **Endpoint 1:** {GET /api/v1/resource}
+- **Endpoint 1:** {obtain /api/v1/resource}
   - **Description:** {What this endpoint does}
   - **Method:** {HTTP method}
   - **Parameters:**

@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Adaptation and Agility document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting adaptation and agility within the growth-innovation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Adaptation and Agility document defines systematic approaches to building organizational capabilities that enable rapid response to changing conditions and emerging opportunities. It establishes agility frameworks that transform organizations into adaptive entities that thrive in uncertainty and complexity.
@@ -70,7 +74,7 @@ review_cycle: quarterly
 - **Change as Constant:** {Accepting change as normal and constant condition}
 - **Speed and Quality:** {Balancing speed of response with quality of decisions}
 - **Learning and Adaptation:** {Continuous learning and adaptation as core capabilities}
-- **Antifragility:** {Building systems that get stronger from stress and uncertainty}
+- **Antifragility:** {Building systems that obtain stronger from stress and uncertainty}
 
 ### Agility Strategy
 ```yaml
