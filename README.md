@@ -166,7 +166,7 @@ python3 scripts/version-sync.py --sync-all
 python3 scripts/version-sync.py --update-component typescript-sdk 1.0.1
 ```
 
-See [`VERSIONING.md`](VERSIONING.md) for complete versioning policies and [`CHANGELOG.md`](CHANGELOG.md) for release history.
+See [`docs/VERSIONING.md`](docs/VERSIONING.md) for complete versioning policies and [`docs/CHANGELOG.md`](docs/CHANGELOG.md) for release history.
 
 ## Repository Structure
 
