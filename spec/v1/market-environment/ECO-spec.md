@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Ecosystem document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting ecosystem within the market-environment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Ecosystem document maps the network of partners, suppliers, distributors, and other stakeholders that create value around the organization. It analyzes ecosystem dynamics and partnership strategies.

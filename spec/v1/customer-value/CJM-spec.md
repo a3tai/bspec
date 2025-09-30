@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Customer Journey Map document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting customer journey map within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Customer Journey Map document visualizes the end-to-end customer experience from awareness to advocacy. It identifies touchpoints, emotions, pain points, and opportunities across the entire customer lifecycle.

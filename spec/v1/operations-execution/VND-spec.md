@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Vendor Management document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting vendor management within the operations-execution domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Vendor Management document defines systematic approaches to selecting, managing, and optimizing vendor relationships that deliver business value through effective partnership, performance management, and risk mitigation. It establishes vendor frameworks that ensure quality service delivery, cost optimization, and strategic alignment.

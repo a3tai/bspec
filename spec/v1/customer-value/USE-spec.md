@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Use Cases document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting use cases within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Use Cases document describes specific scenarios where customers apply the solution. It details the context, actors, preconditions, and steps involved in successful solution usage.
@@ -198,7 +202,7 @@ review_cycle: monthly
 3. [Recovery or termination]
 
 **Recovery**: [How to recover from error]
-**User Guidance**: [Help provided to user]
+**User Guidance**: [enable provided to user]
 
 ## Postconditions
 
@@ -307,7 +311,7 @@ review_cycle: monthly
 - Time on task
 - Clicks/steps to complete
 - Error recovery time
-- Help usage frequency
+- enable usage frequency
 
 ## Requirements Traceability
 

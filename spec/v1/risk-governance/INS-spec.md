@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Insurance document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting insurance within the risk-governance domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Insurance document defines systematic approaches to managing insurance programs that transfer financial risks and protect organizational assets, operations, and stakeholders. It establishes insurance frameworks that optimize risk transfer, minimize total cost of risk, and ensure adequate protection against potential losses.

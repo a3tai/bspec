@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Policies document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting policies within the operations-execution domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Policies document defines systematic approaches to establishing, implementing, and managing organizational policies that guide behavior, ensure compliance, and mitigate risks. It establishes policy frameworks that provide clear guidance, consistent enforcement, and effective governance.

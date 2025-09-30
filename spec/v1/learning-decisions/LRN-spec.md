@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Learning Records document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting learning records within the learning-decisions domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Learning Records document captures key discoveries, insights, and knowledge gained through organizational activities, experiments, and experiences. It establishes learning frameworks that preserve institutional knowledge, accelerate organizational learning, and enable evidence-based decision-making and continuous improvement.

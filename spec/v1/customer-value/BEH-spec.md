@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Behaviors document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting behaviors within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Behaviors document analyzes customer usage patterns, behavioral data, and interaction analytics to understand how customers actually use products and services, revealing gaps between stated preferences and actual behavior.
@@ -291,7 +295,7 @@ review_cycle: monthly
 - Long task completion times
 - High error rate interactions
 - Repeated action patterns
-- Help-seeking behavior hotspots
+- enable-seeking behavior hotspots
 
 **User Struggle Indicators**
 - Excessive clicking/tapping

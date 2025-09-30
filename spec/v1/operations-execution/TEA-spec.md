@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Team Structure document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting team structure within the operations-execution domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Team Structure defines systematic approaches to organizing and managing teams that deliver business outcomes through effective collaboration, clear accountability, and continuous improvement. It establishes team frameworks that optimize performance, engagement, and value delivery.

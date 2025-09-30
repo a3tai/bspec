@@ -1,15 +1,23 @@
-# MSN: Mission Document Type Specification
+# MSN: Mission Statement Specification
 
 **Document Type Code:** MSN
 **Document Type Name:** Mission Statement
 **Domain:** Strategic Foundation
 **Version:** 1.0.0
 **Status:** Draft
-**Last Updated:** 2025-09-28
+**Last Updated:** 2025-09-30
+
+## Abstract
+
+This specification defines the Mission Statement document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting organizational mission within the Strategic Foundation domain. This specification enables systematic, machine-readable documentation of organizational purpose that supports strategic planning, operational execution, and organizational alignment.
+
+## Abstract
+
+This specification defines the Mission Statement document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting mission statement within the strategic-foundation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
 ## Purpose and Scope
 
-The Mission document defines why the organization exists and its core purpose in the world. It articulates the fundamental reason the organization was created and what it aims to accomplish for its stakeholders.
+This specification SHALL define the requirements and structure for Mission Statement documents that articulate an organization's fundamental purpose and reason for existence. Organizations MUST use this specification to document their core mission in a manner that enables strategic alignment, decision-making guidance, and stakeholder communication. This specification covers mission definition, beneficiary identification, value creation articulation, and mission validation approaches.
 
 ## Document Metadata Schema
 

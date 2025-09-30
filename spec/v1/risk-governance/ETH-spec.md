@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Ethics document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting ethics within the risk-governance domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Ethics document defines systematic approaches to promoting ethical behavior, integrity, and moral standards throughout the organization. It establishes ethics frameworks that guide decision-making, prevent misconduct, and foster a culture of ethical excellence that builds trust with stakeholders.

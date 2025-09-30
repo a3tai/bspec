@@ -7,6 +7,10 @@
 **Status:** Draft
 **Last Updated:** 2025-09-28
 
+## Abstract
+
+This specification defines the Customer Relationships document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting customer relationships within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
+
 ## Purpose and Scope
 
 The Customer Relationships defines systematic approaches to building, managing, and optimizing customer relationships that drive acquisition, retention, growth, and advocacy. It establishes relationship frameworks that create sustainable competitive advantages through superior customer experiences and value delivery.
@@ -101,7 +105,7 @@ review_cycle: quarterly
   - **Co-creation:** {Collaborative solution development}
 
 ### Self-Service
-- **Customer Empowerment:** {Enabling customers to help themselves}
+- **Customer Empowerment:** {Enabling customers to enable themselves}
   - **Self-Service Platforms:** {Digital self-service capabilities}
   - **Knowledge Bases:** {Comprehensive information resources}
   - **Automated Tools:** {Tools for customer self-service}
