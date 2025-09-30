@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "bspec": {
+      "transport": "http",
+      "url": "http://localhost:8787/mcp",
+      "description": "BSpec MCP Server - Business Specification Standard v1.0",
+      "headers": {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      }
+    }
+  }
+}
