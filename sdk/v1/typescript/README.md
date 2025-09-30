@@ -41,7 +41,7 @@ This SDK includes TypeScript interfaces for all 112 BSpec document types across 
 ## Generated
 
 - **From**: BSpec v1.0.0 specification
-- **At**: 2025-09-29T01:32:41.054708
+- **At**: 2025-09-30T00:20:03.236583
 - **Generator**: typescript-generator-v1.0.0
 
 ## License

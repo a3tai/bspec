@@ -174,7 +174,7 @@ def create_manifest(work_dir: Path, md_files: int, json_files: int) -> Path:
     return manifest_path
 
 def create_tgz():
-    base_path = Path("/Users/steverude/Documents/BSpec-Foundations")
+    base_path = Path.cwd()  # Use current working directory
     spec_dir = base_path / "spec/v1"
     output_dir = base_path / "sdk/v1/json"
     tgz_path = output_dir / "bspec-v1.0.0.tgz"
