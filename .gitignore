@@ -94,3 +94,9 @@ tmp/
 temp/
 *.tmp
 .cache/
+
+# Generated archives and packages
+*.tgz
+*.tar.gz
+*.zip
+*.tar
