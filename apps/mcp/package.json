@@ -47,11 +47,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/a3tai/bspec-foundations.git",
-    "directory": "sdk/mcp"
+    "url": "https://github.com/a3tai/bspec.git",
+    "directory": "apps/mcp"
   },
   "homepage": "https://bspec.dev",
   "bugs": {
-    "url": "https://github.com/a3tai/bspec-foundations/issues"
+    "url": "https://github.com/a3tai/bspec/issues"
   }
 }
