@@ -1,38 +1,50 @@
-# sv
+# BSpec Documentation Site
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This is the official documentation website for BSpec, built with VitePress and deployed on Cloudflare Pages.
 
-## Creating a project
+## Development
 
-If you're seeing this, you've probably already done this step. Congrats!
+```bash
+# Install dependencies
+bun install
 
-```sh
-# create a new project in the current directory
-npx sv create
+# Start development server
+bun run dev
 
-# create a new project in my-app
-npx sv create my-app
+# Build for production
+bun run build
+
+# Preview production build
+bun run preview
 ```
 
-## Developing
+## Deployment
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+The site is automatically deployed to Cloudflare Pages on every push to the `main` branch.
 
-```sh
-npm run dev
+### Manual Deployment
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```bash
+# Deploy to Cloudflare Pages
+wrangler pages deploy .vitepress/dist --project-name=bspec-docs
 ```
 
-## Building
+## Structure
 
-To create a production version of your app:
+- `index.md` - Homepage
+- `docs/` - Documentation pages
+- `spec/` - Specification pages
+- `.vitepress/` - VitePress configuration and theme
 
-```sh
-npm run build
-```
+## Branding
 
-You can preview the production build with `npm run preview`.
+BSpec uses **Orange** as the primary brand color:
+- Primary: `#f97316` (rgb(249, 115, 22))
+- Hover: `#ea580c` (rgb(234, 88, 12))
+- Active: `#c2410c` (rgb(194, 65, 12))
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Custom theme colors are defined in `.vitepress/theme/custom.css`.
+
+## Contributing
+
+See the main [CONTRIBUTING.md](../../CONTRIBUTING.md) for guidelines.

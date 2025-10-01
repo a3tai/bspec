@@ -1,0 +1,93 @@
+/**
+ * BSpec Brand Colors
+ * Primary: Orange (#f97316)
+ */
+
+:root {
+  /* Brand Colors - Orange */
+  --vp-c-brand-1: #f97316;
+  --vp-c-brand-2: #ea580c;
+  --vp-c-brand-3: #c2410c;
+  --vp-c-brand-soft: rgba(249, 115, 22, 0.14);
+  
+  /* Orange accent for hover states */
+  --vp-c-brand-lighter: #fb923c;
+  --vp-c-brand-light: #f97316;
+  --vp-c-brand-dark: #ea580c;
+  --vp-c-brand-darker: #c2410c;
+  
+  /* Update default colors to use orange */
+  --vp-button-brand-bg: var(--vp-c-brand-1);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-bg: var(--vp-c-brand-3);
+}
+
+.dark {
+  /* Brand Colors - Orange (Dark Mode) */
+  --vp-c-brand-1: #fb923c;
+  --vp-c-brand-2: #f97316;
+  --vp-c-brand-3: #ea580c;
+  --vp-c-brand-soft: rgba(251, 146, 60, 0.16);
+}
+
+/* Home Page Hero - Orange accent */
+.VPHero .name {
+  background: linear-gradient(120deg, #f97316, #fb923c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom orange glow for feature icons */
+.VPFeature .icon {
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(251, 146, 60, 0.05));
+}
+
+/* Link colors */
+.vp-doc a {
+  color: var(--vp-c-brand-1);
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-2);
+}
+
+/* Sidebar active item */
+.VPSidebarItem.is-active > .item .link {
+  color: var(--vp-c-brand-1);
+}
+
+/* Code blocks accent */
+.vp-code-group .tabs label:hover,
+.vp-code-group .tabs input:checked + label {
+  color: var(--vp-c-brand-1);
+}
+
+/* Custom badge colors */
+.vp-badge.tip {
+  background-color: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-dark);
+}
+
+/* Search accent */
+.DocSearch-Button:hover {
+  background-color: var(--vp-c-brand-soft);
+}
+
+/* Navigation hover states */
+.VPNavBar .VPLink:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* Favicon switching for light/dark mode */
+@media (prefers-color-scheme: light) {
+  link[rel="icon"][href="/logo.png"] {
+    content: url('/logo-light.png');
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  link[rel="icon"][href="/logo.png"] {
+    content: url('/logo.png');
+  }
+}
