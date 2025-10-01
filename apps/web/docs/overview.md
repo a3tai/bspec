@@ -58,4 +58,4 @@ Ready to get started? Here's what you can do:
 - [Core Concepts](/docs/concepts) - Understand the fundamental principles
 - [Document Types](/docs/document-types) - Explore all 82 standardized types
 - [Specification](/spec/v1-0-0) - Read the complete technical specification
-- [GitHub](https://github.com/yourusername/bspec) - Contribute to the project
+- [GitHub](https://github.com/a3tai/bspec) - Contribute to the project

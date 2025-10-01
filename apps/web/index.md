@@ -14,7 +14,7 @@ hero:
       link: /spec/v1-0-0
     - theme: alt
       text: GitHub
-      link: https://github.com/yourusername/bspec
+      link: https://github.com/a3tai/bspec
 
 features:
   - icon: 📄

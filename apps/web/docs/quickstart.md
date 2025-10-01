@@ -11,7 +11,7 @@ Get started with BSpec in minutes. This guide will walk you through creating you
 curl -sSL https://bspec.dev/install.sh | bash
 
 # Or download from GitHub releases
-# Visit: https://github.com/yourusername/bspec/releases
+# Visit: https://github.com/a3tai/bspec/releases
 ```
 
 ### Using SDKs
@@ -27,7 +27,7 @@ pip install bspec-python
 ```
 
 ```bash [Go]
-go get github.com/yourusername/bspec-go
+go get github.com/a3tai/bspec-go
 ```
 
 :::

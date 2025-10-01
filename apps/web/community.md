@@ -7,7 +7,7 @@ Join the BSpec community and help shape the future of business documentation sta
 ### GitHub
 The primary home for BSpec development and discussion.
 
-- **Repository**: [github.com/yourusername/bspec](https://github.com/yourusername/bspec)
+- **Repository**: [github.com/a3tai/bspec](https://github.com/a3tai/bspec)
 - **Discussions**: Share ideas, ask questions, and connect with other users
 - **Issues**: Report bugs or request features
 - **Pull Requests**: Contribute code, documentation, or examples
@@ -22,7 +22,7 @@ We welcome contributions of all kinds:
 - **Examples**: Share real-world BSpec implementations
 - **Feedback**: Tell us about your experience using BSpec
 
-See our [Contributing Guide](https://github.com/yourusername/bspec/blob/main/CONTRIBUTING.md) for details.
+See our [Contributing Guide](https://github.com/a3tai/bspec/blob/main/CONTRIBUTING.md) for details.
 
 ## Resources
 
@@ -44,23 +44,23 @@ Coming soon: Real-world examples of BSpec implementations across different indus
 ## Support
 
 ### Questions & Discussion
-Have a question? Start a discussion on [GitHub Discussions](https://github.com/yourusername/bspec/discussions).
+Have a question? Start a discussion on [GitHub Discussions](https://github.com/a3tai/bspec/discussions).
 
 ### Bug Reports
-Found a bug? Open an issue on [GitHub Issues](https://github.com/yourusername/bspec/issues).
+Found a bug? Open an issue on [GitHub Issues](https://github.com/a3tai/bspec/issues).
 
 ### Feature Requests
-Have an idea for BSpec? We'd love to hear it! Open a feature request on [GitHub Issues](https://github.com/yourusername/bspec/issues).
+Have an idea for BSpec? We'd love to hear it! Open a feature request on [GitHub Issues](https://github.com/a3tai/bspec/issues).
 
 ## Code of Conduct
 
-We are committed to providing a welcoming and inclusive community for everyone. Please read our [Code of Conduct](https://github.com/yourusername/bspec/blob/main/CODE_OF_CONDUCT.md).
+We are committed to providing a welcoming and inclusive community for everyone. Please read our [Code of Conduct](https://github.com/a3tai/bspec/blob/main/CODE_OF_CONDUCT.md).
 
 ## Stay Updated
 
 - **Watch** the repository on GitHub to get notifications of new releases
 - **Star** the project to show your support
-- **Follow** updates in [GitHub Discussions](https://github.com/yourusername/bspec/discussions)
+- **Follow** updates in [GitHub Discussions](https://github.com/a3tai/bspec/discussions)
 
 ## Project Governance
 
@@ -72,4 +72,4 @@ BSpec is an open-source project with a transparent governance model:
 
 ## License
 
-BSpec is released under the [MIT License](https://github.com/yourusername/bspec/blob/main/LICENSE), making it free to use, modify, and distribute.
+BSpec is released under the [MIT License](https://github.com/a3tai/bspec/blob/main/LICENSE), making it free to use, modify, and distribute.

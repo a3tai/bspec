@@ -85,17 +85,17 @@ We welcome contributions! Here's how you can help:
 - **SDKs**: Add support for new languages
 - **Feedback**: Share your experience using BSpec
 
-See [CONTRIBUTING.md](https://github.com/yourusername/bspec/blob/main/CONTRIBUTING.md) for guidelines.
+See [CONTRIBUTING.md](https://github.com/a3tai/bspec/blob/main/CONTRIBUTING.md) for guidelines.
 
 ## Community
 
-- **GitHub**: [yourusername/bspec](https://github.com/yourusername/bspec)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/bspec/discussions)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/bspec/issues)
+- **GitHub**: [a3tai/bspec](https://github.com/a3tai/bspec)
+- **Discussions**: [GitHub Discussions](https://github.com/a3tai/bspec/discussions)
+- **Issues**: [GitHub Issues](https://github.com/a3tai/bspec/issues)
 
 ## License
 
-MIT License - see [LICENSE](https://github.com/yourusername/bspec/blob/main/LICENSE) for details.
+MIT License - see [LICENSE](https://github.com/a3tai/bspec/blob/main/LICENSE) for details.
 
 ## Acknowledgments
 

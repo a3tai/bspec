@@ -70,7 +70,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/yourusername/bspec' }
+      { icon: 'github', link: 'https://github.com/a3tai/bspec' }
     ],
 
     search: {
