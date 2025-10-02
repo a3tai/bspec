@@ -38,11 +38,14 @@ let bspecIndex: BSpecIndex | null = null;
  * Load TGZ from R2 and index all files
  */
 export async function loadSpecificationFromR2(env: any): Promise<BSpecIndex> {
-  console.log('Loading BSpec specification from R2...');
+  const startTime = Date.now();
+  console.log('[TIMING] Loading BSpec specification from R2...');
 
   try {
     // Load the standard TGZ file
+    const fetchStart = Date.now();
     const object = await env.ASSETS.get('bspec-v1-0-0.tgz');
+    console.log(`[TIMING] R2 fetch completed in ${Date.now() - fetchStart}ms`);
     
     if (!object) {
       console.error('ERROR: BSpec specification file not found in R2 bucket');
@@ -50,8 +53,10 @@ export async function loadSpecificationFromR2(env: any): Promise<BSpecIndex> {
       throw new Error('BSpec specification file not found in R2 bucket. Please ensure bspec-v1-0-0.tgz is uploaded to the ASSETS bucket.');
     }
 
-    console.log('Found TGZ file in R2, loading...');
+    const bufferStart = Date.now();
+    console.log('[TIMING] Found TGZ file in R2, reading buffer...');
     const arrayBuffer = await object.arrayBuffer();
+    console.log(`[TIMING] Buffer read completed in ${Date.now() - bufferStart}ms`);
 
     if (!arrayBuffer || arrayBuffer.byteLength === 0) {
       console.error('ERROR: TGZ file is empty or corrupted');
@@ -59,7 +64,7 @@ export async function loadSpecificationFromR2(env: any): Promise<BSpecIndex> {
     }
 
     const uint8Array = new Uint8Array(arrayBuffer);
-    console.log(`TGZ file loaded, size: ${uint8Array.length} bytes`);
+    console.log(`[TIMING] TGZ file loaded, size: ${uint8Array.length} bytes`);
 
     // Decompress the gzip file using Cloudflare Workers built-in streams
     const readable = new ReadableStream({
@@ -69,10 +74,12 @@ export async function loadSpecificationFromR2(env: any): Promise<BSpecIndex> {
       }
     });
 
-    console.log('Decompressing TGZ file...');
+    const decompressStart = Date.now();
+    console.log('[TIMING] Decompressing TGZ file...');
     const decompressed = await new Response(
       readable.pipeThrough(new DecompressionStream('gzip'))
     ).arrayBuffer();
+    console.log(`[TIMING] Decompression completed in ${Date.now() - decompressStart}ms`);
 
     if (!decompressed || decompressed.byteLength === 0) {
       console.error('ERROR: Decompression failed or resulted in empty data');
@@ -83,7 +90,8 @@ export async function loadSpecificationFromR2(env: any): Promise<BSpecIndex> {
     console.log(`Decompressed size: ${decompressedBytes.length} bytes`);
 
     // Parse TAR file (simple implementation)
-    console.log('Parsing TAR contents...');
+    const parseStart = Date.now();
+    console.log('[TIMING] Parsing TAR contents...');
     const files = new Map<string, string>();
     let version = '1.0.0'; // default
 
@@ -124,17 +132,24 @@ export async function loadSpecificationFromR2(env: any): Promise<BSpecIndex> {
       }
     }
 
+    console.log(`[TIMING] TAR parsing completed in ${Date.now() - parseStart}ms`);
+    
     if (files.size === 0) {
       console.error('ERROR: No files found in TGZ archive');
       throw new Error('BSpec specification archive is empty or corrupted');
     }
 
-    console.log(`Successfully loaded ${files.size} files from BSpec v${version}`);
+    console.log(`[TIMING] Successfully loaded ${files.size} files from BSpec v${version}`);
 
     // Build intelligent BSpec index
-    console.log('Building BSpec intelligence index...');
+    const indexStart = Date.now();
+    console.log('[TIMING] Building BSpec intelligence index...');
     const bspecIndex = await buildBSpecIndex(files, version);
+    console.log(`[TIMING] Index built in ${Date.now() - indexStart}ms`);
 
+    const totalTime = Date.now() - startTime;
+    console.log(`[TIMING] ✅ Total specification load time: ${totalTime}ms`);
+    
     return bspecIndex;
 
   } catch (error) {
@@ -147,8 +162,10 @@ export async function loadSpecificationFromR2(env: any): Promise<BSpecIndex> {
  * Build intelligent BSpec index from loaded files
  */
 async function buildBSpecIndex(files: Map<string, string>, version: string): Promise<BSpecIndex> {
+  const buildStart = Date.now();
   const documentTypes = new Map<string, DocumentTypeSpec>();
   const domains = new Map<string, DomainInfo>();
+  let parsedFiles = 0;
 
   // Get main README and spec content
   const readme = files.get('README.md') || files.get('README.json') || '';
@@ -188,9 +205,10 @@ async function buildBSpecIndex(files: Map<string, string>, version: string): Pro
           const docType = parseDocumentTypeSpec(typeCode, domainDir, specContent);
           documentTypes.set(typeCode, docType);
           domainTypes.push(typeCode);
+          parsedFiles++;
 
         } catch (error) {
-          console.warn(`Failed to parse document type spec: ${filename}`, error);
+          console.warn(`[TIMING] Failed to parse document type spec: ${filename}`, error);
         }
       }
     }
@@ -205,7 +223,8 @@ async function buildBSpecIndex(files: Map<string, string>, version: string): Pro
     }
   }
 
-  console.log(`Built BSpec index: ${documentTypes.size} document types across ${domains.size} domains`);
+  const buildTime = Date.now() - buildStart;
+  console.log(`[TIMING] Built BSpec index: ${documentTypes.size} document types across ${domains.size} domains (parsed ${parsedFiles} files) in ${buildTime}ms`);
 
   return {
     version,

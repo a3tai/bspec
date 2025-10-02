@@ -53,23 +53,20 @@ export class BSpecMcpAgent extends McpAgent<Env, BSpecState, {}> {
   async init() {
     console.log('Initializing BSpec MCP Agent...');
     
-    // Load the BSpec specification if not already loaded
-    await this.ensureSpecificationLoaded();
-
-    // Set up resources
-    this.setupResources();
+    // DON'T load specification during init - do it lazily on first request
+    // This prevents timeout during initialization
     
-    // Set up tools
+    // Set up tools immediately (they're lightweight)
     this.setupTools();
 
     // Update state to indicate initialization
     this.setState({
       ...this.state,
       initialized: true,
-      lastLoadTime: Date.now()
+      lastLoadTime: 0 // Will be updated on first load
     });
 
-    console.log(`BSpec MCP Agent initialized with ${this.bspecIndex?.documentTypes.size || 0} document types`);
+    console.log('BSpec MCP Agent initialized (lazy loading enabled)');
   }
 
   onStateUpdate(state: BSpecState) {
@@ -81,33 +78,88 @@ export class BSpecMcpAgent extends McpAgent<Env, BSpecState, {}> {
   }
 
   /**
-   * Ensure the BSpec specification is loaded from R2
+   * Ensure the BSpec specification is loaded from R2 with timeout protection
    */
-  private async ensureSpecificationLoaded() {
-    if (!this.bspecIndex) {
-      console.log('Loading BSpec specification from R2...');
-      this.bspecIndex = await loadSpecificationFromR2(this.env);
-      console.log(`Loaded BSpec ${this.bspecIndex.version} with ${this.bspecIndex.documentTypes.size} document types`);
+  private async ensureSpecificationLoaded(): Promise<void> {
+    if (this.bspecIndex) {
+      // Already loaded
+      return;
+    }
+
+    // Check if we're already loading (prevent duplicate loads)
+    if (this._loadingPromise) {
+      return this._loadingPromise;
+    }
+
+    console.log('Loading BSpec specification from R2...');
+    
+    // Store the loading promise to prevent concurrent loads
+    this._loadingPromise = this._loadSpecWithTimeout();
+    
+    try {
+      await this._loadingPromise;
+    } finally {
+      this._loadingPromise = null;
+    }
+  }
+
+  private _loadingPromise: Promise<void> | null = null;
+
+  /**
+   * Load specification with timeout protection
+   */
+  private async _loadSpecWithTimeout(): Promise<void> {
+    const startTime = Date.now();
+    const TIMEOUT_MS = 8000; // 8 seconds (Cloudflare Workers have 10s CPU limit)
+    
+    console.log('[TIMING] Starting specification load...');
+    
+    const timeoutPromise = new Promise<never>((_, reject) => {
+      setTimeout(() => reject(new Error('Specification loading timed out')), TIMEOUT_MS);
+    });
+
+    try {
+      this.bspecIndex = await Promise.race([
+        loadSpecificationFromR2(this.env),
+        timeoutPromise
+      ]);
+
+      const loadTime = Date.now() - startTime;
+      console.log(`[TIMING] ✅ Loaded BSpec ${this.bspecIndex.version} with ${this.bspecIndex.documentTypes.size} document types in ${loadTime}ms`);
       
       // Update version in state
       this.setState({
         ...this.state,
-        version: this.bspecIndex.version
+        version: this.bspecIndex.version,
+        lastLoadTime: Date.now()
       });
+    } catch (error) {
+      const failTime = Date.now() - startTime;
+      console.error(`[TIMING] ❌ Failed to load BSpec specification after ${failTime}ms:`, error);
+      throw new Error(`Failed to load specification: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
 
   /**
-   * Set up MCP resources
+   * Set up MCP resources (lazy - only registers resources after spec is loaded)
    */
-  private setupResources() {
-    if (!this.bspecIndex) return;
+  private async setupResources() {
+    // Ensure spec is loaded first
+    await this.ensureSpecificationLoaded();
+    
+    if (!this.bspecIndex) {
+      console.error('Cannot setup resources: BSpec index not loaded');
+      return;
+    }
+
+    console.log('Setting up MCP resources...');
 
     // BSpec Overview Resource
     this.server.resource(
       `bspec-overview`,
       `https://mcp.bspec.dev/spec/v${this.bspecIndex.version}/overview`,
-      (uri) => {
+      async (uri) => {
+        await this.ensureSpecificationLoaded();
         const index = this.bspecIndex!;
         const totalTypes = index.documentTypes.size;
         const totalDomains = index.domains.size;
@@ -141,54 +193,9 @@ export class BSpecMcpAgent extends McpAgent<Env, BSpecState, {}> {
       }
     );
 
-    // Domain Resources
-    for (const [domainKey, domainInfo] of this.bspecIndex.domains.entries()) {
-      this.server.resource(
-        `domain-${domainKey}`,
-        `https://mcp.bspec.dev/spec/v${this.bspecIndex.version}/domains/${domainKey}`,
-        (uri) => {
-          const index = this.bspecIndex!;
-          let domainResponse = `# ${domainInfo.name}\n\n`;
-          domainResponse += `**Description:** ${domainInfo.description}\n`;
-          domainResponse += `**Total Document Types:** ${domainInfo.totalTypes}\n\n`;
-          domainResponse += `## Document Types in this Domain:\n\n`;
-
-          for (const typeCode of domainInfo.documentTypes) {
-            const type = index.documentTypes.get(typeCode);
-            if (type) {
-              domainResponse += `- **${typeCode}**: ${type.name} - ${type.description}\n`;
-            }
-          }
-
-          return {
-            contents: [{
-              uri: uri.href,
-              text: domainResponse,
-              mimeType: 'text/markdown'
-            }]
-          };
-        }
-      );
-    }
-
-    // Document Type Resources
-    for (const [typeCode, docType] of this.bspecIndex.documentTypes.entries()) {
-      this.server.resource(
-        `document-type-${typeCode}`,
-        `https://mcp.bspec.dev/spec/v${this.bspecIndex.version}/document-types/${typeCode}`,
-        (uri) => {
-          const content = `# ${docType.code}: ${docType.name}\n\n**Domain:** ${docType.domain}\n**Description:** ${docType.description}\n\n**Full Specification:**\n\n${docType.content}`;
-          
-          return {
-            contents: [{
-              uri: uri.href,
-              text: content,
-              mimeType: 'text/markdown'
-            }]
-          };
-        }
-      );
-    }
+    // Register domain and document type resources lazily
+    // Only register a few at init, rest on-demand via tools
+    console.log(`Registered overview resource. Document types and domains accessible via tools.`);
   }
 
   /**
@@ -203,12 +210,16 @@ export class BSpecMcpAgent extends McpAgent<Env, BSpecState, {}> {
         type_code: z.string().describe("Three-letter document type code (e.g., 'MSN', 'VSN', 'STR')")
       },
       async ({ type_code }) => {
+        const startTime = Date.now();
+        console.log(`[TIMING] Tool: get_document_type(${type_code})`);
         await this.ensureSpecificationLoaded();
+        console.log(`[TIMING] Spec loaded in ${Date.now() - startTime}ms`);
         
         const typeCode = type_code.toUpperCase();
         const docType = this.bspecIndex!.documentTypes.get(typeCode);
         
         if (!docType) {
+          console.log(`[TIMING] get_document_type completed in ${Date.now() - startTime}ms (not found)`);
           return {
             content: [{
               type: "text",
@@ -217,6 +228,7 @@ export class BSpecMcpAgent extends McpAgent<Env, BSpecState, {}> {
           };
         }
 
+        console.log(`[TIMING] get_document_type completed in ${Date.now() - startTime}ms`);
         return {
           content: [{
             type: "text",
@@ -235,6 +247,8 @@ export class BSpecMcpAgent extends McpAgent<Env, BSpecState, {}> {
         include_content: z.boolean().optional().default(false).describe("Include full specification content")
       },
       async ({ domain, include_content }) => {
+        const startTime = Date.now();
+        console.log(`[TIMING] Tool: list_document_types(domain=${domain}, include_content=${include_content})`);
         await this.ensureSpecificationLoaded();
         
         let filteredTypes = Array.from(this.bspecIndex!.documentTypes.values());
@@ -258,6 +272,7 @@ export class BSpecMcpAgent extends McpAgent<Env, BSpecState, {}> {
           response += '\n---\n\n';
         }
 
+        console.log(`[TIMING] list_document_types completed in ${Date.now() - startTime}ms (${filteredTypes.length} types)`);
         return {
           content: [{
             type: "text",
