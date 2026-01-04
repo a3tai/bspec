@@ -2,7 +2,7 @@
 
 # Build variables
 BINARY_NAME=bspec
-VERSION?=1.0.0
+VERSION?=$(shell cat ../../spec/v1/version.txt 2>/dev/null || echo "1.0.0")
 BUILD_DATE=$(shell date -u +'%Y-%m-%dT%H:%M:%SZ')
 GIT_COMMIT=$(shell git rev-parse --short HEAD 2>/dev/null || echo "unknown")
 

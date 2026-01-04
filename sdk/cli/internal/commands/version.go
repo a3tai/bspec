@@ -1,8 +1,6 @@
 package commands
 
 import (
-	"fmt"
-
 	"github.com/spf13/cobra"
 )
 
@@ -22,11 +20,11 @@ var versionCmd = &cobra.Command{
 		short, _ := cmd.Flags().GetBool("short")
 
 		if short {
-			fmt.Println(Version)
+			cmd.Println(Version)
 		} else {
-			fmt.Printf("BSpec CLI version %s\n", Version)
-			fmt.Printf("Build date: %s\n", BuildDate)
-			fmt.Printf("Git commit: %s\n", GitCommit)
+			cmd.Printf("BSpec CLI version %s\n", Version)
+			cmd.Printf("Build date: %s\n", BuildDate)
+			cmd.Printf("Git commit: %s\n", GitCommit)
 		}
 	},
 }
