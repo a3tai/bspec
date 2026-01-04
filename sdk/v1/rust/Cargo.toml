@@ -1,6 +1,6 @@
 [package]
 name = "bspec"
-version = "1.0.0"
+version = "1.1.0"
 description = "BSpec Rust SDK - Universal Business Specification Standard"
 authors = ["BSpec Foundation"]
 license = "CC-BY-4.0"

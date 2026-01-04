@@ -11,7 +11,7 @@ from .types import (
     DocumentStatus, BusinessDomain, ConformanceLevel
 )
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 __all__ = [
     "BSpec",
     "BSpecData", "BSpecMetadata", "BSpecFile", "BSpecDomain", "BSpecStatistics",

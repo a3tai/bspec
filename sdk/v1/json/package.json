@@ -1,6 +1,6 @@
 {
   "name": "@bspec/json-sdk",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "BSpec JSON SDK - Universal Business Specification Standard",
   "main": "bspec-complete.json",
   "files": [
