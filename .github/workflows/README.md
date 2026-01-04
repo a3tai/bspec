@@ -1,122 +1,138 @@
 # BSpec GitHub Actions Workflows
 
-This directory contains three comprehensive workflows for the BSpec project:
+This directory contains GitHub Actions workflows for automating BSpec development, testing, and deployment.
 
-## 🧪 test-version-bump.yml
+## Workflows
 
-**Purpose**: Comprehensive testing of the version bump script
-**Triggers**: 
-- Push/PR changes to `scripts/bump-version.py` or the workflow itself
-- Manual dispatch with version bump type selection
+| Workflow | Trigger | Purpose |
+|----------|---------|---------|
+| `ci.yml` | Push/PR to main | Continuous integration - builds and tests all components |
+| `deploy.yml` | Push to main (apps/web changes) | Deploys website to Cloudflare Pages |
+| `deploy-mcp.yml` | Push to main (apps/mcp changes) | Deploys MCP server to Cloudflare Workers |
+| `release.yml` | Manual dispatch | Full release process with version bump, CLI builds, and deployments |
 
-**What it tests**:
-- ✅ Script help and version display functionality
-- ✅ All expected files exist in repository
-- ✅ Patch, minor, and major version bumps work correctly
-- ✅ All SDK files are updated with new versions
-- ✅ All SDKs still build after version changes
-- ✅ Error handling for invalid inputs and missing files
-- ✅ Manual testing via workflow dispatch
+## Required Secrets
 
-## 🚀 release.yml
+Before the workflows can run, you must configure these secrets in your GitHub repository:
 
-**Purpose**: Production release workflow using the version bump script
-**Trigger**: Manual dispatch only (workflow_dispatch)
+### Setting Up Secrets
 
-**What it does**:
-1. **Version Management**: Bumps version across all components
-2. **Git Operations**: Commits changes, creates tags, pushes to repository
-3. **Release Creation**: Creates GitHub release with changelog
-4. **Asset Generation**: Packages source code and all SDKs
-5. **Build Validation**: Tests all SDKs build correctly with new version
-6. **Package Publishing**: Ready for NPM/PyPI (disabled for safety)
+1. Go to your repository on GitHub
+2. Navigate to **Settings** → **Secrets and variables** → **Actions**
+3. Click **New repository secret** for each secret below
 
-**Options**:
-- Version bump type (patch/minor/major)
-- Create GitHub release (true/false)
-- Publish packages (true/false - disabled by default)
+### Required Secrets
 
-## ⚡ ci.yml
+| Secret | Description | How to Get |
+|--------|-------------|------------|
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API token for deployments | [Cloudflare Dashboard](https://dash.cloudflare.com/profile/api-tokens) → Create Token → "Edit Cloudflare Workers" template |
+| `CLOUDFLARE_ACCOUNT_ID` | Your Cloudflare account ID | Cloudflare Dashboard → Any domain → Overview → Right sidebar "Account ID" |
 
-**Purpose**: Continuous integration for all code changes
-**Triggers**: Push/PR to main or develop branches
+### Creating the Cloudflare API Token
 
-**What it validates**:
-- 🏗️ **Repository Structure**: Required files and directories exist
-- 🧪 **Version Script**: Functionality and logic testing
-- 🔨 **Multi-Language Builds**: TypeScript, Python, Go, Rust, CLI
-- 📝 **Code Quality**: Linting, formatting, syntax validation
-- 🔒 **Security**: Checks for hardcoded secrets and best practices
-- 📊 **Summary**: Complete CI results overview
+1. Go to [Cloudflare API Tokens](https://dash.cloudflare.com/profile/api-tokens)
+2. Click **Create Token**
+3. Use the **"Edit Cloudflare Workers"** template, or create a custom token with:
+   - **Account** → Cloudflare Pages: Edit
+   - **Account** → Workers Scripts: Edit
+   - **Zone** → Zone: Read (for custom domains)
+4. Set appropriate IP/TTL restrictions for security
+5. Copy the token and add it as `CLOUDFLARE_API_TOKEN` secret
 
-## Usage Examples
+### Optional Secrets (for package publishing)
 
-### Run Version Bump Tests
-Go to the Actions tab in GitHub and manually trigger "Test Version Bump Script" workflow with different bump types.
+| Secret | Description | How to Get |
+|--------|-------------|------------|
+| `NPM_TOKEN` | npm access token for publishing TypeScript SDK | [npmjs.com](https://www.npmjs.com/) → Access Tokens |
+| `PYPI_TOKEN` | PyPI API token for publishing Python SDK | [pypi.org](https://pypi.org/) → Account Settings → API Tokens |
 
-### Create a Release
-1. Go to Actions tab
-2. Select "Release BSpec" workflow  
-3. Click "Run workflow"
-4. Choose version bump type and options
-5. Monitor the multi-job release process
+## Workflow Details
 
-### Monitor CI
-CI runs automatically on all pushes and pull requests. Check the Actions tab for results.
+### CI Workflow (`ci.yml`)
 
-## Workflow Features
+Runs on every push and pull request to `main` branch:
 
-### 🔄 **Version Synchronization**
-All workflows use the centralized version bump script to ensure consistent versioning across:
-- Python SDK (`bspec/__init__.py`, `setup.py`)
-- TypeScript SDK (`package.json`)
-- Go SDK (`bspec.go`) and CLI (`version.go`)
-- Rust SDK (`Cargo.toml`)
-- Web apps (`package.json` files)
+- ✅ Validates repository structure
+- ✅ Tests version bump script
+- ✅ Builds all SDKs (TypeScript, Python, Go, Rust)
+- ✅ Builds CLI tool
+- ✅ Builds web application
+- ✅ Security checks for leaked secrets
 
-### 🏗️ **Multi-Language Support**
-Full environment setup for all BSpec languages:
-- Node.js 20 with bun (following BSpec package management rules)
-- Python 3.11
-- Go 1.21
-- Rust (stable toolchain)
+### Deploy Website (`deploy.yml`)
 
-### 🛡️ **Safety Features**
-- Package publishing disabled by default (requires secrets)
-- Comprehensive testing before any releases
-- Error handling and rollback capabilities
-- Security scanning for hardcoded secrets
+Automatically deploys when changes are pushed to:
+- `apps/web/**`
+- `spec/v1/**`
+- `scripts/generate_web_docs.py`
 
-### 📋 **Matrix Builds**
-CI workflow uses matrix strategy to test all components in parallel:
-- TypeScript SDK
-- Python SDK  
-- Go SDK
-- Rust SDK
-- Web application
-- CLI tool
+Deploys to: **https://bspec.dev**
 
-## Development Workflow
+### Deploy MCP Server (`deploy-mcp.yml`)
 
-1. **Development**: Make changes, push to branch
-2. **CI Validation**: Automatic testing via ci.yml
-3. **Version Bump Testing**: Manual testing via test-version-bump.yml
-4. **Release**: Production release via release.yml
-5. **Post-Release**: Automated asset uploads and notifications
+Automatically deploys when changes are pushed to:
+- `apps/mcp/**`
+- `spec/v1/**`
 
-## Next Steps
+Deploys to: **https://mcp.bspec.dev**
 
-- [ ] Add NPM_TOKEN secret for automatic NPM publishing
-- [ ] Add PYPI_TOKEN secret for automatic PyPI publishing  
-- [ ] Set up release notifications (Slack, email, etc.)
-- [ ] Add performance benchmarking to CI
-- [ ] Implement automated changelog generation
-- [ ] Add deployment workflows for web applications
+### Release Workflow (`release.yml`)
 
-## Maintenance
+Manual workflow for creating releases. Options:
 
-These workflows are designed to be self-maintaining, but should be reviewed periodically for:
-- GitHub Actions version updates
-- Language version updates (Node.js, Python, Go, Rust)
-- New SDK additions
-- Security best practices updates
+- **version_bump**: `patch`, `minor`, or `major`
+- **create_release**: Create GitHub release with CLI binaries
+- **deploy_web**: Deploy website after release
+- **deploy_mcp**: Deploy MCP server after release
+
+This workflow:
+1. Bumps version across all components
+2. Creates git tag
+3. Builds CLI for all platforms (Linux, macOS, Windows × amd64/arm64)
+4. Creates GitHub release with downloadable binaries
+5. Optionally deploys website and MCP server
+
+## Local Development
+
+For local development, use [direnv](https://direnv.net/) with 1Password:
+
+```bash
+# Install prerequisites
+brew install direnv 1password-cli
+
+# Add to ~/.zshrc
+eval "$(direnv hook zsh)"
+
+# In the repo root
+cp .envrc.example .envrc
+# Edit .envrc to point to your 1Password vault
+direnv allow
+```
+
+## Troubleshooting
+
+### "Authentication error" during deployment
+
+1. Verify `CLOUDFLARE_API_TOKEN` is set correctly
+2. Verify `CLOUDFLARE_ACCOUNT_ID` matches your Cloudflare account
+3. Ensure the API token has the required permissions
+
+### CLI builds fail on specific platform
+
+The CLI builds use cross-compilation via `CGO_ENABLED=0`. If builds fail:
+1. Check Go version compatibility
+2. Ensure no CGO dependencies in the CLI code
+
+### Website deployment doesn't update
+
+Cloudflare Pages may cache content. Try:
+1. Clear Cloudflare cache in dashboard
+2. Wait a few minutes for propagation
+3. Check the deployment logs in GitHub Actions
+
+## Security
+
+- Never commit secrets to the repository
+- Use GitHub Secrets for all sensitive values
+- The `.envrc` file uses 1Password's `op read` for local development
+- Cloudflare Account IDs are not secret (visible in dashboard URLs)

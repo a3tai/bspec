@@ -2,7 +2,7 @@ name = "bspec-prod"
 main = "dist/index.js"
 compatibility_date = "2025-09-28"
 compatibility_flags = ["nodejs_compat"]
-account_id = "c4e383a10f9f68d0ffbcaac36fc1f826"
+# account_id is set via CLOUDFLARE_ACCOUNT_ID environment variable
 workers_dev = true
 
 # Workers configuration

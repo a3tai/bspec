@@ -1,0 +1,51 @@
+name: Deploy MCP Server
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'apps/mcp/**'
+      - 'spec/v1/**'
+      - '.github/workflows/deploy-mcp.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy to Cloudflare Workers
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        working-directory: apps/mcp
+        run: bun install
+
+      - name: Build
+        working-directory: apps/mcp
+        run: bun run build
+
+      - name: Deploy to Cloudflare Workers
+        working-directory: apps/mcp
+        run: npx wrangler deploy --env production
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+      - name: Verify deployment
+        run: |
+          echo "🚀 MCP Server deployed to:"
+          echo "   - https://mcp.bspec.dev/mcp"
+          echo "   - https://bspec-prod.rude-company-llc.workers.dev"
+          echo ""
+          echo "Testing health endpoint..."
+          sleep 5
+          curl -sf https://mcp.bspec.dev/ || echo "Note: Health check requires proper Accept headers"
+
