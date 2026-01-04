@@ -1,29 +1,40 @@
 # BSpec Development Environment
-# 
-# Copy this file to .envrc and customize for your setup:
-#   cp .envrc.example .envrc
-#   direnv allow
+# Uses 1Password CLI for secure secret management
 #
-# Prerequisites:
+# Setup:
 #   1. Install direnv: brew install direnv
-#   2. Add to shell: eval "$(direnv hook zsh)"  # or bash/fish
+#   2. Add to shell: eval "$(direnv hook zsh)"
 #   3. Install 1Password CLI: brew install 1password-cli
-#   4. Sign in to 1Password: op signin
+#   4. Copy and customize: cp .envrc.example .envrc
+#   5. Allow direnv: direnv allow
 
 # =============================================================================
-# 1Password Integration
+# 1Password Setup
 # =============================================================================
-# Use op:// references to pull secrets at runtime with `op run -- <command>`
+
+if ! command -v op &> /dev/null; then
+    echo "⚠️  1Password CLI (op) not found. Install with: brew install 1password-cli"
+    return 1
+fi
+
+# Sign in once (single biometric prompt, cached for subsequent reads)
+if ! op account get &>/dev/null; then
+    echo "🔐 Authenticating with 1Password..."
+    eval "$(op signin)"
+fi
+
+# =============================================================================
+# AI API Keys
+# =============================================================================
 # Format: op://VAULT/ITEM/FIELD
-#
-# Example: op run -- bspec chat
+# Create an "Environment" item in your 1Password vault with these fields
 
-export GEMINI_API_KEY="op://YourVault/Environment/GEMINI_API_KEY"
-export ANTHROPIC_API_KEY="op://YourVault/Environment/ANTHROPIC_API_KEY"
-export OPENAI_API_KEY="op://YourVault/Environment/OPENAI_API_KEY"
-export OPENROUTER_API_KEY="op://YourVault/Environment/OPENROUTER_API_KEY"
-export FIRECRAWL_API_KEY="op://YourVault/Environment/FIRECRAWL_API_KEY"
-export EXA_API_KEY="op://YourVault/Environment/EXA_API_KEY"
+export GEMINI_API_KEY="$(op read 'op://YourVault/Environment/GEMINI_API_KEY' 2>/dev/null || echo 'NOT_SET')"
+export EXA_API_KEY="$(op read 'op://YourVault/Environment/EXA_API_KEY' 2>/dev/null || echo 'NOT_SET')"
+export FIRECRAWL_API_KEY="$(op read 'op://YourVault/Environment/FIRECRAWL_API_KEY' 2>/dev/null || echo 'NOT_SET')"
+export OPENROUTER_API_KEY="$(op read 'op://YourVault/Environment/OPENROUTER_API_KEY' 2>/dev/null || echo 'NOT_SET')"
+export ANTHROPIC_API_KEY="$(op read 'op://YourVault/Environment/ANTHROPIC_API_KEY' 2>/dev/null || echo 'NOT_SET')"
+export OPENAI_API_KEY="$(op read 'op://YourVault/Environment/OPENAI_API_KEY' 2>/dev/null || echo 'NOT_SET')"
 
 # =============================================================================
 # Cloudflare (for deploying bspec.dev)
@@ -41,13 +52,8 @@ export BSPEC_ROOT="$(pwd)"
 PATH_add "$BSPEC_ROOT/sdk/cli/bin"
 
 # =============================================================================
-# Optional: Direct values (not recommended for secrets)
+# Status
 # =============================================================================
-# You can also set values directly if not using 1Password:
-#
-# export ANTHROPIC_API_KEY="sk-ant-..."
-# export OPENAI_API_KEY="sk-..."
 
 echo "✓ BSpec environment loaded"
 echo "  BSPEC_ROOT: $BSPEC_ROOT"
-
