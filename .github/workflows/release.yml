@@ -161,7 +161,7 @@ jobs:
         ls -la bin/
         
     - name: Upload CLI artifact
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v6
       with:
         name: bspec-${{ matrix.os }}-${{ matrix.arch }}
         path: sdk/cli/bin/bspec-*
