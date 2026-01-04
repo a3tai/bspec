@@ -84,6 +84,7 @@ logs/
 .env
 .env.local
 .env.*.local
+.envrc
 *.key
 *.pem
 *.p12
