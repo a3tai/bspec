@@ -37,6 +37,8 @@ jobs:
   bump-version:
     name: Bump Version
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     outputs:
       new-version: ${{ steps.bump.outputs.new-version }}
     
