@@ -7,11 +7,14 @@ Get started with BSpec in minutes. This guide will walk you through creating you
 ### Using the CLI (Recommended)
 
 ```bash
-# Install via curl
-curl -sSL https://bspec.dev/install.sh | bash
-
-# Or download from GitHub releases
+# Download from GitHub releases
 # Visit: https://github.com/a3tai/bspec/releases
+
+# Or use the platform-specific binaries:
+# macOS (Apple Silicon): bspec-darwin-arm64
+# macOS (Intel): bspec-darwin-amd64
+# Linux: bspec-linux-amd64
+# Windows: bspec-windows-amd64.exe
 ```
 
 ### Using SDKs
@@ -164,6 +167,6 @@ Claude will be able to:
 ## Next Steps
 
 - [Core Concepts](/docs/concepts) - Understand BSpec fundamentals
-- [Document Types](/docs/document-types) - Explore all 82 document types
+- [Document Types](/docs/document-types) - Explore all 112 document types
 - [CLI Reference](/docs/tools/cli) - Learn all CLI commands
 - [Conformance Levels](/spec/conformance) - Understand Bronze, Silver, and Gold levels

@@ -18,8 +18,8 @@ hero:
 
 features:
   - icon: 📄
-    title: 82 Document Types
-    details: Comprehensive coverage across 11 business domains, from strategy to execution
+    title: 112 Document Types
+    details: Comprehensive coverage across 12 business domains, from strategy to execution
   - icon: 🔗
     title: Knowledge Graph
     details: Rich relationships between documents create an interconnected business model
@@ -72,8 +72,8 @@ priority: critical
 ### Quick Start
 
 ```bash
-# Install the CLI
-curl -sSL https://bspec.dev/install.sh | bash
+# Download the CLI from GitHub releases
+# Visit: https://github.com/a3tai/bspec/releases
 
 # Create a new BSpec project
 bspec init my-business

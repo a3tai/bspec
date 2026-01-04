@@ -4,6 +4,7 @@ export default defineConfig({
   title: 'BSpec',
   description: 'Business Specification Standard - A universal language for describing any business',
   
+  cleanUrls: true,
   ignoreDeadLinks: true,
   
   themeConfig: {
@@ -38,12 +39,13 @@ export default defineConfig({
             { text: 'Customer Value', link: '/docs/domains/customer-value' },
             { text: 'Product & Service', link: '/docs/domains/product-service' },
             { text: 'Business Model', link: '/docs/domains/business-model' },
-            { text: 'Operations', link: '/docs/domains/operations' },
-            { text: 'Technology & Data', link: '/docs/domains/technology' },
-            { text: 'Financial', link: '/docs/domains/financial' },
-            { text: 'Risk & Governance', link: '/docs/domains/risk' },
-            { text: 'Growth & Innovation', link: '/docs/domains/growth' },
-            { text: 'Learning & Decisions', link: '/docs/domains/learning' }
+            { text: 'Operations & Execution', link: '/docs/domains/operations-execution' },
+            { text: 'Technology & Data', link: '/docs/domains/technology-data' },
+            { text: 'Financial & Investment', link: '/docs/domains/financial-investment' },
+            { text: 'Risk & Governance', link: '/docs/domains/risk-governance' },
+            { text: 'Growth & Innovation', link: '/docs/domains/growth-innovation' },
+            { text: 'Learning & Decisions', link: '/docs/domains/learning-decisions' },
+            { text: 'Brand & Marketing', link: '/docs/domains/brand-marketing' }
           ]
         },
         {

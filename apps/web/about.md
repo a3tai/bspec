@@ -14,7 +14,7 @@ Business documentation is fragmented, inconsistent, and difficult for both human
 
 ## The Solution
 
-BSpec provides a universal language - 82 standardized document types organized across 11 comprehensive business domains. Similar to how SAFE agreements standardized early-stage investing, BSpec standardizes business documentation.
+BSpec provides a universal language - 112 standardized document types organized across 12 comprehensive business domains. Similar to how SAFE agreements standardized early-stage investing, BSpec standardizes business documentation.
 
 ### Key Innovation: Atomic + Connected
 
@@ -42,7 +42,7 @@ Help clients document their business systematically. Use conformance levels to g
 **Current Version**: 1.0.0
 
 BSpec v1.0 is stable and ready for use. The specification includes:
-- 82 document types across 11 domains
+- 112 document types across 12 domains
 - Complete relationship model
 - Conformance levels (Bronze, Silver, Gold)
 - Industry-specific profiles

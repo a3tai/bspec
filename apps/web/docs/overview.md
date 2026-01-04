@@ -11,12 +11,12 @@ BSpec provides a universal language that enables:
 
 Think of BSpec as creating a standardized "API" for business knowledge.
 
-## Can MCP enable?
+## Why BSpec?
 
 BSpec solves several critical problems in business documentation:
 
 ### 1. Lack of Standardization
-Every company documents their business differently. BSpec provides 82 standardized document types that cover every aspect of a business, from vision and strategy to operations and execution.
+Every company documents their business differently. BSpec provides 112 standardized document types that cover every aspect of a business, from vision and strategy to operations and execution.
 
 ### 2. Disconnected Information
 Business documents often exist in silos. BSpec creates rich relationships between documents, forming a knowledge graph that shows how different parts of your business connect.
@@ -50,12 +50,12 @@ Ready to get started? Here's what you can do:
 
 1. **Learn the Basics**: Read through the [Core Concepts](/docs/concepts) to understand BSpec fundamentals
 2. **Quick Start**: Follow our [Quick Start Guide](/docs/quickstart) to create your first BSpec document
-3. **Explore Document Types**: Browse the [82 document types](/docs/document-types) organized by domain
+3. **Explore Document Types**: Browse the [112 document types](/docs/document-types) organized by domain
 4. **Use Tools**: Try the [CLI tool](/docs/tools/cli), [SDKs](/docs/tools/typescript), or [MCP server](/docs/tools/mcp)
 
 ## Learn more
 
 - [Core Concepts](/docs/concepts) - Understand the fundamental principles
-- [Document Types](/docs/document-types) - Explore all 82 standardized types
+- [Document Types](/docs/document-types) - Explore all 112 standardized types
 - [Specification](/spec/v1-0-0) - Read the complete technical specification
 - [GitHub](https://github.com/a3tai/bspec) - Contribute to the project

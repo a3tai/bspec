@@ -2,19 +2,22 @@
   "name": "@bspec/typescript-sdk",
   "version": "1.0.0",
   "description": "BSpec TypeScript SDK - Universal Business Specification Standard",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "**/*.ts",
-    "**/*.js",
-    "**/*.d.ts",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "dist/**/*.js.map",
     "*.json",
     "version.txt",
     "README.md"
   ],
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "clean": "rm -rf dist",
+    "rebuild": "npm run clean && npm run build",
+    "test": "jest",
+    "prepublishOnly": "npm run rebuild"
   },
   "keywords": [
     "bspec",

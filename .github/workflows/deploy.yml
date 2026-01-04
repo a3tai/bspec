@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - 'apps/web/**'
+      - 'spec/v1/**'
+      - 'scripts/generate_web_docs.py'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
@@ -19,6 +21,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate web docs from spec
+        run: python3 scripts/generate_web_docs.py
 
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1

@@ -82,9 +82,9 @@ Example: A Feature Specification relates to:
 - User Personas (CUS)
 - Technical Architecture (ARC)
 
-## 11 Business Domains
+## 12 Business Domains
 
-All 82 document types are organized into 11 comprehensive domains:
+All 112 document types are organized into 12 comprehensive domains:
 
 1. **Strategic Foundation** - Vision, mission, strategy, objectives
 2. **Market Environment** - Competition, trends, opportunities, threats
@@ -105,7 +105,7 @@ BSpec provides three conformance levels to guide your documentation journey:
 ### Bronze (12+ documents)
 Essential foundation covering all critical business areas. Minimum viable business documentation.
 
-**Required Domains**: All 11 domains must be represented with at least one document.
+**Required Domains**: All 12 domains must be represented with at least one document.
 
 ### Silver (25+ documents)
 Comprehensive documentation suitable for scaling businesses, investor due diligence, and serious business operations.
@@ -168,6 +168,6 @@ This enables powerful tooling including:
 ## Next Steps
 
 - [Quick Start Guide](/docs/quickstart) - Create your first document
-- [Document Types](/docs/document-types) - Explore all 82 types
+- [Document Types](/docs/document-types) - Explore all 112 types
 - [CLI Tool](/docs/tools/cli) - Learn to use the command-line tool
 - [MCP Server](/docs/tools/mcp) - Integrate with AI agents
