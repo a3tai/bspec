@@ -1,0 +1,53 @@
+# BSpec Development Environment
+# 
+# Copy this file to .envrc and customize for your setup:
+#   cp .envrc.example .envrc
+#   direnv allow
+#
+# Prerequisites:
+#   1. Install direnv: brew install direnv
+#   2. Add to shell: eval "$(direnv hook zsh)"  # or bash/fish
+#   3. Install 1Password CLI: brew install 1password-cli
+#   4. Sign in to 1Password: op signin
+
+# =============================================================================
+# 1Password Integration
+# =============================================================================
+# Use op:// references to pull secrets at runtime with `op run -- <command>`
+# Format: op://VAULT/ITEM/FIELD
+#
+# Example: op run -- bspec chat
+
+export GEMINI_API_KEY="op://YourVault/Environment/GEMINI_API_KEY"
+export ANTHROPIC_API_KEY="op://YourVault/Environment/ANTHROPIC_API_KEY"
+export OPENAI_API_KEY="op://YourVault/Environment/OPENAI_API_KEY"
+export OPENROUTER_API_KEY="op://YourVault/Environment/OPENROUTER_API_KEY"
+export FIRECRAWL_API_KEY="op://YourVault/Environment/FIRECRAWL_API_KEY"
+export EXA_API_KEY="op://YourVault/Environment/EXA_API_KEY"
+
+# =============================================================================
+# Cloudflare (for deploying bspec.dev)
+# =============================================================================
+# Get your account ID from: https://dash.cloudflare.com
+# Click on any domain → Overview → Account ID (right sidebar)
+
+export CLOUDFLARE_ACCOUNT_ID="your-cloudflare-account-id"
+
+# =============================================================================
+# Project Paths
+# =============================================================================
+
+export BSPEC_ROOT="$(pwd)"
+PATH_add "$BSPEC_ROOT/sdk/cli/bin"
+
+# =============================================================================
+# Optional: Direct values (not recommended for secrets)
+# =============================================================================
+# You can also set values directly if not using 1Password:
+#
+# export ANTHROPIC_API_KEY="sk-ant-..."
+# export OPENAI_API_KEY="sk-..."
+
+echo "✓ BSpec environment loaded"
+echo "  BSPEC_ROOT: $BSPEC_ROOT"
+
