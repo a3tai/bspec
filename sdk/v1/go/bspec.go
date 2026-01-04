@@ -8,7 +8,7 @@ import (
 )
 
 // Version represents the BSpec Go SDK version
-const Version = "1.1.0"
+const Version = "1.1.1"
 
 // BSpec represents the complete BSpec specification data
 type BSpec struct {
