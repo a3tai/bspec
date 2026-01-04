@@ -17,10 +17,8 @@ vendor/
 # Go workspace file
 go.work
 
-# Built binaries (at root only, not cmd/bspec/)
+# Built binaries (at root only, not source files like bspec_commands.go)
 /bspec
-bspec_*
-/bin/bspec-*
 
 # Build artifacts
 bin/
