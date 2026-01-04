@@ -5,7 +5,6 @@ package bspec
 import (
 	"encoding/json"
 	"fmt"
-	"time"
 )
 
 // Version represents the BSpec Go SDK version
@@ -16,9 +15,9 @@ type BSpec struct {
 	Metadata       Metadata                   `json:"metadata"`
 	Statistics     Statistics                 `json:"statistics"`
 	Domains        []Domain                   `json:"domains"`
-	DocumentTypes  []DocumentType             `json:"document_types"`
+	DocumentTypes  []DocumentTypeInfo         `json:"document_types"`
 	Files          map[string]File            `json:"files"`
-	ConformanceLevels []ConformanceLevel      `json:"conformance_levels"`
+	ConformanceLevels []ConformanceLevelInfo  `json:"conformance_levels"`
 	YAMLSchema     YAMLSchema                 `json:"yaml_schema"`
 	DirectoryStructure [][]string             `json:"directory_structure"`
 	DocumentIndex  []DocumentIndexEntry       `json:"document_index"`
@@ -50,7 +49,7 @@ func (b *BSpec) GetDomain(name string) *Domain {
 }
 
 // GetDocumentType returns a document type by code
-func (b *BSpec) GetDocumentType(code string) *DocumentType {
+func (b *BSpec) GetDocumentType(code string) *DocumentTypeInfo {
 	for _, docType := range b.DocumentTypes {
 		if docType.Code == code {
 			return &docType
@@ -60,8 +59,8 @@ func (b *BSpec) GetDocumentType(code string) *DocumentType {
 }
 
 // GetDocumentTypesForDomain returns all document types for a domain
-func (b *BSpec) GetDocumentTypesForDomain(domainName string) []DocumentType {
-	var result []DocumentType
+func (b *BSpec) GetDocumentTypesForDomain(domainName string) []DocumentTypeInfo {
+	var result []DocumentTypeInfo
 	domain := b.GetDomain(domainName)
 	if domain == nil {
 		return result
@@ -95,8 +94,8 @@ func (b *BSpec) GetFilesByType(fileType string) []File {
 }
 
 // SearchDocumentTypes searches document types by name, purpose, or code
-func (b *BSpec) SearchDocumentTypes(query string) []DocumentType {
-	var result []DocumentType
+func (b *BSpec) SearchDocumentTypes(query string) []DocumentTypeInfo {
+	var result []DocumentTypeInfo
 	for _, docType := range b.DocumentTypes {
 		if contains(docType.Name, query) ||
 		   contains(docType.Purpose, query) ||

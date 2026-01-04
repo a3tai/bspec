@@ -149,8 +149,6 @@ DocumentTypeROD DocumentType = "ROD"
 DocumentTypeREQ DocumentType = "REQ"
 DocumentTypeQUA DocumentType = "QUA"
 DocumentTypeUXD DocumentType = "UXD"
-DocumentTypePER DocumentType = "PER"
-DocumentTypeINT DocumentType = "INT"
 DocumentTypeSUP DocumentType = "SUP"
 DocumentTypeBMC DocumentType = "BMC"
 DocumentTypeREV DocumentType = "REV"
@@ -164,7 +162,6 @@ DocumentTypePRT DocumentType = "PRT"
 DocumentTypeUNT DocumentType = "UNT"
 DocumentTypeLTV DocumentType = "LTV"
 DocumentTypeCAC DocumentType = "CAC"
-DocumentTypePRC DocumentType = "PRC"
 DocumentTypeWFL DocumentType = "WFL"
 DocumentTypeORG DocumentType = "ORG"
 DocumentTypeROL DocumentType = "ROL"
@@ -189,14 +186,12 @@ DocumentTypeBUD DocumentType = "BUD"
 DocumentTypeFOR DocumentType = "FOR"
 DocumentTypeFND DocumentType = "FND"
 DocumentTypeINV DocumentType = "INV"
-DocumentTypeVAL DocumentType = "VAL"
 DocumentTypeMET DocumentType = "MET"
 DocumentTypeREP DocumentType = "REP"
 DocumentTypeAUD DocumentType = "AUD"
 DocumentTypeTAX DocumentType = "TAX"
 DocumentTypeRSK DocumentType = "RSK"
 DocumentTypeMIT DocumentType = "MIT"
-DocumentTypeCMP DocumentType = "CMP"
 DocumentTypeGVN DocumentType = "GVN"
 DocumentTypeCTL DocumentType = "CTL"
 DocumentTypeCRI DocumentType = "CRI"
@@ -209,7 +204,6 @@ DocumentTypeEXP DocumentType = "EXP"
 DocumentTypeINN DocumentType = "INN"
 DocumentTypeRND DocumentType = "RND"
 DocumentTypeACQ DocumentType = "ACQ"
-DocumentTypeEXP DocumentType = "EXP"
 )
 
 // ConformanceLevel represents the BSpec conformance levels
@@ -460,10 +454,6 @@ case DocumentTypeQUA:
 		return BusinessDomainProduct
 case DocumentTypeUXD:
 		return BusinessDomainProduct
-case DocumentTypePER:
-		return BusinessDomainProduct
-case DocumentTypeINT:
-		return BusinessDomainProduct
 case DocumentTypeSUP:
 		return BusinessDomainProduct
 case DocumentTypeBMC:
@@ -490,8 +480,6 @@ case DocumentTypeLTV:
 		return BusinessDomainBusinessModel
 case DocumentTypeCAC:
 		return BusinessDomainBusinessModel
-case DocumentTypePRC:
-		return BusinessDomainOperations
 case DocumentTypeWFL:
 		return BusinessDomainOperations
 case DocumentTypeORG:
@@ -540,8 +528,6 @@ case DocumentTypeFND:
 		return BusinessDomainFinancial
 case DocumentTypeINV:
 		return BusinessDomainFinancial
-case DocumentTypeVAL:
-		return BusinessDomainFinancial
 case DocumentTypeMET:
 		return BusinessDomainFinancial
 case DocumentTypeREP:
@@ -553,8 +539,6 @@ case DocumentTypeTAX:
 case DocumentTypeRSK:
 		return BusinessDomainRisk
 case DocumentTypeMIT:
-		return BusinessDomainRisk
-case DocumentTypeCMP:
 		return BusinessDomainRisk
 case DocumentTypeGVN:
 		return BusinessDomainRisk
@@ -579,8 +563,6 @@ case DocumentTypeINN:
 case DocumentTypeRND:
 		return BusinessDomainGrowth
 case DocumentTypeACQ:
-		return BusinessDomainGrowth
-case DocumentTypeEXP:
 		return BusinessDomainGrowth
 default:
 		return BusinessDomainStrategic // Default fallback

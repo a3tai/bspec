@@ -29,8 +29,8 @@ type Domain struct {
 	DocumentCount int      `json:"document_count"`
 }
 
-// DocumentType represents a BSpec document type
-type DocumentType struct {
+// DocumentTypeInfo represents a BSpec document type specification
+type DocumentTypeInfo struct {
 	Code     string `json:"code"`
 	Name     string `json:"name"`
 	Purpose  string `json:"purpose"`
@@ -56,8 +56,8 @@ type File struct {
 	ParsedContent  string                 `json:"parsed_content,omitempty"`
 }
 
-// ConformanceLevel represents a conformance level
-type ConformanceLevel struct {
+// ConformanceLevelInfo represents a conformance level specification
+type ConformanceLevelInfo struct {
 	Name         string `json:"name"`
 	DisplayName  string `json:"display_name"`
 	Description  string `json:"description"`
