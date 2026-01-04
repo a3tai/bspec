@@ -42,7 +42,7 @@ export OPENAI_API_KEY="$(op read 'op://YourVault/Environment/OPENAI_API_KEY' 2>/
 # Get your account ID from: https://dash.cloudflare.com
 # Click on any domain → Overview → Account ID (right sidebar)
 
-export CLOUDFLARE_ACCOUNT_ID="your-cloudflare-account-id"
+export CLOUDFLARE_ACCOUNT_ID="$(op read 'op://YourVault/Environment/CLOUDFLARE_ACCOUNT_ID' 2>/dev/null || echo 'NOT_SET')"
 
 # =============================================================================
 # Project Paths
