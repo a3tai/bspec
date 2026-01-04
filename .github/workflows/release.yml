@@ -171,6 +171,8 @@ jobs:
     name: Create GitHub Release
     needs: [bump-version, build-cli]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     if: github.event.inputs.create_release == 'true'
     
     steps:
