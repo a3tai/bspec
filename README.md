@@ -1,10 +1,15 @@
-# BSpec 1.0: Universal Business Specification Standard
+# BSpec: Universal Business Specification Standard
 
-**Version:** 1.0.0
-**Status:** Public Draft
-**Website:** [bspec.dev](https://bspec.dev) *(coming soon)*
-**Documentation:** [bspec.dev/docs](https://bspec.dev/docs) *(coming soon)*
-**License:** CC BY 4.0
+[![CI](https://github.com/a3tai/bspec/actions/workflows/ci.yml/badge.svg)](https://github.com/a3tai/bspec/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/a3tai/bspec)](https://github.com/a3tai/bspec/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+**Version:** 1.1.1
+**Status:** Production
+**Website:** [bspec.dev](https://bspec.dev)
+**Documentation:** [bspec.dev/docs](https://bspec.dev/docs)
+**MCP Server:** [mcp.bspec.dev](https://mcp.bspec.dev)
+**License:** MIT
 
 ## What is BSpec?
 
@@ -138,12 +143,11 @@ Specialized requirements for different business types:
 BSpec follows [Semantic Versioning 2.0.0](https://semver.org/) with component-specific versioning strategies:
 
 ### Current Versions
-- **Core Specification**: `1.0.0` (in `spec/v1/version.txt`)
-- **All SDKs**: `1.0.0` (aligned with specification)
-- **CLI Tool**: `1.0.0` (independent versioning)
-- **Web App**: `0.0.1` (pre-launch)
-- **MCP Server**: `1.0.0` (follows specification)
-- **Documentation**: `0.0.1` (pre-launch)
+- **Core Specification**: `1.1.1` (in `spec/v1/version.txt`)
+- **All SDKs**: `1.1.1` (aligned with specification)
+- **CLI Tool**: `1.1.1` (aligned with specification)
+- **Web App**: `1.1.1` (aligned with specification)
+- **MCP Server**: `1.1.0` (aligned with specification)
 
 ### Version Management
 
@@ -206,27 +210,27 @@ BSpec-Foundations/
 └── README.md                    # This file
 ```
 
-## Planned Ecosystem (bspec.dev)
+## BSpec Ecosystem
 
-### 🌐 bspec.dev - Main Website
-Modern SaaS marketing site with Apple-inspired design and Liquid Glass styling:
+### 🌐 [bspec.dev](https://bspec.dev) - Main Website
+Modern documentation site with comprehensive guides:
 - Getting started guides and tutorials
 - Interactive document type explorer
-- Community showcases and case studies
+- Complete specification reference
 - Download links for tools and SDKs
 
-### 📚 bspec.dev/docs - Documentation Hub
+### 📚 [bspec.dev/docs](https://bspec.dev/docs) - Documentation Hub
 Comprehensive technical documentation:
-- Complete BSpec 1.0 specification
+- Complete BSpec 1.1 specification
 - SDK documentation and API references
 - Implementation guides and best practices
 - Industry-specific profiles and examples
 
-### 🤖 mcp.bspec.dev/mcp - AI Integration Server
-Hosted MCP (Model Context Provider) server for AI agents:
+### 🤖 [mcp.bspec.dev](https://mcp.bspec.dev) - AI Integration Server
+Hosted MCP (Model Context Protocol) server for AI agents:
 - Parse and validate BSpec documents
-- Convert between Markdown and JSON formats
-- Query business knowledge graphs
+- Query document types and domains
+- Retrieve specification information
 - Generate artifacts from specifications
 
 ### 📦 .bspec File Format
@@ -295,9 +299,13 @@ interface BSpecAPI {
 
 1. **Install the CLI**:
    ```bash
-   # From the repository
-   cd sdk/cli
-   make install
+   # Quick install (macOS/Linux)
+   curl -sSL https://github.com/a3tai/bspec/releases/latest/download/bspec-$(uname -s | tr '[:upper:]' '[:lower:]')-$(uname -m | sed 's/x86_64/amd64/' | sed 's/aarch64/arm64/') -o bspec
+   chmod +x bspec
+   sudo mv bspec /usr/local/bin/
+
+   # Or build from source
+   cd sdk/cli && make install
 
    # Verify installation
    bspec --help
@@ -352,18 +360,13 @@ validation := bspec.ValidateDocument(doc)
 3. **Pick Your Industry Profile**: Software/SaaS, Physical Product, Service Business, or Nonprofit
 4. **Start with Strategic Foundation**: Create MSN, VSN, and VAL documents first
 
-## Contributing
-
-BSpec is an open standard designed to evolve with the business world:
-
-- **Specification Improvements**: Submit RFCs for new document types or relationship patterns
-- **Industry Profiles**: Contribute specialized requirements for your industry
-- **Tool Development**: Build tools that consume or generate BSpec documents
-- **Examples**: Share real-world BSpec implementations (anonymized)
-
 ## License
 
-This specification is released under **Creative Commons Attribution 4.0 International License**. You are free to share, adapt, and build upon this material for any purpose, including commercial use, as long as you provide appropriate attribution to the BSpec Foundation.
+This project is released under the **MIT License**. See the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute to BSpec.
 
 ---
 
