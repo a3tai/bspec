@@ -7,7 +7,7 @@ replace github.com/a3tai/bspec/sdk => ../v1/go
 require (
 	github.com/alperdrsnn/clime v1.1.2
 	github.com/sashabaranov/go-openai v1.41.2
-	github.com/spf13/cobra v1.8.0
+	github.com/spf13/cobra v1.10.2
 	github.com/spf13/viper v1.21.0
 	gopkg.in/yaml.v3 v3.0.1
 )
