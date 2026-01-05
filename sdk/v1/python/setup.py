@@ -9,7 +9,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="bspec",
-    version="1.1.1",
+    version="1.1.2",
     author="BSpec Foundation",
     author_email="info@bspec.dev",
     description="BSpec Python SDK - Universal Business Specification Standard",

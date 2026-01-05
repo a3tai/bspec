@@ -1,8 +1,10 @@
-## BSpec v1.1.1
+## BSpec v1.1.2
 
-### Changes since v1.1.0
-- fix: add write permissions to release workflow
-- fix: resolve duplicate declarations in Go SDK
-- fix: add missing CLI source files to git
-- fix: add missing cmd/bspec/main.go to git
-- ci: add GitHub Actions workflows for public repo
+### Changes since v1.1.1
+- build(deps): update all dependencies (#12)
+- build(deps): bump github.com/spf13/viper in /sdk/cli (#4)
+- build(deps): bump actions/checkout from 4 to 6 (#3)
+- docs: update README with current versions and live links (#11)
+- chore: add Dependabot configuration for automated updates
+- fix: improve CLI test stability and version handling
+- fix: add write permissions to create-release job
