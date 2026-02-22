@@ -81,7 +81,7 @@ jobs:
         
     - name: Install bun
       if: contains(matrix.component, 'typescript') || matrix.component == 'web-app'
-      uses: oven-sh/setup-bun@v1
+      uses: oven-sh/setup-bun@v2
       with:
         bun-version: latest
         
