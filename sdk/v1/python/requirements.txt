@@ -2,7 +2,7 @@
 # GENERATED CODE - DO NOT EDIT MANUALLY
 
 # Core dependencies
-pyyaml>=6.0
+pyyaml>=6.0.3
 jsonschema>=4.0
 
 # Development dependencies (optional)
