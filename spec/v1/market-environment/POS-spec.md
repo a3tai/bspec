@@ -11,6 +11,10 @@
 
 This specification defines the Positioning document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting positioning within the market-environment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+The canonical positioning statement format in this document is attributed to Geoffrey Moore (*Crossing the Chasm*) and should retain source attribution where used.
+
 ## Purpose and Scope
 
 The Positioning document defines how the organization wants to be perceived in the market relative to competitors and alternatives. It articulates the unique value proposition and market position.
@@ -23,6 +27,9 @@ id: POS-{positioning-strategy-identifier}
 title: "Market Positioning Strategy"
 type: POS
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Geoffrey Moore / Crossing the Chasm positioning statement"
 version: 1.0.0
 owner: Marketing-Lead|Strategy-Lead
 stakeholders: [sales-team, product-team, leadership-team]
@@ -33,7 +40,7 @@ horizon: medium
 visibility: internal
 
 depends_on: [SEG-*, CMP-*, VAL-*]
-enables: [GTM-*, BMC-*, REV-*]
+enables: [REV-*]
 
 success_criteria:
   - "Positioning is distinctive and memorable"

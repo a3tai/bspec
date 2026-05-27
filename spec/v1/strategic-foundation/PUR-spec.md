@@ -33,7 +33,7 @@ horizon: long
 visibility: public
 
 depends_on: [MSN-*, VAL-*]
-enables: [THY-*, STA-*, ETH-*]
+enables: [THY-*, ETH-*]
 
 success_criteria:
   - "Purpose resonates with key stakeholders"

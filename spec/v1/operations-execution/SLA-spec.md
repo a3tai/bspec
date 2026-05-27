@@ -33,7 +33,7 @@ horizon: operational
 visibility: internal
 
 depends_on: [SVC-*, PRO-*, CAP-*, PER-*]
-enables: [QUA-*, CUS-*, SUP-*, MON-*]
+enables: [QUA-*, CUS-*, SUP-*]
 
 sla_type: Customer|Internal|Partner|Vendor
 service_criticality: Critical|Important|Standard|Basic

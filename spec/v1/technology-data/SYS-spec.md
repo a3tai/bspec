@@ -33,7 +33,7 @@ horizon: tactical
 visibility: internal
 
 depends_on: [ARC-*, REQ-*, DAT-*, API-*]
-enables: [PER-*, QUA-*, MON-*, INT-*]
+enables: [PER-*, QUA-*, INT-*]
 
 system_type: Web-application|Mobile-app|API-service|Data-platform|Integration-hub
 system_criticality: Mission-critical|Business-critical|Important|Standard
@@ -245,8 +245,8 @@ security:
 ```
 
 ### Compliance Requirements
-- **Regulatory Compliance:** {GDPR, HIPAA, SOX, etc.}
-- **Industry Standards:** {ISO 27001, SOC 2, etc.}
+- **Regulatory Compliance:** {GDPR, HIPAA where applicable, SOX where applicable}
+- **Industry Standards:** {ISO 27001 certification, SOC 2 attestation, etc.}
 - **Internal Policies:** {Company security policies}
 - **Audit Requirements:** {Audit logging and reporting}
 

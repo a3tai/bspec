@@ -23,6 +23,11 @@ id: QUA-{quality-area}
 title: "Quality Specification — {Quality Area}"
 type: QUA
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter System"
+  - "AXELOS - ITIL"
+  - "ISACA - COBIT"
 version: 1.0.0
 owner: Quality-Owner|QA-Team
 stakeholders: [engineering-team, product-team, compliance-team, operations-team]
@@ -58,6 +63,12 @@ review_cycle: quarterly
 ```
 
 ## Content Structure Template
+
+## Framework and Attribution
+
+Quality references to best-practice frameworks (e.g., ITIL and COBIT) should retain
+their trademark and publication notices as applicable: **ITIL®** (AXELOS) and
+**COBIT®** (ISACA).
 
 ```markdown
 # Quality Specification — {Quality Area}

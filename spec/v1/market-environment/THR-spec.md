@@ -33,7 +33,7 @@ horizon: medium
 visibility: internal
 
 depends_on: [CMP-*, TRN-*, MAC-*]
-enables: [RSK-*, MIT-*, STR-*]
+enables: [RSK-*, STR-*]
 
 success_criteria:
   - "Threats are identified before they become critical"

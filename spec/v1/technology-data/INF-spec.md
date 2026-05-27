@@ -33,7 +33,7 @@ horizon: operational
 visibility: internal
 
 depends_on: [ARC-*, SYS-*, SEC-*, REQ-*]
-enables: [PER-*, QUA-*, MON-*, SLA-*]
+enables: [PER-*, QUA-*, SLA-*]
 
 platform_type: Cloud|On-premise|Hybrid|Multi-cloud
 environment_type: Production|Development|Staging|Disaster-Recovery
@@ -206,7 +206,7 @@ security_controls:
 ```
 
 ### Compliance Framework
-- **Regulatory Requirements:** {SOC 2, ISO 27001, GDPR, HIPAA}
+- **Regulatory Requirements:** {SOC2 attestation, ISO 27001 certification, GDPR, HIPAA where applicable}
 - **Compliance Controls:** {Technical and procedural controls}
 - **Audit Logging:** {Comprehensive audit trail}
 - **Compliance Monitoring:** {Continuous compliance validation}

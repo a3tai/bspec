@@ -23,6 +23,9 @@ id: VST-{value-stream}
 title: "Value Stream — {Value Stream Name}"
 type: VST
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter System"
 version: 1.0.0
 owner: Value-Stream-Owner|Value-Stream-Team
 stakeholders: [operations-team, customer-success-team, process-team, quality-team]

@@ -11,6 +11,10 @@
 
 This specification defines the Gains document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting gains within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+GAI is part of the Value Proposition Canvas pattern family and requires explicit alignment with Strategyzer's licensing and attribution terms.
+
 ## Purpose and Scope
 
 The Gains document identifies and analyzes the positive outcomes, benefits, and value that customers achieve or seek. It captures the upside potential that motivates customer behavior and creates opportunities for value delivery.
@@ -23,6 +27,9 @@ id: GAI-{gain-identifier}
 title: "Customer Gain: [Gain Summary]"
 type: GAI
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Value Proposition Canvas"
 version: 1.0.0
 owner: Product-Strategy|Customer-Success
 stakeholders: [product-team, marketing-team, sales-team]

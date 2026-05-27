@@ -355,7 +355,7 @@ regulatory_compliance:
     professional_licensing: {Professional liability insurance requirements}
 
   federal_requirements:
-    employee_benefits: {ERISA fiduciary insurance requirements}
+    employee_benefits: {ERISA bonding requirements; fiduciary liability insurance is optional commercial coverage}
     environmental_coverage: {Environmental insurance requirements}
     international_coverage: {International insurance compliance}
 
@@ -531,7 +531,7 @@ international_coverage:
     local_partners: {Local insurance partner coordination}
 
   political_risk:
-    political_risk_insurance: {Political risk and credit insurance}
+    political_risk_insurance: {Political-risk and trade credit risk insurance}
     trade_credit: {Trade credit and export credit insurance}
     kidnap_ransom: {Kidnap and ransom coverage for executives}
 ```

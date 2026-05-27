@@ -33,7 +33,7 @@ horizon: tactical
 visibility: internal
 
 depends_on: [BRD-*, MSG-*, TON-*, CUS-*, SEO-*]
-enables: [SOC-*, CAM-*, LED-*, EDU-*]
+enables: [SOC-*, CAM-*]
 
 content_objectives: [awareness, education, conversion, retention, advocacy]
 content_types: [blog, video, podcast, infographic, case_study, etc.]

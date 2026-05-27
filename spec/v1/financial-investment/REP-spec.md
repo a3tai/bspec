@@ -199,7 +199,7 @@ sec_reporting:
     - report: {Form 10-Q}
       frequency: {Quarterly}
       content: {Quarterly financial results}
-      timeline: {40-day filing deadline}
+      timeline: {Accelerated and large accelerated filers: 40 days; other registrants: up to 45 days}
 
   current_reports:
     form_8k: {Material event reporting}

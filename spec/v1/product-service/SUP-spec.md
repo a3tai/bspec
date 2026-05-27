@@ -23,6 +23,9 @@ id: SUP-{support-area}
 title: "Support Specification — {Support Area}"
 type: SUP
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter System"
 version: 1.0.0
 owner: Support-Owner|Support-Team
 stakeholders: [customer-success-team, product-team, engineering-team, operations-team]

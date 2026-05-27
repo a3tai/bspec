@@ -19,9 +19,9 @@ The Brand Positioning document defines how the brand occupies a distinctive posi
 
 ```yaml
 ---
-id: POS-{positioning-area}
+id: BPO-{positioning-area}
 title: "Brand Positioning — {Positioning Area or Market Focus}"
-type: POS
+type: BPO
 status: Draft|Review|Approved|Active|Deprecated
 version: 1.0.0
 owner: Brand-Manager|Marketing-Director|Strategy-Team
@@ -33,7 +33,7 @@ horizon: strategic
 visibility: internal
 
 depends_on: [BRD-*, CUS-*, COM-*, VAL-*]
-enables: [MSG-*, CAM-*, CNT-*, SAL-*]
+enables: [MSG-*, CAM-*, CNT-*]
 
 positioning_statement: [target, category, benefit, reason_to_believe]
 competitive_frame: [category and competitors brand competes against]

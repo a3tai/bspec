@@ -32,8 +32,8 @@ scope: valuation-analysis
 horizon: strategic
 visibility: confidential
 
-depends_on: [FIN-*, FOR-*, MKT-*, IND-*]
-enables: [FND-*, INV-*, STR-*, NEG-*]
+depends_on: [FIN-*, FOR-*, MKT-*]
+enables: [FND-*, INV-*, STR-*]
 
 valuation_purpose: Transaction|Investment|Reporting|Tax|Litigation|Strategic
 valuation_scope: Enterprise|Equity|Asset|Division|Minority-interest

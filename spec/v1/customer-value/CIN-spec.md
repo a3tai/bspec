@@ -19,9 +19,9 @@ The Interviews document captures structured customer research conversations that
 
 ```yaml
 ---
-id: INT-{interview-study-identifier}
+id: CIN-{customer-insight-study}
 title: "Customer Interviews: [Study Focus]"
-type: INT
+type: CIN
 status: Draft|Review|Accepted|Deprecated
 version: 1.0.0
 owner: User-Research|Product-Strategy

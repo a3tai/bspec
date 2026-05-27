@@ -11,6 +11,10 @@
 
 This specification defines the Jobs-to-be-Done document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting jobs-to-be-done within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+The JTB work is aligned to established Jobs-to-be-Done practice and should retain source attribution where this named method is used in external-facing material.
+
 ## Purpose and Scope
 
 The Jobs-to-be-Done document defines the specific outcomes customers hire products or services to achieve. It captures the functional, emotional, and social jobs that drive customer behavior and innovation opportunities.
@@ -23,6 +27,9 @@ id: JTB-{job-identifier}
 title: "Job-to-be-Done: [Job Description]"
 type: JTB
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Jobs-to-be-Done (Outcome-Driven Innovation community)"
 version: 1.0.0
 owner: Product-Strategy|Customer-Research
 stakeholders: [product-team, design-team, marketing-team]

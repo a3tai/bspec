@@ -33,7 +33,7 @@ horizon: strategic|tactical|operational
 visibility: internal|restricted|confidential
 
 depends_on: [STR-*, OBJ-*, THY-*, RSK-*]
-enables: [ROL-*, PRO-*, POL-*, PLN-*]
+enables: [ROL-*, PRO-*, POL-*]
 
 decision_type: [strategic, operational, architectural, investment, policy]
 decision_status: [proposed, decided, implemented, reviewed, superseded]

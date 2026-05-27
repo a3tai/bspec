@@ -23,6 +23,9 @@ id: RND-{research-area}
 title: "Research and Development — {Research Area or Program}"
 type: RND
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Robert G. Cooper - Stage-Gate Process"
 version: 1.0.0
 owner: Chief-Technology-Officer|R-and-D-Director|Innovation-Team
 stakeholders: [r-and-d-team, engineering, product-teams, executives]
@@ -56,6 +59,12 @@ standards: [Research and development standards]
 review_cycle: quarterly
 ---
 ```
+
+## Framework and Attribution
+
+Research portfolio planning references the Stage-Gate process. When used as an
+applied model, include Stage-Gate attribution/notice and preserve the specific
+implementation terms used by the framework owner.
 
 ## Content Structure Template
 

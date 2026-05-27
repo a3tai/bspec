@@ -11,6 +11,10 @@
 
 This specification defines the Requirements Specification document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting requirements specification within the product-service domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+References to Capability Maturity Model Integration (CMMI), COBIT, and ITIL should include naming and licensing guidance appropriate to their trademark holders and publication terms.
+
 ## Purpose and Scope
 
 The Requirements Specification defines detailed functional and non-functional requirements for systems, features, and capabilities. It provides comprehensive, testable specifications that guide development and serve as the basis for validation and acceptance testing.
@@ -23,6 +27,11 @@ id: REQ-{requirement-area}
 title: "Requirements — {Requirement Area}"
 type: REQ
 status: Draft|Review|Approved|Implemented|Deprecated
+attribution_required: true
+source_frameworks:
+  - "CMMI Institute / ISACA - CMMI"
+  - "ISACA - COBIT"
+  - "AXELOS - ITIL"
 version: 1.0.0
 owner: Requirements-Owner|Business-Analyst
 stakeholders: [product-team, engineering-team, qa-team, compliance-team]
@@ -236,9 +245,9 @@ review_cycle: sprint-based
 - **REQ-COMP-100:** Security Standards Compliance
   - **Description:** Security standard compliance requirements
   - **ISO 27001:** {Information security management}
-  - **SOC 2:** {Service organization controls}
-  - **PCI DSS:** {Payment card industry standards}
-  - **HIPAA:** {Healthcare data protection}
+  - **SOC 2:** {SOC 2 is an AICPA attestation report, typically from a CPA firm}
+  - **PCI DSS:** {Payment card industry contractual obligations for card data handling}
+  - **HIPAA:** {Applies to covered healthcare entities and their business associates}
 
 ### Quality Standards Compliance
 - **REQ-COMP-200:** Quality Standards

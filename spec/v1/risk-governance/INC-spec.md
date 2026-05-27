@@ -33,7 +33,7 @@ horizon: tactical
 visibility: confidential
 
 depends_on: [RSK-*, OPS-*, CTL-*, COM-*]
-enables: [BCR-*, CRI-*, LEA-*, REP-*]
+enables: [LEA-*, REP-*]
 
 incident_scope: Operational|Security|Safety|Compliance|Financial|Reputational
 response_model: Centralized|Decentralized|Hybrid|Federated

@@ -23,6 +23,9 @@ id: SUR-{survey-study-identifier}
 title: "Customer Survey: [Survey Focus]"
 type: SUR
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter System"
 version: 1.0.0
 owner: Market-Research|Customer-Success
 stakeholders: [product-team, marketing-team, leadership-team]

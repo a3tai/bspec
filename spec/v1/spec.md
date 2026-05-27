@@ -276,6 +276,10 @@ success_criteria:
   - "Specific measurable success criterion"
   - "Additional success measures"
 
+# Attribution & Compliance Fields
+attribution_required: true|false      # Set true when external frameworks/trademarks are used
+source_frameworks: [Identifier list]   # External frameworks, standards, or trademarks
+
 # Domain-Specific Fields
 {domain_specific_metadata}              # Additional type-specific fields
 ---

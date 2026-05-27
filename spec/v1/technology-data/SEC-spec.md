@@ -37,7 +37,7 @@ enables: [PER-*, QUA-*, SLA-*, GOV-*]
 
 security_domain: Identity|Data|Network|Application|Infrastructure
 risk_level: High|Medium|Low
-compliance_framework: SOX|PCI-DSS|ISO27001|NIST|GDPR|HIPAA
+compliance_framework: SOX|PCI-DSS|ISO27001|NIST|GDPR|HIPAA|SOC2
 security_model: Zero-Trust|Defense-in-Depth|Layered-Security
 
 success_criteria:
@@ -177,9 +177,9 @@ data_classification:
 ```yaml
 privacy:
   regulatory_compliance:
-    gdpr: {GDPR compliance measures}
-    ccpa: {CCPA compliance measures}
-    hipaa: {HIPAA compliance measures}
+    gdpr: {GDPR compliance measures (scope, lawful basis, DPIAs, etc.)}
+    ccpa: {CCPA compliance measures (California scope; narrower than GDPR where applicable)}
+    hipaa: {HIPAA applies only to covered entities and business associates}
 
   privacy_by_design:
     data_minimization: {Collect only necessary data}
@@ -189,7 +189,7 @@ privacy:
   data_subject_rights:
     access: {Right to access personal data}
     rectification: {Right to correct data}
-    erasure: {Right to be forgotten}
+    erasure: {Right to Erasure}
     portability: {Data portability rights}
 ```
 
@@ -343,9 +343,9 @@ incident_response:
 ### Regulatory Compliance
 ```yaml
 compliance_frameworks:
-  sox: {Sarbanes-Oxley compliance}
-  pci_dss: {Payment Card Industry compliance}
-  iso_27001: {ISO 27001 certification}
+  sox: {Applies to U.S. public companies and some foreign filers; private firms may adopt SOX-like controls}
+  pci_dss: {Payment Card Industry Data Security Standard is a contractual program obligation}
+  iso_27001: {ISO 27001 certification program}
   nist: {NIST Cybersecurity Framework}
 
 compliance_controls:
@@ -371,7 +371,7 @@ audit_program:
     methodology: {Audit methodology}
 
   external_audits:
-    certification_audits: [ISO27001, SOC2]
+    attestations_and_certifications: [SOC2_attestation, ISO27001_certification]
     penetration_testing: {External pen testing}
     vulnerability_assessments: {External assessments}
 

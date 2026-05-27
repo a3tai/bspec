@@ -23,6 +23,9 @@ id: PRD-{product-name}
 title: "Product Requirements — {Product Name}"
 type: PRD
 status: Draft|Review|Approved|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter System"
 version: 1.0.0
 owner: Product-Manager|Product-Team
 stakeholders: [engineering-team, design-team, business-stakeholders]

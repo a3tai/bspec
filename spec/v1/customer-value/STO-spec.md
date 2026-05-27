@@ -33,7 +33,7 @@ horizon: immediate
 visibility: internal
 
 depends_on: [USE-*, PER-*]
-enables: [REQ-*, TSK-*]
+enables: [REQ-*]
 
 story_points: X # Complexity/effort estimate
 business_value: X # Value score

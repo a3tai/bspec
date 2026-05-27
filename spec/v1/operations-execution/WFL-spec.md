@@ -33,7 +33,7 @@ horizon: operational
 visibility: internal
 
 depends_on: [PRO-*, CAP-*, SVC-*, ARC-*]
-enables: [PER-*, QUA-*, MON-*, AUT-*]
+enables: [PER-*, QUA-*]
 
 workflow_type: Sequential|Parallel|Conditional|Loop|Event-driven
 automation_level: Manual|Semi-automated|Automated|AI-driven

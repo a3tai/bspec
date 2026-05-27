@@ -23,6 +23,9 @@ id: KAC-{activity-category}
 title: "Key Activities — {Activity Category}"
 type: KAC
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas (CC BY-SA 3.0)"
 version: 1.0.0
 owner: Activity-Owner|Activity-Team
 stakeholders: [operations-team, process-team, quality-team, performance-team]
@@ -56,6 +59,12 @@ standards: [Activity management and performance standards]
 review_cycle: monthly
 ---
 ```
+
+## Framework and Attribution
+
+This document is the BMC "Key Activities" block and should be treated as a
+Strategyzer Business Model Canvas component. BMC licensing and attribution terms
+apply (CC BY-SA 3.0) to derivative structure and content.
 
 ## Content Structure Template
 

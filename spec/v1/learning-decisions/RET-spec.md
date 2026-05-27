@@ -32,7 +32,7 @@ scope: retrospective-analysis
 horizon: tactical|operational
 visibility: internal|team|organization
 
-depends_on: [PRO-*, PRJ-*, OBJ-*, MET-*]
+depends_on: [PRO-*, OBJ-*, MET-*]
 enables: [LRN-*, PRO-*, POL-*, THY-*]
 
 retrospective_type: [project, sprint, quarterly, annual, incident, process]

@@ -33,7 +33,7 @@ horizon: operational
 visibility: internal
 
 depends_on: [PRO-*, SLA-*, CAP-*, KAC-*]
-enables: [PER-*, QUA-*, MON-*, INC-*]
+enables: [PER-*, QUA-*, INC-*]
 
 operational_scope: Department|Cross-functional|Enterprise
 operational_model: Centralized|Decentralized|Hybrid|Federated

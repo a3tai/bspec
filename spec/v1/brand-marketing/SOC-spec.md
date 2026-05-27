@@ -33,7 +33,7 @@ horizon: tactical
 visibility: internal
 
 depends_on: [BRD-*, CNT-*, TON-*, MSG-*]
-enables: [CAM-*, LED-*, CUS-*, BRA-*]
+enables: [CAM-*, CUS-*]
 
 platform_strategy: [which platforms and why they were chosen]
 content_mix: [types of content for each platform]

@@ -11,6 +11,10 @@
 
 This specification defines the Analytics document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting analytics within the technology-data domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+Referenced standards and methods (for example CRISP-DM and ISO 25010 quality characteristics) should be attributed to their originating organizations.
+
 ## Purpose and Scope
 
 The Analytics document defines systematic approaches to designing, implementing, and managing analytics capabilities that enable data-driven decision making through business intelligence, advanced analytics, and strategic insights. It establishes analytics frameworks that ensure business value, data quality, and user adoption.
@@ -23,6 +27,10 @@ id: ANA-{analytics-domain}
 title: "Analytics — {Analytics Domain or Platform}"
 type: ANA
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "CRISP-DM Initiative"
+  - "ISO/IEC 25010"
 version: 1.0.0
 owner: Analytics-Team|Data-Scientist
 stakeholders: [analytics-team, data-team, business-stakeholders, users]

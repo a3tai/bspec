@@ -23,6 +23,9 @@ id: KPT-{partnership-name}
 title: "Key Partnerships — {Partnership Name}"
 type: KPT
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas (CC BY-SA 3.0)"
 version: 1.0.0
 owner: Partnership-Owner|Partnership-Team
 stakeholders: [business-development-team, strategy-team, legal-team, operations-team]
@@ -56,6 +59,13 @@ standards: [Partnership management and governance standards]
 review_cycle: quarterly
 ---
 ```
+
+## Framework and Attribution
+
+This document is the BMC "Key Partnerships" block and should be treated as
+Strategyzer's Business Model Canvas component adaptation. Use the BMC licensing and
+attribution terms (CC BY-SA 3.0) when reproducing or redistributing derivative
+material.
 
 ## Content Structure Template
 

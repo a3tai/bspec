@@ -23,6 +23,9 @@ id: CHN-{channel-name}
 title: "Channel Strategy — {Channel Name}"
 type: CHN
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter System"
 version: 1.0.0
 owner: Channel-Owner|Channel-Team
 stakeholders: [sales-team, marketing-team, operations-team, partner-team]

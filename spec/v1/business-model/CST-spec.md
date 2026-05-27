@@ -23,6 +23,9 @@ id: CST-{cost-category}
 title: "Cost Structure — {Business Area}"
 type: CST
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Kaplan & Cooper - Activity-Based Costing"
 version: 1.0.0
 owner: Cost-Owner|Finance-Team
 stakeholders: [finance-team, operations-team, strategy-team, procurement-team]
@@ -56,6 +59,12 @@ standards: [Cost accounting and management standards]
 review_cycle: quarterly
 ---
 ```
+
+## Framework and Attribution
+
+This document includes Activity-Based Costing structure and terminology. If using
+explicitly adapted ABC framework content, cite Kaplan & Cooper and maintain the
+source framing in implementation.
 
 ## Content Structure Template
 

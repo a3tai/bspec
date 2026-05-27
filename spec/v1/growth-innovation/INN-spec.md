@@ -11,6 +11,10 @@
 
 This specification defines the Innovation Strategy document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting innovation strategy within the growth-innovation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+Innovation methods referenced here (Design Thinking, Lean Startup, Stage-Gate Process) are established named frameworks and should include attribution and licensing notices in accordance with their owners.
+
 ## Purpose and Scope
 
 The Innovation Strategy document defines systematic approaches to identifying, developing, and scaling innovation opportunities that create competitive advantage and drive sustainable growth. It establishes innovation frameworks that transform innovation from random creativity into systematic business capability.
@@ -23,6 +27,11 @@ id: INN-{innovation-area}
 title: "Innovation Strategy — {Innovation Area or Portfolio}"
 type: INN
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "IDEO / d.school - Design Thinking"
+  - "Eric Ries - Lean Startup"
+  - "Stage-Gate / Cooper - Stage-Gate Process"
 version: 1.0.0
 owner: Chief-Innovation-Officer|Innovation-Team|Strategy-Team
 stakeholders: [innovation-team, executives, r-and-d, product-teams]

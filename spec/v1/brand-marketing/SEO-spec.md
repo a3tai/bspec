@@ -32,8 +32,8 @@ scope: search-optimization
 horizon: tactical
 visibility: internal
 
-depends_on: [CNT-*, WEB-*, KWD-*, ANA-*]
-enables: [TRA-*, LEA-*, BRA-*, CON-*]
+depends_on: [CNT-*, ANA-*]
+enables: [LEA-*]
 
 target_keywords: [primary and secondary keywords to rank for]
 content_strategy: [how SEO integrates with content planning]

@@ -23,6 +23,9 @@ id: BRD-{brand-area}
 title: "Brand Strategy — {Brand Area or Application}"
 type: BRD
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Mark & Pearson / Jung - Brand Archetypes"
 version: 1.0.0
 owner: Marketing-Team|Brand-Manager|Chief-Marketing-Officer
 stakeholders: [marketing-team, brand-team, executives, creative-team]
@@ -58,6 +61,12 @@ standards: [Brand and marketing standards]
 review_cycle: annually
 ---
 ```
+
+## Framework and Attribution
+
+Brand Archetype references in this spec are based on the 12 brand archetypes
+framework popularized by Mark & Pearson and related Jungian interpretations. Use
+that attribution where archetype language is used as a source model.
 
 ## Content Structure Template
 

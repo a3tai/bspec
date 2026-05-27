@@ -19,9 +19,9 @@ The Influencer Marketing document defines strategies for partnering with influen
 
 ```yaml
 ---
-id: INF-{influencer-area}
+id: IFL-{influencer-area}
 title: "Influencer Marketing — {Influencer Focus or Campaign}"
-type: INF
+type: IFL
 status: Draft|Review|Approved|Active|Deprecated
 version: 1.0.0
 owner: Influencer-Manager|Marketing-Manager|Social-Media-Manager
@@ -33,7 +33,7 @@ horizon: tactical
 visibility: internal
 
 depends_on: [BRD-*, SOC-*, MSG-*, TON-*]
-enables: [CAM-*, BRA-*, LED-*, CON-*]
+enables: [CAM-*]
 
 influencer_strategy: [macro, micro, nano influencer approach]
 platform_focus: [primary platforms for influencer partnerships]

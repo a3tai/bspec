@@ -33,7 +33,7 @@ horizon: medium
 visibility: internal
 
 depends_on: [PER-*, JTB-*]
-enables: [USE-*, REL-*, SUP-*]
+enables: [USE-*, SUP-*]
 
 success_criteria:
   - "Journey map reflects actual customer experience"

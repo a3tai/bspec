@@ -33,7 +33,7 @@ horizon: medium
 visibility: internal
 
 depends_on: [MKT-*, STR-*]
-enables: [PRT-*, CHN-*, VND-*]
+enables: [CHN-*, VND-*]
 
 success_criteria:
   - "Ecosystem map is comprehensive and current"

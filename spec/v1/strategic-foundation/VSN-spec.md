@@ -33,7 +33,7 @@ horizon: long
 visibility: public
 
 depends_on: [MSN-*]
-enables: [STR-*, OBJ-*, GTM-*]
+enables: [STR-*, OBJ-*]
 
 success_criteria:
   - "Vision is compelling and inspirational"

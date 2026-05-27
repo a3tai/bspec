@@ -23,6 +23,9 @@ id: FEE-{feedback-collection-identifier}
 title: "Customer Feedback: [Feedback Source/Type]"
 type: FEE
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter System"
 version: 1.0.0
 owner: Customer-Experience|Product-Management
 stakeholders: [product-team, support-team, marketing-team]

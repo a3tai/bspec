@@ -23,6 +23,9 @@ id: TON-{voice-area}
 title: "Tone of Voice — {Voice Area or Application}"
 type: TON
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Mark & Pearson / Jung - Brand Archetypes"
 version: 1.0.0
 owner: Brand-Manager|Communications-Team|Content-Team
 stakeholders: [brand-team, marketing-team, content-team, customer-service]
@@ -58,6 +61,12 @@ standards: [Brand communication and voice standards]
 review_cycle: annually
 ---
 ```
+
+## Framework and Attribution
+
+When this spec references brand archetype guidance, cite the 12 archetypes model
+inherited from the established archetype frameworks (Mark & Pearson / Jung) and use
+it as a decision aid rather than a direct legal ownership claim framework.
 
 ## Content Structure Template
 

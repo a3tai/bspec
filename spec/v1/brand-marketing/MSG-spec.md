@@ -33,7 +33,7 @@ horizon: tactical
 visibility: internal
 
 depends_on: [BRD-*, POS-*, CUS-*, VAL-*]
-enables: [CNT-*, CAM-*, TON-*, SAL-*]
+enables: [CNT-*, CAM-*, TON-*]
 
 messaging_hierarchy: [core_message, supporting_messages, proof_points]
 audience_segments: [how messaging adapts for different audiences]

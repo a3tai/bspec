@@ -23,6 +23,9 @@ id: OBJ-{objectives-period-identifier}
 title: "Strategic Objectives"
 type: OBJ
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter System"
 version: 1.0.0
 owner: CEO|Leadership-Team
 stakeholders: [all-employees, board, department-heads]
@@ -33,7 +36,7 @@ horizon: short
 visibility: internal
 
 depends_on: [STR-*, VSN-*]
-enables: [MET-*, PRC-*, GTM-*]
+enables: [MET-*]
 
 success_criteria:
   - "All objectives are measurable and time-bound"

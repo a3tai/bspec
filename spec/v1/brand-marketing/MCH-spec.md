@@ -19,9 +19,9 @@ The Marketing Channel Strategy document defines how the brand will reach and eng
 
 ```yaml
 ---
-id: CHN-{channel-area}
+id: MCH-{channel-area}
 title: "Marketing Channel Strategy — {Channel Focus or Market}"
-type: CHN
+type: MCH
 status: Draft|Review|Approved|Active|Deprecated
 version: 1.0.0
 owner: Marketing-Manager|Channel-Manager|Digital-Marketing-Manager
@@ -33,7 +33,7 @@ horizon: tactical
 visibility: internal
 
 depends_on: [CUS-*, MSG-*, BRD-*, POS-*]
-enables: [CAM-*, LED-*, SOC-*, CON-*]
+enables: [CAM-*, SOC-*]
 
 channel_mix: [digital, traditional, direct, partner channels]
 channel_integration: [how channels work together]

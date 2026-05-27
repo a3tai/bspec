@@ -33,7 +33,7 @@ horizon: strategic
 visibility: internal
 
 depends_on: [ROL-*, TEA-*, ORG-*, CAP-*]
-enables: [PER-*, QUA-*, DEV-*, SUC-*]
+enables: [PER-*, QUA-*, DEV-*]
 
 framework_scope: Technical|Functional|Behavioral|Leadership
 skill_categories: [List of skill categories]

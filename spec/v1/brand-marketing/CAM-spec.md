@@ -33,7 +33,7 @@ horizon: tactical
 visibility: internal
 
 depends_on: [BRD-*, MSG-*, POS-*, CNT-*, SOC-*]
-enables: [LED-*, CON-*, BRA-*, SAL-*]
+enables: [MSG-*, CMP-*]
 
 campaign_objectives: [awareness, consideration, conversion, retention, advocacy]
 target_audience: [primary and secondary audience segments]

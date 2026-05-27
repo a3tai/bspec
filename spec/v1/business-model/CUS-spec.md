@@ -23,6 +23,9 @@ id: CUS-{relationship-type}
 title: "Customer Relationships — {Relationship Type}"
 type: CUS
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter System"
 version: 1.0.0
 owner: Relationship-Owner|Relationship-Team
 stakeholders: [customer-success-team, sales-team, marketing-team, support-team]

@@ -149,7 +149,7 @@ data_ownership:
 
 ### Data Privacy and Security
 ```yaml
-privacy_controls:
+  privacy_controls:
   classification: {Data classification level}
   pii_handling: {Personal data handling procedures}
   retention: {Data retention policies}
@@ -157,7 +157,7 @@ privacy_controls:
 
   compliance:
     gdpr: {GDPR compliance measures}
-    ccpa: {CCPA compliance measures}
+    ccpa: {CCPA compliance measures (California-focused, narrower than GDPR)}
     industry: {Industry-specific compliance}
 ```
 

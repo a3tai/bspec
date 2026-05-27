@@ -32,7 +32,7 @@ scope: organizational-learning
 horizon: strategic
 visibility: internal
 
-depends_on: [KNO-*, INN-*, ADT-*, CUL-*]
+depends_on: [KNO-*, INN-*, ADT-*]
 enables: [EXP-*, FUT-*, ORG-*, SKI-*]
 
 learning_approach: Formal|Informal|Experiential|Hybrid

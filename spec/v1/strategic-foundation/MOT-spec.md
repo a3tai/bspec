@@ -11,6 +11,10 @@
 
 This specification defines the Competitive Moats document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting competitive moats within the strategic-foundation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+This document references Business Model Canvas-style strategy structure and should retain Strategyzer attribution requirements where those sections are used.
+
 ## Purpose and Scope
 
 The Moats document identifies and analyzes the competitive advantages that protect the organization's market position. Moats are sustainable advantages that make it difficult for competitors to replicate success.
@@ -23,6 +27,9 @@ id: MOT-{competitive-advantage-identifier}
 title: "Competitive Moats"
 type: MOT
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas"
 version: 1.0.0
 owner: CEO|Strategy-Lead
 stakeholders: [leadership-team, product-team, sales-team]
@@ -32,8 +39,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [STR-*, CMP-*, BMC-*]
-enables: [POS-*, GTM-*, VAL-*]
+depends_on: [STR-*, CMP-*]
+enables: [POS-*, VAL-*]
 
 success_criteria:
   - "Moats are validated by customer behavior"

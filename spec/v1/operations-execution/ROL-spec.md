@@ -33,7 +33,7 @@ horizon: operational
 visibility: internal
 
 depends_on: [ORG-*, TEA-*, SKI-*, CAP-*]
-enables: [PER-*, QUA-*, DEV-*, SUC-*]
+enables: [PER-*, QUA-*, DEV-*]
 
 role_level: IC|Manager|Director|VP|C-Level
 role_type: Full-time|Part-time|Contract|Consultant

@@ -33,7 +33,7 @@ horizon: tactical
 visibility: internal
 
 depends_on: [CHN-*, CAM-*, ANA-*, CUS-*]
-enables: [LED-*, CON-*, ROI-*, GRO-*]
+enables: [MET-*, MKT-*]
 
 performance_channels: [paid search, paid social, display, email, affiliate]
 attribution_model: [first-touch, last-touch, multi-touch, data-driven]

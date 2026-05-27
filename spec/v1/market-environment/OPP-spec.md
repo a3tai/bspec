@@ -23,6 +23,9 @@ id: OPP-{opportunity-analysis-identifier}
 title: "Market Opportunities Analysis"
 type: OPP
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Robert G. Cooper - Stage-Gate Process"
 version: 1.0.0
 owner: Strategy-Lead|Business-Development
 stakeholders: [leadership-team, product-team, innovation-team]
@@ -33,7 +36,7 @@ horizon: medium
 visibility: internal
 
 depends_on: [MKT-*, TRN-*, CMP-*]
-enables: [STR-*, INN-*, EXP-*, GTM-*]
+enables: [STR-*, INN-*, EXP-*]
 
 success_criteria:
   - "Opportunities are validated and sized"
@@ -49,6 +52,12 @@ assumptions:
 review_cycle: quarterly
 ---
 ```
+
+## Framework and Attribution
+
+The opportunity-development pipeline uses Stage-Gate-style portfolio governance. When
+adopting this process explicitly as a named method, attribute the Stage-Gate
+framework and confirm use terms.
 
 ## Content Structure Template
 

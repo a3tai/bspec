@@ -33,7 +33,7 @@ horizon: medium
 visibility: internal
 
 depends_on: [MSN-*, STR-*]
-enables: [SEG-*, CMP-*, GTM-*, FIN-*]
+enables: [SEG-*, CMP-*, FIN-*]
 
 success_criteria:
   - "Market size estimates are research-backed"
