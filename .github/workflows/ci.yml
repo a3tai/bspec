@@ -14,7 +14,7 @@ env:
 jobs:
   validate-structure:
     name: Validate Repository Structure
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     
     steps:
     - name: Checkout code
@@ -41,7 +41,7 @@ jobs:
 
   test-version-script:
     name: Test Version Bump Script
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     
     steps:
     - name: Checkout code
@@ -61,7 +61,7 @@ jobs:
 
   build-sdks:
     name: Build SDKs
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     
     strategy:
@@ -175,7 +175,7 @@ jobs:
 
   lint-and-format:
     name: Lint and Format Check
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     if: ${{ !contains(github.event.head_commit.message, '[skip ci]') }}
     
     steps:
@@ -212,7 +212,7 @@ jobs:
 
   security-check:
     name: Security and Best Practices Check
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     
     steps:
     - name: Checkout code
@@ -245,7 +245,7 @@ jobs:
   summary:
     name: CI Summary
     needs: [validate-structure, test-version-script, build-sdks, lint-and-format, security-check]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     if: always()
     
     steps:

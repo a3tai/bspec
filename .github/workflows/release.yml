@@ -36,7 +36,7 @@ env:
 jobs:
   bump-version:
     name: Bump Version
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     permissions:
       contents: write
     outputs:
@@ -111,10 +111,10 @@ jobs:
         include:
           - os: linux
             arch: amd64
-            runner: ubuntu-latest
+            runner: [self-hosted, karuna]
           - os: linux
             arch: arm64
-            runner: ubuntu-latest
+            runner: [self-hosted, karuna]
           - os: darwin
             arch: amd64
             runner: macos-latest
@@ -170,7 +170,7 @@ jobs:
   create-release:
     name: Create GitHub Release
     needs: [bump-version, build-cli]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     permissions:
       contents: write
     if: github.event.inputs.create_release == 'true'
@@ -236,7 +236,7 @@ jobs:
   deploy-web:
     name: Deploy Website
     needs: [bump-version, create-release]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     if: github.event.inputs.deploy_web == 'true'
     
     steps:
@@ -276,7 +276,7 @@ jobs:
   deploy-mcp:
     name: Deploy MCP Server
     needs: [bump-version, create-release]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     if: github.event.inputs.deploy_mcp == 'true'
     
     steps:
@@ -306,7 +306,7 @@ jobs:
   summary:
     name: Release Summary
     needs: [bump-version, build-cli, create-release, deploy-web, deploy-mcp]
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, karuna]
     if: always()
     
     steps:
