@@ -32,8 +32,8 @@ scope: roadmap-planning
 horizon: long-term
 visibility: internal|confidential
 
-depends_on: [STR-*, OBJ-*, PRD-*]
-enables: [FEA-*, REQ-*, QUA-*]
+depends_on: [STR-*,OBJ-*,PRD-*]
+enables: [FEA-*,REQ-*,QUA-*]
 
 roadmap_type: Product|Technology|Feature|Strategic
 time_horizon: 6-months|1-year|2-years|3-years

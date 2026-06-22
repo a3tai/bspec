@@ -32,8 +32,8 @@ scope: audit-assurance
 horizon: tactical
 visibility: confidential
 
-depends_on: [REP-*, CTL-*, RSK-*, COM-*]
-enables: [GOV-*, QUA-*, PER-*, COM-*]
+depends_on: [REP-*,CTL-*,RSK-*,COM-*]
+enables: [GOV-*,QUA-*,PER-*,COM-*]
 
 audit_type: Financial|Operational|Compliance|IT|SOX
 audit_scope: Full|Limited|Targeted|Follow-up
@@ -375,9 +375,11 @@ professional_compliance:
     implementation_standards: {Specific guidance for compliance}
 
   sox_requirements:
-    section_302: {Disclosure controls and procedures}
+    section_302: {CEO/CFO certification of disclosure controls}
     section_404: {Internal control over financial reporting}
-    section_906: {CEO/CFO certification requirements}
+    section_906: {Certification of periodic financial reports; criminal liability for false certification}
+  sox_scope:
+    applicability: {Public companies and certain foreign filers where SOX applies; private companies often adopt controls voluntarily}
 
   regulatory_requirements:
     sec_requirements: {Securities and Exchange Commission requirements}

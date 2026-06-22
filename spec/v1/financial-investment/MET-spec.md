@@ -11,9 +11,17 @@
 
 This specification defines the Metrics document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting metrics within the financial-investment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+Balanced Scorecard structure elements in this document are attributed to Kaplan & Norton and must be used according to their publication terms and any applicable trademark policy.
+
 ## Purpose and Scope
 
 The Metrics document defines systematic approaches to measuring, monitoring, and managing business performance through key performance indicators, financial metrics, and operational measures. It establishes measurement frameworks that enable data-driven decision making, performance accountability, and continuous improvement.
+
+## Scope Boundary
+
+MET owns metric definitions, reporting architectures, and measurement cadences. It converts `OBJ` commitments into measurable signals and dashboards, but does **not** own the underlying forecasts (`FOR`) or the full financial projection model (`FIN`).
 
 ## Document Metadata Schema
 
@@ -23,6 +31,9 @@ id: MET-{metric-category}
 title: "Metrics — {Metric Category or Dashboard}"
 type: MET
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Kaplan & Norton - Balanced Scorecard"
 version: 1.0.0
 owner: Finance-Team|Analytics-Team
 stakeholders: [finance-team, business-units, executives, managers]
@@ -32,8 +43,8 @@ scope: performance-measurement
 horizon: tactical
 visibility: internal
 
-depends_on: [FIN-*, BUD-*, STR-*, OBJ-*]
-enables: [REP-*, PER-*, QUA-*, GOV-*]
+depends_on: [FIN-*,BUD-*,STR-*,OBJ-*]
+enables: [REP-*,PER-*,QUA-*,GOV-*]
 
 metric_type: Financial|Operational|Customer|Employee|Quality
 measurement_level: Strategic|Tactical|Operational

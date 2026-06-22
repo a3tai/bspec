@@ -32,8 +32,8 @@ scope: business-ethics
 horizon: strategic
 visibility: internal
 
-depends_on: [GOV-*, COM-*, VAL-*, CUL-*]
-enables: [REP-*, RSK-*, LEG-*, AUD-*]
+depends_on: [GOV-*,COM-*,VAL-*]
+enables: [REP-*,RSK-*,LEG-*,AUD-*]
 
 ethics_framework: Deontological|Consequentialist|Virtue-ethics|Care-ethics|Hybrid
 ethics_maturity: Basic|Developing|Defined|Advanced|Exemplary
@@ -127,12 +127,13 @@ code_of_conduct:
 
 ### Policy Integration
 ```yaml
-policy_framework:
-  ethics_policies:
-    gift_entertainment: {Gift and entertainment policy and guidelines}
-    political_activities: {Political activity and contribution policies}
-    social_media: {Social media and external communication guidelines}
-    insider_trading: {Insider trading prevention and monitoring}
+  policy_framework:
+    ethics_policies:
+      gift_entertainment: {Gift and entertainment policy and guidelines}
+      political_activities: {Political activity and contribution policies}
+      social_media: {Social media and external communication guidelines}
+      insider_trading: {Insider trading prevention and monitoring}
+      whistleblower: {SOX §806, Dodd-Frank §922, and EU Directive 2019/1937 considerations}
 
   compliance_integration:
     regulatory_compliance: {Integration with regulatory compliance programs}
@@ -462,7 +463,7 @@ benchmarking_framework:
 - **GOV (Governance)**: Governance framework drives ethics oversight and accountability
 - **COM (Compliance)**: Compliance requirements drive ethics policy and monitoring
 - **VAL (Values)**: Organizational values drive ethical standards and behavior
-- **CUL (Culture)**: Organizational culture drives ethics integration and effectiveness
+- **Culture**: Organizational culture drives ethics integration and effectiveness
 
 ### Typical Enablements
 - **REP (Reporting)**: Ethics program enables transparent and honest reporting

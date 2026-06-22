@@ -32,8 +32,8 @@ scope: budget-planning
 horizon: tactical
 visibility: internal
 
-depends_on: [FIN-*, STR-*, OBJ-*, FOR-*]
-enables: [MET-*, REP-*, CTL-*, PER-*]
+depends_on: [FIN-*,STR-*,OBJ-*,FOR-*]
+enables: [MET-*,REP-*,CTL-*,PER-*]
 
 budget_type: Operating|Capital|Project|Department|Master
 budget_period: Monthly|Quarterly|Annual|Multi-year

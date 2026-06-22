@@ -32,8 +32,8 @@ scope: service-definition
 horizon: current
 visibility: internal
 
-depends_on: [CJM-*, CAP-*, PRO-*]
-enables: [SLA-*, PER-*, SUP-*]
+depends_on: [CJM-*,CAP-*,PRO-*]
+enables: [SLA-*,PER-*,SUP-*]
 
 service_type: Core|Supporting|Enhancing
 delivery_model: Self-Service|Assisted|Managed

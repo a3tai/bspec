@@ -19,10 +19,13 @@ The Interviews document captures structured customer research conversations that
 
 ```yaml
 ---
-id: INT-{interview-study-identifier}
+id: CIN-{customer-insight-study}
 title: "Customer Interviews: [Study Focus]"
-type: INT
+type: CIN
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Jobs-to-be-Done (Outcome-Driven Innovation community)"
 version: 1.0.0
 owner: User-Research|Product-Strategy
 stakeholders: [product-team, design-team, marketing-team]
@@ -32,8 +35,8 @@ scope: research-study
 horizon: current
 visibility: internal
 
-depends_on: [PER-*, JTB-*]
-enables: [EMP-*, REQ-*, USE-*]
+depends_on: [PER-*,JTB-*]
+enables: [EMP-*,REQ-*,USE-*]
 
 research_focus: [Primary research question or topic]
 interview_type: Structured|Semi-structured|Unstructured

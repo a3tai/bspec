@@ -32,8 +32,8 @@ scope: future-planning
 horizon: strategic
 visibility: restricted
 
-depends_on: [STR-*, IGN-*, LEA-*, ADT-*]
-enables: [INN-*, RSK-*, ADT-*, STR-*]
+depends_on: [STR-*,IGN-*,LEA-*,ADT-*]
+enables: [INN-*,RSK-*,ADT-*,STR-*]
 
 planning_methodology: Scenario-based|Trend-extrapolation|Cross-impact|Hybrid
 scenario_framework: Exploratory|Normative|Challenge|Hybrid

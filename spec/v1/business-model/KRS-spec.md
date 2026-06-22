@@ -23,6 +23,9 @@ id: KRS-{resource-category}
 title: "Key Resources — {Resource Category}"
 type: KRS
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas (CC BY-SA 3.0)"
 version: 1.0.0
 owner: Resource-Owner|Resource-Team
 stakeholders: [operations-team, finance-team, hr-team, technology-team]
@@ -32,8 +35,8 @@ scope: resource-management
 horizon: strategic
 visibility: internal
 
-depends_on: [STR-*, KAC-*, CAP-*, KPT-*]
-enables: [PER-*, QUA-*, SVC-*, PRO-*]
+depends_on: [STR-*,KAC-*,CAP-*,KPT-*]
+enables: [PER-*,QUA-*,SVC-*,PRO-*]
 
 resource_type: Physical|Intellectual|Human|Financial|Digital
 criticality: Critical|Important|Supporting|Nice-to-have
@@ -56,6 +59,12 @@ standards: [Resource management and investment standards]
 review_cycle: quarterly
 ---
 ```
+
+## Framework and Attribution
+
+This document is the BMC "Key Resources" block and must follow Strategyzer
+Business Model Canvas attribution/licensing expectations for derivative use
+(CC BY-SA 3.0).
 
 ## Content Structure Template
 

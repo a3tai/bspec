@@ -32,8 +32,8 @@ scope: role-management
 horizon: operational
 visibility: internal
 
-depends_on: [ORG-*, TEA-*, SKI-*, CAP-*]
-enables: [PER-*, QUA-*, DEV-*, SUC-*]
+depends_on: [ORG-*,TEA-*,SKI-*,CAP-*]
+enables: [PER-*,QUA-*,DEV-*]
 
 role_level: IC|Manager|Director|VP|C-Level
 role_type: Full-time|Part-time|Contract|Consultant
@@ -233,7 +233,7 @@ team_contributions:
 - **PER (Performance Specification)**: Role clarity drives performance achievement
 - **QUA (Quality Specification)**: Role competencies drive quality standards
 - **DEV (Development)**: Role definitions enable development and training programs
-- **SUC (Succession Planning)**: Role clarity enables succession and career planning
+- **Succession Planning**: Role clarity enables succession and career planning
 
 ## Document Relationships
 

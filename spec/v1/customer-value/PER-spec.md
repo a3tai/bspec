@@ -23,6 +23,9 @@ id: PER-{persona-identifier}
 title: "Customer Persona: [Persona Name]"
 type: PER
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Jobs-to-be-Done (Outcome-Driven Innovation community)"
 version: 1.0.0
 owner: Product-Marketing|Customer-Research
 stakeholders: [product-team, marketing-team, sales-team, design-team]
@@ -33,7 +36,7 @@ horizon: medium
 visibility: internal
 
 depends_on: [SEG-*]
-enables: [JTB-*, USE-*, CJM-*]
+enables: [JTB-*,USE-*,CJM-*]
 
 success_criteria:
   - "Personas are research-backed and data-driven"

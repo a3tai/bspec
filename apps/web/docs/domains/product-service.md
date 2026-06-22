@@ -5,34 +5,127 @@ description: "BSpec document types in the Product & Service domain"
 
 # Product & Service
 
-The Product & Service domain defines what you offer to customers. These documents specify requirements, features, quality standards, and the roadmap for product evolution.
+## Overview
 
-## Document Types (10)
+This domain contains 11 document types that cover product & service aspects of your business.
 
-| Code | Name | Description |
-|------|------|-------------|
-| [FEA](/docs/types/FEA) | Feature Specification | Detailed feature definitions and requirements |
-| [INT](/docs/types/INT) | Integration Specification | Third-party and system integrations |
-| [PRD](/docs/types/PRD) | Product Requirements | Core product requirements and scope |
-| [PSP](/docs/types/PSP) | Performance Specification | Performance criteria and benchmarks |
-| [QUA](/docs/types/QUA) | Quality Specification | Quality standards and acceptance criteria |
-| [REQ](/docs/types/REQ) | Requirements Specification | Functional and non-functional requirements |
-| [ROD](/docs/types/ROD) | Roadmap | Product evolution and timeline |
-| [SUP](/docs/types/SUP) | Support Specification | Customer support processes and SLAs |
-| [SVC](/docs/types/SVC) | Service Specification | Service offerings and delivery |
-| [UXD](/docs/types/UXD) | User Experience Design | UX principles, patterns, and guidelines |
+## Document Types
 
-## Key Relationships
+### [EOL: End-of-Life and Retirement](/docs/types/EOL)
 
-Product & Service documents typically:
-- **Depend on**: Customer Value insights and Strategic direction
-- **Enable**: Technology, Operations, and Business Model execution
+# EOL: End-of-Life and Retirement Document Type Specification
 
-## Getting Started
+**Document Type Code:** EOL
+**Document Type Name:** End-of-Life and Retirement
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:...
 
-For Bronze conformance, start with:
-1. **PRD** - Define core product requirements
-2. **FEA** - Specify key features
+### [FEA: Feature Specification](/docs/types/FEA)
+
+# FEA: Feature Specification Document Type Specification
+
+**Document Type Code:** FEA
+**Document Type Name:** Feature Specification
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:** Draft
+*...
+
+### [INT: Integration Specification](/docs/types/INT)
+
+# INT: Integration Specification Document Type Specification
+
+**Document Type Code:** INT
+**Document Type Name:** Integration Specification
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:**...
+
+### [PRD: Product Requirements Document](/docs/types/PRD)
+
+# PRD: Product Requirements Document Type Specification
+
+**Document Type Code:** PRD
+**Document Type Name:** Product Requirements Document
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:**...
+
+### [PSP: Performance Specification](/docs/types/PSP)
+
+# PSP: Performance Specification Document Type Specification
+
+**Document Type Code:** PSP
+**Document Type Name:** Performance Specification
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:**...
+
+### [QUA: Quality Specification](/docs/types/QUA)
+
+# QUA: Quality Specification Document Type Specification
+
+**Document Type Code:** QUA
+**Document Type Name:** Quality Specification
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:** Draft
+*...
+
+### [REQ: Requirements Specification](/docs/types/REQ)
+
+# REQ: Requirements Specification Document Type Specification
+
+**Document Type Code:** REQ
+**Document Type Name:** Requirements Specification
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:...
+
+### [ROD: Roadmap](/docs/types/ROD)
+
+# ROD: Roadmap Document Type Specification
+
+**Document Type Code:** ROD
+**Document Type Name:** Roadmap
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-09-28...
+
+### [SUP: Support Specification](/docs/types/SUP)
+
+# SUP: Support Specification Document Type Specification
+
+**Document Type Code:** SUP
+**Document Type Name:** Support Specification
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:** Draft
+*...
+
+### [SVC: Service Specification](/docs/types/SVC)
+
+# SVC: Service Specification Document Type Specification
+
+**Document Type Code:** SVC
+**Document Type Name:** Service Specification
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:** Draft
+*...
+
+### [UXD: User Experience Design](/docs/types/UXD)
+
+# UXD: User Experience Design Document Type Specification
+
+**Document Type Code:** UXD
+**Document Type Name:** User Experience Design
+**Domain:** Product & Service
+**Version:** 1.0.0
+**Status:** Draft...
+
 
 ---
 

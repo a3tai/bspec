@@ -11,6 +11,10 @@
 
 This specification defines the Empathy Maps document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting empathy maps within the customer-value domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+The empathy-map structure (THINKS / FEELS / SEES / DOES / PAINS-GAINS) is attributed to Dave Gray / XPLANE / Gamestorming (historically released under CC BY-SA 4.0 terms for open reuse). Include attribution and license checks before external publication.
+
 ## Purpose and Scope
 
 The Empathy Maps document captures deep understanding of customer thoughts, feelings, behaviors, and environment. It provides holistic view of customer experience and emotional context that drives behavior.
@@ -23,6 +27,9 @@ id: EMP-{empathy-map-identifier}
 title: "Empathy Map: [Persona/Scenario Name]"
 type: EMP
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Dave Gray / XPLANE / Gamestorming - Empathy Map"
 version: 1.0.0
 owner: Design-Research|Customer-Experience
 stakeholders: [design-team, product-team, marketing-team]
@@ -32,8 +39,8 @@ scope: persona|scenario
 horizon: current
 visibility: internal
 
-depends_on: [PER-*, JTB-*]
-enables: [CJM-*, UXD-*, REL-*]
+depends_on: [PER-*,JTB-*]
+enables: [CJM-*,UXD-*]
 
 persona_focus: [Primary persona this map represents]
 scenario_context: [Specific scenario or situation]
@@ -604,7 +611,7 @@ review_cycle: quarterly
 ### Typical Enablements
 - **CJM (Customer Journey Maps)**: Empathy insights inform journey emotional states
 - **UXD (User Experience Design)**: Empathy guides experience design decisions
-- **REL (Relationships)**: Empathy informs relationship management strategies
+- **Relationships**: Empathy informs relationship management strategies
 
 ## Document Relationships
 

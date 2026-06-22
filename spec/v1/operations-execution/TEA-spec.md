@@ -11,6 +11,10 @@
 
 This specification defines the Team Structure document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting team structure within the operations-execution domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+The team maturity stages (Forming / Storming / Norming / Performing) are attributed to Bruce Tuckman.
+
 ## Purpose and Scope
 
 The Team Structure defines systematic approaches to organizing and managing teams that deliver business outcomes through effective collaboration, clear accountability, and continuous improvement. It establishes team frameworks that optimize performance, engagement, and value delivery.
@@ -23,6 +27,9 @@ id: TEA-{team-name}
 title: "Team — {Team Name}"
 type: TEA
 status: Draft|Review|Approved|Active|Disbanded
+attribution_required: true
+source_frameworks:
+  - "Bruce Tuckman - group development model"
 version: 1.0.0
 owner: Team-Owner|Team-Lead
 stakeholders: [team-members, management-team, hr-team, stakeholders]
@@ -32,8 +39,8 @@ scope: team-management
 horizon: operational
 visibility: internal
 
-depends_on: [ORG-*, ROL-*, SKI-*, PRO-*]
-enables: [PER-*, QUA-*, COL-*, INK-*]
+depends_on: [ORG-*,ROL-*,SKI-*,PRO-*]
+enables: [PER-*,QUA-*]
 
 team_type: Functional|Cross-functional|Project|Product|Service
 team_duration: Permanent|Project-based|Temporary
@@ -253,8 +260,8 @@ quarterly_objectives:
 ### Typical Enablements
 - **PER (Performance Specification)**: Team effectiveness drives overall performance achievement
 - **QUA (Quality Specification)**: Team quality standards drive overall quality outcomes
-- **COL (Collaboration)**: Team dynamics drive broader collaboration patterns
-- **INK (Innovation)**: Team innovation drives organizational innovation capacity
+- **Collaboration**: Team dynamics drive broader collaboration patterns
+- **Innovation**: Team innovation drives organizational innovation capacity
 
 ## Document Relationships
 

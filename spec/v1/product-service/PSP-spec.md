@@ -19,9 +19,9 @@ The Performance Specification defines comprehensive performance requirements, ta
 
 ```yaml
 ---
-id: PER-{performance-area}
+id: PSP-{performance-optimization-area}
 title: "Performance Specification — {Performance Area}"
-type: PER
+type: PSP
 status: Draft|Review|Approved|Active|Deprecated
 version: 1.0.0
 owner: Performance-Owner|Performance-Team
@@ -32,8 +32,8 @@ scope: performance-optimization
 horizon: continuous
 visibility: internal
 
-depends_on: [REQ-*, FEA-*, QUA-*]
-enables: [SUP-*, INT-*, UXD-*]
+depends_on: [REQ-*,FEA-*,QUA-*]
+enables: [SUP-*,INT-*,UXD-*]
 
 performance_domain: System|Application|Database|Network|User
 measurement_environment: Production|Staging|Load-Test|Synthetic

@@ -15,6 +15,14 @@ This specification defines the Policies document type within the BSpec 1.0 Unive
 
 The Policies document defines systematic approaches to establishing, implementing, and managing organizational policies that guide behavior, ensure compliance, and mitigate risks. It establishes policy frameworks that provide clear guidance, consistent enforcement, and effective governance.
 
+## Scope Boundary
+
+POL owns documented rules, principles, and expected behaviors for people, teams, and operations. It does **not** own:
+
+- Enforcement mechanisms and monitoring outcomes (`CTL`, `COM`).
+- Oversight authorities and accountability architecture (`GOV`, `LEG`).
+- Board-level oversight execution (`GOV`, `AUD`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +40,8 @@ scope: policy-management
 horizon: strategic
 visibility: internal
 
-depends_on: [ROL-*, PRO-*, RSK-*, ORG-*]
-enables: [PER-*, QUA-*, COM-*, GOV-*]
+depends_on: [ROL-*,PRO-*,RSK-*,ORG-*]
+enables: [PER-*,QUA-*,COM-*,GOV-*]
 
 policy_type: Strategic|Operational|Administrative|Technical
 policy_scope: Enterprise|Departmental|Functional|Process-specific

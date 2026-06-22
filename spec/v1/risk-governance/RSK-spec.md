@@ -11,6 +11,10 @@
 
 This specification defines the Risks document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting risks within the risk-governance domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+The Three Lines of Defense structure should be attributed to the Institute of Internal Auditors (IIA) where used.
+
 ## Purpose and Scope
 
 The Risks document defines systematic approaches to identifying, assessing, and managing business risks that could impact organizational objectives, operations, and stakeholder value. It establishes risk management frameworks that enable proactive risk mitigation, informed decision making, and resilient business operations.
@@ -23,6 +27,9 @@ id: RSK-{risk-category}
 title: "Risks — {Risk Category or Domain}"
 type: RSK
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Institute of Internal Auditors - Three Lines of Defense"
 version: 1.0.0
 owner: Risk-Team|Chief-Risk-Officer
 stakeholders: [risk-team, executives, board, business-units, audit-committee]
@@ -32,8 +39,8 @@ scope: risk-management
 horizon: strategic
 visibility: confidential
 
-depends_on: [STR-*, OBJ-*, OPS-*, FIN-*]
-enables: [CTL-*, COM-*, GOV-*, AUD-*]
+depends_on: [STR-*,OBJ-*,OPS-*,FIN-*]
+enables: [CTL-*,COM-*,GOV-*,AUD-*]
 
 risk_category: Strategic|Operational|Financial|Compliance|Technology|Reputational
 risk_scope: Enterprise|Business-unit|Process|Project

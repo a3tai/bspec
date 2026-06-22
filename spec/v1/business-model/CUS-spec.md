@@ -11,6 +11,10 @@
 
 This specification defines the Customer Relationships document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting customer relationships within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+CUS is the Business Model Canvas **Customer Relationships** block and is treated as a structured adaptation of that block. Use Strategyzer licensing and attribution expectations (CC BY-SA 3.0) when reusing template structure. If Net Promoter marks are used, apply Net Promoter trademark obligations under BSpec's attribution policy.
+
 ## Purpose and Scope
 
 The Customer Relationships defines systematic approaches to building, managing, and optimizing customer relationships that drive acquisition, retention, growth, and advocacy. It establishes relationship frameworks that create sustainable competitive advantages through superior customer experiences and value delivery.
@@ -23,6 +27,10 @@ id: CUS-{relationship-type}
 title: "Customer Relationships — {Relationship Type}"
 type: CUS
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas (CC BY-SA 3.0)"
+  - "Bain - Net Promoter®, NPS®, Net Promoter System®, Net Promoter Score℠"
 version: 1.0.0
 owner: Relationship-Owner|Relationship-Team
 stakeholders: [customer-success-team, sales-team, marketing-team, support-team]
@@ -32,8 +40,8 @@ scope: relationship-management
 horizon: strategic
 visibility: internal
 
-depends_on: [PER-*, SEG-*, CHN-*, VAL-*]
-enables: [REV-*, CST-*, VST-*, SUP-*]
+depends_on: [PER-*,SEG-*,CHN-*,VAL-*]
+enables: [REV-*,CST-*,VST-*,SUP-*]
 
 relationship_type: Personal|Automated|Self-Service|Community
 relationship_stage: Acquisition|Onboarding|Growth|Retention|Advocacy

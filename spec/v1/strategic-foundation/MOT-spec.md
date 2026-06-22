@@ -11,9 +11,15 @@
 
 This specification defines the Competitive Moats document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting competitive moats within the strategic-foundation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+This document references Business Model Canvas-style strategy structure and should retain Strategyzer attribution requirements where those sections are used.
+
 ## Purpose and Scope
 
 The Moats document identifies and analyzes the competitive advantages that protect the organization's market position. Moats are sustainable advantages that make it difficult for competitors to replicate success.
+
+`MOT` is distinct from Theory of Change (`THY`). Moats define competitive defensibility and market position; `THY` defines causal pathways and intended outcomes.
 
 ## Document Metadata Schema
 
@@ -23,6 +29,9 @@ id: MOT-{competitive-advantage-identifier}
 title: "Competitive Moats"
 type: MOT
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas"
 version: 1.0.0
 owner: CEO|Strategy-Lead
 stakeholders: [leadership-team, product-team, sales-team]
@@ -32,8 +41,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [STR-*, CMP-*, BMC-*]
-enables: [POS-*, GTM-*, VAL-*]
+depends_on: [STR-*,CMP-*]
+enables: [POS-*,VAL-*]
 
 success_criteria:
   - "Moats are validated by customer behavior"
@@ -258,11 +267,11 @@ review_cycle: quarterly
 ### Typical Dependencies
 - **STR (Strategy)**: Moats support strategic competitive approach
 - **CMP (Competitive Analysis)**: Moats validated against competitive landscape
-- **BMC (Business Model Canvas)**: Moats align with business model
+- **Business Model Canvas**: Moats align with business model
 
 ### Typical Enablements
 - **POS (Positioning)**: Moats inform market positioning
-- **GTM (Go-to-Market)**: Moats guide market approach
+- **Go-to-Market**: Moats guide market approach
 - **VAL (Valuation)**: Moats support business valuation
 
 ### Common Conflicts

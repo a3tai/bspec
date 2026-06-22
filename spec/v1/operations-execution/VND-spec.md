@@ -32,8 +32,8 @@ scope: vendor-management
 horizon: operational
 visibility: internal
 
-depends_on: [PRO-*, POL-*, SLA-*, RSK-*]
-enables: [PER-*, QUA-*, CST-*, SLA-*]
+depends_on: [PRO-*,POL-*,SLA-*,RSK-*]
+enables: [PER-*,QUA-*,CST-*,SLA-*]
 
 vendor_type: Strategic|Tactical|Operational|Commodity
 vendor_criticality: Critical|Important|Standard|Low

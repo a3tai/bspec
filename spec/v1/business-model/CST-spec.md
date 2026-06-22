@@ -11,6 +11,10 @@
 
 This specification defines the Cost Structure document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting cost structure within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+CST is the Business Model Canvas **Cost Structure** block and should observe Strategyzer attribution and ShareAlike expectations when template structure is reused. Use CC BY-SA 3.0 terms for BMC-derived structure.
+
 ## Purpose and Scope
 
 The Cost Structure defines systematic analysis and optimization of organizational costs to support business strategy and profitability. It establishes cost frameworks that enable efficient resource allocation, competitive positioning, and sustainable business operations.
@@ -23,6 +27,10 @@ id: CST-{cost-category}
 title: "Cost Structure — {Business Area}"
 type: CST
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas (CC BY-SA 3.0)"
+  - "Kaplan & Cooper - Activity-Based Costing"
 version: 1.0.0
 owner: Cost-Owner|Finance-Team
 stakeholders: [finance-team, operations-team, strategy-team, procurement-team]
@@ -32,8 +40,8 @@ scope: cost-management
 horizon: current
 visibility: internal
 
-depends_on: [REV-*, PRI-*, CHN-*, VAL-*]
-enables: [KPT-*, KRS-*, KAC-*, CAP-*]
+depends_on: [REV-*,PRI-*,CHN-*,VAL-*]
+enables: [KPT-*,KRS-*,KAC-*,CAP-*]
 
 cost_type: Fixed|Variable|Semi-Variable|Step
 cost_behavior: Volume-driven|Time-driven|Activity-driven
@@ -56,6 +64,12 @@ standards: [Cost accounting and management standards]
 review_cycle: quarterly
 ---
 ```
+
+## Framework and Attribution
+
+This document includes Activity-Based Costing structure and terminology. If using
+explicitly adapted ABC framework content, cite Kaplan & Cooper and maintain the
+source framing in implementation.
 
 ## Content Structure Template
 

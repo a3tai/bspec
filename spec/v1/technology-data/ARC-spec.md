@@ -15,6 +15,14 @@ This specification defines the Architecture document type within the BSpec 1.0 U
 
 The Architecture document defines systematic approaches to designing and documenting technical architecture that enables business capabilities through coherent technology decisions, quality attribute optimization, and strategic alignment. It establishes architectural frameworks that guide technology evolution and ensure scalable, secure, and maintainable systems.
 
+## Scope Boundary
+
+ARC owns architectural principles, patterns, and long-lived design decisions (for example, layering, platform patterns, API strategies, and evolution governance). It does **not** own:
+
+- The operational catalog of individual systems (owned by `SYS`).
+- Runtime platform and environment configuration or fleet operations (owned by `INF`).
+- Team-level development practices and coding standards (owned by `DEV`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +40,8 @@ scope: architecture-design
 horizon: strategic
 visibility: internal
 
-depends_on: [SYS-*, STR-*, CAP-*, REQ-*]
-enables: [DEV-*, INF-*, SEC-*, API-*]
+depends_on: [STR-*,CAP-*,RSK-*]
+enables: [SYS-*,DEV-*,INF-*,API-*]
 
 architecture_style: Microservices|Monolithic|Event-driven|Layered|SOA
 maturity_level: Emerging|Established|Mature|Legacy

@@ -15,6 +15,14 @@ This specification defines the Controls document type within the BSpec 1.0 Unive
 
 The Controls document defines systematic approaches to designing, implementing, and operating internal controls that mitigate business risks, ensure compliance, and support reliable business operations. It establishes control frameworks that provide reasonable assurance for achieving business objectives while managing risk exposure.
 
+## Scope Boundary
+
+CTL owns control design, implementation, and effectiveness testing. It is the mechanism layer that operationalizes risk response. It does **not** own:
+
+- Program ownership and ongoing compliance scheduling (`COM`).
+- Legal interpretation and enforcement strategy (`LEG`).
+- Board/oversight structure (`GOV`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +40,8 @@ scope: internal-controls
 horizon: tactical
 visibility: internal
 
-depends_on: [RSK-*, PRO-*, SYS-*, COM-*]
-enables: [AUD-*, GOV-*, QUA-*, REP-*]
+depends_on: [RSK-*,PRO-*,SYS-*,COM-*]
+enables: [AUD-*,GOV-*,QUA-*,REP-*]
 
 control_type: Preventive|Detective|Corrective|Compensating
 control_nature: Manual|Automated|IT-dependent|Hybrid

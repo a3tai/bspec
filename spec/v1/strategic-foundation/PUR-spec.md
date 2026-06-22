@@ -32,8 +32,8 @@ scope: global
 horizon: long
 visibility: public
 
-depends_on: [MSN-*, VAL-*]
-enables: [THY-*, STA-*, ETH-*]
+depends_on: [MSN-*,VAL-*]
+enables: [THY-*,ETH-*]
 
 success_criteria:
   - "Purpose resonates with key stakeholders"
@@ -262,7 +262,7 @@ review_cycle: annually
 
 ### Typical Enablements
 - **THY (Theory of Change)**: Purpose provides foundation for change theory
-- **STA (Stakeholders)**: Purpose guides stakeholder management
+- **Stakeholders**: Purpose guides stakeholder management
 - **ETH (Ethics)**: Purpose informs ethical framework
 
 ### Common Conflicts

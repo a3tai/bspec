@@ -13,15 +13,16 @@ This specification defines the Marketing Channel Strategy document type within t
 
 ## Purpose and Scope
 
-The Marketing Channel Strategy document defines how the brand will reach and engage target audiences through optimal channel selection, integration, and optimization. It establishes channel frameworks that maximize reach, efficiency, and effectiveness while creating seamless customer experiences across all marketing touchpoints.
+The Marketing Channel Strategy document defines how the brand reaches and engages target audiences through marketing, social, and owned/earned paid content channels.
+It focuses on awareness, demand generation, and campaign channel mix, not product distribution mechanics.
 
 ## Document Metadata Schema
 
 ```yaml
 ---
-id: CHN-{channel-area}
+id: MCH-{channel-area}
 title: "Marketing Channel Strategy — {Channel Focus or Market}"
-type: CHN
+type: MCH
 status: Draft|Review|Approved|Active|Deprecated
 version: 1.0.0
 owner: Marketing-Manager|Channel-Manager|Digital-Marketing-Manager
@@ -32,8 +33,8 @@ scope: marketing-channels
 horizon: tactical
 visibility: internal
 
-depends_on: [CUS-*, MSG-*, BRD-*, POS-*]
-enables: [CAM-*, LED-*, SOC-*, CON-*]
+depends_on: [CUS-*,MSG-*,BRD-*,POS-*]
+enables: [CAM-*,SOC-*]
 
 channel_mix: [digital, traditional, direct, partner channels]
 channel_integration: [how channels work together]
@@ -441,9 +442,9 @@ strategic_planning:
 
 ### Typical Enablements
 - **CAM (Campaigns)**: Channel strategy enables effective campaign execution
-- **LED (Lead Generation)**: Channel optimization drives lead generation efficiency
+- **Lead Generation**: Channel optimization drives lead generation efficiency
 - **SOC (Social Media)**: Channel strategy supports social media effectiveness
-- **CON (Conversions)**: Channel optimization drives conversion improvements
+- **Conversions****: Channel optimization drives conversion improvements
 
 ## Document Relationships
 

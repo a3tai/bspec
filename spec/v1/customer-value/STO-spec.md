@@ -1,7 +1,7 @@
 # STO: User Stories Document Type Specification
 
 **Document Type Code:** STO
-**Document Type Name:** User Stories
+**Document Type Name:** Stories (User Stories)
 **Domain:** Customer & Value
 **Version:** 1.0.0
 **Status:** Draft
@@ -13,7 +13,21 @@ This specification defines the User Stories document type within the BSpec 1.0 U
 
 ## Purpose and Scope
 
-The User Stories document captures individual requirements from the user perspective using the standard "As a... I want... So that..." format. Stories decompose features into implementable units of customer value.
+The User Stories (STO) document captures implementation-sized requirements from the
+user perspective using the standard "As a... I want... So that..." format.
+The `STO` code is retained for the three-letter namespace constraint; this is
+equivalent to **Stories** in most frameworks and is not a storage concept.
+
+## Naming Note
+
+Industry standard naming is **User Stories** (often grouped under `US` in tools).
+Within BSpec, `STO` is the canonical code for interoperability with the three-letter
+namespace constraint and should be treated as a terminology alias, not a storage
+primitive.
+
+## Framework and Attribution
+
+STO is a lightweight implementation planning format for backlog decomposition and should remain scoped to slice-level, testable behavior narratives.
 
 ## Document Metadata Schema
 
@@ -32,8 +46,8 @@ scope: feature
 horizon: immediate
 visibility: internal
 
-depends_on: [USE-*, PER-*]
-enables: [REQ-*, TSK-*]
+depends_on: [USE-*,PER-*]
+enables: [REQ-*]
 
 story_points: X # Complexity/effort estimate
 business_value: X # Value score
@@ -405,7 +419,7 @@ review_cycle: sprint
 
 ### Typical Enablements
 - **REQ (Requirements)**: Stories drive detailed functional requirements
-- **TSK (Tasks)**: Stories break down into implementation tasks
+- **Tasks**: Stories break down into implementation tasks
 
 ## Document Relationships
 

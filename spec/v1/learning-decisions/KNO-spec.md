@@ -15,6 +15,23 @@ This specification defines the Knowledge Management document type within the BSp
 
 The Knowledge Management document defines systematic approaches to capturing, organizing, sharing, and leveraging organizational knowledge assets. It establishes knowledge frameworks that preserve institutional knowledge, accelerate learning, enable innovation, and create competitive advantage through effective knowledge creation, retention, and application.
 
+## Scope Boundary
+
+KNO owns the authoritative repository model for codified knowledge: taxonomies, storage, searchability, and access governance.
+
+### Learning Stack Convention (KNO / LRN / LEA / WIS)
+
+The learning family follows a two-layer model:
+
+- **KNO + LEA**: operating layer (where knowledge is stored and learning systems are run).
+- **LRN + WIS**: interpretation layer (where evidence is generated, then synthesized into practical judgment).
+
+KNO does **not** own:
+
+- Raw evidence and observations from one-off studies (`LRN`).
+- Learning culture programs and capability programs (`LEA`).
+- Principled interpretation and decision guidance (`WIS`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +49,8 @@ scope: knowledge-management
 horizon: strategic|operational
 visibility: internal|restricted|public
 
-depends_on: [LRN-*, DEC-*, THY-*, ORG-*]
-enables: [INN-*, CAP-*, PRO-*, STR-*]
+depends_on: [LRN-*,DEC-*,THY-*,ORG-*]
+enables: [INN-*,CAP-*,PRO-*,STR-*]
 
 knowledge_type: [explicit, tacit, procedural, declarative, strategic]
 knowledge_domain: [technical, business, customer, market, organizational]

@@ -15,6 +15,14 @@ This specification defines the Systems document type within the BSpec 1.0 Univer
 
 The Systems document defines systematic approaches to designing, implementing, and managing technology systems that deliver business capabilities through functional features, technical architecture, and operational excellence. It establishes system frameworks that ensure scalability, maintainability, and business value delivery.
 
+## Scope Boundary
+
+SYS owns the definition of production systems, their responsibilities, interfaces, and lifecycle in relation to business capabilities. It does **not** own:
+
+- Enterprise architecture governance (`ARC`) and architectural standards.
+- Shared infrastructure architecture and operations (`INF`).
+- Team practices for implementation and testing (`DEV`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +40,8 @@ scope: system-development
 horizon: tactical
 visibility: internal
 
-depends_on: [ARC-*, REQ-*, DAT-*, API-*]
-enables: [PER-*, QUA-*, MON-*, INT-*]
+depends_on: [ARC-*,REQ-*,DAT-*,API-*,SEC-*]
+enables: [PER-*,QUA-*,INT-*]
 
 system_type: Web-application|Mobile-app|API-service|Data-platform|Integration-hub
 system_criticality: Mission-critical|Business-critical|Important|Standard
@@ -245,8 +253,8 @@ security:
 ```
 
 ### Compliance Requirements
-- **Regulatory Compliance:** {GDPR, HIPAA, SOX, etc.}
-- **Industry Standards:** {ISO 27001, SOC 2, etc.}
+- **Regulatory Compliance:** {GDPR, HIPAA where applicable, SOX where applicable}
+- **Industry Standards:** {ISO 27001 certification, SOC 2 attestation, etc.}
 - **Internal Policies:** {Company security policies}
 - **Audit Requirements:** {Audit logging and reporting}
 
@@ -370,7 +378,7 @@ evolution:
 ### Typical Enablements
 - **PER (Performance Specification)**: System performance drives overall performance achievement
 - **QUA (Quality Specification)**: System quality standards drive overall quality outcomes
-- **MON (Monitoring)**: System monitoring enables operational monitoring and alerting
+- **Monitoring**: System monitoring enables operational monitoring and alerting
 - **INT (Integration)**: System capabilities enable integration with other systems
 
 ## Document Relationships

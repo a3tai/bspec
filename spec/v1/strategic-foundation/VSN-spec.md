@@ -33,7 +33,7 @@ horizon: long
 visibility: public
 
 depends_on: [MSN-*]
-enables: [STR-*, OBJ-*, GTM-*]
+enables: [STR-*,OBJ-*]
 
 success_criteria:
   - "Vision is compelling and inspirational"
@@ -210,8 +210,8 @@ review_cycle: annually
 ### Typical Enablements
 - **STR (Strategy)**: Vision informs strategic approach
 - **OBJ (Objectives)**: Vision guides goal setting
-- **GTM (Go-to-Market)**: Vision shapes market approach
-- **GRW (Growth Model)**: Vision defines growth direction
+- **Go-to-Market**: Vision shapes market approach
+- **Growth Model**: Vision defines growth direction
 
 ### Common Conflicts
 - **Mission-vision misalignment**

@@ -23,6 +23,9 @@ id: REV-{revenue-stream}
 title: "Revenue Model — {Revenue Stream Name}"
 type: REV
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas (CC BY-SA 3.0)"
 version: 1.0.0
 owner: Revenue-Owner|Revenue-Team
 stakeholders: [finance-team, sales-team, product-team, pricing-team]
@@ -32,8 +35,8 @@ scope: revenue-generation
 horizon: current
 visibility: internal
 
-depends_on: [VSN-*, VAL-*, PER-*, JTB-*]
-enables: [CST-*, PRO-*, CAP-*, SLA-*]
+depends_on: [VSN-*,VAL-*,PER-*,JTB-*]
+enables: [CST-*,PRO-*,CAP-*,SLA-*]
 
 revenue_type: Transactional|Subscription|Usage|License|Commission|Advertising
 customer_segments: [Segment identifiers]
@@ -56,6 +59,12 @@ standards: [Revenue recognition and pricing standards]
 review_cycle: quarterly
 ---
 ```
+
+## Framework and Attribution
+
+This document is aligned with the BMC "Revenue Streams" block. Where BMC
+structure is used directly or adapted, apply the Strategyzer attribution and
+CC BY-SA 3.0 derivative obligations.
 
 ## Content Structure Template
 

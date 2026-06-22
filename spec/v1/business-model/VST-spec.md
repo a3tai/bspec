@@ -23,6 +23,9 @@ id: VST-{value-stream}
 title: "Value Stream — {Value Stream Name}"
 type: VST
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Bain - Net Promoter®, NPS®, Net Promoter System®, Net Promoter Score℠"
 version: 1.0.0
 owner: Value-Stream-Owner|Value-Stream-Team
 stakeholders: [operations-team, customer-success-team, process-team, quality-team]
@@ -32,8 +35,8 @@ scope: value-stream-management
 horizon: operational
 visibility: internal
 
-depends_on: [KAC-*, CJM-*, PRO-*, CAP-*]
-enables: [PER-*, QUA-*, CUS-*, REV-*]
+depends_on: [KAC-*,CJM-*,PRO-*,CAP-*]
+enables: [PER-*,QUA-*,CUS-*,REV-*]
 
 stream_type: Development|Operational|Support|Innovation
 customer_segments: [Segment identifiers]

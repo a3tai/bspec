@@ -11,9 +11,17 @@
 
 This specification defines the Business Strategy document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting business strategy within the strategic-foundation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+When using the embedded Business Model references, apply Strategyzer Business Model Canvas attribution rules and copyright terms where applicable.
+
 ## Purpose and Scope
 
 The Strategy document defines how the organization will achieve its vision and compete in its chosen markets. It articulates the key choices about where to play, how to win, and what capabilities to build.
+
+## Scope Boundary
+
+STR defines directional choices and strategic hypotheses: market positioning, competitive positioning, and capabilities to build. It sets intent and trade-offs, but does **not** set periodic targets (`OBJ`) or define metric taxonomies and reporting systems (`MET`).
 
 ## Document Metadata Schema
 
@@ -23,6 +31,9 @@ id: STR-{strategy-identifier}
 title: "Business Strategy"
 type: STR
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas"
 version: 1.0.0
 owner: CEO|Strategy-Lead
 stakeholders: [leadership-team, board, department-heads]
@@ -32,8 +43,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MSN-*, VSN-*, VAL-*, MKT-*, CMP-*]
-enables: [OBJ-*, GTM-*, GRW-*, BMC-*]
+depends_on: [MSN-*,VSN-*,VAL-*,MKT-*,CMP-*]
+enables: [OBJ-*]
 
 success_criteria:
   - "Strategy clearly differentiates from competitors"
@@ -272,9 +283,9 @@ review_cycle: quarterly
 
 ### Typical Enablements
 - **OBJ (Objectives)**: Strategy informs goal setting
-- **GTM (Go-to-Market)**: Strategy guides market approach
-- **GRW (Growth Model)**: Strategy defines growth approach
-- **BMC (Business Model Canvas)**: Strategy informs business model
+- **Go-to-Market**: Strategy guides market approach
+- **Growth Model**: Strategy defines growth approach
+- **Business Model Canvas**: Strategy informs business model
 
 ### Common Conflicts
 - **Multiple competing strategies** within organization

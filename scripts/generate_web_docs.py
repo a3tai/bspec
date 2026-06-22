@@ -76,8 +76,8 @@ description: "BSpec {spec['code']} document type specification"
     breadcrumb = f"""# {spec['code']}: {spec['name']}
 
 ::: tip Document Type
-**Code**: {spec['code']}  
-**Name**: {spec['name']}  
+**Code**: {spec['code']}<br>
+**Name**: {spec['name']}<br>
 **Domain**: {spec['domain']}
 :::
 
@@ -93,6 +93,8 @@ description: "BSpec {spec['code']} document type specification"
     
     # Enhance code blocks for VitePress
     main_content = enhance_code_blocks(main_content)
+    main_content = escape_literal_braces(main_content)
+    main_content = trim_trailing_whitespace(main_content)
     
     # Add footer with related docs
     footer = f"""
@@ -107,7 +109,7 @@ description: "BSpec {spec['code']} document type specification"
 
 """
     
-    return frontmatter + breadcrumb + main_content + footer
+    return trim_trailing_whitespace(frontmatter + breadcrumb + main_content + footer)
 
 def enhance_code_blocks(content: str) -> str:
     """Enhance code blocks for better VitePress display."""
@@ -157,6 +159,29 @@ def enhance_code_blocks(content: str) -> str:
     
     return '\n'.join(result)
 
+def escape_literal_braces(content: str) -> str:
+    """Escape literal braces outside code fences for VitePress/Markdown-it."""
+    lines = content.split('\n')
+    result = []
+    in_code_block = False
+
+    for line in lines:
+        if line.strip().startswith('```'):
+            in_code_block = not in_code_block
+            result.append(line)
+            continue
+
+        if in_code_block:
+            result.append(line)
+        else:
+            result.append(line.replace('{', '&#123;').replace('}', '&#125;'))
+
+    return '\n'.join(result)
+
+def trim_trailing_whitespace(content: str) -> str:
+    """Normalize generated markdown trailing whitespace."""
+    return '\n'.join(line.rstrip() for line in content.split('\n')).rstrip() + '\n'
+
 def domain_to_slug(domain: str) -> str:
     """Convert domain name to URL slug."""
     return domain.lower().replace(' & ', '-').replace(' ', '-')
@@ -191,18 +216,21 @@ This domain contains {len(doc_types)} document types that cover {domain_name.low
 [← Back to All Document Types](/docs/document-types)
 """
     
-    return content
+    return trim_trailing_whitespace(content)
 
 def generate_document_types_index(all_specs: Dict[str, List[Dict]]) -> str:
     """Generate the main document types index page."""
-    content = """---
+    domain_count = len(all_specs)
+    total_types = sum(len(docs) for docs in all_specs.values())
+
+    content = f"""---
 title: "Document Types"
-description: "All 82 BSpec document types organized by domain"
+description: "All {total_types} BSpec document types organized by {domain_count} domains"
 ---
 
 # Document Types
 
-BSpec defines 82 standardized document types across 11 business domains. Each document type has a specific purpose, structure, and set of relationships.
+BSpec defines {total_types} standardized document types across {domain_count} business domains. Each document type has a specific purpose, structure, and set of relationships.
 
 ## Overview by Domain
 
@@ -247,7 +275,7 @@ Each document type includes:
     
     for doc in sorted(all_docs, key=lambda x: x['code']):
         domain_name = DOMAIN_NAMES.get(domain_to_slug(doc['domain']), doc['domain'])
-        content += f"**[{doc['code']}](/docs/types/{doc['code']})** - {doc['name']} ({domain_name})  \n"
+        content += f"**[{doc['code']}](/docs/types/{doc['code']})** - {doc['name']} ({domain_name})\n"
     
     content += """
 
@@ -260,7 +288,7 @@ Each document type includes:
 - [Full Specification](/spec/v1-0-0) - Complete technical reference
 """
     
-    return content
+    return trim_trailing_whitespace(content)
 
 def main():
     """Main generation function."""

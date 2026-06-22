@@ -15,6 +15,13 @@ This specification defines the Legal document type within the BSpec 1.0 Universa
 
 The Legal document defines systematic approaches to managing legal affairs, protecting legal interests, and ensuring compliance with applicable laws and regulations. It establishes legal frameworks that mitigate legal risks, manage contracts and disputes, protect intellectual property, and support business operations within appropriate legal boundaries.
 
+## Scope Boundary
+
+LEGAL is responsible for legal affairs, rights, contracts, and dispute and litigation
+management. Operational compliance program ownership (federal/state/international
+compliance program design and control operations) belongs to COM; LEG references
+COM outputs as inputs rather than duplicating full compliance regimes.
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +39,8 @@ scope: legal-management
 horizon: strategic
 visibility: confidential
 
-depends_on: [COM-*, RSK-*, GOV-*, ETH-*]
-enables: [CTL-*, REP-*, AUD-*, INS-*]
+depends_on: [COM-*,RSK-*,GOV-*,ETH-*]
+enables: [CTL-*,REP-*,AUD-*,INS-*]
 
 legal_scope: Corporate|Commercial|Regulatory|Litigation|IP|Employment
 legal_model: In-house|External|Hybrid|Specialized
@@ -247,44 +254,18 @@ third_party_ip:
 
 ## Regulatory Compliance and Government Relations
 
-### Regulatory Framework
+LEG captures legal-facing implications of regulation; it does not become the
+standalone operational compliance framework.
+
 ```yaml
-regulatory_compliance:
-  regulatory_monitoring:
-    regulation_tracking: {Regulatory change monitoring and impact assessment}
-    compliance_requirements: {Regulatory compliance requirement identification}
-    filing_obligations: {Regulatory filing and reporting obligations}
-
-  compliance_programs:
-    compliance_policies: {Regulatory compliance policies and procedures}
-    training_programs: {Regulatory compliance training and awareness}
-    monitoring_systems: {Compliance monitoring and detection systems}
-    reporting_procedures: {Regulatory reporting and disclosure procedures}
-
-  government_relations:
-    regulatory_engagement: {Regulatory agency engagement and communication}
-    policy_advocacy: {Industry policy advocacy and representation}
-    government_affairs: {Government relations and public policy engagement}
-```
-
-### Industry-Specific Compliance
-- **Financial Services:** {Banking, securities, and financial regulatory compliance}
-- **Healthcare:** {FDA, HIPAA, and healthcare regulatory compliance}
-- **Technology:** {Data privacy, cybersecurity, and technology regulations}
-- **Manufacturing:** {Environmental, safety, and product regulatory compliance}
-
-### International Compliance
-```yaml
-international_compliance:
-  cross_border_regulations:
-    data_protection: {International data protection and privacy compliance}
-    trade_regulations: {International trade and export control compliance}
-    anti_corruption: {International anti-corruption and sanctions compliance}
-
-  local_compliance:
-    local_law_compliance: {Local law compliance in international operations}
-    regulatory_registrations: {Required regulatory registrations and licenses}
-    local_counsel: {Local legal counsel coordination and management}
+legal_regulatory_interface:
+  compliance_link:
+    legal_dependency: [COM-*, RSK-*, GOV-*]
+    filing_support: {Legal review and interpretation support for filing obligations}
+    contract_alignment: {Update terms and obligations tied to legal and regulatory risk}
+    enforcement_response: {Notice handling and legal response coordination}
+  anti_corruption:
+    fcpa_ukbap: {FCPA and UK Bribery Act obligations and policy mapping}
 ```
 
 ## Corporate Legal and Governance

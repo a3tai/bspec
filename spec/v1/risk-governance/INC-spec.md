@@ -32,8 +32,8 @@ scope: incident-management
 horizon: tactical
 visibility: confidential
 
-depends_on: [RSK-*, OPS-*, CTL-*, COM-*]
-enables: [BCR-*, CRI-*, LEA-*, REP-*]
+depends_on: [RSK-*,OPS-*,CTL-*,COM-*]
+enables: [LEA-*,REP-*]
 
 incident_scope: Operational|Security|Safety|Compliance|Financial|Reputational
 response_model: Centralized|Decentralized|Hybrid|Federated
@@ -511,9 +511,9 @@ incident_performance:
 - **COM (Compliance)**: Compliance requirements drive incident reporting and response procedures
 
 ### Typical Enablements
-- **BCR (Business Continuity)**: Incident management enables business continuity and recovery
-- **CRI (Crisis Management)**: Incident response enables crisis management and stakeholder protection
-- **LEA (Learning)**: Incident analysis enables organizational learning and improvement
+- **Business Continuity**: Incident management enables business continuity and recovery
+- **Crisis Management**: Incident response enables crisis management and stakeholder protection
+- **LRN (Learning)**: Incident analysis drives organizational learning and improvement
 - **REP (Reporting)**: Incident management enables incident reporting and disclosure
 
 ## Document Relationships
@@ -521,7 +521,7 @@ incident_performance:
 This document type commonly relates to:
 
 - **Depends on**: RSK (Risks), OPS (Operations), CTL (Controls), COM (Compliance)
-- **Enables**: BCR (Business Continuity), CRI (Crisis Management), LEA (Learning), REP (Reporting)
+- **Enables**: BCR (Business Continuity), CRI (Crisis Management), LRN (Learning), REP (Reporting)
 - **Informs**: Risk management, operational procedures, crisis planning
 - **Guides**: Response procedures, recovery actions, learning processes
 

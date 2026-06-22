@@ -32,8 +32,8 @@ scope: investment-strategy
 horizon: strategic
 visibility: restricted
 
-depends_on: [FIN-*, STR-*, VAL-*, FOR-*]
-enables: [MET-*, REP-*, RSK-*, PER-*]
+depends_on: [FIN-*,STR-*,VAL-*,FOR-*]
+enables: [MET-*,REP-*,RSK-*,PER-*]
 
 investment_type: Capital|Strategic|Financial|Technology|Market-expansion
 investment_category: Growth|Efficiency|Maintenance|Innovation|Compliance

@@ -32,8 +32,8 @@ scope: search-optimization
 horizon: tactical
 visibility: internal
 
-depends_on: [CNT-*, WEB-*, KWD-*, ANA-*]
-enables: [TRA-*, LEA-*, BRA-*, CON-*]
+depends_on: [CNT-*,ANA-*]
+enables: [LEA-*]
 
 target_keywords: [primary and secondary keywords to rank for]
 content_strategy: [how SEO integrates with content planning]
@@ -449,22 +449,22 @@ seo_optimization:
 
 ### Typical Dependencies
 - **CNT (Content)**: Content strategy provides foundation for SEO content optimization
-- **WEB (Website)**: Website architecture and technical foundation enable SEO
-- **KWD (Keywords)**: Keyword research informs SEO targeting and content strategy
+- **Website**: Website architecture and technical foundation enable SEO
+- **Keywords**: Keyword research informs SEO targeting and content strategy
 - **ANA (Analytics)**: Analytics capabilities enable SEO performance measurement
 
 ### Typical Enablements
-- **TRA (Traffic)**: SEO strategy drives qualified organic traffic
-- **LEA (Lead Generation)**: Search optimization enables lead generation
-- **BRA (Brand Awareness)**: Search visibility builds brand awareness
-- **CON (Conversions)**: SEO traffic contributes to business conversions
+- **Traffic**: SEO strategy drives qualified organic traffic
+- **Lead Generation**: Search optimization enables lead conversion and acquisition
+- **Brand Awareness**: Search visibility builds brand awareness
+- **Conversions****: SEO traffic contributes to business conversions
 
 ## Document Relationships
 
 This document type commonly relates to:
 
 - **Depends on**: CNT (Content), WEB (Website), KWD (Keywords), ANA (Analytics)
-- **Enables**: TRA (Traffic), LEA (Lead Generation), BRA (Brand Awareness), CON (Conversions)
+- **Enables**: TRA (Traffic), BRA (Brand Awareness), CON (Conversions)
 - **Informs**: Content strategy, website development, digital marketing
 - **Guides**: Search optimization, content creation, technical development
 

@@ -32,8 +32,8 @@ scope: data-management
 horizon: strategic
 visibility: internal
 
-depends_on: [SYS-*, ARC-*, REQ-*, GOV-*]
-enables: [API-*, ANA-*, QUA-*, INT-*]
+depends_on: [SYS-*,ARC-*,REQ-*,GOV-*]
+enables: [API-*,ANA-*,QUA-*,INT-*]
 
 data_classification: Public|Internal|Confidential|Restricted
 data_domain: Core|Supporting|Reference|Analytical
@@ -149,7 +149,7 @@ data_ownership:
 
 ### Data Privacy and Security
 ```yaml
-privacy_controls:
+  privacy_controls:
   classification: {Data classification level}
   pii_handling: {Personal data handling procedures}
   retention: {Data retention policies}
@@ -157,7 +157,7 @@ privacy_controls:
 
   compliance:
     gdpr: {GDPR compliance measures}
-    ccpa: {CCPA compliance measures}
+    ccpa: {CCPA compliance measures (California-focused, narrower than GDPR)}
     industry: {Industry-specific compliance}
 ```
 

@@ -32,8 +32,8 @@ scope: behavioral-study
 horizon: current
 visibility: internal
 
-depends_on: [PER-*, USE-*]
-enables: [REQ-*, UXD-*, GAI-*]
+depends_on: [PER-*,USE-*]
+enables: [REQ-*,UXD-*,GAI-*]
 
 analysis_type: Usage|Navigation|Engagement|Conversion
 data_sources: [Analytics platforms, tools, and systems]

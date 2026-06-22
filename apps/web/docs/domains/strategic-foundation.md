@@ -5,33 +5,100 @@ description: "BSpec document types in the Strategic Foundation domain"
 
 # Strategic Foundation
 
-The Strategic Foundation domain defines your organization's core identity, direction, and purpose. These documents articulate why your organization exists, where it's going, and how it plans to get there.
+## Overview
 
-## Document Types (8)
+This domain contains 8 document types that cover strategic foundation aspects of your business.
 
-| Code | Name | Description |
-|------|------|-------------|
-| [MOT](/docs/types/MOT) | Competitive Moats | Sustainable advantages that protect your market position |
-| [MSN](/docs/types/MSN) | Mission Statement | Why your organization exists and what it does |
-| [OBJ](/docs/types/OBJ) | Strategic Objectives | Measurable goals that advance your strategy |
-| [PUR](/docs/types/PUR) | Organizational Purpose | The deeper reason your organization exists |
-| [STR](/docs/types/STR) | Business Strategy | How you will achieve your vision and compete |
-| [THY](/docs/types/THY) | Theory of Change | How your actions lead to desired outcomes |
-| [VAL](/docs/types/VAL) | Organizational Values | Principles that guide decisions and behavior |
-| [VSN](/docs/types/VSN) | Vision Statement | The future state you're working to create |
+## Document Types
 
-## Key Relationships
+### [MOT: Competitive Moats](/docs/types/MOT)
 
-Strategic Foundation documents typically:
-- **Enable**: Market, Customer, Product, and Operations documents
-- **Depend on**: Each other (e.g., Strategy depends on Vision and Mission)
+# MOT: Moats Document Type Specification
 
-## Getting Started
+**Document Type Code:** MOT
+**Document Type Name:** Competitive Moats
+**Domain:** Strategic Foundation
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:**...
 
-For Bronze conformance, start with:
-1. **VSN** - Define your vision
-2. **MSN** - Articulate your mission
-3. **STR** - Document your strategy
+### [MSN: Mission Statement](/docs/types/MSN)
+
+# MSN: Mission Statement Specification
+
+**Document Type Code:** MSN
+**Document Type Name:** Mission Statement
+**Domain:** Strategic Foundation
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 20...
+
+### [OBJ: Strategic Objectives](/docs/types/OBJ)
+
+# OBJ: Objectives Document Type Specification
+
+**Document Type Code:** OBJ
+**Document Type Name:** Strategic Objectives
+**Domain:** Strategic Foundation
+**Version:** 1.0.0
+**Status:** Draft
+**Last Upd...
+
+### [PUR: Organizational Purpose](/docs/types/PUR)
+
+# PUR: Purpose Document Type Specification
+
+**Document Type Code:** PUR
+**Document Type Name:** Organizational Purpose
+**Domain:** Strategic Foundation
+**Version:** 1.0.0
+**Status:** Draft
+**Last Upda...
+
+### [STR: Business Strategy](/docs/types/STR)
+
+# STR: Strategy Document Type Specification
+
+**Document Type Code:** STR
+**Document Type Name:** Business Strategy
+**Domain:** Strategic Foundation
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:...
+
+### [THY: Theory of Change](/docs/types/THY)
+
+# THY: Theory of Change Document Type Specification
+
+**Document Type Code:** THY
+**Document Type Name:** Theory of Change
+**Domain:** Strategic Foundation
+**Version:** 1.0.0
+**Status:** Draft
+**Last U...
+
+### [VAL: Organizational Values](/docs/types/VAL)
+
+# VAL: Values Document Type Specification
+
+**Document Type Code:** VAL
+**Document Type Name:** Organizational Values
+**Domain:** Strategic Foundation
+**Version:** 1.0.0
+**Status:** Draft
+**Last Update...
+
+### [VSN: Vision Statement](/docs/types/VSN)
+
+# VSN: Vision Document Type Specification
+
+**Document Type Code:** VSN
+**Document Type Name:** Vision Statement
+**Domain:** Strategic Foundation
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:**...
+
 
 ---
 

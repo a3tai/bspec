@@ -32,8 +32,8 @@ scope: tax-planning
 horizon: strategic
 visibility: confidential
 
-depends_on: [FIN-*, STR-*, ORG-*, INV-*]
-enables: [COM-*, RSK-*, REP-*, GOV-*]
+depends_on: [FIN-*,STR-*,ORG-*,INV-*]
+enables: [COM-*,RSK-*,REP-*,GOV-*]
 
 tax_scope: Domestic|International|Multi-jurisdictional
 tax_type: Income|Sales|Property|Employment|Excise
@@ -189,7 +189,7 @@ compliance_management:
 
   tax_provision:
     quarterly_provisions: {Quarterly tax provision calculations}
-    uncertain_positions: {FIN 48 uncertain tax position evaluation}
+    uncertain_positions: {ASC 740-10 uncertain tax positions evaluation}
     rate_reconciliation: {Effective tax rate analysis}
 
   audit_management:

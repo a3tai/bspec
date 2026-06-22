@@ -78,6 +78,15 @@ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
 4. Request review from maintainers
 5. Address feedback promptly
 
+## Specification Attribution and IP Policy
+
+When adding or editing BSpec specification content:
+
+1. Document source/borrowed frameworks in `docs/ATTRIBUTION.md`.
+2. Keep trademark notices and licensing requirements for external frameworks adjacent to first use.
+3. Confirm that compliance and legal statements reflect current statute/regulatory scope.
+4. Preserve attribution obligations (for example CC BY-SA, trademark notices, and ShareAlike terms) before publishing.
+
 ## Reporting Issues
 
 When reporting issues, please include:
@@ -97,4 +106,3 @@ When reporting issues, please include:
 ## License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
-

@@ -15,6 +15,8 @@ This specification defines the Theory of Change document type within the BSpec 1
 
 The Theory of Change document maps the logic model connecting the organization's activities to its intended outcomes. It explains how and why specific actions will lead to desired changes.
 
+`THY` is the causal framework for transformation planning; it is not a measure of defensibility or competitive moat status (`MOT`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +34,8 @@ scope: global
 horizon: long
 visibility: internal
 
-depends_on: [PUR-*, MSN-*, STR-*]
-enables: [MET-*, EXP-*, LRN-*]
+depends_on: [PUR-*,MSN-*,STR-*]
+enables: [MET-*,EXP-*,LRN-*]
 
 success_criteria:
   - "Logic model is clear and testable"

@@ -93,7 +93,7 @@ class RustGenerator:
                 ],
                 'yaml_schema': {
                     'required_fields': ['id', 'title', 'type', 'status', 'version'],
-                    'optional_fields': ['owner', 'stakeholders', 'reviewers'],
+                    'optional_fields': ['owner', 'stakeholders', 'reviewers', 'attribution_required', 'source_frameworks'],
                     'field_types': {},
                     'enums': {},
                     'defaults': {}

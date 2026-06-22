@@ -11,9 +11,19 @@
 
 This specification defines the Requirements Specification document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting requirements specification within the product-service domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+Use these standards and frameworks with required trademark notices:
+
+- **Capability Maturity Model Integration® (CMMI®)** — CMMI Institute / ISACA
+- **COBIT®** — ISACA
+- **ITIL®** — AXELOS
+
+When this spec is used in external materials, include these framework notices near first usage.
+
 ## Purpose and Scope
 
-The Requirements Specification defines detailed functional and non-functional requirements for systems, features, and capabilities. It provides comprehensive, testable specifications that guide development and serve as the basis for validation and acceptance testing.
+The Requirements Specification defines comprehensive, system-level functional and non-functional requirements with traceability and testability as first-class constraints. It is the implementation contract downstream of `FEA`, while `USE` and `STO` provide user-facing narrative variants of requirements.
 
 ## Document Metadata Schema
 
@@ -23,6 +33,11 @@ id: REQ-{requirement-area}
 title: "Requirements — {Requirement Area}"
 type: REQ
 status: Draft|Review|Approved|Implemented|Deprecated
+attribution_required: true
+source_frameworks:
+  - "CMMI Institute / ISACA - Capability Maturity Model Integration® (CMMI®)"
+  - "ISACA - COBIT®"
+  - "AXELOS - ITIL®"
 version: 1.0.0
 owner: Requirements-Owner|Business-Analyst
 stakeholders: [product-team, engineering-team, qa-team, compliance-team]
@@ -32,8 +47,8 @@ scope: requirements-definition
 horizon: current
 visibility: internal
 
-depends_on: [PRD-*, FEA-*, USE-*]
-enables: [QUA-*, UXD-*, PER-*]
+depends_on: [FEA-*,USE-*,STO-*]
+enables: [QUA-*]
 
 requirement_type: Functional|Non-Functional|Constraint|Quality
 verification_method: Test|Analysis|Inspection|Demonstration
@@ -236,9 +251,9 @@ review_cycle: sprint-based
 - **REQ-COMP-100:** Security Standards Compliance
   - **Description:** Security standard compliance requirements
   - **ISO 27001:** {Information security management}
-  - **SOC 2:** {Service organization controls}
-  - **PCI DSS:** {Payment card industry standards}
-  - **HIPAA:** {Healthcare data protection}
+  - **SOC 2:** {SOC 2 is an AICPA attestation report, typically from a CPA firm}
+  - **PCI DSS:** {Payment card industry contractual obligations for card data handling}
+  - **HIPAA:** {Applies to covered healthcare entities and their business associates}
 
 ### Quality Standards Compliance
 - **REQ-COMP-200:** Quality Standards

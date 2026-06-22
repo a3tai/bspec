@@ -32,8 +32,8 @@ scope: process-management
 horizon: operational
 visibility: internal
 
-depends_on: [STR-*, OBJ-*, KAC-*, VAL-*]
-enables: [PER-*, QUA-*, SVC-*, ARC-*]
+depends_on: [STR-*,OBJ-*,KAC-*,VAL-*]
+enables: [PER-*,QUA-*,SVC-*,ARC-*]
 
 process_type: Core|Support|Management|Innovation
 process_maturity: Ad-hoc|Defined|Managed|Optimized

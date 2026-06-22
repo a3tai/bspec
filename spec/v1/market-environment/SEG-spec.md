@@ -23,6 +23,9 @@ id: SEG-{segmentation-approach-identifier}
 title: "Market Segmentation Analysis"
 type: SEG
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Strategyzer - Business Model Canvas (CC BY-SA 3.0)"
 version: 1.0.0
 owner: Marketing-Lead|Strategy-Lead
 stakeholders: [sales-team, product-team, leadership-team]
@@ -32,8 +35,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MKT-*, PER-*]
-enables: [POS-*, GTM-*, REV-*]
+depends_on: [MKT-*,PER-*]
+enables: [POS-*,REV-*]
 
 success_criteria:
   - "Segments are distinct and actionable"
@@ -49,6 +52,12 @@ assumptions:
 review_cycle: quarterly
 ---
 ```
+
+## Framework and Attribution
+
+This document is the BMC "Customer Segments" counterpart and follows Strategyzer's
+Business Model Canvas attribution and ShareAlike expectations for derivative use
+under CC BY-SA 3.0.
 
 ## Content Structure Template
 
@@ -330,7 +339,7 @@ review_cycle: quarterly
 
 ### Typical Enablements
 - **POS (Positioning)**: Segmentation drives positioning strategy
-- **GTM (Go-to-Market)**: Segments guide market entry approach
+- **Go-to-Market**: Segments guide market entry approach
 - **REV (Revenue Model)**: Segments inform pricing and packaging
 
 ### Common Conflicts

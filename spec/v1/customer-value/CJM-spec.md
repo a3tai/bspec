@@ -23,6 +23,9 @@ id: CJM-{journey-identifier}
 title: "Customer Journey Map: [Journey Description]"
 type: CJM
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Jobs-to-be-Done (Outcome-Driven Innovation community)"
 version: 1.0.0
 owner: Customer-Experience|Product-Marketing
 stakeholders: [marketing-team, sales-team, product-team, support-team]
@@ -32,8 +35,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [PER-*, JTB-*]
-enables: [USE-*, REL-*, SUP-*]
+depends_on: [PER-*,JTB-*]
+enables: [USE-*,SUP-*]
 
 success_criteria:
   - "Journey map reflects actual customer experience"
@@ -507,7 +510,7 @@ review_cycle: quarterly
 
 ### Typical Enablements
 - **USE (Use Cases)**: Journey stages inform specific usage scenarios
-- **REL (Relationships)**: Journey touchpoints shape relationship management
+- **Relationships**: Journey touchpoints shape relationship management
 - **SUP (Support)**: Journey pain points guide support strategy
 
 ## Document Relationships

@@ -32,8 +32,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MKT-*, STR-*]
-enables: [CMP-*, RSK-*, POL-*]
+depends_on: [MKT-*,STR-*]
+enables: [CMP-*,RSK-*,POL-*]
 
 success_criteria:
   - "Regulatory requirements are fully understood"
@@ -71,6 +71,7 @@ review_cycle: quarterly
 #### Core Compliance Areas
 **Data Protection and Privacy**
 - Applicable regulations (GDPR, CCPA, PIPEDA)
+  - Where PIPEDA applies, also track Quebec Law 25, Alberta PIPA, and BC PIPA where relevant
 - Key requirements and obligations
 - Compliance procedures and controls
 - Penalties and enforcement patterns

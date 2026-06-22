@@ -32,8 +32,8 @@ scope: facilities-management
 horizon: operational
 visibility: internal
 
-depends_on: [ORG-*, TEA-*, POL-*, VND-*]
-enables: [PER-*, QUA-*, CST-*, OPS-*]
+depends_on: [ORG-*,TEA-*,POL-*,VND-*]
+enables: [PER-*,QUA-*,CST-*,OPS-*]
 
 facility_type: Office|Warehouse|Manufacturing|Data-center|Retail|Mixed-use
 ownership_type: Owned|Leased|Co-working|Shared

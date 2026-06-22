@@ -2,7 +2,7 @@
 
 **Domain Overview:** Customer understanding, value analysis, and user experience specifications
 
-## Document Types (12)
+## Document Types (14)
 
 ### Core Customer Analysis
 - **[PER](PER-spec.md)** - Personas: Archetypal customer representations
@@ -14,6 +14,7 @@
 ### Pain Points & Value
 - **[PAI](PAI-spec.md)** - Pain Points: Customer problems and frustrations
 - **[GAI](GAI-spec.md)** - Gains: Customer benefits and value outcomes
+- **[VPR](VPR-spec.md)** - Value Proposition: Synthesized pain/gain/customer outcome statement
 
 ### Research & Insights
 - **[EMP](EMP-spec.md)** - Empathy Maps: Customer thinking, feeling, seeing, doing
@@ -21,6 +22,7 @@
 - **[INT](INT-spec.md)** - Interviews: Customer research conversations
 - **[SUR](SUR-spec.md)** - Surveys: Quantitative customer research
 - **[BEH](BEH-spec.md)** - Behavioral Analysis: Customer action patterns
+- **[CSU](CSU-spec.md)** - Customer Success: Onboarding, retention, and expansion planning
 
 ## Domain Purpose
 

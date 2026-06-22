@@ -15,6 +15,10 @@ This specification defines the Financial Model document type within the BSpec 1.
 
 The Financial Model document defines comprehensive financial projections and planning models that forecast business performance through detailed P&L, balance sheet, and cash flow analysis. It establishes financial frameworks that enable strategic planning, investment decisions, and performance management.
 
+## Scope Boundary
+
+FIN owns integrated planning models (typically three-statement), scenario construction, and financial assumptions tied to operating plans. It does **not** define periodic forecast outputs (`FOR`) or standalone valuation opinions (`VLU`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +36,8 @@ scope: financial-planning
 horizon: strategic
 visibility: restricted
 
-depends_on: [REV-*, BUD-*, FOR-*, VAL-*]
-enables: [FND-*, INV-*, MET-*, REP-*]
+depends_on: [REV-*,BUD-*,FOR-*,VAL-*]
+enables: [FND-*,INV-*,MET-*,REP-*]
 
 model_type: Integrated|Standalone|Scenario|Consolidation
 time_horizon: 1-year|3-year|5-year|10-year

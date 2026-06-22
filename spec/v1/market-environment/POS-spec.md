@@ -11,9 +11,14 @@
 
 This specification defines the Positioning document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting positioning within the market-environment domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+The canonical positioning statement format in this document is attributed to Geoffrey Moore (*Crossing the Chasm*) and should retain source attribution where used.
+
 ## Purpose and Scope
 
-The Positioning document defines how the organization wants to be perceived in the market relative to competitors and alternatives. It articulates the unique value proposition and market position.
+The Positioning document defines how the organization wants to be perceived in the market relative to competitors and alternatives.
+It focuses on category framing, competitive map position, and market narrative; brand voice and storytelling are handled by `BPO`.
 
 ## Document Metadata Schema
 
@@ -23,6 +28,9 @@ id: POS-{positioning-strategy-identifier}
 title: "Market Positioning Strategy"
 type: POS
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Geoffrey Moore / Crossing the Chasm positioning statement"
 version: 1.0.0
 owner: Marketing-Lead|Strategy-Lead
 stakeholders: [sales-team, product-team, leadership-team]
@@ -32,8 +40,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [SEG-*, CMP-*, VAL-*]
-enables: [GTM-*, BMC-*, REV-*]
+depends_on: [SEG-*,CMP-*,VPR-*]
+enables: [REV-*]
 
 success_criteria:
   - "Positioning is distinctive and memorable"
@@ -371,11 +379,11 @@ review_cycle: quarterly
 ### Typical Dependencies
 - **SEG (Segments)**: Target segments inform positioning strategy
 - **CMP (Competitive Analysis)**: Competitive landscape shapes differentiation
-- **VAL (Values)**: Organizational values support authentic positioning
+- **VPR (Value Proposition)**: Value proposition clarity improves positioning quality
 
 ### Typical Enablements
-- **GTM (Go-to-Market)**: Positioning drives market entry strategy
-- **BMC (Brand Management)**: Positioning guides brand development
+- **Go-to-Market**: Positioning drives market entry strategy
+- **Brand Management**: Positioning guides brand development
 - **REV (Revenue Model)**: Positioning influences pricing and packaging
 
 ### Common Conflicts
@@ -409,7 +417,7 @@ review_cycle: quarterly
 
 This document type commonly relates to:
 
-- **Depends on**: SEG (Segments), CMP (Competitive Analysis), VAL (Values)
+- **Depends on**: SEG (Segments), CMP (Competitive Analysis), VPR (Value Proposition)
 - **Enables**: GTM (Go-to-Market), BMC (Brand Management), REV (Revenue Model)
 - **Informs**: Marketing strategy, sales enablement, product development
 - **Guides**: Messaging strategy, competitive strategy, brand development

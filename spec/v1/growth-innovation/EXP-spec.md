@@ -11,9 +11,14 @@
 
 This specification defines the Experimentation document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting experimentation within the growth-innovation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+Experimentation methods explicitly referenced in this template include Lean Startup and Design Thinking.
+Use these frameworks under their respective usage terms and add notice where frameworks are published as named methods.
+
 ## Purpose and Scope
 
-The Experimentation document defines systematic approaches to testing assumptions and validating new ideas through structured experimentation. It establishes experimentation frameworks that transform hypothesis testing from ad-hoc activities into systematic business capabilities that drive evidence-based decision-making and rapid learning.
+The Experimentation document governs controlled validation of priority hypotheses before deeper productization. It is the short-cycle mechanism feeding `IGN` and `FUT`, while `INN` and `RND` provide strategic direction and technical foundation.
 
 ## Document Metadata Schema
 
@@ -23,6 +28,10 @@ id: EXP-{experimentation-area}
 title: "Experimentation — {Experimentation Area or Framework}"
 type: EXP
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Eric Ries - Lean Startup"
+  - "IDEO / d.school - Design Thinking"
 version: 1.0.0
 owner: Experimentation-Team|Data-Science-Team|Product-Team
 stakeholders: [experimentation-team, product-teams, data-science, executives]
@@ -32,8 +41,8 @@ scope: experimentation-framework
 horizon: tactical
 visibility: internal
 
-depends_on: [INN-*, LEA-*, DAT-*, ANA-*]
-enables: [PRD-*, SVC-*, STR-*, IGN-*]
+depends_on: [INN-*,LEA-*,DAT-*,ANA-*]
+enables: [PRD-*,SVC-*,STR-*,IGN-*]
 
 experimentation_methodology: Scientific|Lean-startup|Design-thinking|Hybrid
 hypothesis_framework: Falsifiable|Testable|Measurable|Time-bound

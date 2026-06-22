@@ -5,36 +5,153 @@ description: "BSpec document types in the Brand & Marketing domain"
 
 # Brand & Marketing
 
-The Brand & Marketing domain covers brand identity and marketing strategy. These documents define brand positioning, messaging, content strategy, and marketing campaigns.
+## Overview
 
-## Document Types (12)
+This domain contains 13 document types that cover brand & marketing aspects of your business.
 
-| Code | Name | Description |
-|------|------|-------------|
-| [BPO](/docs/types/BPO) | Brand Positioning | Brand positioning and differentiation |
-| [BRD](/docs/types/BRD) | Brand Strategy | Overall brand strategy and guidelines |
-| [CAM](/docs/types/CAM) | Marketing Campaign | Campaign planning and execution |
-| [CNT](/docs/types/CNT) | Content Strategy | Content planning and governance |
-| [IFL](/docs/types/IFL) | Influencer Marketing | Influencer partnerships and programs |
-| [MCH](/docs/types/MCH) | Marketing Channel Strategy | Channel selection and optimization |
-| [MSG](/docs/types/MSG) | Messaging Framework | Core messaging and value propositions |
-| [PRF](/docs/types/PRF) | Performance Marketing | Paid advertising and performance |
-| [SEO](/docs/types/SEO) | Search Engine Optimization | SEO strategy and implementation |
-| [SOC](/docs/types/SOC) | Social Media Strategy | Social media presence and engagement |
-| [TON](/docs/types/TON) | Tone of Voice | Communication style and voice |
-| [VID](/docs/types/VID) | Visual Identity | Visual design standards and assets |
+## Document Types
 
-## Key Relationships
+### [BPO: Brand Positioning](/docs/types/BPO)
 
-Brand & Marketing documents typically:
-- **Depend on**: Strategy, Product, and Customer insights
-- **Enable**: Customer acquisition and Brand awareness
+# BPO: Brand Positioning Document Type Specification
 
-## Getting Started
+**Document Type Code:** BPO
+**Document Type Name:** Brand Positioning
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+**Last Up...
 
-For Silver conformance, add:
-1. **BRD** - Define your brand strategy
-2. **MSG** - Create your messaging framework
+### [BRD: Brand Strategy](/docs/types/BRD)
+
+# BRD: Brand Strategy Document Type Specification
+
+**Document Type Code:** BRD
+**Document Type Name:** Brand Strategy
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:...
+
+### [CAM: Marketing Campaign](/docs/types/CAM)
+
+# CAM: Marketing Campaign Document Type Specification
+
+**Document Type Code:** CAM
+**Document Type Name:** Marketing Campaign
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+**Last...
+
+### [CNT: Content Strategy](/docs/types/CNT)
+
+# CNT: Content Strategy Document Type Specification
+
+**Document Type Code:** CNT
+**Document Type Name:** Content Strategy
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+**Last Upda...
+
+### [IFL: Influencer Marketing](/docs/types/IFL)
+
+# IFL: Influencer Marketing Document Type Specification
+
+**Document Type Code:** IFL
+**Document Type Name:** Influencer Marketing
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+**L...
+
+### [MCH: Marketing Channel Strategy](/docs/types/MCH)
+
+# MCH: Marketing Channel Strategy Document Type Specification
+
+**Document Type Code:** MCH
+**Document Type Name:** Marketing Channel Strategy
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:...
+
+### [MSG: Messaging Framework](/docs/types/MSG)
+
+# MSG: Messaging Framework Document Type Specification
+
+**Document Type Code:** MSG
+**Document Type Name:** Messaging Framework
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+**Las...
+
+### [PRF: Performance Marketing](/docs/types/PRF)
+
+# PRF: Performance Marketing Document Type Specification
+
+**Document Type Code:** PRF
+**Document Type Name:** Performance Marketing
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+*...
+
+### [SAL: Sales Strategy](/docs/types/SAL)
+
+# SAL: Sales Strategy Document Type Specification
+
+**Document Type Code:** SAL
+**Document Type Name:** Sales Strategy
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:...
+
+### [SEO: Search Engine Optimization](/docs/types/SEO)
+
+# SEO: Search Engine Optimization Document Type Specification
+
+**Document Type Code:** SEO
+**Document Type Name:** Search Engine Optimization
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:...
+
+### [SOC: Social Media Strategy](/docs/types/SOC)
+
+# SOC: Social Media Strategy Document Type Specification
+
+**Document Type Code:** SOC
+**Document Type Name:** Social Media Strategy
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+*...
+
+### [TON: Tone of Voice](/docs/types/TON)
+
+# TON: Tone of Voice Document Type Specification
+
+**Document Type Code:** TON
+**Document Type Name:** Tone of Voice
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:**...
+
+### [VID: Visual Identity](/docs/types/VID)
+
+# VID: Visual Identity Document Type Specification
+
+**Document Type Code:** VID
+**Document Type Name:** Visual Identity
+**Domain:** Brand & Marketing
+**Version:** 1.0.0
+**Status:** Draft
+**Last Update...
+
 
 ---
 

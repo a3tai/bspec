@@ -32,8 +32,8 @@ scope: workflow-management
 horizon: operational
 visibility: internal
 
-depends_on: [PRO-*, CAP-*, SVC-*, ARC-*]
-enables: [PER-*, QUA-*, MON-*, AUT-*]
+depends_on: [PRO-*,CAP-*,SVC-*,ARC-*]
+enables: [PER-*,QUA-*]
 
 workflow_type: Sequential|Parallel|Conditional|Loop|Event-driven
 automation_level: Manual|Semi-automated|Automated|AI-driven
@@ -378,8 +378,8 @@ review_cycle: monthly
 ### Typical Enablements
 - **PER (Performance Specification)**: Workflow efficiency drives overall performance achievement
 - **QUA (Quality Specification)**: Workflow quality controls drive overall quality standards
-- **MON (Monitoring)**: Workflow monitoring drives system monitoring and alerting
-- **AUT (Automation)**: Workflow automation drives broader automation strategies
+- **Monitoring**: Workflow monitoring drives system monitoring and alerting
+- **Automation**: Workflow automation drives broader automation strategies
 
 ## Document Relationships
 

@@ -32,8 +32,8 @@ scope: organizational-design
 horizon: strategic
 visibility: internal
 
-depends_on: [STR-*, ROL-*, TEA-*, CAP-*]
-enables: [PER-*, QUA-*, COM-*, GOV-*]
+depends_on: [STR-*,ROL-*,TEA-*,CAP-*]
+enables: [PER-*,QUA-*,COM-*,GOV-*]
 
 structure_type: Functional|Divisional|Matrix|Network|Hybrid
 hierarchy_levels: Flat|Traditional|Deep

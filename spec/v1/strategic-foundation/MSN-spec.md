@@ -37,7 +37,7 @@ horizon: long
 visibility: public
 
 # Mission documents typically enable other strategic documents
-enables: [VSN-*, VAL-*, STR-*]
+enables: [VSN-*,VAL-*,STR-*]
 
 # Mission rarely depends on other documents (foundational)
 depends_on: []

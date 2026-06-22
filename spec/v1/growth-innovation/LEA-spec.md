@@ -15,6 +15,23 @@ This specification defines the Learning Organization document type within the BS
 
 The Learning Organization document defines systematic approaches to building organizational capabilities for continuous learning and adaptation. It establishes learning frameworks that transform organizations into adaptive entities that learn faster than their environment changes, creating sustainable competitive advantage through superior learning capabilities.
 
+### Learning Stack Convention (KNO / LRN / LEA / WIS)
+
+The learning family follows a two-layer model:
+
+- **KNO + LEA**: operating layer (where knowledge is stored and learning systems are run).
+- **LRN + WIS**: interpretation layer (where evidence is generated, then synthesized into practical judgment).
+
+## Scope Boundary
+
+LEA owns enterprise-wide learning capability design and programmatic learning investments (programs, coaching, knowledge sharing, learning analytics). It does **not** own:
+
+- The knowledge repository itself (`KNO`).
+- Raw evidence capture (`LRN`).
+- Formalized judgment or wisdom statements (`WIS`).
+
+LEA is explicitly the **Learning Organization**; leadership behavior systems are documented through people/HR-oriented types such as `ROL`, `SKI`, and `PPL`.
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +49,8 @@ scope: organizational-learning
 horizon: strategic
 visibility: internal
 
-depends_on: [KNO-*, INN-*, ADT-*, CUL-*]
-enables: [EXP-*, FUT-*, ORG-*, SKI-*]
+depends_on: [KNO-*,INN-*,ADT-*]
+enables: [EXP-*,FUT-*,ORG-*,SKI-*]
 
 learning_approach: Formal|Informal|Experiential|Hybrid
 learning_scope: Individual|Team|Organizational|Ecosystem
@@ -431,7 +448,7 @@ external_learning:
 - **KNO (Knowledge Management)**: Knowledge systems enable effective learning organization
 - **INN (Innovation)**: Innovation culture supports learning and experimentation
 - **ADT (Adaptation)**: Adaptation capabilities require learning organization foundation
-- **CUL (Culture)**: Organizational culture enables or constrains learning effectiveness
+- **Culture**: Organizational culture enables or constrains learning effectiveness
 
 ### Typical Enablements
 - **EXP (Experimentation)**: Learning capabilities enable effective experimentation

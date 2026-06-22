@@ -32,8 +32,8 @@ scope: global
 horizon: short
 visibility: internal
 
-depends_on: [MKT-*, SEG-*]
-enables: [POS-*, MOT-*, STR-*]
+depends_on: [MKT-*,SEG-*]
+enables: [POS-*,MOT-*,STR-*]
 
 success_criteria:
   - "Competitive intelligence is current and actionable"

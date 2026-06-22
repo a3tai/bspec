@@ -190,6 +190,7 @@ class SpecificationParser:
             'parent', 'depends_on', 'enables', 'conflicts_with', 'related', 'supersedes',
             'domain', 'scope', 'horizon', 'priority', 'visibility',
             'assumptions', 'constraints', 'risks',
+            'attribution_required', 'source_frameworks',
             'implementation_date', 'completion_date', 'resources_required',
             'tags', 'industry', 'geography', 'language', 'classification',
             'changelog'
@@ -208,6 +209,8 @@ class SpecificationParser:
             'contributors': 'Who contributed to this document',
             'created': 'When document was first created',
             'updated': 'When document was last modified',
+            'attribution_required': 'Whether this document declares attribution requirements for external sources',
+            'source_frameworks': 'External frameworks, standards, legal, and trademarks referenced in this document',
             'expires': 'When document expires (optional)',
             'review_cycle': 'How often to review',
             'parent': 'Parent document (hierarchical)',

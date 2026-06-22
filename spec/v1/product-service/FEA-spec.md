@@ -13,7 +13,7 @@ This specification defines the Feature Specification document type within the BS
 
 ## Purpose and Scope
 
-The Feature Specification defines detailed functional requirements for individual product features, bridging high-level product requirements with technical implementation. It ensures features deliver clear user value while meeting quality and performance standards.
+The Feature Specification defines detailed, feature-level requirements for specific product capabilities. It sits between `PRD` and `REQ`, translating strategic product outcomes into implementation-ready feature behavior and acceptance criteria without replacing full system requirements specifications.
 
 ## Document Metadata Schema
 
@@ -32,8 +32,8 @@ scope: feature-definition
 horizon: current
 visibility: internal
 
-depends_on: [PRD-*, USE-*, UXD-*]
-enables: [REQ-*, QUA-*, INT-*]
+depends_on: [PRD-*,USE-*,UXD-*]
+enables: [REQ-*]
 
 feature_type: Core|Enhancement|Integration|Platform
 development_effort: Small|Medium|Large|Extra-Large
