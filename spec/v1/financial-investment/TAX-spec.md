@@ -32,8 +32,8 @@ scope: tax-planning
 horizon: strategic
 visibility: confidential
 
-depends_on: [FIN-*, STR-*, ORG-*, INV-*]
-enables: [COM-*, RSK-*, REP-*, GOV-*]
+depends_on: [FIN-*,STR-*,ORG-*,INV-*]
+enables: [COM-*,RSK-*,REP-*,GOV-*]
 
 tax_scope: Domestic|International|Multi-jurisdictional
 tax_type: Income|Sales|Property|Employment|Excise

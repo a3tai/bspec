@@ -15,6 +15,12 @@ This specification defines the Decision Records document type within the BSpec 1
 
 The Decision Records document captures strategic and operational decisions made within the organization, including context, rationale, alternatives considered, and outcomes. It establishes decision frameworks that preserve institutional knowledge, enable accountability, and provide historical context for future decision-making.
 
+## Scope Boundary
+
+DEC is for decisions that have completed hypothesis-led evaluation and are ready to be governed through outcomes, owners, and implementation tracking. It does **not** define experimental assumptions (`HYP`) or raw learning evidence (`LRN`).
+
+HYP, `USE`, and `REQ` should provide the upstream evidence pipeline before a DEC is finalized.
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,11 +38,11 @@ scope: decision-records
 horizon: strategic|tactical|operational
 visibility: internal|restricted|confidential
 
-depends_on: [STR-*, OBJ-*, THY-*, RSK-*]
-enables: [ROL-*, PRO-*, POL-*]
+depends_on: [STR-*,OBJ-*,THY-*,RSK-*]
+enables: [ROL-*,PRO-*,POL-*]
 
 decision_type: [strategic, operational, architectural, investment, policy]
-decision_status: [proposed, decided, implemented, reviewed, superseded]
+decision_status: [decided, implemented, reviewed, validated, superseded]
 decision_scope: [organization-wide, department, team, project]
 stakeholder_impact: [high, medium, low impact on various stakeholders]
 reversibility: [reversible, difficult-to-reverse, irreversible]
@@ -318,7 +324,7 @@ documentation_standards:
 - **ROL (Roles)**: Decision records clarify role responsibilities and authority
 - **PRO (Processes)**: Decisions define and shape organizational processes
 - **POL (Policies)**: Decision outcomes often result in policy development
-- **PLN (Plans)**: Decisions provide foundation for planning and execution
+- **Plans**: Decisions provide foundation for planning and execution
 
 ## Document Relationships
 

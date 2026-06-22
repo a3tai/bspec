@@ -25,7 +25,7 @@ type: SUP
 status: Draft|Review|Approved|Active|Deprecated
 attribution_required: true
 source_frameworks:
-  - "Bain - Net Promoter System"
+  - "Bain - Net Promoter®, NPS®, Net Promoter System®, Net Promoter Score℠"
 version: 1.0.0
 owner: Support-Owner|Support-Team
 stakeholders: [customer-success-team, product-team, engineering-team, operations-team]
@@ -35,8 +35,8 @@ scope: customer-support
 horizon: continuous
 visibility: internal
 
-depends_on: [SVC-*, PER-*, INT-*]
-enables: [QUA-*, UXD-*, REQ-*]
+depends_on: [SVC-*,PER-*,INT-*]
+enables: [QUA-*,UXD-*,REQ-*]
 
 support_type: Customer|Technical|User|Business
 support_level: L1|L2|L3|Escalation

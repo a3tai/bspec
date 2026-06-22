@@ -32,8 +32,8 @@ scope: social-media-strategy
 horizon: tactical
 visibility: internal
 
-depends_on: [BRD-*, CNT-*, TON-*, MSG-*]
-enables: [CAM-*, CUS-*]
+depends_on: [BRD-*,CNT-*,TON-*,MSG-*]
+enables: [CAM-*,CUS-*]
 
 platform_strategy: [which platforms and why they were chosen]
 content_mix: [types of content for each platform]
@@ -383,9 +383,9 @@ social_optimization:
 
 ### Typical Enablements
 - **CAM (Campaigns)**: Social media strategy enables campaign amplification
-- **LED (Lead Generation)**: Social presence drives lead generation activities
+- **Lead Generation**: Social presence drives lead generation activities
 - **CUS (Customer Service)**: Social platforms enable customer service and support
-- **BRA (Brand Awareness)**: Social media builds brand awareness and recognition
+- **Brand Awareness**: Social media builds brand awareness and recognition
 
 ## Document Relationships
 

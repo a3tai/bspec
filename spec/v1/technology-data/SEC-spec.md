@@ -32,8 +32,8 @@ scope: security-management
 horizon: strategic
 visibility: internal
 
-depends_on: [ARC-*, INF-*, POL-*, RSK-*]
-enables: [PER-*, QUA-*, SLA-*, GOV-*]
+depends_on: [ARC-*,INF-*,POL-*,RSK-*]
+enables: [PER-*,QUA-*,SLA-*,GOV-*]
 
 security_domain: Identity|Data|Network|Application|Infrastructure
 risk_level: High|Medium|Low

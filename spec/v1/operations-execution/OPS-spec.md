@@ -32,8 +32,8 @@ scope: operations-management
 horizon: operational
 visibility: internal
 
-depends_on: [PRO-*, SLA-*, CAP-*, KAC-*]
-enables: [PER-*, QUA-*, INC-*]
+depends_on: [PRO-*,SLA-*,CAP-*,KAC-*]
+enables: [PER-*,QUA-*,INC-*]
 
 operational_scope: Department|Cross-functional|Enterprise
 operational_model: Centralized|Decentralized|Hybrid|Federated
@@ -413,7 +413,7 @@ review_cycle: monthly
 ### Typical Enablements
 - **PER (Performance Specification)**: Operational excellence drives overall performance achievement
 - **QUA (Quality Specification)**: Operational quality drives overall quality standards
-- **MON (Monitoring)**: Operational monitoring drives system monitoring and alerting
+- **Monitoring**: Operational monitoring drives system monitoring and alerting
 - **INC (Incident Management)**: Operational procedures enable incident response and resolution
 
 ## Document Relationships

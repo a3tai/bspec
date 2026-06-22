@@ -32,8 +32,8 @@ scope: performance-marketing
 horizon: tactical
 visibility: internal
 
-depends_on: [CHN-*, CAM-*, ANA-*, CUS-*]
-enables: [MET-*, MKT-*]
+depends_on: [CHN-*,CAM-*,ANA-*,CUS-*]
+enables: [MET-*,MKT-*]
 
 performance_channels: [paid search, paid social, display, email, affiliate]
 attribution_model: [first-touch, last-touch, multi-touch, data-driven]
@@ -419,10 +419,10 @@ scaling_strategy:
 - **CUS (Customer)**: Customer insights drive performance marketing targeting and optimization
 
 ### Typical Enablements
-- **LED (Lead Generation)**: Performance marketing drives efficient lead generation
-- **CON (Conversions)**: Performance optimization improves conversion rates and quality
-- **ROI (Return on Investment)**: Performance marketing demonstrates and improves marketing ROI
-- **GRO (Growth)**: Performance marketing enables scalable, measurable business growth
+- **Lead Generation**: Performance marketing drives efficient lead generation
+- **Conversions****: Performance optimization improves conversion rates and quality
+- **Return on Investment**: Performance marketing demonstrates and improves marketing ROI
+- **Growth**: Performance marketing enables scalable, measurable business growth
 
 ## Document Relationships
 

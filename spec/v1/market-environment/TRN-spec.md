@@ -32,8 +32,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MKT-*, MAC-*]
-enables: [STR-*, INN-*, OPP-*, THR-*]
+depends_on: [MKT-*,MAC-*]
+enables: [STR-*,INN-*,OPP-*,THR-*]
 
 success_criteria:
   - "Trends are validated through multiple sources"

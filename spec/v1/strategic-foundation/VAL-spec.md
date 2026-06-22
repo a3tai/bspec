@@ -33,7 +33,7 @@ horizon: long
 visibility: public
 
 depends_on: [MSN-*]
-enables: [ORG-*, POL-*, ETH-*]
+enables: [ORG-*,POL-*,ETH-*]
 
 success_criteria:
   - "Values influence hiring and promotion decisions"

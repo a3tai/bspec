@@ -32,8 +32,8 @@ scope: capability-management
 horizon: strategic
 visibility: internal
 
-depends_on: [STR-*, KRS-*, KAC-*, PRO-*]
-enables: [PER-*, QUA-*, SVC-*, ARC-*]
+depends_on: [STR-*,KRS-*,KAC-*,PRO-*]
+enables: [PER-*,QUA-*,SVC-*,ARC-*]
 
 capability_type: Core|Supporting|Enabling|Innovation
 maturity_level: Initial|Developing|Defined|Managed|Optimized

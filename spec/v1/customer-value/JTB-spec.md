@@ -1,7 +1,7 @@
-# JTB: Jobs-to-be-Done Document Type Specification
+# JTB: Jobs-to-be-Done (JTBD) Document Type Specification
 
 **Document Type Code:** JTB
-**Document Type Name:** Jobs-to-be-Done
+**Document Type Name:** Jobs-to-be-Done (JTBD)
 **Domain:** Customer & Value
 **Version:** 1.0.0
 **Status:** Draft
@@ -13,7 +13,17 @@ This specification defines the Jobs-to-be-Done document type within the BSpec 1.
 
 ## Framework and Attribution
 
-The JTB work is aligned to established Jobs-to-be-Done practice and should retain source attribution where this named method is used in external-facing material.
+The JTB work is aligned to established Jobs-to-be-Done practice, commonly
+referred to as **JTBD** in industry literature. This document keeps the
+three-letter `JTB` code for consistency while documenting the standard JTBD
+terminology; include source attribution where this named method is used in
+external-facing material.
+
+## Naming Note
+
+Preferred external phrase is **JTBD** (Jobs-to-be-Done). `JTB` is the canonical
+BSpec code and should be interpreted as a namespace abbreviation, not a new
+methodology.
 
 ## Purpose and Scope
 
@@ -29,7 +39,7 @@ type: JTB
 status: Draft|Review|Accepted|Deprecated
 attribution_required: true
 source_frameworks:
-  - "Jobs-to-be-Done (Outcome-Driven Innovation community)"
+  - "Jobs-to-be-Done / JTBD (Outcome-Driven Innovation community)"
 version: 1.0.0
 owner: Product-Strategy|Customer-Research
 stakeholders: [product-team, design-team, marketing-team]
@@ -40,7 +50,7 @@ horizon: medium
 visibility: internal
 
 depends_on: [PER-*]
-enables: [USE-*, PRD-*, SVC-*]
+enables: [USE-*,PRD-*,SVC-*]
 
 success_criteria:
   - "Job is validated through customer research"

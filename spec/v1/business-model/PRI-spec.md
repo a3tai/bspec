@@ -32,8 +32,8 @@ scope: pricing-optimization
 horizon: current
 visibility: internal
 
-depends_on: [REV-*, VAL-*, CMP-*, SEG-*]
-enables: [CST-*, KPT-*, CHN-*, CUS-*]
+depends_on: [REV-*,VAL-*,CMP-*,SEG-*]
+enables: [CST-*,KPT-*,CHN-*,CUS-*]
 
 pricing_model: Fixed|Dynamic|Tiered|Usage|Value|Auction
 pricing_strategy: Penetration|Skimming|Competition|Value|Cost-plus
@@ -211,6 +211,12 @@ review_cycle: quarterly
 - **Pricing Authority:** {Who can negotiate or adjust prices}
 - **Discount Policies:** {Guidelines for price discounts}
 - **Quote-to-Cash Process:** {Pricing in sales process}
+
+### Deal Desk and Contract Terms
+- **Discount Governance:** {Approval thresholds, discount banding, and exceptions}
+- **Contracting Terms:** {Template clauses, billing cadence, and payment structures}
+- **Deal Desk Workflow:** {Escalation, legal review triggers, and documentation requirements}
+- **Commercial Exceptions:** {When and how special commercial terms are approved}
 
 ### Technology and Systems
 - **Pricing Systems:** {Technology supporting pricing}

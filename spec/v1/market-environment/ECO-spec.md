@@ -32,8 +32,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MKT-*, STR-*]
-enables: [CHN-*, VND-*]
+depends_on: [MKT-*,STR-*]
+enables: [CHN-*,VND-*]
 
 success_criteria:
   - "Ecosystem map is comprehensive and current"
@@ -160,7 +160,7 @@ review_cycle: quarterly
 - **STR (Strategy)**: Strategic objectives guide ecosystem participation
 
 ### Typical Enablements
-- **PRT (Partnerships)**: Ecosystem analysis drives partnership strategy
+- **Partnerships**: Ecosystem analysis drives partnership strategy
 - **CHN (Channels)**: Ecosystem participation enables channel development
 - **VND (Vendors)**: Supplier ecosystem informs vendor management
 

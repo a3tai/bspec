@@ -19,6 +19,10 @@ When using the embedded Business Model references, apply Strategyzer Business Mo
 
 The Strategy document defines how the organization will achieve its vision and compete in its chosen markets. It articulates the key choices about where to play, how to win, and what capabilities to build.
 
+## Scope Boundary
+
+STR defines directional choices and strategic hypotheses: market positioning, competitive positioning, and capabilities to build. It sets intent and trade-offs, but does **not** set periodic targets (`OBJ`) or define metric taxonomies and reporting systems (`MET`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -39,7 +43,7 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MSN-*, VSN-*, VAL-*, MKT-*, CMP-*]
+depends_on: [MSN-*,VSN-*,VAL-*,MKT-*,CMP-*]
 enables: [OBJ-*]
 
 success_criteria:
@@ -279,9 +283,9 @@ review_cycle: quarterly
 
 ### Typical Enablements
 - **OBJ (Objectives)**: Strategy informs goal setting
-- **GTM (Go-to-Market)**: Strategy guides market approach
-- **GRW (Growth Model)**: Strategy defines growth approach
-- **BMC (Business Model Canvas)**: Strategy informs business model
+- **Go-to-Market**: Strategy guides market approach
+- **Growth Model**: Strategy defines growth approach
+- **Business Model Canvas**: Strategy informs business model
 
 ### Common Conflicts
 - **Multiple competing strategies** within organization

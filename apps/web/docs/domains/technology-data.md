@@ -5,32 +5,100 @@ description: "BSpec document types in the Technology & Data domain"
 
 # Technology & Data
 
-The Technology & Data domain covers your technical infrastructure and data management. These documents define system architecture, APIs, security, and analytics capabilities.
+## Overview
 
-## Document Types (8)
+This domain contains 8 document types that cover technology & data aspects of your business.
 
-| Code | Name | Description |
-|------|------|-------------|
-| [ANA](/docs/types/ANA) | Analytics | Data analytics strategy and implementation |
-| [API](/docs/types/API) | APIs | API design and documentation |
-| [ARC](/docs/types/ARC) | Architecture | System and solution architecture |
-| [DAT](/docs/types/DAT) | Data Models | Data structures and schemas |
-| [DEV](/docs/types/DEV) | Development | Development practices and standards |
-| [INF](/docs/types/INF) | Infrastructure | Technical infrastructure and platforms |
-| [SEC](/docs/types/SEC) | Security | Security policies and controls |
-| [SYS](/docs/types/SYS) | Systems | Core system documentation |
+## Document Types
 
-## Key Relationships
+### [ANA: Analytics](/docs/types/ANA)
 
-Technology & Data documents typically:
-- **Depend on**: Product Requirements and Business needs
-- **Enable**: Product delivery, Analytics, and Security
+# ANA: Analytics Document Type Specification
 
-## Getting Started
+**Document Type Code:** ANA
+**Document Type Name:** Analytics
+**Domain:** Technology & Data
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-09...
 
-For Silver conformance, add:
-1. **ARC** - Define your architecture
-2. **API** - Document your APIs
+### [API: APIs](/docs/types/API)
+
+# API: APIs Document Type Specification
+
+**Document Type Code:** API
+**Document Type Name:** APIs
+**Domain:** Technology & Data
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-09-28...
+
+### [ARC: Architecture](/docs/types/ARC)
+
+# ARC: Architecture Document Type Specification
+
+**Document Type Code:** ARC
+**Document Type Name:** Architecture
+**Domain:** Technology & Data
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2...
+
+### [DAT: Data Models](/docs/types/DAT)
+
+# DAT: Data Models Document Type Specification
+
+**Document Type Code:** DAT
+**Document Type Name:** Data Models
+**Domain:** Technology & Data
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 202...
+
+### [DEV: Development](/docs/types/DEV)
+
+# DEV: Development Document Type Specification
+
+**Document Type Code:** DEV
+**Document Type Name:** Development
+**Domain:** Technology & Data
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 202...
+
+### [INF: Infrastructure](/docs/types/INF)
+
+# INF: Infrastructure Document Type Specification
+
+**Document Type Code:** INF
+**Document Type Name:** Infrastructure
+**Domain:** Technology & Data
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:...
+
+### [SEC: Security](/docs/types/SEC)
+
+# SEC: Security Document Type Specification
+
+**Document Type Code:** SEC
+**Document Type Name:** Security
+**Domain:** Technology & Data
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-09-2...
+
+### [SYS: Systems](/docs/types/SYS)
+
+# SYS: Systems Document Type Specification
+
+**Document Type Code:** SYS
+**Document Type Name:** Systems
+**Domain:** Technology & Data
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-09-28...
+
 
 ---
 

@@ -25,7 +25,7 @@ type: OPP
 status: Draft|Review|Accepted|Deprecated
 attribution_required: true
 source_frameworks:
-  - "Robert G. Cooper - Stage-Gate Process"
+  - "Robert G. Cooper / Stage-Gate International - Stage-Gate Process®"
 version: 1.0.0
 owner: Strategy-Lead|Business-Development
 stakeholders: [leadership-team, product-team, innovation-team]
@@ -35,8 +35,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MKT-*, TRN-*, CMP-*]
-enables: [STR-*, INN-*, EXP-*]
+depends_on: [MKT-*,TRN-*,CMP-*]
+enables: [STR-*,INN-*,EXP-*]
 
 success_criteria:
   - "Opportunities are validated and sized"
@@ -56,7 +56,7 @@ review_cycle: quarterly
 ## Framework and Attribution
 
 The opportunity-development pipeline uses Stage-Gate-style portfolio governance. When
-adopting this process explicitly as a named method, attribute the Stage-Gate
+adopting this process explicitly as a named method, attribute the Stage-Gate®
 framework and confirm use terms.
 
 ## Content Structure Template
@@ -184,7 +184,7 @@ framework and confirm use terms.
 - **STR (Strategy)**: Opportunities inform strategic direction
 - **INN (Innovation)**: Opportunities guide innovation priorities
 - **EXP (Experiments)**: Opportunities drive experimentation
-- **GTM (Go-to-Market)**: Opportunities shape market entry
+- **Go-to-Market**: Opportunities shape market entry
 
 ## Document Relationships
 

@@ -39,8 +39,8 @@ scope: persona|scenario
 horizon: current
 visibility: internal
 
-depends_on: [PER-*, JTB-*]
-enables: [CJM-*, UXD-*]
+depends_on: [PER-*,JTB-*]
+enables: [CJM-*,UXD-*]
 
 persona_focus: [Primary persona this map represents]
 scenario_context: [Specific scenario or situation]
@@ -611,7 +611,7 @@ review_cycle: quarterly
 ### Typical Enablements
 - **CJM (Customer Journey Maps)**: Empathy insights inform journey emotional states
 - **UXD (User Experience Design)**: Empathy guides experience design decisions
-- **REL (Relationships)**: Empathy informs relationship management strategies
+- **Relationships**: Empathy informs relationship management strategies
 
 ## Document Relationships
 

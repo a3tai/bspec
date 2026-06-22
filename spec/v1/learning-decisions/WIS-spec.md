@@ -11,9 +11,24 @@
 
 This specification defines the Wisdom Synthesis document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting wisdom synthesis within the learning-decisions domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+### Learning Stack Convention (KNO / LRN / LEA / WIS)
+
+The learning family follows a two-layer model:
+
+- **KNO + LEA**: operating layer (where knowledge is stored and learning systems are run).
+- **LRN + WIS**: interpretation layer (where evidence is generated, then synthesized into practical judgment).
+
 ## Purpose and Scope
 
 The Wisdom Synthesis document captures the practical wisdom, judgment principles, and synthesized insights that guide organizational decision-making and action. It establishes wisdom frameworks that combine knowledge, experience, and judgment to create actionable guidance for complex situations, ethical dilemmas, and strategic choices.
+
+## Scope Boundary
+
+WIS owns synthesis, interpretation, and judgment frameworks that convert documented learning into principles, mental models, and guidance. It does **not** own:
+
+- Raw discovery logs and evidence (`LRN`, `HYP`).
+- Codified knowledge architecture (`KNO`).
+- Learning capability programs and culture design (`LEA`).
 
 ## Document Metadata Schema
 
@@ -32,8 +47,8 @@ scope: wisdom-synthesis
 horizon: strategic|enduring
 visibility: internal|leadership|trusted-circle
 
-depends_on: [KNO-*, LRN-*, DEC-*, THY-*]
-enables: [STR-*, LEA-*, ETH-*, GOV-*]
+depends_on: [KNO-*,LRN-*,DEC-*,THY-*]
+enables: [STR-*,LRN-*,ETH-*,GOV-*]
 
 wisdom_type: [practical, strategic, ethical, technical, cultural]
 wisdom_domain: [leadership, strategy, innovation, relationships, execution]
@@ -361,7 +376,7 @@ governance_framework:
 
 ### Typical Enablements
 - **STR (Strategy)**: Wisdom informs strategic thinking and planning
-- **LEA (Leadership)**: Wisdom guides leadership development and practice
+- **LRN (Learning)**: Wisdom supports continuous learning and coaching culture
 - **ETH (Ethics)**: Wisdom supports ethical decision-making and behavior
 - **GOV (Governance)**: Wisdom informs governance structures and processes
 
@@ -370,7 +385,7 @@ governance_framework:
 This document type commonly relates to:
 
 - **Depends on**: KNO (Knowledge), LRN (Learning), DEC (Decisions), THY (Theory)
-- **Enables**: STR (Strategy), LEA (Leadership), ETH (Ethics), GOV (Governance)
+- **Enables**: STR (Strategy), LRN (Learning), ETH (Ethics), GOV (Governance)
 - **Informs**: Leadership development, strategic planning, cultural evolution
 - **Guides**: Decision-making, ethical choices, organizational development
 

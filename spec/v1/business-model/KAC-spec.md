@@ -35,8 +35,8 @@ scope: activity-management
 horizon: operational
 visibility: internal
 
-depends_on: [STR-*, KRS-*, VAL-*, CAP-*]
-enables: [PER-*, QUA-*, PRO-*, SVC-*]
+depends_on: [STR-*,KRS-*,VAL-*,CAP-*]
+enables: [PER-*,QUA-*,PRO-*,SVC-*]
 
 activity_type: Production|Platform|Problem-solving|Network
 criticality: Core|Important|Supporting|Context

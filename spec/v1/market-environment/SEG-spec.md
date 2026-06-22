@@ -35,8 +35,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MKT-*, PER-*]
-enables: [POS-*, REV-*]
+depends_on: [MKT-*,PER-*]
+enables: [POS-*,REV-*]
 
 success_criteria:
   - "Segments are distinct and actionable"
@@ -339,7 +339,7 @@ under CC BY-SA 3.0.
 
 ### Typical Enablements
 - **POS (Positioning)**: Segmentation drives positioning strategy
-- **GTM (Go-to-Market)**: Segments guide market entry approach
+- **Go-to-Market**: Segments guide market entry approach
 - **REV (Revenue Model)**: Segments inform pricing and packaging
 
 ### Common Conflicts

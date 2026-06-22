@@ -15,6 +15,14 @@ This specification defines the Governance document type within the BSpec 1.0 Uni
 
 The Governance document defines systematic approaches to corporate governance that ensure effective oversight, accountability, and decision-making throughout the organization. It establishes governance frameworks that protect stakeholder interests, promote ethical behavior, and drive sustainable business performance.
 
+## Scope Boundary
+
+GOV owns oversight architecture, board-management accountability, and governance process design. It does **not** own:
+
+- Written rules and policy content (`POL`).
+- Compliance execution mechanics (`COM`, `CTL`).
+- Legal representation strategy or contract administration (`LEG`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +40,8 @@ scope: corporate-governance
 horizon: strategic
 visibility: restricted
 
-depends_on: [STR-*, RSK-*, COM-*, ETH-*]
-enables: [REP-*, AUD-*, PER-*, CTL-*]
+depends_on: [STR-*,RSK-*,COM-*,ETH-*]
+enables: [REP-*,AUD-*,PER-*,CTL-*]
 
 governance_model: Shareholder|Stakeholder|Hybrid|Family|State-owned
 governance_maturity: Basic|Developing|Defined|Advanced|Leading

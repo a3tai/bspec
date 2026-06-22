@@ -15,6 +15,14 @@ This specification defines the Infrastructure document type within the BSpec 1.0
 
 The Infrastructure document defines systematic approaches to designing, deploying, and managing technology infrastructure that supports business operations through reliable, secure, and scalable platforms. It establishes infrastructure frameworks that ensure availability, performance, and cost optimization.
 
+## Scope Boundary
+
+INF owns hosting, networking, compute, and platform operations (including environment topology, IaC, and infrastructure security controls). It does **not** own:
+
+- System functional design, boundaries, and integration decisions (`SYS`).
+- Architecture principles and standards (`ARC`).
+- Engineering methods and delivery practices (`DEV`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +40,8 @@ scope: infrastructure-management
 horizon: operational
 visibility: internal
 
-depends_on: [ARC-*, SYS-*, SEC-*, REQ-*]
-enables: [PER-*, QUA-*, SLA-*]
+depends_on: [ARC-*,SEC-*,REQ-*,RSK-*]
+enables: [PER-*,QUA-*,SLA-*]
 
 platform_type: Cloud|On-premise|Hybrid|Multi-cloud
 environment_type: Production|Development|Staging|Disaster-Recovery
@@ -460,7 +468,7 @@ improvement:
 ### Typical Enablements
 - **PER (Performance Specification)**: Infrastructure capabilities drive overall system performance
 - **QUA (Quality Specification)**: Infrastructure quality standards drive overall quality outcomes
-- **MON (Monitoring)**: Infrastructure monitoring enables comprehensive system observability
+- **Monitoring**: Infrastructure monitoring enables comprehensive system observability
 - **SLA (Service Level Agreement)**: Infrastructure reliability enables service level achievement
 
 ## Document Relationships

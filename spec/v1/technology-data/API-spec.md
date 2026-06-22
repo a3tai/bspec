@@ -32,8 +32,8 @@ scope: api-development
 horizon: tactical
 visibility: internal
 
-depends_on: [SYS-*, DAT-*, SEC-*, ARC-*]
-enables: [PER-*, QUA-*, INT-*, DEV-*]
+depends_on: [SYS-*,DAT-*,SEC-*,ARC-*]
+enables: [PER-*,QUA-*,INT-*,DEV-*]
 
 api_type: REST|GraphQL|gRPC|WebSocket|Webhook
 api_audience: Internal|Partner|Public

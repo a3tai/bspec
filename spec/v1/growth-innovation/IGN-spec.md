@@ -13,7 +13,7 @@ This specification defines the Insight Generation document type within the BSpec
 
 ## Purpose and Scope
 
-The Insight Generation document defines systematic approaches to transforming information and experience into actionable business insights. It establishes insight frameworks that convert data, observations, and knowledge into strategic intelligence that drives better decision-making, innovation, and competitive advantage.
+The Insight Generation document defines the synthesis layer that integrates evidence from `EXP`, market signals, and operational learning. It converts raw data into strategic decisions for `STR`, `INN`, and `FUT` rather than running experiments or primary research itself.
 
 ## Document Metadata Schema
 
@@ -32,8 +32,8 @@ scope: insight-generation
 horizon: tactical
 visibility: internal
 
-depends_on: [DAT-*, ANA-*, LEA-*, EXP-*]
-enables: [STR-*, INN-*, FUT-*, RSK-*]
+depends_on: [DAT-*,ANA-*,LEA-*,EXP-*]
+enables: [STR-*,INN-*,FUT-*,RSK-*]
 
 insight_methodology: Data-driven|Experience-based|Synthesis-focused|Hybrid
 insight_scope: Operational|Strategic|Customer|Market

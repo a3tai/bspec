@@ -13,7 +13,10 @@ This specification defines the Analytics document type within the BSpec 1.0 Univ
 
 ## Framework and Attribution
 
-Referenced standards and methods (for example CRISP-DM and ISO 25010 quality characteristics) should be attributed to their originating organizations.
+Referenced standards and methods should be attributed to their originators:
+
+- **CRISP-DM Initiative** for analytics process structure
+- **ISO/IEC 25010** for software quality characteristics
 
 ## Purpose and Scope
 
@@ -40,8 +43,8 @@ scope: analytics-platform
 horizon: strategic
 visibility: internal
 
-depends_on: [DAT-*, SYS-*, INF-*, MET-*]
-enables: [PER-*, QUA-*, GOV-*, STR-*]
+depends_on: [DAT-*,SYS-*,INF-*,MET-*]
+enables: [PER-*,QUA-*,GOV-*,STR-*]
 
 analytics_maturity: Descriptive|Diagnostic|Predictive|Prescriptive
 platform_type: Self-service|Enterprise|Embedded|Cloud-native

@@ -13,11 +13,17 @@ This specification defines the Requirements Specification document type within t
 
 ## Framework and Attribution
 
-References to Capability Maturity Model Integration (CMMI), COBIT, and ITIL should include naming and licensing guidance appropriate to their trademark holders and publication terms.
+Use these standards and frameworks with required trademark notices:
+
+- **Capability Maturity Model Integration® (CMMI®)** — CMMI Institute / ISACA
+- **COBIT®** — ISACA
+- **ITIL®** — AXELOS
+
+When this spec is used in external materials, include these framework notices near first usage.
 
 ## Purpose and Scope
 
-The Requirements Specification defines detailed functional and non-functional requirements for systems, features, and capabilities. It provides comprehensive, testable specifications that guide development and serve as the basis for validation and acceptance testing.
+The Requirements Specification defines comprehensive, system-level functional and non-functional requirements with traceability and testability as first-class constraints. It is the implementation contract downstream of `FEA`, while `USE` and `STO` provide user-facing narrative variants of requirements.
 
 ## Document Metadata Schema
 
@@ -29,9 +35,9 @@ type: REQ
 status: Draft|Review|Approved|Implemented|Deprecated
 attribution_required: true
 source_frameworks:
-  - "CMMI Institute / ISACA - CMMI"
-  - "ISACA - COBIT"
-  - "AXELOS - ITIL"
+  - "CMMI Institute / ISACA - Capability Maturity Model Integration® (CMMI®)"
+  - "ISACA - COBIT®"
+  - "AXELOS - ITIL®"
 version: 1.0.0
 owner: Requirements-Owner|Business-Analyst
 stakeholders: [product-team, engineering-team, qa-team, compliance-team]
@@ -41,8 +47,8 @@ scope: requirements-definition
 horizon: current
 visibility: internal
 
-depends_on: [PRD-*, FEA-*, USE-*]
-enables: [QUA-*, UXD-*, PER-*]
+depends_on: [FEA-*,USE-*,STO-*]
+enables: [QUA-*]
 
 requirement_type: Functional|Non-Functional|Constraint|Quality
 verification_method: Test|Analysis|Inspection|Demonstration

@@ -32,8 +32,8 @@ scope: content-strategy
 horizon: tactical
 visibility: internal
 
-depends_on: [BRD-*, MSG-*, TON-*, CUS-*, SEO-*]
-enables: [SOC-*, CAM-*]
+depends_on: [BRD-*,MSG-*,TON-*,CUS-*,SEO-*]
+enables: [SOC-*,CAM-*]
 
 content_objectives: [awareness, education, conversion, retention, advocacy]
 content_types: [blog, video, podcast, infographic, case_study, etc.]
@@ -432,8 +432,8 @@ strategy_evolution:
 ### Typical Enablements
 - **SOC (Social Media)**: Content strategy enables effective social media content
 - **CAM (Campaigns)**: Content framework supports campaign development
-- **LED (Lead Generation)**: Content drives lead generation and conversion
-- **EDU (Education)**: Content enables customer education and onboarding
+- **Lead Generation**: Content drives lead generation and conversion
+- **Education**: Content enables customer education and onboarding
 
 ## Document Relationships
 

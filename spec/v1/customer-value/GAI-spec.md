@@ -39,8 +39,8 @@ scope: specific|broad
 horizon: current
 visibility: internal
 
-depends_on: [PAI-*, JTB-*, PER-*]
-enables: [VAL-*, REV-*, POS-*]
+depends_on: [PAI-*,JTB-*,PER-*]
+enables: [VPR-*,REV-*,POS-*]
 
 gain_significance: Critical|Important|Nice-to-Have
 gain_frequency: Constant|Regular|Occasional|Rare
@@ -468,7 +468,7 @@ review_cycle: monthly
 - **PER (Personas)**: Personas provide context for who experiences gains
 
 ### Typical Enablements
-- **VAL (Value Propositions)**: Gains inform value proposition development
+- **VPR (Value Proposition)**: Gains inform the value proposition
 - **REV (Revenue Models)**: Gains guide pricing and packaging strategies
 - **POS (Positioning)**: Gains inform competitive positioning and messaging
 
@@ -477,7 +477,7 @@ review_cycle: monthly
 This document type commonly relates to:
 
 - **Depends on**: PAI (Pain Points), JTB (Jobs-to-be-Done), PER (Personas)
-- **Enables**: VAL (Value Propositions), REV (Revenue Models), POS (Positioning)
+- **Enables**: VPR (Value Proposition), REV (Revenue Models), POS (Positioning)
 - **Informs**: Product development, customer success strategy, value demonstration
 - **Guides**: Feature prioritization, customer communication, competitive differentiation
 

@@ -38,8 +38,12 @@ External market context and competitive landscape
 - **[ECO](./market-environment/ECO-spec.md)** - Economic Environment
 - **[OPP](./market-environment/OPP-spec.md)** - Market Opportunities
 - **[THR](./market-environment/THR-spec.md)** - Market Threats
+- **[PFO](./market-environment/PFO-spec.md)** - Porter's Five Forces
 - **[REG](./market-environment/REG-spec.md)** - Regulatory Environment
 - **[MAC](./market-environment/MAC-spec.md)** - Macro Environment
+- **[SWO](./market-environment/SWO-spec.md)** - SWOT Synthesis
+- **[VCH](./market-environment/VCH-spec.md)** - Value Chain Analysis
+- **[WRD](./market-environment/WRD-spec.md)** - Wardley Mapping
 
 ### Customer & Value
 Customer insights and value propositions
@@ -52,10 +56,12 @@ Customer insights and value propositions
 - **[PAI](./customer-value/PAI-spec.md)** - Pain Points
 - **[GAI](./customer-value/GAI-spec.md)** - Gain Scenarios
 - **[EMP](./customer-value/EMP-spec.md)** - Empathy Maps
+- **[VPR](./customer-value/VPR-spec.md)** - Value Proposition
 - **[FEE](./customer-value/FEE-spec.md)** - Feedback Analysis
 - **[CIN](./customer-value/CIN-spec.md)** - Customer Interviews
 - **[SUR](./customer-value/SUR-spec.md)** - Customer Surveys
 - **[BEH](./customer-value/BEH-spec.md)** - Behavioral Analysis
+- **[CSU](./customer-value/CSU-spec.md)** - Customer Success
 
 ### Product & Service
 Product and service definitions and specifications
@@ -70,6 +76,7 @@ Product and service definitions and specifications
 - **[PSP](./product-service/PSP-spec.md)** - Performance Specifications
 - **[INT](./product-service/INT-spec.md)** - Integration Specifications
 - **[SUP](./product-service/SUP-spec.md)** - Support Model
+- **[EOL](./product-service/EOL-spec.md)** - End-of-Life Planning
 
 ### Business Model
 Revenue generation and value delivery mechanisms
@@ -99,6 +106,7 @@ Operational processes and organizational structure
 - **[POL](./operations-execution/POL-spec.md)** - Policies
 - **[VND](./operations-execution/VND-spec.md)** - Vendor Management
 - **[FAC](./operations-execution/FAC-spec.md)** - Facilities Management
+- **[PPL](./operations-execution/PPL-spec.md)** - People Strategy
 
 ### Technology & Data
 Technical architecture and data management
@@ -137,6 +145,12 @@ Risk management and governance frameworks
 - **[INC](./risk-governance/INC-spec.md)** - Incident Management
 - **[LEG](./risk-governance/LEG-spec.md)** - Legal Framework
 - **[INS](./risk-governance/INS-spec.md)** - Insurance Strategy
+- **[COS](./risk-governance/COS-spec.md)** - COSO ERM
+- **[CRI](./risk-governance/CRI-spec.md)** - Crisis Management
+- **[BCR](./risk-governance/BCR-spec.md)** - Business Continuity and Recovery
+- **[PRV](./risk-governance/PRV-spec.md)** - Privacy Program
+- **[STA](./risk-governance/STA-spec.md)** - Stakeholder Map
+- **[MNA](./risk-governance/MNA-spec.md)** - M&A and Corporate Development
 
 ### Growth & Innovation
 Innovation strategies and growth initiatives
@@ -174,6 +188,7 @@ Brand strategy and marketing execution
 - **[SOC](./brand-marketing/SOC-spec.md)** - Social Media Strategy
 - **[IFL](./brand-marketing/IFL-spec.md)** - Influencer Marketing
 - **[PRF](./brand-marketing/PRF-spec.md)** - Performance Marketing
+- **[SAL](./brand-marketing/SAL-spec.md)** - Sales Strategy
 
 ## Key Concepts
 

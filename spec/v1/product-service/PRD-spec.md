@@ -13,7 +13,7 @@ This specification defines the Product Requirements Document document type withi
 
 ## Purpose and Scope
 
-The Product Requirements Document defines comprehensive requirements for products, bridging customer needs with technical implementation. It serves as the authoritative specification for product development teams and stakeholders.
+The Product Requirements Document defines product-level requirements, capturing the outcome-oriented problem, value proposition, and strategic fit of a product initiative. It is the authoritative upstream artifact for product planning; teams should use `FEA` for feature-level specification and `REQ` for system-implementable, traceable technical requirements.
 
 ## Document Metadata Schema
 
@@ -23,9 +23,9 @@ id: PRD-{product-name}
 title: "Product Requirements — {Product Name}"
 type: PRD
 status: Draft|Review|Approved|Deprecated
-attribution_required: true
+attribution_required: false
 source_frameworks:
-  - "Bain - Net Promoter System"
+  - "Value-focused product planning approaches and user outcome framing"
 version: 1.0.0
 owner: Product-Manager|Product-Team
 stakeholders: [engineering-team, design-team, business-stakeholders]
@@ -35,8 +35,8 @@ scope: product-definition
 horizon: current
 visibility: internal
 
-depends_on: [PER-*, JTB-*, GAI-*, PAI-*]
-enables: [FEA-*, REQ-*, UXD-*]
+depends_on: [STR-*,MKT-*,VPR-*,JTB-*,GAI-*,PAI-*]
+enables: [FEA-*]
 
 target_market: [Market segment identifiers]
 dependencies: [External dependency identifiers]
@@ -150,7 +150,7 @@ review_cycle: monthly
 ### Product Metrics
 - **Adoption Rate:** {User uptake measurements}
 - **Engagement Metrics:** {Usage depth and frequency}
-- **Satisfaction Scores:** {NPS, CSAT, CES targets}
+- **Satisfaction Metrics:** {CSAT, CES, churn and retention proxies}
 - **Feature Utilization:** {Feature usage analytics}
 
 ### Operational Metrics

@@ -15,6 +15,10 @@ This specification defines the Strategic Objectives document type within the BSp
 
 The Objectives document sets specific, measurable goals with timeframes that advance the organization toward its vision. These are typically structured as OKRs (Objectives and Key Results) or similar goal-setting frameworks.
 
+## Scope Boundary
+
+OBJ owns measurable outcome commitments for periods (objectives, key results, owners, and review cadence). It translates `STR` choices into target outcomes but does **not** define the performance metric framework or governance reporting architecture (`MET`, `REP`, `GOV`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -25,7 +29,7 @@ type: OBJ
 status: Draft|Review|Accepted|Deprecated
 attribution_required: true
 source_frameworks:
-  - "Bain - Net Promoter System"
+  - "John Doerr / OKR-inspired goal-setting framework (widely used in practice)"
 version: 1.0.0
 owner: CEO|Leadership-Team
 stakeholders: [all-employees, board, department-heads]
@@ -35,7 +39,7 @@ scope: global
 horizon: short
 visibility: internal
 
-depends_on: [STR-*, VSN-*]
+depends_on: [STR-*,VSN-*]
 enables: [MET-*]
 
 success_criteria:
@@ -252,8 +256,8 @@ review_cycle: quarterly
 
 ### Typical Enablements
 - **MET (Metrics)**: Objectives define what to measure
-- **PRC (Processes)**: Objectives guide process priorities
-- **GTM (Go-to-Market)**: Objectives inform market approach
+- **Processes**: Objectives guide process priorities
+- **Go-to-Market**: Objectives inform market approach
 
 ### Common Conflicts
 - **Competing objectives** within organization

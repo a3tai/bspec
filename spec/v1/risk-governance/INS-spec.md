@@ -32,8 +32,8 @@ scope: insurance-management
 horizon: tactical
 visibility: confidential
 
-depends_on: [RSK-*, FIN-*, LEG-*, OPS-*]
-enables: [CTL-*, COM-*, REP-*, AUD-*]
+depends_on: [RSK-*,FIN-*,LEG-*,OPS-*]
+enables: [CTL-*,COM-*,REP-*,AUD-*]
 
 insurance_strategy: Traditional|Captive|Self-insurance|Hybrid
 coverage_approach: Comprehensive|Targeted|Layered|Integrated

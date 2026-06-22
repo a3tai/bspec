@@ -13,7 +13,10 @@ This specification defines the Threats document type within the BSpec 1.0 Univer
 
 ## Purpose and Scope
 
-The Threats document identifies external risks to market position and business model. It analyzes potential threats from competitors, market changes, and environmental factors.
+The Threats document identifies external risks to market position and business model.
+It analyzes potential threats from competitors, market changes, and environmental
+factors and is distinct from `THY` (Theory of Change), which maps causality
+for intentional transformation.
 
 ## Document Metadata Schema
 
@@ -32,8 +35,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [CMP-*, TRN-*, MAC-*]
-enables: [RSK-*, STR-*]
+depends_on: [CMP-*,TRN-*,MAC-*]
+enables: [RSK-*,STR-*]
 
 success_criteria:
   - "Threats are identified before they become critical"
@@ -176,7 +179,7 @@ review_cycle: monthly
 
 ### Typical Enablements
 - **RSK (Risk Management)**: Threats inform risk assessment
-- **MIT (Mitigation)**: Threat analysis drives mitigation strategies
+- **Mitigation**: Threat analysis drives mitigation strategies
 - **STR (Strategy)**: Threats shape defensive strategic planning
 
 ## Document Relationships

@@ -11,9 +11,15 @@
 
 This specification defines the Channel Strategy document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting channel strategy within the business-model domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+CHN is the Business Model Canvas **Channels** block and should follow the same attribution expectations if reused:
+Strategyzer's Business Model Canvas terms (CC BY-SA 3.0) apply to channel-structure derivations.
+
 ## Purpose and Scope
 
-The Channel Strategy defines systematic approaches to market access and customer engagement through distribution channels. It establishes channel frameworks that optimize market reach, customer experience, and operational efficiency while creating sustainable competitive advantages.
+The Channel Strategy defines sales and distribution channels for moving value to market and fulfilling customer transactions.
+It focuses on route-to-market structure (direct, partner, and digital distribution), not on marketing mix allocation or message channel selection.
 
 ## Document Metadata Schema
 
@@ -25,7 +31,8 @@ type: CHN
 status: Draft|Review|Approved|Active|Deprecated
 attribution_required: true
 source_frameworks:
-  - "Bain - Net Promoter System"
+  - "Strategyzer - Business Model Canvas (CC BY-SA 3.0)"
+  - "Bain - Net Promoter®, NPS®, Net Promoter System®, Net Promoter Score℠"
 version: 1.0.0
 owner: Channel-Owner|Channel-Team
 stakeholders: [sales-team, marketing-team, operations-team, partner-team]
@@ -35,8 +42,8 @@ scope: channel-management
 horizon: current
 visibility: internal
 
-depends_on: [PER-*, SEG-*, PRI-*, REV-*]
-enables: [CUS-*, KPT-*, CAP-*, PRO-*]
+depends_on: [PER-*,SEG-*,PRI-*,REV-*]
+enables: [CUS-*,KPT-*,CAP-*,PRO-*]
 
 channel_type: Direct|Indirect|Digital|Physical|Hybrid
 channel_role: Sales|Marketing|Support|Fulfillment

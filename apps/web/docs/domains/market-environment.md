@@ -5,34 +5,162 @@ description: "BSpec document types in the Market Environment domain"
 
 # Market Environment
 
-The Market Environment domain captures the external forces shaping your business. These documents analyze competitors, market dynamics, regulatory factors, and emerging opportunities.
+## Overview
 
-## Document Types (10)
+This domain contains 14 document types that cover market environment aspects of your business.
 
-| Code | Name | Description |
-|------|------|-------------|
-| [CMP](/docs/types/CMP) | Competitive Analysis | Assessment of competitors and competitive dynamics |
-| [ECO](/docs/types/ECO) | Ecosystem | Partners, platforms, and ecosystem relationships |
-| [MAC](/docs/types/MAC) | Macro Environment | PESTEL factors affecting your business |
-| [MKT](/docs/types/MKT) | Market Definition | Target market boundaries and characteristics |
-| [OPP](/docs/types/OPP) | Opportunities | Market opportunities and growth potential |
-| [POS](/docs/types/POS) | Positioning | How you differentiate in the market |
-| [REG](/docs/types/REG) | Regulatory Environment | Legal and regulatory requirements |
-| [SEG](/docs/types/SEG) | Market Segments | Customer and market segmentation |
-| [THR](/docs/types/THR) | Threats | Risks and threats to your market position |
-| [TRN](/docs/types/TRN) | Trends | Industry and market trends |
+## Document Types
 
-## Key Relationships
+### [CMP: Competitive Analysis](/docs/types/CMP)
 
-Market Environment documents typically:
-- **Depend on**: Strategic Foundation (Strategy informs market focus)
-- **Enable**: Customer Value, Product, and Business Model decisions
+# CMP: Competitive Analysis Document Type Specification
 
-## Getting Started
+**Document Type Code:** CMP
+**Document Type Name:** Competitive Analysis
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft...
 
-For Bronze conformance, start with:
-1. **CMP** - Understand your competition
-2. **SEG** - Define your market segments
+### [ECO: Ecosystem](/docs/types/ECO)
+
+# ECO: Ecosystem Document Type Specification
+
+**Document Type Code:** ECO
+**Document Type Name:** Ecosystem
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025...
+
+### [MAC: Macro Environment](/docs/types/MAC)
+
+# MAC: Macro Environment Document Type Specification
+
+**Document Type Code:** MAC
+**Document Type Name:** Macro Environment
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last...
+
+### [MKT: Market Definition](/docs/types/MKT)
+
+# MKT: Market Definition Document Type Specification
+
+**Document Type Code:** MKT
+**Document Type Name:** Market Definition
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last...
+
+### [OPP: Opportunities](/docs/types/OPP)
+
+# OPP: Opportunities Document Type Specification
+
+**Document Type Code:** OPP
+**Document Type Name:** Opportunities
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated...
+
+### [PFO: Porter's Five Forces](/docs/types/PFO)
+
+# PFO: Porter's Five Forces Document Type Specification
+
+**Document Type Code:** PFO
+**Document Type Name:** Porter's Five Forces
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft...
+
+### [POS: Positioning](/docs/types/POS)
+
+# POS: Positioning Document Type Specification
+
+**Document Type Code:** POS
+**Document Type Name:** Positioning
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:**...
+
+### [REG: Regulatory Environment](/docs/types/REG)
+
+# REG: Regulatory Environment Document Type Specification
+
+**Document Type Code:** REG
+**Document Type Name:** Regulatory Environment
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Dr...
+
+### [SEG: Market Segments](/docs/types/SEG)
+
+# SEG: Market Segments Document Type Specification
+
+**Document Type Code:** SEG
+**Document Type Name:** Market Segments
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Upd...
+
+### [SWO: SWOT Synthesis](/docs/types/SWO)
+
+# SWO: SWOT Synthesis Document Type Specification
+
+**Document Type Code:** SWO
+**Document Type Name:** SWOT Synthesis
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updat...
+
+### [THR: Threats](/docs/types/THR)
+
+# THR: Threats Document Type Specification
+
+**Document Type Code:** THR
+**Document Type Name:** Threats
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-09-...
+
+### [TRN: Trends](/docs/types/TRN)
+
+# TRN: Trends Document Type Specification
+
+**Document Type Code:** TRN
+**Document Type Name:** Trends
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-09-28...
+
+### [VCH: Value Chain Analysis](/docs/types/VCH)
+
+# VCH: Value Chain Analysis Document Type Specification
+
+**Document Type Code:** VCH
+**Document Type Name:** Value Chain Analysis
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft...
+
+### [WRD: Wardley Mapping](/docs/types/WRD)
+
+# WRD: Wardley Mapping Document Type Specification
+
+**Document Type Code:** WRD
+**Document Type Name:** Wardley Mapping
+**Domain:** Market & Environment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Upd...
+
 
 ---
 

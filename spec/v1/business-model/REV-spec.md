@@ -35,8 +35,8 @@ scope: revenue-generation
 horizon: current
 visibility: internal
 
-depends_on: [VSN-*, VAL-*, PER-*, JTB-*]
-enables: [CST-*, PRO-*, CAP-*, SLA-*]
+depends_on: [VSN-*,VAL-*,PER-*,JTB-*]
+enables: [CST-*,PRO-*,CAP-*,SLA-*]
 
 revenue_type: Transactional|Subscription|Usage|License|Commission|Advertising
 customer_segments: [Segment identifiers]

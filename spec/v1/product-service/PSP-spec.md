@@ -32,8 +32,8 @@ scope: performance-optimization
 horizon: continuous
 visibility: internal
 
-depends_on: [REQ-*, FEA-*, QUA-*]
-enables: [SUP-*, INT-*, UXD-*]
+depends_on: [REQ-*,FEA-*,QUA-*]
+enables: [SUP-*,INT-*,UXD-*]
 
 performance_domain: System|Application|Database|Network|User
 measurement_environment: Production|Staging|Load-Test|Synthetic

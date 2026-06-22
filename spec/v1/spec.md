@@ -6,7 +6,7 @@
 | **Status**    | Public Draft      |
 | **Last Updated** | 2025-09-29     |
 | **Authors**   | BSpec Foundation  |
-| **License**   | CC BY 4.0         |
+| **License**   | CC BY-SA 4.0 (spec content) / MIT (code/tooling) |
 
 ## Executive Summary
 
@@ -116,8 +116,12 @@ External market context and competitive landscape
 - **ECO** - Economic Environment: Economic factors and conditions
 - **OPP** - Market Opportunities: Identified market opportunities
 - **THR** - Market Threats: External threats and challenges
+- **SWO** - SWOT Synthesis: Combined strengths/weaknesses-opportunities/threats view
+- **PFO** - Porter's Five Forces: Competitive force structure analysis
 - **REG** - Regulatory Environment: Regulatory landscape and compliance
 - **MAC** - Macro Environment: Broader environmental factors
+- **VCH** - Value Chain Analysis: Value chain structure and performance
+- **WRD** - Wardley Mapping: Evolution-aware strategy mapping
 
 ### Customer & Value
 Customer insights and value propositions
@@ -128,11 +132,13 @@ Customer insights and value propositions
 - **STO** - User Stories: User-centered feature requirements
 - **PAI** - Pain Points: Customer problems and frustrations
 - **GAI** - Gain Scenarios: Customer benefits and value gains
+- **VPR** - Value Proposition: Core value proposition synthesis from pains and gains
 - **EMP** - Empathy Maps: Deep customer empathy and understanding
 - **FEE** - Feedback Analysis: Customer feedback and insights
 - **CIN** - Customer Interviews: Direct customer research findings
 - **SUR** - Customer Surveys: Quantitative customer research
 - **BEH** - Behavioral Analysis: Customer behavior patterns
+- **CSU** - Customer Success: Onboarding, adoption, retention, and expansion planning
 
 ### Product & Service
 Product and service definitions and specifications
@@ -146,6 +152,7 @@ Product and service definitions and specifications
 - **PSP** - Performance Specifications: Performance requirements and metrics
 - **INT** - Integration Specifications: System integration requirements
 - **SUP** - Support Model: Customer support strategy and processes
+- **EOL** - End-of-Life Planning: Product retirement and migration planning
 
 ### Business Model
 Revenue generation and value delivery mechanisms
@@ -173,6 +180,7 @@ Operational processes and organizational structure
 - **POL** - Policies: Organizational policies and guidelines
 - **VND** - Vendor Management: Third-party relationships and management
 - **FAC** - Facilities Management: Physical and virtual facility requirements
+- **PPL** - People Strategy: Talent acquisition, compensation, performance, and succession
 
 ### Technology & Data
 Technical architecture and data management
@@ -208,6 +216,12 @@ Risk management and governance frameworks
 - **INC** - Incident Management: Incident response and management
 - **LEG** - Legal Framework: Legal structure and requirements
 - **INS** - Insurance Strategy: Insurance coverage and risk transfer
+- **COS** - COSO ERM: Enterprise risk management framework
+- **STA** - Stakeholder Mapping: Stakeholder influence, interests, and engagement
+- **PRV** - Privacy Program: Privacy governance and rights management
+- **CRI** - Crisis Management: High-impact event response and command
+- **BCR** - Business Continuity and Recovery: Recovery objectives and continuity planning
+- **MNA** - M&A and Corporate Development: Strategic transactions and integration
 
 ### Growth & Innovation
 Innovation strategies and growth initiatives
@@ -242,6 +256,7 @@ Brand strategy and marketing execution
 - **SOC** - Social Media Strategy: Social media marketing approach
 - **IFL** - Influencer Marketing: Influencer partnership strategy
 - **PRF** - Performance Marketing: Data-driven marketing optimization
+- **SAL** - Sales Strategy: Sales pipeline and commercial execution framework
 
 ## Universal Document Schema
 

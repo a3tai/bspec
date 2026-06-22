@@ -32,8 +32,8 @@ scope: messaging-framework
 horizon: tactical
 visibility: internal
 
-depends_on: [BRD-*, POS-*, CUS-*, VAL-*]
-enables: [CNT-*, CAM-*, TON-*]
+depends_on: [BRD-*,POS-*,CUS-*,VPR-*]
+enables: [CNT-*,CAM-*,TON-*]
 
 messaging_hierarchy: [core_message, supporting_messages, proof_points]
 audience_segments: [how messaging adapts for different audiences]
@@ -360,19 +360,19 @@ message_evolution:
 - **BRD (Brand Strategy)**: Brand positioning and personality guide message development
 - **POS (Positioning)**: Market positioning informs competitive messaging
 - **CUS (Customer)**: Customer insights drive audience-specific messaging
-- **VAL (Value Proposition)**: Value proposition shapes core message content
+- **VPR (Value Proposition)**: Value proposition shapes core message content
 
 ### Typical Enablements
 - **CNT (Content)**: Messaging framework enables consistent content development
 - **CAM (Campaigns)**: Message architecture guides campaign development
 - **TON (Tone of Voice)**: Messaging influences tone and voice guidelines
-- **SAL (Sales)**: Messages enable effective sales communications
+- **Sales**: Messages enable effective sales communications
 
 ## Document Relationships
 
 This document type commonly relates to:
 
-- **Depends on**: BRD (Brand Strategy), POS (Positioning), CUS (Customer), VAL (Value Proposition)
+- **Depends on**: BRD (Brand Strategy), POS (Positioning), CUS (Customer), VPR (Value Proposition)
 - **Enables**: CNT (Content), CAM (Campaigns), TON (Tone of Voice), SAL (Sales)
 - **Informs**: Content strategy, campaign development, sales training
 - **Guides**: Communications, marketing materials, customer interactions

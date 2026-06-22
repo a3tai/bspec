@@ -17,7 +17,8 @@ The canonical positioning statement format in this document is attributed to Geo
 
 ## Purpose and Scope
 
-The Positioning document defines how the organization wants to be perceived in the market relative to competitors and alternatives. It articulates the unique value proposition and market position.
+The Positioning document defines how the organization wants to be perceived in the market relative to competitors and alternatives.
+It focuses on category framing, competitive map position, and market narrative; brand voice and storytelling are handled by `BPO`.
 
 ## Document Metadata Schema
 
@@ -39,7 +40,7 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [SEG-*, CMP-*, VAL-*]
+depends_on: [SEG-*,CMP-*,VPR-*]
 enables: [REV-*]
 
 success_criteria:
@@ -378,11 +379,11 @@ review_cycle: quarterly
 ### Typical Dependencies
 - **SEG (Segments)**: Target segments inform positioning strategy
 - **CMP (Competitive Analysis)**: Competitive landscape shapes differentiation
-- **VAL (Values)**: Organizational values support authentic positioning
+- **VPR (Value Proposition)**: Value proposition clarity improves positioning quality
 
 ### Typical Enablements
-- **GTM (Go-to-Market)**: Positioning drives market entry strategy
-- **BMC (Brand Management)**: Positioning guides brand development
+- **Go-to-Market**: Positioning drives market entry strategy
+- **Brand Management**: Positioning guides brand development
 - **REV (Revenue Model)**: Positioning influences pricing and packaging
 
 ### Common Conflicts
@@ -416,7 +417,7 @@ review_cycle: quarterly
 
 This document type commonly relates to:
 
-- **Depends on**: SEG (Segments), CMP (Competitive Analysis), VAL (Values)
+- **Depends on**: SEG (Segments), CMP (Competitive Analysis), VPR (Value Proposition)
 - **Enables**: GTM (Go-to-Market), BMC (Brand Management), REV (Revenue Model)
 - **Informs**: Marketing strategy, sales enablement, product development
 - **Guides**: Messaging strategy, competitive strategy, brand development

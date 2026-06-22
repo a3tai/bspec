@@ -13,11 +13,15 @@ This specification defines the Innovation Strategy document type within the BSpe
 
 ## Framework and Attribution
 
-Innovation methods referenced here (Design Thinking, Lean Startup, Stage-Gate Process) are established named frameworks and should include attribution and licensing notices in accordance with their owners.
+Innovation methods referenced here are established named frameworks and should include attribution and licensing notices in accordance with owners:
+
+- **IDEO / d.school - Design Thinking**
+- **Eric Ries - Lean Startup**
+- **Robert G. Cooper / Stage-Gate International - Stage-Gate Process®**
 
 ## Purpose and Scope
 
-The Innovation Strategy document defines systematic approaches to identifying, developing, and scaling innovation opportunities that create competitive advantage and drive sustainable growth. It establishes innovation frameworks that transform innovation from random creativity into systematic business capability.
+The Innovation Strategy document defines portfolio-level choices: which innovation bets to pursue and why. It translates market and strategic intent into a coherent portfolio, while `RND` and `EXP` execute that portfolio through technical development and evidence generation.
 
 ## Document Metadata Schema
 
@@ -31,7 +35,7 @@ attribution_required: true
 source_frameworks:
   - "IDEO / d.school - Design Thinking"
   - "Eric Ries - Lean Startup"
-  - "Stage-Gate / Cooper - Stage-Gate Process"
+  - "Robert G. Cooper / Stage-Gate International - Stage-Gate Process®"
 version: 1.0.0
 owner: Chief-Innovation-Officer|Innovation-Team|Strategy-Team
 stakeholders: [innovation-team, executives, r-and-d, product-teams]
@@ -41,8 +45,8 @@ scope: innovation-strategy
 horizon: strategic
 visibility: internal
 
-depends_on: [STR-*, RND-*, EXP-*, LEA-*]
-enables: [PRD-*, SVC-*, FUT-*, ADT-*]
+depends_on: [STR-*,EXP-*,LEA-*]
+enables: [PRD-*,SVC-*,FUT-*,ADT-*]
 
 innovation_framework: Incremental|Adjacent|Transformational|Hybrid
 innovation_horizon: Horizon-1|Horizon-2|Horizon-3|Multi-horizon

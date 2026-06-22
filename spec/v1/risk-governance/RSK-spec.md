@@ -39,8 +39,8 @@ scope: risk-management
 horizon: strategic
 visibility: confidential
 
-depends_on: [STR-*, OBJ-*, OPS-*, FIN-*]
-enables: [CTL-*, COM-*, GOV-*, AUD-*]
+depends_on: [STR-*,OBJ-*,OPS-*,FIN-*]
+enables: [CTL-*,COM-*,GOV-*,AUD-*]
 
 risk_category: Strategic|Operational|Financial|Compliance|Technology|Reputational
 risk_scope: Enterprise|Business-unit|Process|Project

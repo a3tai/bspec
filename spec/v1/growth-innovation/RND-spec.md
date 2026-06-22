@@ -11,9 +11,14 @@
 
 This specification defines the Research and Development document type within the BSpec 1.0 Universal Business Specification Standard. It establishes normative requirements, structured templates, and implementation guidance for organizations documenting research and development within the growth-innovation domain. This specification enables systematic, machine-readable documentation that supports strategic planning, operational execution, and organizational alignment.
 
+## Framework and Attribution
+
+Research portfolio planning references the **Stage-Gate Process®**. When used as an
+applied model, include Stage-Gate ownership notices and any required usage terms.
+
 ## Purpose and Scope
 
-The Research and Development document defines systematic approaches to advancing knowledge and developing new capabilities that create competitive advantage and drive innovation. It establishes R&D frameworks that transform research investments into commercial opportunities and technological capabilities.
+The Research and Development document governs long-cycle technical investigation and capability creation behind innovation bets. It is execution for deep learning and applied science, with `EXP` providing near-term validation loops and `IGN` converting outcomes into reusable organizational learning.
 
 ## Document Metadata Schema
 
@@ -25,7 +30,7 @@ type: RND
 status: Draft|Review|Approved|Active|Deprecated
 attribution_required: true
 source_frameworks:
-  - "Robert G. Cooper - Stage-Gate Process"
+  - "Robert G. Cooper / Stage-Gate International - Stage-Gate Process®"
 version: 1.0.0
 owner: Chief-Technology-Officer|R-and-D-Director|Innovation-Team
 stakeholders: [r-and-d-team, engineering, product-teams, executives]
@@ -35,8 +40,8 @@ scope: research-development
 horizon: strategic
 visibility: confidential
 
-depends_on: [INN-*, STR-*, ARC-*, LEA-*]
-enables: [PRD-*, SVC-*, ARC-*, FUT-*]
+depends_on: [INN-*,STR-*,ARC-*,LEA-*]
+enables: [PRD-*,SVC-*,ARC-*,FUT-*]
 
 research_strategy: Basic|Applied|Development|Hybrid
 research_scope: Core-technology|Platform|Product|Process

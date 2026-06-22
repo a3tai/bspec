@@ -13,7 +13,15 @@ This specification defines the Development document type within the BSpec 1.0 Un
 
 ## Purpose and Scope
 
-The Development document defines systematic approaches to software development practices, methodologies, and team processes that enable efficient delivery of high-quality software solutions. It establishes development frameworks that ensure consistency, quality, and collaborative effectiveness in software creation.
+The Development document defines software development practices, methodologies, and team processes that enable efficient delivery of high-quality software solutions. It establishes development frameworks that ensure consistency, quality, and collaborative effectiveness in software creation.
+
+## Scope Boundary
+
+DEV owns team workflows, engineering practices, and delivery mechanics for implementing software (including methodology, testing, and release mechanics). It does **not** own:
+
+- Architecture standards and decision frameworks (`ARC`).
+- System catalog definitions and ownership (`SYS`).
+- Infrastructure platform and operations controls (`INF`).
 
 ## Document Metadata Schema
 
@@ -32,8 +40,8 @@ scope: development-practices
 horizon: tactical
 visibility: internal
 
-depends_on: [ARC-*, SYS-*, REQ-*, QUA-*]
-enables: [PER-*, QUA-*, SEC-*, OPS-*]
+depends_on: [ARC-*,REQ-*,SYS-*]
+enables: [PER-*,QUA-*,SEC-*,OPS-*]
 
 methodology: Agile|Scrum|Kanban|Waterfall|DevOps
 development_model: Feature-driven|Test-driven|Behavior-driven|Domain-driven

@@ -19,6 +19,8 @@ This document references Business Model Canvas-style strategy structure and shou
 
 The Moats document identifies and analyzes the competitive advantages that protect the organization's market position. Moats are sustainable advantages that make it difficult for competitors to replicate success.
 
+`MOT` is distinct from Theory of Change (`THY`). Moats define competitive defensibility and market position; `THY` defines causal pathways and intended outcomes.
+
 ## Document Metadata Schema
 
 ```yaml
@@ -39,8 +41,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [STR-*, CMP-*]
-enables: [POS-*, VAL-*]
+depends_on: [STR-*,CMP-*]
+enables: [POS-*,VAL-*]
 
 success_criteria:
   - "Moats are validated by customer behavior"
@@ -265,11 +267,11 @@ review_cycle: quarterly
 ### Typical Dependencies
 - **STR (Strategy)**: Moats support strategic competitive approach
 - **CMP (Competitive Analysis)**: Moats validated against competitive landscape
-- **BMC (Business Model Canvas)**: Moats align with business model
+- **Business Model Canvas**: Moats align with business model
 
 ### Typical Enablements
 - **POS (Positioning)**: Moats inform market positioning
-- **GTM (Go-to-Market)**: Moats guide market approach
+- **Go-to-Market**: Moats guide market approach
 - **VAL (Valuation)**: Moats support business valuation
 
 ### Common Conflicts

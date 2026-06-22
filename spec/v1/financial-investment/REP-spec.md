@@ -32,8 +32,8 @@ scope: financial-reporting
 horizon: tactical
 visibility: restricted
 
-depends_on: [MET-*, FIN-*, BUD-*, AUD-*]
-enables: [GOV-*, COM-*, INV-*, STR-*]
+depends_on: [MET-*,FIN-*,BUD-*,AUD-*]
+enables: [GOV-*,COM-*,INV-*,STR-*]
 
 reporting_type: Financial|Management|Regulatory|Investor
 reporting_standard: GAAP|IFRS|Statutory|Management

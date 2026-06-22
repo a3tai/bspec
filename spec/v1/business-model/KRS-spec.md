@@ -35,8 +35,8 @@ scope: resource-management
 horizon: strategic
 visibility: internal
 
-depends_on: [STR-*, KAC-*, CAP-*, KPT-*]
-enables: [PER-*, QUA-*, SVC-*, PRO-*]
+depends_on: [STR-*,KAC-*,CAP-*,KPT-*]
+enables: [PER-*,QUA-*,SVC-*,PRO-*]
 
 resource_type: Physical|Intellectual|Human|Financial|Digital
 criticality: Critical|Important|Supporting|Nice-to-have

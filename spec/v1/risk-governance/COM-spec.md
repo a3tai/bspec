@@ -15,6 +15,14 @@ This specification defines the Compliance document type within the BSpec 1.0 Uni
 
 The Compliance document defines systematic approaches to ensuring adherence to laws, regulations, policies, and standards that govern business operations. It establishes compliance frameworks that prevent violations, manage regulatory risks, and maintain organizational integrity and reputation.
 
+## Scope Boundary
+
+COM owns the ongoing compliance program execution: legal/regulatory scanning, assessment planning, monitoring operations, remediation workflows, and reporting. It does **not** own:
+
+- Legal interpretation and contract/litigation operations (`LEG`).
+- Control design and control testing mechanics (`CTL`).
+- Corporate oversight frameworks (`GOV`, board-level governance).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +40,8 @@ scope: compliance-management
 horizon: tactical
 visibility: confidential
 
-depends_on: [RSK-*, CTL-*, REG-*, POL-*]
-enables: [AUD-*, GOV-*, REP-*, ETH-*]
+depends_on: [RSK-*,CTL-*,REG-*,POL-*]
+enables: [AUD-*,GOV-*,REP-*,ETH-*]
 
 compliance_type: Regulatory|Policy|Contractual|Industry-standard|Ethical
 regulatory_scope: Federal|State|Local|International|Industry-specific

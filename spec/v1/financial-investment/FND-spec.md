@@ -32,8 +32,8 @@ scope: funding-strategy
 horizon: strategic
 visibility: confidential
 
-depends_on: [FIN-*, VAL-*, STR-*, FOR-*]
-enables: [INV-*, MET-*, REP-*, GOV-*]
+depends_on: [FIN-*,VAL-*,STR-*,FOR-*]
+enables: [INV-*,MET-*,REP-*,GOV-*]
 
 funding_type: Equity|Debt|Hybrid|Grant|Revenue-based
 funding_stage: Pre-seed|Seed|Series-A|Series-B|Growth|Mezzanine|IPO

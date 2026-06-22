@@ -5,29 +5,75 @@ description: "BSpec document types in the Learning & Decisions domain"
 
 # Learning & Decisions
 
-The Learning & Decisions domain captures organizational knowledge and decision-making. These documents record decisions, hypotheses, learnings, and accumulated wisdom.
+## Overview
 
-## Document Types (6)
+This domain contains 6 document types that cover learning & decisions aspects of your business.
 
-| Code | Name | Description |
-|------|------|-------------|
-| [DEC](/docs/types/DEC) | Decision Records | Important decisions and rationale |
-| [HYP](/docs/types/HYP) | Hypothesis Management | Business hypotheses and validation |
-| [KNO](/docs/types/KNO) | Knowledge Management | Organizational knowledge capture |
-| [LRN](/docs/types/LRN) | Learning Records | Lessons learned and insights |
-| [RET](/docs/types/RET) | Retrospective Analysis | Retrospectives and post-mortems |
-| [WIS](/docs/types/WIS) | Wisdom Synthesis | Accumulated organizational wisdom |
+## Document Types
 
-## Key Relationships
+### [DEC: Decision Records](/docs/types/DEC)
 
-Learning & Decisions documents typically:
-- **Depend on**: All other domains (decisions across the business)
-- **Enable**: Continuous improvement and Organizational memory
+# DEC: Decision Records Document Type Specification
 
-## Getting Started
+**Document Type Code:** DEC
+**Document Type Name:** Decision Records
+**Domain:** Learning & Decisions
+**Version:** 1.0.0
+**Status:** Draft
+**Last U...
 
-For Silver conformance, add:
-1. **DEC** - Start documenting key decisions
+### [HYP: Hypothesis Management](/docs/types/HYP)
+
+# HYP: Hypothesis Management Document Type Specification
+
+**Document Type Code:** HYP
+**Document Type Name:** Hypothesis Management
+**Domain:** Learning & Decisions
+**Version:** 1.0.0
+**Status:** Draf...
+
+### [KNO: Knowledge Management](/docs/types/KNO)
+
+# KNO: Knowledge Management Document Type Specification
+
+**Document Type Code:** KNO
+**Document Type Name:** Knowledge Management
+**Domain:** Learning & Decisions
+**Version:** 1.0.0
+**Status:** Draft...
+
+### [LRN: Learning Records](/docs/types/LRN)
+
+# LRN: Learning Records Document Type Specification
+
+**Document Type Code:** LRN
+**Document Type Name:** Learning Records
+**Domain:** Learning & Decisions
+**Version:** 1.0.0
+**Status:** Draft
+**Last U...
+
+### [RET: Retrospective Analysis](/docs/types/RET)
+
+# RET: Retrospective Analysis Document Type Specification
+
+**Document Type Code:** RET
+**Document Type Name:** Retrospective Analysis
+**Domain:** Learning & Decisions
+**Version:** 1.0.0
+**Status:** Dr...
+
+### [WIS: Wisdom Synthesis](/docs/types/WIS)
+
+# WIS: Wisdom Synthesis Document Type Specification
+
+**Document Type Code:** WIS
+**Document Type Name:** Wisdom Synthesis
+**Domain:** Learning & Decisions
+**Version:** 1.0.0
+**Status:** Draft
+**Last U...
+
 
 ---
 

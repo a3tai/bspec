@@ -25,7 +25,7 @@ type: SUR
 status: Draft|Review|Accepted|Deprecated
 attribution_required: true
 source_frameworks:
-  - "Bain - Net Promoter System"
+  - "Bain - Net Promoter®, NPS®, Net Promoter System®, Net Promoter Score℠"
 version: 1.0.0
 owner: Market-Research|Customer-Success
 stakeholders: [product-team, marketing-team, leadership-team]
@@ -35,8 +35,8 @@ scope: research-study
 horizon: current
 visibility: internal
 
-depends_on: [PER-*, SEG-*]
-enables: [FEE-*, MET-*, CMP-*]
+depends_on: [PER-*,SEG-*]
+enables: [FEE-*,MET-*,CMP-*]
 
 survey_type: Satisfaction|NPS|Product|Market|Usage
 methodology: Cross-sectional|Longitudinal|Panel

@@ -25,9 +25,10 @@ type: QUA
 status: Draft|Review|Approved|Active|Deprecated
 attribution_required: true
 source_frameworks:
-  - "Bain - Net Promoter System"
-  - "AXELOS - ITIL"
-  - "ISACA - COBIT"
+  - "Bain - Net Promoter®, NPS®, Net Promoter System®, Net Promoter Score℠"
+  - "AXELOS - ITIL®"
+  - "ISACA - COBIT®"
+  - "ISO/IEC 25010"
 version: 1.0.0
 owner: Quality-Owner|QA-Team
 stakeholders: [engineering-team, product-team, compliance-team, operations-team]
@@ -37,8 +38,8 @@ scope: quality-assurance
 horizon: continuous
 visibility: internal
 
-depends_on: [REQ-*, FEA-*, ROD-*]
-enables: [PER-*, UXD-*, SUP-*]
+depends_on: [REQ-*,FEA-*,ROD-*]
+enables: [PER-*,UXD-*,SUP-*]
 
 quality_domain: Product|Process|Service|System
 quality_level: Bronze|Silver|Gold|Platinum
@@ -66,9 +67,11 @@ review_cycle: quarterly
 
 ## Framework and Attribution
 
-Quality references to best-practice frameworks (e.g., ITIL and COBIT) should retain
-their trademark and publication notices as applicable: **ITIL®** (AXELOS) and
-**COBIT®** (ISACA).
+Quality references to best-practice frameworks should retain naming guidance as applicable:
+
+- **ITIL®** — owned by AXELOS
+- **COBIT®** — published by ISACA
+- **ISO/IEC 25010** — international software quality model specification
 
 ```markdown
 # Quality Specification — {Quality Area}

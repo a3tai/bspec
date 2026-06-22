@@ -15,6 +15,10 @@ This specification defines the Valuation document type within the BSpec 1.0 Univ
 
 The Valuation document defines systematic approaches to determining business value, asset worth, and enterprise valuation through multiple methodologies and analytical frameworks. It establishes valuation standards that support investment decisions, transaction analysis, and strategic planning with objective, defensible value assessments.
 
+## Scope Boundary
+
+VLU owns valuation methodology selection and value-conclusion logic (DCF, market and asset approaches, discounts/premiums). It does **not** own integrated operating financial plans (`FIN`) or routine periodic forecasting outputs (`FOR`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +36,8 @@ scope: valuation-analysis
 horizon: strategic
 visibility: confidential
 
-depends_on: [FIN-*, FOR-*, MKT-*]
-enables: [FND-*, INV-*, STR-*]
+depends_on: [FIN-*,FOR-*,MKT-*]
+enables: [FND-*,INV-*,STR-*]
 
 valuation_purpose: Transaction|Investment|Reporting|Tax|Litigation|Strategic
 valuation_scope: Enterprise|Equity|Asset|Division|Minority-interest
@@ -400,13 +404,13 @@ quality_control:
 - **FIN (Financial Model)**: Financial projections drive DCF and earnings-based valuations
 - **FOR (Forecasts)**: Market forecasts drive growth assumptions and terminal value calculations
 - **MKT (Market Definition)**: Market analysis drives comparable selection and market approach
-- **IND (Industry Analysis)**: Industry analysis drives risk assessment and multiple selection
+- **Industry Analysis**: Industry analysis drives risk assessment and multiple selection
 
 ### Typical Enablements
 - **FND (Funding)**: Valuation analysis drives funding pricing and negotiation
 - **INV (Investment)**: Valuation targets drive investment decision criteria
 - **STR (Strategy)**: Valuation insights drive strategic planning and resource allocation
-- **NEG (Negotiation)**: Valuation analysis drives deal negotiation and structuring
+- **Negotiation**: Valuation analysis drives deal negotiation and structuring
 
 ## Document Relationships
 

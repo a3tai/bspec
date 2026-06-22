@@ -13,7 +13,7 @@ This specification defines the Use Cases document type within the BSpec 1.0 Univ
 
 ## Purpose and Scope
 
-The Use Cases document describes specific scenarios where customers apply the solution. It details the context, actors, preconditions, and steps involved in successful solution usage.
+The Use Cases document describes customer workflow scenarios using the solution in context. It is used for contextualizing product behavior and should remain scenario-level; use `STO` for implementation-sized, story-level requirements when decomposing work for teams.
 
 ## Document Metadata Schema
 
@@ -23,6 +23,9 @@ id: USE-{use-case-identifier}
 title: "Use Case: [Use Case Name]"
 type: USE
 status: Draft|Review|Accepted|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Jobs-to-be-Done (Outcome-Driven Innovation community)"
 version: 1.0.0
 owner: Product-Management|Solutions-Engineering
 stakeholders: [product-team, engineering-team, sales-team, support-team]
@@ -32,8 +35,8 @@ scope: functional
 horizon: short
 visibility: internal
 
-depends_on: [JTB-*, PER-*]
-enables: [REQ-*, STO-*, PRD-*]
+depends_on: [PRD-*,JTB-*,PER-*]
+enables: [STO-*]
 
 success_criteria:
   - "Use case accurately reflects customer reality"

@@ -25,7 +25,7 @@ type: FEE
 status: Draft|Review|Accepted|Deprecated
 attribution_required: true
 source_frameworks:
-  - "Bain - Net Promoter System"
+  - "Bain - Net Promoter®, NPS®, Net Promoter System®, Net Promoter Score℠"
 version: 1.0.0
 owner: Customer-Experience|Product-Management
 stakeholders: [product-team, support-team, marketing-team]
@@ -35,8 +35,8 @@ scope: specific|broad
 horizon: current
 visibility: internal
 
-depends_on: [CJM-*, SUP-*]
-enables: [REQ-*, PRD-*, SVC-*]
+depends_on: [CJM-*,SUP-*]
+enables: [REQ-*,PRD-*,SVC-*]
 
 feedback_source: [Channel or method of feedback collection]
 feedback_type: Structured|Unstructured|Mixed

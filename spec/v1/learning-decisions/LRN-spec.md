@@ -15,6 +15,23 @@ This specification defines the Learning Records document type within the BSpec 1
 
 The Learning Records document captures key discoveries, insights, and knowledge gained through organizational activities, experiments, and experiences. It establishes learning frameworks that preserve institutional knowledge, accelerate organizational learning, and enable evidence-based decision-making and continuous improvement.
 
+## Scope Boundary
+
+LRN owns evidence capture and validation outputs from experiments, retrospectives, market/customer studies, and operational activity. The intent is that learning artifacts are stored and translated through `WIS`.
+
+### Learning Stack Convention (KNO / LRN / LEA / WIS)
+
+The learning family follows a two-layer model:
+
+- **KNO + LEA**: operating layer (where knowledge is stored and learning systems are run).
+- **LRN + WIS**: interpretation layer (where evidence is generated, then synthesized into practical judgment).
+
+LRN does **not** own:
+
+- The long-term repository of codified documents and shared assets (`KNO`).
+- Cultural or capability-building programs (`LEA`).
+- Decision-ready principles and strategic judgment (`WIS`, `DEC`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +49,8 @@ scope: learning-records
 horizon: tactical|operational|strategic
 visibility: internal|team|organization
 
-depends_on: [EXP-*, HYP-*, DEC-*, RET-*]
-enables: [STR-*, PRO-*, POL-*, THY-*]
+depends_on: [EXP-*,HYP-*,DEC-*,RET-*]
+enables: [STR-*,PRO-*,POL-*,THY-*]
 
 learning_type: [experimental, experiential, analytical, observational, research]
 learning_source: [internal experiment, external research, customer feedback, market analysis]

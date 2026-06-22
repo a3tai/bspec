@@ -39,8 +39,8 @@ scope: team-management
 horizon: operational
 visibility: internal
 
-depends_on: [ORG-*, ROL-*, SKI-*, PRO-*]
-enables: [PER-*, QUA-*]
+depends_on: [ORG-*,ROL-*,SKI-*,PRO-*]
+enables: [PER-*,QUA-*]
 
 team_type: Functional|Cross-functional|Project|Product|Service
 team_duration: Permanent|Project-based|Temporary
@@ -260,8 +260,8 @@ quarterly_objectives:
 ### Typical Enablements
 - **PER (Performance Specification)**: Team effectiveness drives overall performance achievement
 - **QUA (Quality Specification)**: Team quality standards drive overall quality outcomes
-- **COL (Collaboration)**: Team dynamics drive broader collaboration patterns
-- **INK (Innovation)**: Team innovation drives organizational innovation capacity
+- **Collaboration**: Team dynamics drive broader collaboration patterns
+- **Innovation**: Team innovation drives organizational innovation capacity
 
 ## Document Relationships
 

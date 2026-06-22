@@ -32,7 +32,7 @@ scope: influencer-marketing
 horizon: tactical
 visibility: internal
 
-depends_on: [BRD-*, SOC-*, MSG-*, TON-*]
+depends_on: [BRD-*,SOC-*,MSG-*,TON-*]
 enables: [CAM-*]
 
 influencer_strategy: [macro, micro, nano influencer approach]
@@ -428,9 +428,9 @@ program_scaling:
 
 ### Typical Enablements
 - **CAM (Campaigns)**: Influencer partnerships enhance campaign reach and credibility
-- **BRA (Brand Awareness)**: Influencer marketing builds brand awareness and recognition
-- **LED (Lead Generation)**: Influencer content drives lead generation and acquisition
-- **CON (Conversions)**: Influencer partnerships drive conversions and sales
+- **Brand Awareness**: Influencer marketing builds brand awareness and recognition
+- **Lead Generation**: Influencer content drives lead generation and acquisition
+- **Conversions****: Influencer partnerships drive conversions and sales
 
 ## Document Relationships
 

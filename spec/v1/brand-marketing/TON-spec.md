@@ -35,8 +35,8 @@ scope: tone-of-voice
 horizon: tactical
 visibility: internal
 
-depends_on: [BRD-*, MSG-*, PER-*, CUS-*]
-enables: [CNT-*, CAM-*, SOC-*, SUP-*]
+depends_on: [BRD-*,MSG-*,PER-*,CUS-*]
+enables: [CNT-*,CAM-*,SOC-*,SUP-*]
 
 voice_characteristics: [3-5 primary personality traits]
 communication_style: [formal, casual, technical, conversational, etc.]

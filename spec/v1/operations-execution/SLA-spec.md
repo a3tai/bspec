@@ -32,8 +32,8 @@ scope: service-level-management
 horizon: operational
 visibility: internal
 
-depends_on: [SVC-*, PRO-*, CAP-*, PER-*]
-enables: [QUA-*, CUS-*, SUP-*]
+depends_on: [SVC-*,PRO-*,CAP-*,PER-*]
+enables: [QUA-*,CUS-*,SUP-*]
 
 sla_type: Customer|Internal|Partner|Vendor
 service_criticality: Critical|Important|Standard|Basic
@@ -362,7 +362,7 @@ review_cycle: monthly
 - **QUA (Quality Specification)**: SLA commitments drive overall quality standards
 - **CUS (Customer Relationships)**: SLA performance drives customer satisfaction and relationships
 - **SUP (Support Specification)**: SLA requirements drive support strategy and service design
-- **MON (Monitoring)**: SLA measurement drives monitoring and alerting requirements
+- **Monitoring**: SLA measurement drives monitoring and alerting requirements
 
 ## Document Relationships
 

@@ -39,8 +39,8 @@ scope: specific|broad
 horizon: current
 visibility: internal
 
-depends_on: [PER-*, JTB-*]
-enables: [GAI-*, OPP-*, REQ-*]
+depends_on: [PER-*,JTB-*]
+enables: [GAI-*,OPP-*,REQ-*]
 
 pain_severity: Severe|Moderate|Minor
 frequency: Constant|Frequent|Occasional|Rare

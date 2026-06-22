@@ -35,8 +35,8 @@ scope: brand-strategy
 horizon: strategic
 visibility: internal
 
-depends_on: [STR-*, CUS-*, MKT-*, POS-*]
-enables: [MSG-*, VID-*, TON-*, CNT-*]
+depends_on: [STR-*,CUS-*,MKT-*,POS-*]
+enables: [MSG-*,VID-*,TON-*,CNT-*]
 
 brand_positioning: [category, target, benefit, reason_to_believe]
 brand_personality: [human characteristics that define brand character]

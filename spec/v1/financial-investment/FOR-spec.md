@@ -15,6 +15,10 @@ This specification defines the Forecasts document type within the BSpec 1.0 Univ
 
 The Forecasts document defines forward-looking financial predictions and scenarios that anticipate future business performance through analytical modeling and trend analysis. It establishes forecasting frameworks that enable strategic planning, risk assessment, and informed decision making.
 
+## Scope Boundary
+
+FOR owns forward-looking scenario generation (top-line forecasts, assumptions, and driver sensitivity for planning horizons). It does **not** own the core planning model structure (`FIN`) or valuation decision models (`VLU`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +36,8 @@ scope: forecasting
 horizon: tactical
 visibility: internal
 
-depends_on: [FIN-*, BUD-*, TRN-*, MKT-*]
-enables: [STR-*, OBJ-*, INV-*, RSK-*]
+depends_on: [FIN-*,BUD-*,TRN-*,MKT-*]
+enables: [STR-*,OBJ-*,INV-*,RSK-*]
 
 forecast_type: Financial|Operational|Market|Technology
 forecast_period: Short-term|Medium-term|Long-term

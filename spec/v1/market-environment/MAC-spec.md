@@ -33,7 +33,7 @@ horizon: long
 visibility: internal
 
 depends_on: [STR-*]
-enables: [TRN-*, THR-*, OPP-*, FIN-*]
+enables: [TRN-*,THR-*,OPP-*,FIN-*]
 
 success_criteria:
   - "Macro factors are comprehensively analyzed"

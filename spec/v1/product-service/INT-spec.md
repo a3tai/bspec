@@ -32,8 +32,8 @@ scope: system-integration
 horizon: current
 visibility: internal
 
-depends_on: [FEA-*, REQ-*, QUA-*]
-enables: [SUP-*, PER-*, UXD-*]
+depends_on: [FEA-*,REQ-*,QUA-*]
+enables: [SUP-*,PER-*,UXD-*]
 
 integration_type: API|Database|File|Message|Event|Batch
 integration_pattern: Synchronous|Asynchronous|Batch|Real-time|Event-driven

@@ -32,8 +32,8 @@ scope: audit-assurance
 horizon: tactical
 visibility: confidential
 
-depends_on: [REP-*, CTL-*, RSK-*, COM-*]
-enables: [GOV-*, QUA-*, PER-*, COM-*]
+depends_on: [REP-*,CTL-*,RSK-*,COM-*]
+enables: [GOV-*,QUA-*,PER-*,COM-*]
 
 audit_type: Financial|Operational|Compliance|IT|SOX
 audit_scope: Full|Limited|Targeted|Follow-up

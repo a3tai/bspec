@@ -35,8 +35,8 @@ scope: partnership-management
 horizon: strategic
 visibility: internal
 
-depends_on: [STR-*, KRS-*, KAC-*, CMP-*]
-enables: [REV-*, CHN-*, CST-*, CAP-*]
+depends_on: [STR-*,KRS-*,KAC-*,CMP-*]
+enables: [REV-*,CHN-*,CST-*,CAP-*]
 
 partnership_type: Strategic|Operational|Financial|Technology|Channel
 partnership_scope: Exclusive|Non-exclusive|Joint-venture|Consortium

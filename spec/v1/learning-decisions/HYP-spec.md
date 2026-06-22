@@ -15,6 +15,10 @@ This specification defines the Hypothesis Management document type within the BS
 
 The Hypothesis Management document captures testable assumptions and beliefs about business, customers, markets, and solutions that guide organizational decision-making and learning. It establishes hypothesis frameworks that enable evidence-based validation, systematic experimentation, and continuous learning through iterative hypothesis development and testing.
 
+## Scope Boundary
+
+HYP owns only assumption formulation, testing design, and evidence collection for potential course-of-action options. It does **not** close the decision lifecycle; once outcomes are clear, conclusions must be promoted to `DEC`.
+
 ## Document Metadata Schema
 
 ```yaml
@@ -32,8 +36,12 @@ scope: hypothesis-management
 horizon: strategic|tactical|operational
 visibility: internal|team|organization
 
-depends_on: [THY-*, STR-*, CUS-*, MKT-*]
-enables: [EXP-*, LRN-*, DEC-*, PRD-*]
+depends_on: [THY-*,STR-*,CUS-*,MKT-*]
+enables: [EXP-*,LRN-*,DEC-*,PRD-*]
+attribution_required: true
+source_frameworks:
+  - "Eric Ries - Lean Startup (for hypothesis-driven experimentation patterns)"
+  - "IDEO/d.school - Design Thinking (for framing and reframing assumptions)"
 
 hypothesis_category: [customer, market, product, business-model, technical, strategic]
 hypothesis_scope: [core assumption, feature assumption, market assumption, user assumption]
@@ -58,6 +66,15 @@ standards: [Hypothesis formulation and testing standards]
 review_cycle: experiment-cycle
 ---
 ```
+
+## Framework and Attribution
+
+HYP draws on **hypothesis-driven** and **design-thinking** practices:
+
+- Hypothesis framing and build-measure-learn loops follow the Lean Startup method (attribution required under standard usage).
+- Customer-centric problem framing, experiment design, and iteration references Design Thinking patterns.
+
+Record source usage in derivative implementations per the standards in [`docs/ATTRIBUTION.md`](../../docs/ATTRIBUTION.md).
 
 ## Content Structure Template
 

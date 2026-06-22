@@ -5,34 +5,122 @@ description: "BSpec document types in the Financial & Investment domain"
 
 # Financial & Investment
 
-The Financial & Investment domain covers financial planning, metrics, and investment activities. These documents define budgets, forecasts, funding strategies, and financial reporting.
+## Overview
 
-## Document Types (10)
+This domain contains 10 document types that cover financial & investment aspects of your business.
 
-| Code | Name | Description |
-|------|------|-------------|
-| [AUD](/docs/types/AUD) | Audit | Financial and operational audit documentation |
-| [BUD](/docs/types/BUD) | Budget | Detailed budget plans and allocations |
-| [FIN](/docs/types/FIN) | Financial Model | Financial projections and models |
-| [FND](/docs/types/FND) | Funding | Funding strategy and capital raising |
-| [FOR](/docs/types/FOR) | Forecasts | Financial forecasts and projections |
-| [INV](/docs/types/INV) | Investment | Investment thesis and allocation |
-| [MET](/docs/types/MET) | Metrics | Key performance indicators and metrics |
-| [REP](/docs/types/REP) | Reporting | Financial and business reporting |
-| [TAX](/docs/types/TAX) | Tax Strategy | Tax planning and compliance |
-| [VLU](/docs/types/VLU) | Valuation | Company valuation methodology |
+## Document Types
 
-## Key Relationships
+### [AUD: Audit](/docs/types/AUD)
 
-Financial & Investment documents typically:
-- **Depend on**: Business Model and Strategy
-- **Enable**: Investment decisions and Governance
+# AUD: Audit Document Type Specification
 
-## Getting Started
+**Document Type Code:** AUD
+**Document Type Name:** Audit
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-09-28...
 
-For Bronze conformance, start with:
-1. **FIN** - Create your financial model
-2. **BUD** - Define your budget
+### [BUD: Budget](/docs/types/BUD)
+
+# BUD: Budget Document Type Specification
+
+**Document Type Code:** BUD
+**Document Type Name:** Budget
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-09-...
+
+### [FIN: Financial Model](/docs/types/FIN)
+
+# FIN: Financial Model Document Type Specification
+
+**Document Type Code:** FIN
+**Document Type Name:** Financial Model
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last U...
+
+### [FND: Funding](/docs/types/FND)
+
+# FND: Funding Document Type Specification
+
+**Document Type Code:** FND
+**Document Type Name:** Funding
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-0...
+
+### [FOR: Forecasts](/docs/types/FOR)
+
+# FOR: Forecasts Document Type Specification
+
+**Document Type Code:** FOR
+**Document Type Name:** Forecasts
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 20...
+
+### [INV: Investment](/docs/types/INV)
+
+# INV: Investment Document Type Specification
+
+**Document Type Code:** INV
+**Document Type Name:** Investment
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:**...
+
+### [MET: Metrics](/docs/types/MET)
+
+# MET: Metrics Document Type Specification
+
+**Document Type Code:** MET
+**Document Type Name:** Metrics
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 2025-0...
+
+### [REP: Reporting](/docs/types/REP)
+
+# REP: Reporting Document Type Specification
+
+**Document Type Code:** REP
+**Document Type Name:** Reporting
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 20...
+
+### [TAX: Tax Strategy](/docs/types/TAX)
+
+# TAX: Tax Strategy Document Type Specification
+
+**Document Type Code:** TAX
+**Document Type Name:** Tax Strategy
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated...
+
+### [VLU: Valuation](/docs/types/VLU)
+
+# VLU: Valuation Document Type Specification
+
+**Document Type Code:** VLU
+**Document Type Name:** Valuation
+**Domain:** Financial & Investment
+**Version:** 1.0.0
+**Status:** Draft
+**Last Updated:** 20...
+
 
 ---
 

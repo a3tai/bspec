@@ -19,6 +19,10 @@ Balanced Scorecard structure elements in this document are attributed to Kaplan 
 
 The Metrics document defines systematic approaches to measuring, monitoring, and managing business performance through key performance indicators, financial metrics, and operational measures. It establishes measurement frameworks that enable data-driven decision making, performance accountability, and continuous improvement.
 
+## Scope Boundary
+
+MET owns metric definitions, reporting architectures, and measurement cadences. It converts `OBJ` commitments into measurable signals and dashboards, but does **not** own the underlying forecasts (`FOR`) or the full financial projection model (`FIN`).
+
 ## Document Metadata Schema
 
 ```yaml
@@ -39,8 +43,8 @@ scope: performance-measurement
 horizon: tactical
 visibility: internal
 
-depends_on: [FIN-*, BUD-*, STR-*, OBJ-*]
-enables: [REP-*, PER-*, QUA-*, GOV-*]
+depends_on: [FIN-*,BUD-*,STR-*,OBJ-*]
+enables: [REP-*,PER-*,QUA-*,GOV-*]
 
 metric_type: Financial|Operational|Customer|Employee|Quality
 measurement_level: Strategic|Tactical|Operational

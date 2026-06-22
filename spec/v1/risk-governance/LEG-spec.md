@@ -39,8 +39,8 @@ scope: legal-management
 horizon: strategic
 visibility: confidential
 
-depends_on: [COM-*, RSK-*, GOV-*, ETH-*]
-enables: [CTL-*, REP-*, AUD-*, INS-*]
+depends_on: [COM-*,RSK-*,GOV-*,ETH-*]
+enables: [CTL-*,REP-*,AUD-*,INS-*]
 
 legal_scope: Corporate|Commercial|Regulatory|Litigation|IP|Employment
 legal_model: In-house|External|Hybrid|Specialized

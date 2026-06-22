@@ -32,8 +32,8 @@ scope: marketing-campaign
 horizon: tactical
 visibility: internal
 
-depends_on: [BRD-*, MSG-*, POS-*, CNT-*, SOC-*]
-enables: [MSG-*, CMP-*]
+depends_on: [BRD-*,MSG-*,POS-*,CNT-*,SOC-*]
+enables: [MSG-*,CMP-*]
 
 campaign_objectives: [awareness, consideration, conversion, retention, advocacy]
 target_audience: [primary and secondary audience segments]
@@ -426,10 +426,10 @@ campaign_conclusion:
 - **SOC (Social Media)**: Social media strategy supports campaign amplification
 
 ### Typical Enablements
-- **LED (Lead Generation)**: Campaigns drive lead generation and customer acquisition
-- **CON (Conversions)**: Campaign optimization drives conversion improvements
-- **BRA (Brand Awareness)**: Campaigns build brand awareness and market presence
-- **SAL (Sales)**: Campaign leads and awareness support sales activities
+- **Lead Generation**: Campaigns drive lead generation and customer acquisition
+- **Conversions****: Campaign optimization drives conversion improvements
+- **Brand Awareness**: Campaigns build brand awareness and market presence
+- **Sales**: Campaign leads and awareness support sales activities
 
 ## Document Relationships
 

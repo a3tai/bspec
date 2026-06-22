@@ -23,6 +23,9 @@ id: ADT-{adaptation-area}
 title: "Adaptation and Agility — {Adaptation Area or Capability}"
 type: ADT
 status: Draft|Review|Approved|Active|Deprecated
+attribution_required: true
+source_frameworks:
+  - "Nassim Nicholas Taleb - Antifragility framing"
 version: 1.0.0
 owner: Agility-Officer|Change-Management|Strategic-Planning
 stakeholders: [leadership-team, change-agents, all-employees, executives]
@@ -32,8 +35,8 @@ scope: organizational-agility
 horizon: strategic
 visibility: internal
 
-depends_on: [LEA-*, ORG-*, STR-*, RSK-*]
-enables: [INN-*, FUT-*, EXP-*, IGN-*]
+depends_on: [LEA-*,ORG-*,STR-*,RSK-*]
+enables: [INN-*,FUT-*,EXP-*,IGN-*]
 
 agility_framework: Strategic|Operational|Cultural|Technological|Hybrid
 agility_scope: Individual|Team|Organizational|Ecosystem

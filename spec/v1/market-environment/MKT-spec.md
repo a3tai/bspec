@@ -32,8 +32,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MSN-*, STR-*]
-enables: [SEG-*, CMP-*, FIN-*]
+depends_on: [MSN-*,STR-*]
+enables: [SEG-*,CMP-*,FIN-*]
 
 success_criteria:
   - "Market size estimates are research-backed"
@@ -352,7 +352,7 @@ review_cycle: quarterly
 ### Typical Enablements
 - **SEG (Segments)**: Market size enables segment prioritization
 - **CMP (Competitive Analysis)**: Market definition frames competitive landscape
-- **GTM (Go-to-Market)**: Market understanding drives market entry strategy
+- **Go-to-Market**: Market understanding drives market entry strategy
 - **FIN (Financial Planning)**: Market size informs revenue projections
 
 ### Common Conflicts

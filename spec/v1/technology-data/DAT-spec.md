@@ -32,8 +32,8 @@ scope: data-management
 horizon: strategic
 visibility: internal
 
-depends_on: [SYS-*, ARC-*, REQ-*, GOV-*]
-enables: [API-*, ANA-*, QUA-*, INT-*]
+depends_on: [SYS-*,ARC-*,REQ-*,GOV-*]
+enables: [API-*,ANA-*,QUA-*,INT-*]
 
 data_classification: Public|Internal|Confidential|Restricted
 data_domain: Core|Supporting|Reference|Analytical

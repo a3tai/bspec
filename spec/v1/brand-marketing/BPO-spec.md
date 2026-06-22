@@ -13,7 +13,8 @@ This specification defines the Brand Positioning document type within the BSpec 
 
 ## Purpose and Scope
 
-The Brand Positioning document defines how the brand occupies a distinctive position in customers' minds relative to competitors. It establishes positioning frameworks that create clear differentiation, build competitive advantage, and guide all marketing communications to ensure consistent market perception and customer preference.
+The Brand Positioning document defines how the brand occupies a distinctive position in customers' minds relative to competitors.
+It focuses on brand-level narrative (tone, archetype, proof language, category framing in language) while `POS` owns commercial category and competitive positioning decisions.
 
 ## Document Metadata Schema
 
@@ -32,8 +33,11 @@ scope: brand-positioning
 horizon: strategic
 visibility: internal
 
-depends_on: [BRD-*, CUS-*, COM-*, VAL-*]
-enables: [MSG-*, CAM-*, CNT-*]
+depends_on: [BRD-*,CUS-*,COM-*,VPR-*]
+enables: [MSG-*,CAM-*,CNT-*]
+attribution_required: true
+source_frameworks:
+  - "Geoffrey Moore - Crossing the Chasm (positioning statement structure and market/competitor framing)"
 
 positioning_statement: [target, category, benefit, reason_to_believe]
 competitive_frame: [category and competitors brand competes against]
@@ -58,6 +62,13 @@ standards: [Positioning and messaging standards]
 review_cycle: annually
 ---
 ```
+
+## Framework and Attribution
+
+BPO uses the position-first framing pattern from **Geoffrey Moore**.
+
+- The template structure for statements in this document follows the positioning syntax popularized in Moore's positioning pattern ("For [target], who [need], [brand] is the [category] that [benefit] because [reason to believe]").
+- Any commercial implementation should preserve required attribution language and licensing checks in `docs/ATTRIBUTION.md` and related legal notes.
 
 ## Content Structure Template
 
@@ -359,19 +370,19 @@ global_positioning:
 - **BRD (Brand Strategy)**: Brand strategy provides foundation for positioning development
 - **CUS (Customer)**: Customer insights drive positioning strategy and validation
 - **COM (Competitive Analysis)**: Competitive intelligence informs positioning strategy
-- **VAL (Value Proposition)**: Value proposition shapes positioning benefits and claims
+- **VPR (Value Proposition)**: Value proposition shapes positioning benefits and claims
 
 ### Typical Enablements
 - **MSG (Messaging)**: Positioning guides message development and communication
 - **CAM (Campaigns)**: Positioning strategy enables effective campaign development
 - **CNT (Content)**: Positioning framework guides content strategy and development
-- **SAL (Sales)**: Positioning enables effective sales communication and differentiation
+- **Sales**: Positioning enables effective sales communication and differentiation
 
 ## Document Relationships
 
 This document type commonly relates to:
 
-- **Depends on**: BRD (Brand Strategy), CUS (Customer), COM (Competitive Analysis), VAL (Value Proposition)
+- **Depends on**: BRD (Brand Strategy), CUS (Customer), COM (Competitive Analysis), VPR (Value Proposition)
 - **Enables**: MSG (Messaging), CAM (Campaigns), CNT (Content), SAL (Sales)
 - **Informs**: Marketing strategy, product development, competitive strategy
 - **Guides**: Communication strategy, market approach, differentiation tactics

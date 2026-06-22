@@ -32,8 +32,8 @@ scope: experience-design
 horizon: current
 visibility: internal
 
-depends_on: [PER-*, CJM-*, USE-*]
-enables: [FEA-*, REQ-*, QUA-*]
+depends_on: [PER-*,CJM-*,USE-*]
+enables: [FEA-*,REQ-*,QUA-*]
 
 design_stage: Research|Concept|Design|Prototype|Implementation|Evaluation
 experience_type: Web|Mobile|Desktop|Voice|Physical|Omnichannel

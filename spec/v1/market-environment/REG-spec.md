@@ -32,8 +32,8 @@ scope: global
 horizon: medium
 visibility: internal
 
-depends_on: [MKT-*, STR-*]
-enables: [CMP-*, RSK-*, POL-*]
+depends_on: [MKT-*,STR-*]
+enables: [CMP-*,RSK-*,POL-*]
 
 success_criteria:
   - "Regulatory requirements are fully understood"

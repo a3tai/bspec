@@ -32,8 +32,8 @@ scope: retrospective-analysis
 horizon: tactical|operational
 visibility: internal|team|organization
 
-depends_on: [PRO-*, OBJ-*, MET-*]
-enables: [LRN-*, PRO-*, POL-*, THY-*]
+depends_on: [PRO-*,OBJ-*,MET-*]
+enables: [LRN-*,PRO-*,POL-*,THY-*]
 
 retrospective_type: [project, sprint, quarterly, annual, incident, process]
 retrospective_scope: [team, department, organization, cross-functional]
@@ -361,7 +361,7 @@ advanced_practices:
 
 ### Typical Dependencies
 - **PRO (Processes)**: Retrospectives analyze and improve organizational processes
-- **PRJ (Projects)**: Project retrospectives analyze project execution and outcomes
+- **Projects**: Project retrospectives analyze project execution and outcomes
 - **OBJ (Objectives)**: Retrospectives evaluate progress against objectives
 - **MET (Metrics)**: Performance metrics provide data for retrospective analysis
 

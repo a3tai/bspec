@@ -32,8 +32,8 @@ scope: visual-identity
 horizon: tactical
 visibility: internal
 
-depends_on: [BRD-*, MSG-*, TON-*]
-enables: [CNT-*, CAM-*, UXD-*, INT-*]
+depends_on: [BRD-*,MSG-*,TON-*]
+enables: [CNT-*,CAM-*,UXD-*,INT-*]
 
 design_system_maturity: Basic|Intermediate|Advanced|Comprehensive
 brand_colors: [primary, secondary, accent colors with hex codes]

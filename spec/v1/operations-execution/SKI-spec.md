@@ -32,8 +32,8 @@ scope: skills-management
 horizon: strategic
 visibility: internal
 
-depends_on: [ROL-*, TEA-*, ORG-*, CAP-*]
-enables: [PER-*, QUA-*, DEV-*]
+depends_on: [ROL-*,TEA-*,ORG-*,CAP-*]
+enables: [PER-*,QUA-*,DEV-*]
 
 framework_scope: Technical|Functional|Behavioral|Leadership
 skill_categories: [List of skill categories]
@@ -279,7 +279,7 @@ individual_development:
 - **PER (Performance Specification)**: Skill development drives performance improvement and achievement
 - **QUA (Quality Specification)**: Skill competencies drive quality standards and capabilities
 - **DEV (Development)**: Skills framework enables development programs and career planning
-- **SUC (Succession Planning)**: Skill assessment enables succession and talent planning
+- **Succession Planning**: Skill assessment enables succession and talent planning
 
 ## Document Relationships
 
