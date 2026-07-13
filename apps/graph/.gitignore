@@ -1,0 +1,11 @@
+.task
+bin
+frontend/dist
+frontend/node_modules
+frontend/public/style.css
+frontend/public/svelte.svg
+frontend/public/wails.png
+build/appicon.icon
+build/darwin/Assets.car
+build/linux/appimage/build
+build/windows/nsis/MicrosoftEdgeWebview2Setup.exe

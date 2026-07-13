@@ -1,0 +1,24 @@
+{
+  "name": "@bspec/graphiti-ui-prototype",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "bunx --bun vite --host 127.0.0.1",
+    "build": "bun run build:data && bunx --bun vite build",
+    "preview": "bunx --bun vite preview --host 127.0.0.1",
+    "check": "bunx --bun svelte-check --tsconfig ./tsconfig.json",
+    "build:data": "bun scripts/build-graph-data.js"
+  },
+  "dependencies": {
+    "@sveltejs/vite-plugin-svelte": "^6.0.0",
+    "svelte": "^5.0.0",
+    "vite": "^7.0.4"
+  },
+  "devDependencies": {
+    "@tsconfig/svelte": "^5.0.5",
+    "svelte-check": "^4.0.0",
+    "typescript": "^6.0.3"
+  }
+}
