@@ -334,4 +334,4 @@ cat sdk/v1/rust/version.txt        # 1.0.0
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.

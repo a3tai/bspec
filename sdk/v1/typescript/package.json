@@ -2,22 +2,19 @@
   "name": "@bspec/typescript-sdk",
   "version": "1.1.2",
   "description": "BSpec TypeScript SDK - Universal Business Specification Standard",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "files": [
-    "dist/**/*.js",
-    "dist/**/*.d.ts",
-    "dist/**/*.js.map",
+    "**/*.ts",
+    "**/*.js",
+    "**/*.d.ts",
     "*.json",
     "version.txt",
     "README.md"
   ],
   "scripts": {
     "build": "tsc",
-    "clean": "rm -rf dist",
-    "rebuild": "npm run clean && npm run build",
-    "test": "jest",
-    "prepublishOnly": "npm run rebuild"
+    "test": "jest"
   },
   "keywords": [
     "bspec",
@@ -27,7 +24,7 @@
     "documentation"
   ],
   "author": "BSpec Foundation",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/a3tai/bspec.git",
@@ -42,8 +39,8 @@
     "@types/node": "^20.0.0"
   },
   "generated": {
-    "at": "2025-09-30T00:20:03.236050",
-    "from": "BSpec v1.0.0",
+    "at": "2026-07-12T17:47:25.167744",
+    "from": "BSpec v1.1.2",
     "generator": "typescript-generator-v1.0.0"
   }
 }

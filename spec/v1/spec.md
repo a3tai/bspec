@@ -6,7 +6,7 @@
 | **Status**    | Public Draft      |
 | **Last Updated** | 2025-09-29     |
 | **Authors**   | BSpec Foundation  |
-| **License**   | CC BY-SA 4.0 (spec content) / MIT (code/tooling) |
+| **License**   | MIT |
 
 ## Executive Summary
 

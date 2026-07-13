@@ -7,8 +7,8 @@ This repository contains two distinct classes of content:
 
 **Current policy**
 
-- Specification documentation is intended to be released under **Creative Commons Attribution-ShareAlike 4.0 (CC BY-SA 4.0)**.
-- Tooling, code, and SDK implementation files continue to follow the repository `LICENSE` terms.
+- Specification documentation, tooling, code, and SDK implementation files follow the repository **MIT License** terms.
+- External frameworks and trademarks referenced by BSpec may carry separate attribution, trademark, or reuse obligations.
 - `docs/ATTRIBUTION.md` is the framework-level attribution index for borrowed external methods.
 
 ### Trademark and Framework Rules

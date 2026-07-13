@@ -1,12 +1,12 @@
 # BSpec SDKs
 
-Generated SDKs for BSpec v1.0.0 Universal Business Specification Standard.
+Generated SDKs for BSpec v1.1.2 Universal Business Specification Standard.
 
 ## Available SDKs
 
 ### 📄 JSON SDK
 - **Path**: `sdk/v1/json/`
-- **Main File**: `bspec-v1-0-0.tgz`
+- **Main File**: `bspec-v1-1-2.tgz`
 - **Package**: `@bspec/json-sdk`
 - **Use Case**: Universal data format for any language
 - **Archive**: Complete JSON SDK package
@@ -49,18 +49,18 @@ Generated SDKs for BSpec v1.0.0 Universal Business Specification Standard.
 ## Version Information
 
 Each SDK includes:
-- `version.txt` - BSpec version number (1.0.0)
+- `version.txt` - BSpec version number (1.1.2)
 - `README.md` - Usage documentation
 - Package manifest for language ecosystem
 - Complete specification data in appropriate format
 
 ## Statistics
 
-- **BSpec Version**: 1.0.0
+- **BSpec Version**: 1.1.2
 - **Total Files**: 116
 - **Document Types**: 112
 - **Business Domains**: 11
-- **Generated**: 2025-09-28T21:08:19.451081
+- **Generated**: 2026-07-12T17:47:25.391781
 
 ## Usage
 
@@ -68,4 +68,4 @@ All SDKs are generated from the same source truth (JSON SDK), ensuring consisten
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.

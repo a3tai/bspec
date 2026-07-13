@@ -454,7 +454,7 @@ export default {interface_name};
                 "documentation"
             ],
             "author": "BSpec Foundation",
-            "license": "CC-BY-4.0",
+            "license": "MIT",
             "repository": {
                 "type": "git",
                 "url": "https://github.com/a3tai/bspec.git",
@@ -530,7 +530,7 @@ This SDK includes TypeScript interfaces for all {json_data['total_document_types
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.
 """
 
         readme_file = self.output_dir / "README.md"
