@@ -78,7 +78,6 @@
     sourceRoot: string;
     version: string;
     groupId: string;
-    generatedAt: string;
     nodeLabelSingular?: string;
     nodeLabelPlural?: string;
     domainHeading?: string;

@@ -8,7 +8,8 @@
     "dev": "bunx --bun vite --host 127.0.0.1",
     "build": "bun run build:data && bunx --bun vite build",
     "preview": "bunx --bun vite preview --host 127.0.0.1",
-    "check": "bunx --bun svelte-check --tsconfig ./tsconfig.json",
+    "check": "bun run check:data && bunx --bun svelte-check --tsconfig ./tsconfig.json",
+    "check:data": "bun run build:data && git diff --exit-code -- src/data/graph.json",
     "build:data": "bun scripts/build-graph-data.js"
   },
   "dependencies": {

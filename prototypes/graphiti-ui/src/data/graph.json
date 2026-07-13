@@ -3,7 +3,6 @@
   "sourceKind": "catalog",
   "title": "BSpec Catalog Graphiti Workbench",
   "description": "Interactive Mittsu prototype for exploring BSpec document types as Graphiti-ready graph data.",
-  "generatedAt": "2026-07-13T00:50:02.270Z",
   "version": "1.1.2",
   "groupId": "bspec-v1.1.2",
   "sourceRoot": "spec/v1",

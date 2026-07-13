@@ -639,7 +639,6 @@ function finalizeGraph({
     sourceKind,
     title,
     description,
-    generatedAt: new Date().toISOString(),
     version,
     groupId,
     sourceRoot,
