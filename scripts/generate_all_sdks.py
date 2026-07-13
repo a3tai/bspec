@@ -206,7 +206,7 @@ All SDKs are generated from the same source truth (JSON SDK), ensuring consisten
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.
 """
 
         sdk_dir = Path("sdk/v1")

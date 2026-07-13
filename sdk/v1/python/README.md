@@ -1,6 +1,6 @@
 # BSpec Python SDK
 
-Python SDK for the BSpec v1.0.0 Universal Business Specification Standard.
+Python SDK for the BSpec v1.1.2 Universal Business Specification Standard.
 
 ## Installation
 
@@ -101,19 +101,19 @@ markdown_files = bspec.get_files_by_type('markdown')
 
 ## Statistics
 
-- **Total Files**: 113
-- **Business Documents**: 112
+- **Total Files**: 130
+- **Business Documents**: 127
 - **Business Domains**: 15
-- **Document Types**: 112
-- **Markdown Files**: 113
+- **Document Types**: 127
+- **Markdown Files**: 130
 - **YAML Files**: 0
 
 ## Generated Information
 
-- **From**: BSpec v1.0.0 JSON SDK
-- **Generated**: 2025-09-30T00:20:03.327886Z
+- **From**: BSpec v1.1.2 JSON SDK
+- **Generated**: 2026-07-12T17:47:25.225311Z
 - **Generator**: python-generator-v1.0.0
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.

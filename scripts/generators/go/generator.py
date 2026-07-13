@@ -583,7 +583,7 @@ fmt.Printf("Found %d markdown files\\n", len(markdownFiles))
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.
 '''
 
         readme_file = self.output_dir / "README.md"

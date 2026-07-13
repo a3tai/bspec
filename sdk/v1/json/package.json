@@ -16,7 +16,7 @@
     "documentation"
   ],
   "author": "BSpec Foundation",
-  "license": "CC-BY-4.0",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/a3tai/bspec.git",

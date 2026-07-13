@@ -386,7 +386,7 @@ Each language SDK reads from this JSON package to provide native interfaces whil
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.
 """
 
         readme_file = self.temp_dir / "README.md"

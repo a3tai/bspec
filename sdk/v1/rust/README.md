@@ -1,6 +1,6 @@
 # BSpec Rust SDK
 
-Rust SDK for the BSpec v1.0.0 Universal Business Specification Standard.
+Rust SDK for the BSpec v1.1.2 Universal Business Specification Standard.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Add to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-bspec = "1.0.0"
+bspec = "1.1.2"
 ```
 
 ## Usage
@@ -91,13 +91,13 @@ fs::write("output.json", json_bytes)?;
 
 ## Generated Information
 
-- **From**: BSpec v1.0.0 JSON SDK
-- **Generated**: 2025-09-28T21:08:19.445400
-- **Generator**: rust-generator-v1.0.0
-- **Total Files**: 112
-- **Total Document Types**: 112
+- **From**: BSpec v1.1.2 JSON SDK
+- **Generated**: 2026-07-12T17:47:25.386812
+- **Generator**: rust-generator-v1.1.2
+- **Total Files**: 127
+- **Total Document Types**: 127
 - **Total Domains**: 12
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.

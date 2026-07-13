@@ -1,6 +1,6 @@
 # BSpec TypeScript SDK
 
-TypeScript interfaces and types for the BSpec v1.0.0 Universal Business Specification Standard.
+TypeScript interfaces and types for the BSpec v1.1.2 Universal Business Specification Standard.
 
 ## Installation
 
@@ -36,14 +36,14 @@ const mission: MSNDocument = {
 
 ## Document Types
 
-This SDK includes TypeScript interfaces for all 112 BSpec document types across 15 business domains.
+This SDK includes TypeScript interfaces for all 127 BSpec document types across 15 business domains.
 
 ## Generated
 
-- **From**: BSpec v1.0.0 specification
-- **At**: 2025-09-30T00:20:03.236583
+- **From**: BSpec v1.1.2 specification
+- **At**: 2026-07-12T17:47:25.168020
 - **Generator**: typescript-generator-v1.0.0
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.

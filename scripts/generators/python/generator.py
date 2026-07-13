@@ -660,7 +660,7 @@ markdown_files = bspec.get_files_by_type('markdown')
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.
 '''
 
         output_file = self.output_dir / "README.md"

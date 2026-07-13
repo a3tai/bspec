@@ -229,7 +229,7 @@ name = "bspec"
 version = "{version}"
 description = "BSpec Rust SDK - Universal Business Specification Standard"
 authors = ["BSpec Foundation"]
-license = "CC-BY-4.0"
+license = "MIT"
 repository = "https://github.com/a3tai/bspec"
 homepage = "https://bspec.dev"
 edition = "2021"
@@ -732,7 +732,7 @@ fs::write("output.json", json_bytes)?;
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository LICENSE file for details.
 '''
 
         readme_file = self.output_dir / "README.md"

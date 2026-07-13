@@ -192,4 +192,4 @@ const documentTypes = parseDocumentTypes(bspecData);
 
 ## License
 
-CC BY 4.0 - See [BSpec Foundation](https://bspec.dev) for details.
+MIT License - see the repository [LICENSE](../../../LICENSE) for details.
