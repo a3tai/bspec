@@ -57,6 +57,12 @@ wheels/
 *.egg
 MANIFEST
 
+# Wails app source build assets are checked in; generated binaries remain ignored by app-level rules.
+!apps/graph/build/
+!apps/graph/build/**
+!apps/graph/frontend/src/lib/
+!apps/graph/frontend/src/lib/**
+
 # IDE and editor files
 .vscode/
 .idea/

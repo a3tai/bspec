@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MsixPackagingToolTemplate
+    xmlns="http://schemas.microsoft.com/msix/packaging/msixpackagingtool/template/2022">
+    <Settings
+        AllowTelemetry="false"
+        ApplyACLsToPackageFiles="true"
+        GenerateCommandLineFile="true"
+        AllowPromptForPassword="false">
+    </Settings>
+    <Installer
+        Path="graph"
+        Arguments=""
+        InstallLocation="C:\Program Files\A3T INC\BSpec Graph">
+    </Installer>
+    <PackageInformation
+        PackageName="BSpec Graph"
+        PackageDisplayName="BSpec Graph"
+        PublisherName="CN=A3T INC"
+        PublisherDisplayName="A3T INC"
+        Version="0.1.0.0"
+        PackageDescription="Local BSpec graph explorer">
+        <Capabilities>
+            <Capability Name="runFullTrust" />
+            
+        </Capabilities>
+        <Applications>
+            <Application
+                Id="dev.bspec.graph"
+                Description="Local BSpec graph explorer"
+                DisplayName="BSpec Graph"
+                ExecutableName="graph"
+                EntryPoint="Windows.FullTrustApplication">
+                
+            </Application>
+        </Applications>
+        <Resources>
+            <Resource Language="en-us" />
+        </Resources>
+        <Dependencies>
+            <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.17763.0" MaxVersionTested="10.0.19041.0" />
+        </Dependencies>
+        <Properties>
+            <Framework>false</Framework>
+            <DisplayName>BSpec Graph</DisplayName>
+            <PublisherDisplayName>A3T INC</PublisherDisplayName>
+            <Description>Local BSpec graph explorer</Description>
+            <Logo>Assets\AppIcon.png</Logo>
+        </Properties>
+    </PackageInformation>
+    <SaveLocation PackagePath="graph.msix" />
+    <PackageIntegrity>
+        <CertificatePath></CertificatePath>
+    </PackageIntegrity>
+</MsixPackagingToolTemplate>

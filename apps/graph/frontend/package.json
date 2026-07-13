@@ -1,0 +1,26 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "dev": "bunx --bun vite",
+    "build:dev": "bunx --bun vite build --minify false --mode development",
+    "build": "bunx --bun vite build --mode production",
+    "preview": "bunx --bun vite preview",
+    "check": "bunx --bun svelte-check --tsconfig ./tsconfig.json"
+  },
+  "dependencies": {
+    "@wailsio/runtime": "latest"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
+    "@tsconfig/svelte": "^5.0.8",
+    "svelte": "^5.46.4",
+    "svelte-check": "^4.4.8",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "vite": "^8.0.5"
+  }
+}

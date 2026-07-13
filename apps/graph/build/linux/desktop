@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=A3T Business Workbench
+Comment=Business identity, knowledge, and graph workbench
+# The Exec line includes %u to pass the URL to the application
+Exec=/usr/local/bin/a3t-business-workbench %u
+Terminal=false
+Type=Application
+Icon=a3t-business-workbench
+Categories=Utility;
+StartupWMClass=a3t-business-workbench
+
+ 

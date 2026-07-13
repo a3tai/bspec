@@ -1,0 +1,15 @@
+{
+	"fixed": {
+		"file_version": "0.1.0"
+	},
+	"info": {
+		"0000": {
+			"ProductVersion": "0.1.0",
+			"CompanyName": "A3T INC",
+			"FileDescription": "Business identity, knowledge, and graph workbench",
+			"LegalCopyright": "(c) 2026, A3T INC",
+			"ProductName": "A3T Business Workbench",
+			"Comments": "Manage canonical business records and their projected graph"
+		}
+	}
+}
