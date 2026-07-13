@@ -1166,15 +1166,15 @@
           <div class="editor-grid">
             <label>
               <span>Display name</span>
-              <input bind:value={newBusinessName} required maxlength="200" placeholder="Agent Three" />
+              <input bind:value={newBusinessName} required maxlength="200" placeholder="A3T" />
             </label>
             <label>
               <span>Slug</span>
-              <input bind:value={newBusinessSlug} required maxlength="63" placeholder="agent-three" />
+              <input bind:value={newBusinessSlug} required maxlength="63" placeholder="a3t" />
             </label>
             <label class="editor-span-2">
               <span>Legal name</span>
-              <input bind:value={newBusinessLegalName} placeholder="Optional legal identity" />
+              <input bind:value={newBusinessLegalName} placeholder="A3T LLC" />
             </label>
             <label class="editor-span-2">
               <span>Description</span>
